@@ -7,16 +7,7 @@ body {
 
 h1 {
   font: 70px/70px "bello-pro-1", "bello-pro-2" sans-serif;
-  text-shadow: 2px 2px 1px white;
 }
-
-a {
-  text-decoration: none;
-  color: darkSlateGray;
-  font-weight: bold;
-}
-
-a:hover { color: dodgerBlue; }
 
 #page {
   height: 100%;
@@ -28,15 +19,4 @@ a:hover { color: dodgerBlue; }
   float: right;
   position: relative;
   top: -75px;
-}
-
-#intro {
-  font-size: 32px;
-  line-height: 48px;
-  text-shadow: 1px 1px 0px white;
-}
-
-.amp {
-  font-style: italic;
-  font-family: Baskerville, "Palatino Linotype", "calluna-1", "calluna-2", serif;
 }
