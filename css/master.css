@@ -1,5 +1,5 @@
 body {
-  background: #fafbf8 url('/images/bg.gif');
+  background: #EAECDF url('/images/bg.jpg') top center no-repeat;
   color: #5C6058;
   font: 300 14px/18px "calluna-1", "calluna-2", "Times", "Times New Roman", serif;
   margin: 0;
@@ -44,6 +44,7 @@ a:hover { color: dodgerBlue; }
 footer {
   font-family: Verdana, sans-serif;
   font-size: 12px;
+  text-shadow: 1px 1px 0px white;
 }
 
 footer ul, footer li {
