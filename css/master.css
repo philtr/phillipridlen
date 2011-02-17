@@ -1,11 +1,11 @@
 a{text-decoration:none;color:#2F4F4F;font-weight:bold;}
 a:hover{color:#3A7878;}
-body{height:100%;margin:0 auto;width:850px;padding-top:75px;}
+body{margin:0 auto;width:850px;padding-top:75px;}
 html{background:#EAECDF url('/images/bg.jpg') top center no-repeat;color:#5C6058;font:300 14px/18px "calluna-1","calluna-2","Times","Times New Roman",serif;height:100%;margin:0;width:100%;}
 h1{color:#2F4F4F;text-indent:0;font-family:"bello-pro-1","bello-pro-2",sans-serif;font-size:70px;line-height:1;margin:0;text-shadow:2px 2px 1px white;}
-footer{font-size:13px;text-shadow:1px 1px 0px white;}
+footer{font-size:13px;margin-top:175px;text-shadow:1px 1px 0px white;}
 footer a{font-weight:normal;}
-footer ul,footer li{list-style:none;display:inline-block;margin:75px 0;padding:0 3px 0 0;}
+footer ul,footer li{list-style:none;display:inline-block;padding:0 3px 0 0;}
 #logo{float:right;position:relative;top:-10px;}
 #intro{font-size:32px;line-height:48px;margin-top:75px;text-shadow:1px 1px 0px white;}
 .amp{font-style:italic;font-family:Baskerville,"Palatino Linotype","calluna-1","calluna-2",serif;}
