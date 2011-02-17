@@ -2,33 +2,35 @@ html {
   background: #EAECDF url('/images/bg.jpg') top center no-repeat;
   color: #5C6058;
   font: 300 14px/18px "calluna-1", "calluna-2", "Times", "Times New Roman", serif;
+  height: 100%;
   margin: 0;
+  width: 100%;
 }
 
 body {
   height: 100%;
   margin: 0 auto;
   width: 850px;
+  padding-top: 75px;
 }
 
 h1 {
-  color: darkSlateGray;
-  font: 70px/70px "bello-pro-1", "bello-pro-2" sans-serif;
+  color: #2F4F4F;
+  text-indent: 0;
+  font-family: "bello-pro-1", "bello-pro-2", sans-serif;
+  font-size: 70px;
+  line-height: 1;
   margin: 0;
   text-shadow: 2px 2px 1px white;
 }
 
 a {
   text-decoration: none;
-  color: darkSlateGray;
+  color: #2F4F4F;
   font-weight: bold;
 }
 
 a:hover { color: dodgerBlue; }
-
-header {
-  margin-top: 75px;
-}
 
 #logo {
   float: right;
