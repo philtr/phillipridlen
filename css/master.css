@@ -1,12 +1,20 @@
-body {
+html {
   background: #EAECDF url('/images/bg.jpg') top center no-repeat;
   color: #5C6058;
   font: 300 14px/18px "calluna-1", "calluna-2", "Times", "Times New Roman", serif;
   margin: 0;
 }
 
+body {
+  height: 100%;
+  margin: 0 auto;
+  width: 850px;
+}
+
 h1 {
+  color: darkSlateGray;
   font: 70px/70px "bello-pro-1", "bello-pro-2" sans-serif;
+  margin: 0;
   text-shadow: 2px 2px 1px white;
 }
 
@@ -18,21 +26,20 @@ a {
 
 a:hover { color: dodgerBlue; }
 
-#page {
-  height: 100%;
-  margin: 0 auto;
-  width: 850px;
+header {
+  margin-top: 75px;
 }
 
-#status {
+#logo {
   float: right;
   position: relative;
-  top: -75px;
+  top: -10px;
 }
 
 #intro {
   font-size: 32px;
   line-height: 48px;
+  margin-top: 75px;
   text-shadow: 1px 1px 0px white;
 }
 
@@ -42,23 +49,19 @@ a:hover { color: dodgerBlue; }
 }
 
 footer {
-  font-family: Verdana, sans-serif;
-  font-size: 12px;
+/*  font-family: Verdana, sans-serif;*/
+  font-size: 13px;
   text-shadow: 1px 1px 0px white;
 }
 
 footer ul, footer li {
   list-style: none;
   display: inline-block;
-  margin: 50px 0;
-  padding: 0 10px 0 0;
+  margin: 75px 0;
+  padding: 0 3px 0 0;
 }
 
 footer a {
-  color: #5C6058;
+/*  color: #5C6058;*/
   font-weight: normal;
-}
-
-footer a:hover {
-  color: darkSlateGray;
 }
