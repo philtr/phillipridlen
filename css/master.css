@@ -30,7 +30,7 @@ a {
   font-weight: bold;
 }
 
-a:hover { color: dodgerBlue; }
+a:hover { color: #3A7878; }
 
 #logo {
   float: right;
@@ -51,7 +51,6 @@ a:hover { color: dodgerBlue; }
 }
 
 footer {
-/*  font-family: Verdana, sans-serif;*/
   font-size: 13px;
   text-shadow: 1px 1px 0px white;
 }
@@ -63,7 +62,4 @@ footer ul, footer li {
   padding: 0 3px 0 0;
 }
 
-footer a {
-/*  color: #5C6058;*/
-  font-weight: normal;
-}
+footer a { font-weight: normal; }
