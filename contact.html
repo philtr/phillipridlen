@@ -1,0 +1,29 @@
+---
+layout: master
+permalink: /contact/index.html
+---
+<div id="intro">
+<form action='http://contact.phillipridlen.com/' method='post'>
+  <input type='hidden' name='return' value='{{ site.url }}/contact/thanks/' />
+  <input type='hidden' name='send_to' value='{{ site.admin_email }}' />
+  <p>
+    <label for='name'>Your Name</label>
+    <input id='name' name='name' type='text' />
+  </p>
+  <p>
+    <label for='email'>Your Email</label>
+    <input id='email' name='email' type='text' />
+  </p>
+  <p>
+    <label for='subject'>Subject</label>
+    <input id='subject' name='subject' type='text' />
+  </p>
+  <p>
+    <label for='message'>Message</label>
+    <textarea id='message' name='message'></textarea>
+  </p>
+  <p class='actions'>
+    <button id='submit' type='submit'>Send</button>
+  </p>
+</form>
+</div>
