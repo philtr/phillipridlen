@@ -1,0 +1,131 @@
+// Colors
+@bgcolor: #F7F7F7;
+@textcolor: #264E59;
+@linkcolor: #21B080;
+@accent1: #F8C02C;
+@accent2: #E71A5D;
+@highlight: #DBF9FE;
+
+//Fonts & Metrics
+@copy: "adobe-text-pro-1", "adobe-text-pro-2", serif;
+@display: "proxima-nova-1", "proxima-nova-2", serif;
+@code: "Inconsolata", "Consolas", "Menlo", "Monaco", monospace;
+@basefont: 13px;
+@bigheading: @basefont * 2.75;
+@lineheight: @basefont * 2.25;
+@tight: -1px;
+@condensed: @tight * 2;
+
+//Layout Vars
+@sidebar_width: 250px;
+
+//Mixins
+.heading { .letterpress(2px);
+  font-family: @display;
+  letter-spacing: @condensed;
+  line-height: 1;
+}
+
+.code {
+  background: @highlight;
+  font-family: @code;
+}
+
+.rounded-corners(@radius: 5px) {
+  -webkit-border-radius: @radius;
+  -moz-border-radius: @radius;
+  border-radius: @radius;
+}
+
+.letterpress(@size: 1px) {
+  -webkit-text-shadow: @size @size 0px #fff;
+  -moz-text-shadow: @size @size 0px #fff;
+  text-shadow: @size @size 0px #fff;
+}
+
+html { margin: 0; padding: 0; }
+
+body { .letterpress;
+  background: @bgcolor;
+  color: @textcolor;
+  font-family: @copy;
+  font-size: @basefont;
+  line-height: @lineheight;
+  margin: @basefont*3 auto;
+  max-width: 550px;
+}
+
+h1 { .heading; font-size: @bigheading; }
+h2 { .heading; font-size: @bigheading * .67; }
+h3 { .heading; font-size: @bigheading * .5; letter-spacing: @tight; }
+
+p { margin: 0 0 @basefont 0; }
+
+a { .rounded-corners(3px);
+  color: @linkcolor;
+  padding: 3px;
+  text-decoration: none;
+  &:hover { 
+    background: @highlight; 
+    color: @accent2;
+  }
+}
+
+pre { .code; .rounded-corners;
+  border: 1px solid @textcolor*2;
+  padding: @basefont;
+  code { .rounded-corners(0px); background: none; padding: 0; }
+}
+
+code { .code; .rounded-corners(2px);
+  font-size: @basefont - 1px;
+  padding: 2px;
+}
+
+blockquote { 
+  font-style: italic; 
+  code { font-style: normal; }
+}
+
+.date {
+  color: @accent2;
+  margin-right: @basefont;
+  font-size: 75%;
+  font-style: italic;
+}
+
+// Layout
+#header {
+  float: left;
+  width: @sidebar_width - @basefont*4;
+  h1 { 
+    font-size: @bigheading * 1.5; 
+    margin: 0 0 8px 6px; 
+    position: relative; 
+    top: 0 - @basefont; 
+    z-index: 0;
+  }
+  h2 { 
+    margin: 0; 
+    position: relative; 
+    z-index: 1;
+  }
+  ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+}
+
+#body {
+  margin-left: @sidebar_width;
+  width: 600px;
+  padding-top: 4px;
+}
+
+footer {
+  color: @textcolor + #333;
+  font-family: @display;
+  font-size: @basefont - 1px;
+  margin: @basefont*2 0 0 @sidebar_width;
+}
