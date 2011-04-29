@@ -1,20 +1,19 @@
 ---
-title: Head in the Clouds
-date: 17/02/2011
-
+layout: blog
+---
 Valentine's day was a few days ago, and since I'm still in the mood, I am going
 to declare my love for the cloud. I love that at [Balcom
 Agency](http://balcomagency.com), we host all of our websites in the cloud. What
 advantage does this have, both for us as developers and for our clients? ~
 
-1. **Backups** — Nothing eases the mind of a web developer more than knowing
+1. **Backups** &ndash; Nothing eases the mind of a web developer more than knowing
 there are recent backups available in case of a disaster. Our hosting providers
 make scheduling automatic backups dead simple.
-2. **Launching** a website — I love launching a website into the cloud. Instead
+2. **Launching** a website &ndash; I love launching a website into the cloud. Instead
 of ordering a dedicated server from a hosting company that takes a couple days
 to be built, I can, with a few clicks, create a new virtual server with just the
 specs I need to run the website.
-3. **Server replication** — When we need to make a change to a website,
+3. **Server replication** &ndash; When we need to make a change to a website,
 sometimes we don't want to mess with the version that's currently running live.
 I can create an exact duplicate server in a matter of minutes, and deploy the
 updates to that server. The client can see and approve the changes without

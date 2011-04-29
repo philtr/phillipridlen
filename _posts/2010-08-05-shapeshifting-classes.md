@@ -1,16 +1,15 @@
---- 
-title: "Shapeshifting &ldquo;classes&rdquo;"
-date: 05/08/2010
-
+---
+layout: blog
+---
 I've been using Ruby full-time+ for the last few weeks, working on projects at
 work and then personal projects when I get home. There are a few things I've
 learned about Ruby that surprised me. Most of these were discovered when, going
 out on a limb, I tried something completely random to see if it worked--and it
 did! ~
 
-On one of my projects, when initializing the application,  I needed to be able 
+On one of my projects, when initializing the application,  I needed to be able
 to choose one class (we'll call it `FujiApple`) if certain variable was set, and a different
-class (call it `Gala`) if it was not. So I tried the following: 
+class (call it `Gala`) if it was not. So I tried the following:
 
     if @certain_var.nil?
       AppleType = GalaApple

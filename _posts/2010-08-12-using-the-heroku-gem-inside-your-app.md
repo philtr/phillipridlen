@@ -1,7 +1,6 @@
 ---
-title: Using the Heroku gem inside your app
-date: 12/08/2010
-
+layout: blog
+---
 Brett asked [this question][q] on the Heroku mailing list:
 
   [q]: http://groups.google.com/group/heroku/t/1b012e631dd80e64
