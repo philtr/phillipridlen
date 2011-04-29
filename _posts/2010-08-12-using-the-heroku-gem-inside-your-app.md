@@ -13,8 +13,6 @@ www.example.com`. Is this possible?
 
 It really got me thinking about exploring all that the Heroku API has to offer.
 
-~
-
 I thought I remembered seeing someone using the Heroku gem inside their code
 before, but I couldn't remember where, and I couldn't seem to find any examples
 in the [Heroku docs][docs]. Good! Time to get my hands dirty with some raw

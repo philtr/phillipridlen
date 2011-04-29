@@ -4,7 +4,7 @@ layout: blog
 Valentine's day was a few days ago, and since I'm still in the mood, I am going
 to declare my love for the cloud. I love that at [Balcom
 Agency](http://balcomagency.com), we host all of our websites in the cloud. What
-advantage does this have, both for us as developers and for our clients? ~
+advantage does this have, both for us as developers and for our clients?
 
 1. **Backups** &ndash; Nothing eases the mind of a web developer more than knowing
 there are recent backups available in case of a disaster. Our hosting providers
