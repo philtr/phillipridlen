@@ -1,5 +1,6 @@
 ---
-layout: blog
+layout: post
+type: blog
 ---
 Brett asked [this question][q] on the Heroku mailing list:
 

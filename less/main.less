@@ -5,10 +5,13 @@
 @accent1: #F8C02C;
 @accent2: #E71A5D;
 @highlight: #DBF9FE;
+@bordercolor: @bgcolor - #191919;
 
 //Fonts & Metrics
-@copy: "adobe-text-pro-1", "adobe-text-pro-2", serif;
-@display: "proxima-nova-1", "proxima-nova-2", serif;
+@sans: "proxima-nova-1", "proxima-nova-2", sans-serif;
+@serif: "adobe-text-pro-1", "adobe-text-pro-2", serif;
+@copy: @serif;
+@display: @sans;
 @code: "Inconsolata", "Consolas", "Menlo", "Monaco", monospace;
 @basefont: 13px;
 @bigheading: @basefont * 2.75;
@@ -19,7 +22,7 @@
 //Mixins
 .heading { .letterpress(2px);
   font-family: @display;
-  letter-spacing: @condensed;
+  letter-spacing: @tight;
   line-height: 1;}
 .code {
   background: @highlight;
@@ -32,6 +35,9 @@
   -webkit-text-shadow: @size @size 0px #fff;
   -moz-text-shadow: @size @size 0px #fff;
   text-shadow: @size @size 0px #fff;}
+.dividerBottom {
+  border-bottom: 1px solid @bordercolor; 
+  padding-bottom: @bigheading * .75; }
 
 // Structure & Formatting
 html { margin: 0; padding: 0; }
@@ -49,7 +55,6 @@ h3 { .heading; font-size: @bigheading * .5; letter-spacing: @tight; }
 p { margin: 0 0 @basefont 0; }
 a { .rounded-corners(3px);
   color: @linkcolor;
-  padding: 3px;
   text-decoration: none;
   &:hover { 
     background: @highlight; 
@@ -64,15 +69,34 @@ code { .code; .rounded-corners(2px);
 blockquote { 
   font-style: italic; 
   code { font-style: normal; } }
-
-time {
+time { 
   color: @accent2;
-  margin-right: @basefont;
-  font-size: 75%;
-  font-style: italic; }
-
-footer {
-  color: @textcolor + #333;
+  display: block;
   font-family: @display;
-  font-size: @basefont - 1px;
-  margin: @basefont*2 0 0 @sidebar_width; }
+  font-size: @bigheading * .5;
+  font-weight: 100;
+  letter-spacing: 0;
+  margin-bottom: @basefont;}
+footer { padding-top: @bigheading * .75; }
+  
+// Specific styles
+h1#title { .dividerBottom;
+  text-align: center;
+  text-transform: uppercase;
+  img { line-height: 0; }
+  a:hover { background-color: @bgcolor; }
+  .p {
+    color: @textcolor;
+    display: block;
+    font-size: @bigheading * 2 }
+  .f {
+    color: @accent2;
+    font-family: @serif;
+    font-size: @bigheading * .6;
+    font-style: italic;
+    font-weight: 100;
+    text-transform: none; } }
+    
+article h2 { margin-bottom: 0; padding-bottom: 0 }
+
+article { .dividerBottom; }

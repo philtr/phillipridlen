@@ -1,5 +1,7 @@
 ---
-layout: blog
+layout: post
+type: blog
+title: Shapeshifting &ldquo;Classes&rdquo;
 ---
 I've been using Ruby full-time+ for the last few weeks, working on projects at
 work and then personal projects when I get home. There are a few things I've
@@ -22,7 +24,7 @@ code, yet I could use it just the same as the class that I set it to!
 
 ## What's really going on here?
 
-It took me a while to realize that I'm not actually pointing a new class here
+It took me a while to realize that I'm not actually creating a new class here
 (and hence the reason I put "classes" in quotes). What's actually happening
 is that `AppleType` is just a plain old constant. However, because that constant
 is pointing to a class, you can use the same as if its own class.

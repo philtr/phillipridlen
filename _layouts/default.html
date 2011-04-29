@@ -2,16 +2,23 @@
 <html>
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
-    <title>{{ page.title }} | philtr.net</title>
+    <title>{{ page.title }} | Phillip's Notes and Things</title>
 
-    <link rel="stylesheet/less" type="text/css" href="/notes/less/main.css" />
-    <script src="/notes/js/less.js" type="text/javascript"></script>
+    <link rel="stylesheet/less" type="text/css" href="/less/main.less" />
+    <script src="/js/less.js" type="text/javascript"></script>
 
     <script type="text/javascript" src="http://use.typekit.com/hcg3lre.js"></script>
     <script type="text/javascript">try{Typekit.load();}catch(e){}</script>
   </head>
   <body>
-    <h1>Phillip's Notes and Things</h1>
+    <header>
+      <h1 id="title"><img src="/img/me.png"/><a href="/"><span class="p">Phillip&rsquo;s</span> Notes <span class="f">and</span> Things</a></h1>
+    </header>
     {{ content }}
+    <footer>
+      <p>Except where otherwise noted, content on this site is released
+     under a <a href="http://d.spt.la/OmKS">Creative Commons</a> license.
+     <br />Powered by <a href="http://jekyllrb.com">jekyll</a>.</p>
+    </footer>
   </body>
 </html>
