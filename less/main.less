@@ -16,35 +16,25 @@
 @tight: -1px;
 @condensed: @tight * 2;
 
-//Layout Vars
-@sidebar_width: 250px;
-
 //Mixins
 .heading { .letterpress(2px);
   font-family: @display;
   letter-spacing: @condensed;
-  line-height: 1;
-}
-
+  line-height: 1;}
 .code {
   background: @highlight;
-  font-family: @code;
-}
-
+  font-family: @code;}
 .rounded-corners(@radius: 5px) {
   -webkit-border-radius: @radius;
   -moz-border-radius: @radius;
-  border-radius: @radius;
-}
-
+  border-radius: @radius;}
 .letterpress(@size: 1px) {
   -webkit-text-shadow: @size @size 0px #fff;
   -moz-text-shadow: @size @size 0px #fff;
-  text-shadow: @size @size 0px #fff;
-}
+  text-shadow: @size @size 0px #fff;}
 
+// Structure & Formatting
 html { margin: 0; padding: 0; }
-
 body { .letterpress;
   background: @bgcolor;
   color: @textcolor;
@@ -52,80 +42,37 @@ body { .letterpress;
   font-size: @basefont;
   line-height: @lineheight;
   margin: @basefont*3 auto;
-  max-width: 550px;
-}
-
+  max-width: 550px;}
 h1 { .heading; font-size: @bigheading; }
 h2 { .heading; font-size: @bigheading * .67; }
 h3 { .heading; font-size: @bigheading * .5; letter-spacing: @tight; }
-
 p { margin: 0 0 @basefont 0; }
-
 a { .rounded-corners(3px);
   color: @linkcolor;
   padding: 3px;
   text-decoration: none;
   &:hover { 
     background: @highlight; 
-    color: @accent2;
-  }
-}
-
+    color: @accent2; } }
 pre { .code; .rounded-corners;
   border: 1px solid @textcolor*2;
   padding: @basefont;
-  code { .rounded-corners(0px); background: none; padding: 0; }
-}
-
+  code { .rounded-corners(0px); background: none; padding: 0; } }
 code { .code; .rounded-corners(2px);
   font-size: @basefont - 1px;
-  padding: 2px;
-}
-
+  padding: 2px; }
 blockquote { 
   font-style: italic; 
-  code { font-style: normal; }
-}
+  code { font-style: normal; } }
 
-.date {
+time {
   color: @accent2;
   margin-right: @basefont;
   font-size: 75%;
-  font-style: italic;
-}
-
-// Layout
-#header {
-  float: left;
-  width: @sidebar_width - @basefont*4;
-  h1 { 
-    font-size: @bigheading * 1.5; 
-    margin: 0 0 8px 6px; 
-    position: relative; 
-    top: 0 - @basefont; 
-    z-index: 0;
-  }
-  h2 { 
-    margin: 0; 
-    position: relative; 
-    z-index: 1;
-  }
-  ul {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-  }
-}
-
-#body {
-  margin-left: @sidebar_width;
-  width: 600px;
-  padding-top: 4px;
-}
+  font-style: italic; }
 
 footer {
   color: @textcolor + #333;
   font-family: @display;
   font-size: @basefont - 1px;
-  margin: @basefont*2 0 0 @sidebar_width;
-}
+  margin: @basefont*2 0 0 @sidebar_width; }
