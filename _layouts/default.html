@@ -2,7 +2,7 @@
 <html>
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
-    <title>{{ page.title }} | Phillip's Notes, Quotes, and Other Miscellany</title>
+    <title>{% if page.title %}{{ page.title }} |{% endif %}Phillip's Notes, Quotes, and Other Miscellany</title>
 
     <link rel="stylesheet/less" type="text/css" href="/less/main.less" />
     <script src="/js/less.js" type="text/javascript"></script>
