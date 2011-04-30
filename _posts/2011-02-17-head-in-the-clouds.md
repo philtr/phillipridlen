@@ -10,7 +10,7 @@ advantage does this have, both for us as developers and for our clients?
 1. **Backups** &ndash; Nothing eases the mind of a web developer more than knowing
 there are recent backups available in case of a disaster. Our hosting providers
 make scheduling automatic backups dead simple.
-2. **Launching** a website &ndash; I love launching a website into the cloud. Instead
+2. **Launching a website** &ndash; I love launching a website into the cloud. Instead
 of ordering a dedicated server from a hosting company that takes a couple days
 to be built, I can, with a few clicks, create a new virtual server with just the
 specs I need to run the website.
