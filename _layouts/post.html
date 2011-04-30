@@ -1,10 +1,10 @@
 ---
 layout: default
 ---
-<article class="{{ post.type }}">
+<article class="{{ page.type }}">
   <header>
-    <h2><a href="{{ post.url }}">{{ page.title }}</a></h2>
-    <time datetime="{{ post.date }}">{{ page.date | date: '%B %d, %Y' }}</a></time>
+    <h2><a href="{{ page.url }}">{{ page.title }}</a></h2>
+    <time datetime="{{ page.date }}">{{ page.date | date: '%B %d, %Y' }}</a></time>
   </header>
   {{ content }}
 

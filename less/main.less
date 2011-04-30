@@ -67,6 +67,7 @@ code { .code; .rounded-corners(2px);
   font-size: @basefont - 1px;
   padding: 2px; }
 blockquote { 
+  font-size: 125%;
   font-style: italic; 
   code { font-style: normal; } }
 article { .dividerBottom;
@@ -81,7 +82,9 @@ article { .dividerBottom;
     font-weight: 100;
     letter-spacing: 0;
     margin-bottom: @basefont; }
-  aside { .dividerTop; font-style: italic; }
+  aside { .dividerTop;
+    color: @bgcolor - #777; 
+    font-style: italic; }
   &.video {
     iframe { height: 400px; width: 550px; }}
   &:before {
@@ -105,11 +108,11 @@ h1#title { .dividerBottom;
   .p {
     color: @textcolor;
     display: block;
-    font-size: @bigheading * 2.2 }
+    font-size: @bigheading * 1.75 }
   .f {
     color: @accent2;
     font-family: @serif;
     font-size: @bigheading * .4;
     font-style: italic;
     font-weight: 100;
-    text-transform: none; } }
+    text-transform: lowercase; } }
