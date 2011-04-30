@@ -16,13 +16,10 @@
 @basefont: 13px;
 @bigheading: @basefont * 2.75;
 @lineheight: @basefont * 2.25;
-@tight: -1px;
-@condensed: @tight * 2;
 
 //Mixins
 .heading { .letterpress(2px);
   font-family: @display;
-  letter-spacing: @tight;
   line-height: 1;}
 .code {
   background: @highlight;
@@ -35,9 +32,12 @@
   -webkit-text-shadow: @size @size 0px #fff;
   -moz-text-shadow: @size @size 0px #fff;
   text-shadow: @size @size 0px #fff;}
-.dividerBottom {
+.dividerBottom { 
   border-bottom: 1px solid @bordercolor; 
   padding-bottom: @bigheading * .75; }
+.dividerTop {
+  border-top: 1px solid @bordercolor; 
+  padding-top: @bigheading * .75; }
 
 // Structure & Formatting
 html { margin: 0; padding: 0; }
@@ -51,7 +51,7 @@ body { .letterpress;
   max-width: 550px;}
 h1 { .heading; font-size: @bigheading; }
 h2 { .heading; font-size: @bigheading * .67; }
-h3 { .heading; font-size: @bigheading * .5; letter-spacing: @tight; }
+h3 { .heading; font-size: @bigheading * .5; }
 p { margin: 0 0 @basefont 0; }
 a { .rounded-corners(3px);
   color: @linkcolor;
@@ -81,6 +81,7 @@ article { .dividerBottom;
     font-weight: 100;
     letter-spacing: 0;
     margin-bottom: @basefont; }
+  aside { .dividerTop; font-style: italic; }
   &.video {
     iframe { height: 400px; width: 550px; }}
   &:before {
@@ -96,6 +97,7 @@ footer { padding-top: @bigheading * .75; }
   
 // Specific styles
 h1#title { .dividerBottom;
+  font-size: @bigheading * .6;
   text-align: center;
   text-transform: uppercase;
   img { line-height: 0; }
@@ -103,11 +105,11 @@ h1#title { .dividerBottom;
   .p {
     color: @textcolor;
     display: block;
-    font-size: @bigheading * 2 }
+    font-size: @bigheading * 2.2 }
   .f {
     color: @accent2;
     font-family: @serif;
-    font-size: @bigheading * .6;
+    font-size: @bigheading * .4;
     font-style: italic;
     font-weight: 100;
     text-transform: none; } }

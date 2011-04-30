@@ -1,5 +1,18 @@
 ---
 layout: default
 ---
-{{ content }}
+<article class="{{ post.type }}">
+  <header>
+    <h2><a href="{{ post.url }}">{{ page.title }}</a></h2>
+    <time datetime="{{ post.date }}">{{ page.date | date: '%B %d, %Y' }}</a></time>
+  </header>
+  {{ content }}
 
+  <aside>
+    I don't have comments implemented currently, but I'd like to
+    encourage feedback. Feel free to send an email to <a
+    href="mailto:p@rdln.net">p@rdln.net</a> or shoot a quick reply to <a
+    href="http://twitter.com/philtr">@philtr</a> on Twitter. I'll update
+    this post with any insightful, interesting, or corrective comments.
+  </aside>
+</article>
