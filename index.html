@@ -4,12 +4,19 @@ layout: default
 <section id="posts">
 {% for post in site.posts %}
   <article class="{{ post.type }}">
+
     <header>
-      <h2><a href="{{ post.url }}">{{ post.title }}</a></h2>
+      <h2><a href="{% if post.type == 'blog' %}{{ post.url }}{% else %}{{ post.source }}{% endif %}">{{ post.title }}</a></h2>
       <time datetime="{{ post.date }}">{{ post.date | date: '%B %d, %Y' }}</a></time>
     </header>
-    {{ post.content | strip_html | truncatewords: 100 }}
-    <a href="{{ post.url }}">Read more</a>
+
+    {% if post.type == "blog" %}
+      {{ post.content | strip_html | truncatewords: 100 }}
+      <a href="{{ post.url }}">Read more</a>
+    {% else %}
+      {{ post.content }}
+    {% endif %}
+
   </article>
 {% endfor %}
 </section>

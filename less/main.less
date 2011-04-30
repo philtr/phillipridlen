@@ -69,14 +69,29 @@ code { .code; .rounded-corners(2px);
 blockquote { 
   font-style: italic; 
   code { font-style: normal; } }
-time { 
-  color: @accent2;
-  display: block;
-  font-family: @display;
-  font-size: @bigheading * .5;
-  font-weight: 100;
-  letter-spacing: 0;
-  margin-bottom: @basefont;}
+article { .dividerBottom;
+  h2 { 
+    margin-bottom: 0; 
+    padding-bottom: 0; }
+  time { 
+    color: @accent2;
+    display: block;
+    font-family: @display;
+    font-size: @bigheading * .5;
+    font-weight: 100;
+    letter-spacing: 0;
+    margin-bottom: @basefont; }
+  &.video {
+    iframe { height: 400px; width: 550px; }}
+  &:before {
+    float: left;
+    margin-left: -48px;
+    margin-top: 8px; }
+  &.blog:before  { content: url('/img/blog.png'); }
+  &.link:before  { content: url('/img/link.png'); }
+  &.photo:before { content: url('/img/photo.png'); }
+  &.quote:before { content: url('/img/quote.png'); }
+  &.video:before { content: url('/img/video.png'); }}
 footer { padding-top: @bigheading * .75; }
   
 // Specific styles
@@ -96,7 +111,3 @@ h1#title { .dividerBottom;
     font-style: italic;
     font-weight: 100;
     text-transform: none; } }
-    
-article h2 { margin-bottom: 0; padding-bottom: 0 }
-
-article { .dividerBottom; }
