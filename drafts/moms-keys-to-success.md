@@ -7,10 +7,10 @@ aside: This post was originally published on the Balcom agency blog. I have synd
 layout: post
 type: blog
 ---
-I owe every accomplishment I have ever
-achieved to three things my mom instilled in me from a young age. She
-was relentless, frustating at times, but looking back I know it was out
-of a deep love for me and my future.
+I owe every accomplishment I have ever achieved to three things my mom
+instilled in me from a young age. She was relentless, frustating at
+times, but looking back I know it was out of a deep love for me and my
+future.
 
 ### Always do your best
 
