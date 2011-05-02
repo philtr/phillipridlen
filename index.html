@@ -11,8 +11,8 @@ layout: default
     </header>
 
     {% if post.type == "blog" %}
-      {{ post.content | strip_html | truncatewords: 100 }}
-      <a href="{{ post.url }}">Read more</a>
+      <p>{{ post.content | strip_html | truncatewords: 100 }}
+      <a href="{{ post.url }}">Read more</a></p>
     {% else %}
       {{ post.content }}
     {% endif %}

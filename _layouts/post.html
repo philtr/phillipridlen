@@ -1,18 +1,27 @@
 ---
 layout: default
 ---
-<article class="{{ page.type }}">
-  <header>
-    <h2><a href="{{ page.url }}">{{ page.title }}</a></h2>
-    <time datetime="{{ page.date }}">{{ page.date | date: '%B %d, %Y' }}</a></time>
-  </header>
-  {{ content }}
+<section id="post">
+  <article class="{{ page.type }}">
+    <header>
+      <h2><a href="{{ page.url }}">{{ page.title }}</a></h2>
+      <time datetime="{{ page.date }}">{{ page.date | date: '%B %d, %Y' }}</a></time>
+    </header>
 
-  <aside>
-    I don't have comments implemented currently, but I'd like to
-    encourage feedback. Feel free to send an email to <a
-    href="mailto:p@rdln.net">p@rdln.net</a> or shoot a quick reply to <a
-    href="http://twitter.com/philtr">@philtr</a> on Twitter. I'll update
-    this post with any insightful, interesting, or corrective comments.
-  </aside>
-</article>
+    {{ content }}
+
+    {% if page.aside %}
+    <aside>
+      {{ page.aside | textilize }}
+    </aside>
+    {% endif %}
+
+    <aside>
+      I don't have comments implemented currently, but I'd like to
+      encourage feedback. Feel free to send an email to <a
+      href="mailto:p@rdln.net">p@rdln.net</a> or shoot a quick reply to <a
+      href="http://twitter.com/philtr">@philtr</a> on Twitter. I'll update
+      this post with any insightful, interesting, or corrective comments.
+    </aside>
+  </article>
+</section>
