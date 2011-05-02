@@ -2,7 +2,7 @@
 layout: default
 ---
 <section id="posts">
-{% for post in site.posts %}
+{% for post in paginator.posts %}
   <article class="{{ post.type }}">
 
     <header>
@@ -20,3 +20,11 @@ layout: default
   </article>
 {% endfor %}
 </section>
+{% if paginator.next_page %}<p class="older"><a href="/page{{ paginator.next_page }}">&laquo; Older Posts</a></p>{% endif %}
+{% if paginator.previous_page %}
+  {% if paginator.previous_page == 1 %}
+    <p class="newer"><a href="/">Newer Posts &raquo;</p>
+  {% else %}
+    <p class="newer"><a href="/page{{ paginator.previous_page }}">Newer Posts &raquo;</p>
+  {% endif %}
+{% endif %}
