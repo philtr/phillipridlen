@@ -51,7 +51,7 @@ research](http://www.b2science.org/) on our vacations.
 Every once in a while, when I feel like I'm just drifting through life,
 I'll go learn something new and it gives me just the pick-me-up I need.
 
-### Thanks, mom
+### Thanks, mom!
 
-Thanks mom, for always encouraging to do my best, to not be satisfied
+Thanks, mom, for always encouraging to do my best, to not be satisfied
 with the status quo, and to be a life-long learner. Happy mother's day!
