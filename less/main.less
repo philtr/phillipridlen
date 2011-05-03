@@ -10,7 +10,7 @@
 //Fonts & Metrics
 @sans: "proxima-nova-1", "proxima-nova-2", sans-serif;
 @serif: "adobe-text-pro-1", "adobe-text-pro-2", serif;
-@copy: @serif;
+@copy: @sans;
 @display: @sans;
 @code: "Inconsolata", "Consolas", "Menlo", "Monaco", monospace;
 @basefont: 14px;
@@ -91,7 +91,8 @@ article { .dividerBottom;
     margin-bottom: 0; }
   aside { .dividerTop; .dividerBottom;
     color: @bgcolor - #777; 
-    font-style: italic; }
+    font-style: italic;
+    font-weight: 100; }
   aside + aside {
     border-top: none;
     margin-top: 0;
