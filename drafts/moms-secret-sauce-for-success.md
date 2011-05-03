@@ -10,7 +10,7 @@ type: blog
 I owe every accomplishment I have ever achieved to three things my mom
 instilled in me from a young age. She was relentless, frustating at
 times, but looking back I know it was out of a deep love for me and my
-future.
+future well-being.
 
 ### Always do your best
 
@@ -22,8 +22,9 @@ been lazy. If I really had done my best, my mom praised me for the
 effort I put in, and encouraged me to prepare for next time. As long as
 I did my best, she was satisfied.
 
-Now, in my professional life, I never feel like I've done a satisfactory
-job unless I've done my best.
+Now, in my professional life, a job isn't done until I've done my best.
+Even when something appears to be done, I dig in and *refine, refine,
+refine* until I can honestly say I've done my best work.
 
 ### Never be satisfied with the status quo
 
