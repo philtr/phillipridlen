@@ -10,6 +10,10 @@ layout: default
       {% endunless %}
     </header>
 
+    {% if page.photo %}
+      <p><a href="/photos/{{ page.photo }}.png"><img src="/photos/{{ page.photo }}_preview.png" /></a></p>
+    {% endif %}
+
     {{ content }}
 
     {% if page.aside %}
