@@ -5,7 +5,9 @@ layout: default
   <article class="{{ page.type }}">
     <header>
       <h2><a href="{{ page.url }}">{{ page.title }}</a></h2>
+      {% unless page.draft %}
       <time datetime="{{ page.date }}">{{ page.date | date: '%B %d, %Y' }}</a></time>
+      {% endunless %}
     </header>
 
     {{ content }}
