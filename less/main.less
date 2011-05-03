@@ -111,17 +111,20 @@ article { .dividerBottom;
 footer { font-family: @sans; clear: both; }
   
 // Specific styles
-h1#title { .dividerBottom;
+h1#title {
   font-size: @bigheading * .6;
+  margin-bottom: 2 * @padding;
   text-align: center;
   text-transform: uppercase;
   img { float: left; margin-left: -100px; }
   a:hover { background-color: @bgcolor; }
-  .p {
+  .p { .dividerBottom;
     color: @textcolor;
     display: block;
     font-size: @bigheading * 1.75;
-    letter-spacing: -2px; }
+    letter-spacing: -2px;
+    margin-bottom: 10px;
+    padding-bottom: 4px; }
   .f {
     color: @accent2;
     font-family: @serif;
