@@ -2,7 +2,7 @@
 title: Mom&rsquo;s Secret Sauce for Success
 date: 2011-05-03
 
-aside: This post was originally published on the Balcom agency blog. I have syndicated it here for archival purposes. "Read it on the Balcom blog &raquo;":http://balcomagency.com/blog
+aside: This post was originally published on the Balcom Agency blog. I have syndicated it here for archival purposes. "Read it on the Balcom blog &raquo;":http://balcomagency.com/blog
 
 layout: post
 type: blog
@@ -27,7 +27,7 @@ job unless I've done my best.
 
 ### Never be satisfied with the status quo
 
-I was a rockstar speller when I was in gradeschool. I'd look at a word,
+I was a rockstar speller when I was in grade school. I'd look at a word,
 write it out once or twice, and then it would be in my head forever (or
 at least until the next spelling test). My mom caught on to my
 abilities, and wouldn't let me stop at the lists of 5-letter words my
