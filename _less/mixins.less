@@ -1,0 +1,22 @@
+.heading { .letterpress(2px);
+  font-family: @display;
+  line-height: 1;}
+.code {
+  background: @highlight;
+  font-family: @code;}
+.rounded-corners(@radius: 5px) {
+  -webkit-border-radius: @radius;
+  -moz-border-radius: @radius;
+  border-radius: @radius;}
+.letterpress(@size: 1px) {
+  -webkit-text-shadow: @size @size 0px #fff;
+  -moz-text-shadow: @size @size 0px #fff;
+  text-shadow: @size @size 0px #fff;}
+.dividerBottom { 
+  border-bottom: 1px solid @bordercolor; 
+  margin-bottom: @padding;
+  padding-bottom: @padding; }
+.dividerTop {
+  border-top: 1px solid @bordercolor;
+  margin-top: @padding;
+  padding-top: @padding; }
