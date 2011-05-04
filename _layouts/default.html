@@ -4,50 +4,20 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
     <title>{% if page.title %}{{ page.title }} | {% endif %}Phillip's Notes, Quotes, and Other Miscellany</title>
 
-    <link rel="stylesheet" href="/css/main.css" />
+    {% include libraries.html %}
 
-    <script src="http://code.jquery.com/jquery-1.6.min.js"></script>
-    <script type="text/javascript">
-      {% include js/contact.js %}
-    </script>
-
-    <script src="http://use.typekit.com/hcg3lre.js"></script>
-    <script>try{Typekit.load();}catch(e){}</script>
   </head>
   <body>
-    <!--[if lt IE 9]>
-      <style type="text/css">
-        body { text-align: center; }
-        #content { width: 600px; margin: 0 auto; text-align: left; }
-        #sadface { font-size: 400px; line-height: 1.2em; }
-      </style>
-      <h1><a href="/">Phillip's Blog</a></h1>
-      <h2>The notes, quotes, and other miscellany of Phillip T. Ridlen</h2>
-      <div id="sadface">:'(</div>
-      <p><strong>WARNING:</strong> The site below may look terrible. I encourage you to upgrade to one of these standards-compliant browsers:</p>
-      <p><a href="http://firefox.com">Get Mozilla Firefox</a></p>
-      <p><a href="http://google.com/chrome">Get Google Chrome</a></p>
-      <p><a href="http//apple.com/safari">Get Apple Safari</a></p>
-      <hr />
-      <div id="content">
-      {{ content }}
-      </div>
-    <![endif]-->
+
+    {% include sadface.html %}
+
     <!--[if (gte IE 9)|!(IE)]><!-->
 
-    <header>
-      <h1 id="title"><img src="/img/me.png"/><a href="/"><span class="p">Phillip&rsquo;s Blog</span> <span class="f">The</span> Notes, Quotes, <span class="f">and</span> Other Miscellany<br/><span class="f">of</span> Phillip T. Ridlen</a></h1>
-    </header>
-    {% if page.draft %}
-    <h1 id="draft">Draft</h1>
-    {% endif %}
+    {% include header.html %}
+
     {{ content }}
-    <footer>
-      <p>Except where otherwise noted, content on this site is released
-     under a <a href="http://d.spt.la/OmKS">Creative Commons</a> license.
-     View the <a href="https://github.com/philtr/notes">source on Github</a>.
-     Powered by <a href="http://jekyllrb.com">jekyll</a>.</p>
-    </footer>
+
+    {% include footer.html %}
 
     <!--<![endif]-->
   </body>
