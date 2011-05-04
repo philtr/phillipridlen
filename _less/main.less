@@ -64,7 +64,11 @@ a { .rounded-corners(3px);
     color: @accent2; } }
 pre { .code; .rounded-corners;
   border: 1px solid @textcolor*2;
+  overflow-x: auto;
   padding: @basefont;
+  &::-webkit-scrollbar { width: 5px; height: 5px; margin: @basefont; }
+  &::-webkit-scrollbar-track { background-color: rgba(76, 156, 178,0.3); border-radius: 3px; }
+  &::-webkit-scrollbar-thumb { border-radius: 3px; background-color: rgba(76, 156, 178,0.5); }
   code { .rounded-corners(0px); background: none; padding: 0; } }
 code { .code; .rounded-corners(2px);
   font-size: @basefont - 1px;
