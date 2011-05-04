@@ -23,11 +23,13 @@ layout: default
     {% endif %}
 
     <aside>
-      If you have any comments or concerns, feel free to send an email
-      to <a href="mailto:p@rdln.net">p@rdln.net</a> or mention <a
+      If you have any comments or concerns, feel free to <a
+      id="send_email" href="mailto:{{ site.email }}">send an email to
+      {{ site.email }}</a> or mention <a
       href="http://twitter.com/philtr">@philtr</a> on Twitter. I'll
       update this post with any insightful, interesting, or corrective
       comments.
     </aside>
+    {% include contact_form.html %}
   </article>
 </section>

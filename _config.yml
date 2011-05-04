@@ -4,3 +4,6 @@ permalink: pretty
 pygments: true
 rdiscount:
   extensions: [smart]
+
+url: http://blog.phillipridlen.com
+email: p@rdln.net
