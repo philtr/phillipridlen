@@ -1,5 +1,6 @@
-permalink: pretty
-paginate: 5
 markdown: rdiscount
+paginate: 5
+permalink: pretty
+pygments: true
 rdiscount:
   extensions: [smart]

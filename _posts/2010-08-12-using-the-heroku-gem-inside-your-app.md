@@ -27,6 +27,7 @@ I opened up the [Heroku client source code][client.rb] and it's actually
 designed to be used inside your code. How about that. The first few
 lines after all the requires describe perfectly how to use it:
 
+{% highlight ruby %}
     # A Ruby class to call the Heroku REST API.  You might use this if you want to
     # manage your Heroku apps from within a Ruby program, such as Capistrano.
     #
@@ -35,6 +36,7 @@ lines after all the requires describe perfectly how to use it:
     #   require 'heroku'
     #   heroku = Heroku::Client.new('me@example.com', 'mypass')
     #   heroku.create('myapp')
+{% endhighlight %}
 
  [client.rb]: http://github.com/heroku/heroku/blob/master/lib/heroku/client.rb
 
