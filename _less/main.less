@@ -145,14 +145,14 @@ h1#draft {
 .newer { float: right; }
 .older a, .newer a { color: @accent2; }
 
-#contact { 
+#contact {
+  color: @textcolor;
   display: none;
+  font-family: @sans;
+  font-style: normal;
+  font-weight: bold; 
   table { width: 100%; }
   label { 
-    color: @textcolor;
-    font-family: @sans;
-    font-style: normal;
-    font-weight: bold;
     line-height: 1 }
   input[type="text"], textarea { .rounded-corners(2px);
     border: 1px solid #ddd;

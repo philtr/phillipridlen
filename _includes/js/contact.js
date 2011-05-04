@@ -1,7 +1,11 @@
 $(document).ready(function() {
   $('a#send_email').click(function() {
-    $('#contact').fadeToggle();
-    location.href = location.href + '#contact';
+    $('#contact').hide().fadeIn(500);
+     document.getElementById('contact').scrollIntoView(true);
     return false;
   });
+  $('#contact #cancel_email').click(function() {
+    $('#contact').fadeOut();
+    return false;
+  })
 });
