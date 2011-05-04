@@ -3,7 +3,7 @@
 .dividerBottom{border-bottom:1px solid #dedede;margin-bottom:28px;padding-bottom:28px;}
 .dividerTop{border-top:1px solid #dedede;margin-top:28px;padding-top:28px;}
 html{margin:0;padding:0;}
-body{-webkit-text-shadow:1px 1px 0px #ffffff;-moz-text-shadow:1px 1px 0px #ffffff;text-shadow:1px 1px 0px #ffffff;background:#f7f7f7;color:#264e59;font-family:"proxima-nova-1","proxima-nova-2",sans-serif;font-size:14px;line-height:31.5px;margin:42px auto;max-width:550px;}
+body{-webkit-text-shadow:1px 1px 0px #ffffff;-moz-text-shadow:1px 1px 0px #ffffff;text-shadow:1px 1px 0px #ffffff;background:#f7f7f7 url('/img/gradient_v.png') repeat-x;color:#264e59;font-family:"proxima-nova-1","proxima-nova-2",sans-serif;font-size:14px;line-height:31.5px;margin:42px auto;max-width:550px;}
 h1{-webkit-text-shadow:2px 2px 0px #ffffff;-moz-text-shadow:2px 2px 0px #ffffff;text-shadow:2px 2px 0px #ffffff;font-family:"proxima-nova-1","proxima-nova-2",sans-serif;line-height:1;font-size:38.5px;}
 h2{-webkit-text-shadow:2px 2px 0px #ffffff;-moz-text-shadow:2px 2px 0px #ffffff;text-shadow:2px 2px 0px #ffffff;font-family:"proxima-nova-1","proxima-nova-2",sans-serif;line-height:1;font-size:25.795px;}
 h3{-webkit-text-shadow:2px 2px 0px #ffffff;-moz-text-shadow:2px 2px 0px #ffffff;text-shadow:2px 2px 0px #ffffff;font-family:"proxima-nova-1","proxima-nova-2",sans-serif;line-height:1;font-size:19.25px;}
@@ -15,7 +15,7 @@ pre::-webkit-scrollbar-track{background-color:rgba(76, 156, 178, 0.3);border-rad
 pre::-webkit-scrollbar-thumb{background-color:rgba(76, 156, 178, 0.5);border-radius:3px;}
 pre code{background:none;padding:0;}
 code{background:#dbf9fe;font-family:"Inconsolata","Consolas","Menlo","Monaco",monospace;-webkit-border-radius:2px;-moz-border-radius:2px;border-radius:2px;font-size:13px;padding:2px;}
-blockquote{font-size:125%;font-style:italic;}blockquote code{font-style:normal;}
+blockquote{background:url('/img/gradient_h.png') repeat-y;border-left:1px solid #ddd;color:#808080;margin-left:14px;padding-left:14px;}blockquote code{font-style:normal;}
 article{border-bottom:1px solid #dedede;margin-bottom:28px;padding-bottom:28px;}article h2{margin-bottom:0;padding-bottom:0;}
 article time{color:#e71a5d;display:block;font-family:"proxima-nova-1","proxima-nova-2",sans-serif;font-size:19.25px;font-weight:100;letter-spacing:0;margin-bottom:14px;}
 article p:last-child{margin-bottom:0;}

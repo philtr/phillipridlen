@@ -6,7 +6,7 @@ html {
   margin: 0; padding: 0; }
 
 body { .letterpress;
-  background: @bgcolor;
+  background: @bgcolor url('/img/gradient_v.png') repeat-x;
   color: @textcolor;
   font-family: @copy;
   font-size: @basefont;
@@ -50,9 +50,12 @@ code { .code; .rounded-corners(2px);
   font-size: @basefont - 1px;
   padding: 2px; }
   
-blockquote { 
-  font-size: 125%;
-  font-style: italic; 
+blockquote {
+  background: url('/img/gradient_h.png') repeat-y;
+  border-left: 1px solid #ddd;
+  color: @unimportant;
+  margin-left: @basefont;
+  padding-left: @basefont;
   code { font-style: normal; } }
   
 article { .dividerBottom;
@@ -76,7 +79,7 @@ article { .dividerBottom;
     margin-bottom: 0; }
     
   aside { .dividerTop; .dividerBottom;
-    color: @bgcolor - #777; 
+    color: @unimportant; 
     font-family: @serif;
     font-style: italic;
     font-weight: 100; }
