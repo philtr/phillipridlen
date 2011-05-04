@@ -13,11 +13,13 @@ On one of my projects, when initializing the application,  I needed to be able
 to choose one class (we'll call it `FujiApple`) if certain variable was set, and a different
 class (call it `Gala`) if it was not. So I tried the following:
 
+  {% highlight ruby %}
     if @certain_var.nil?
       AppleType = GalaApple
     else
       AppleType = FujiApple
     end
+  {% endhighlight %}
 
 Now, keep in mind, `AppleType` is not a class that I have defined anywhere in my
 code, yet I could use it just the same as the class that I set it to!
@@ -31,11 +33,13 @@ is pointing to a class, you can use the same as if its own class.
 
 If my `FujiApple` class looks like this:
 
+  {% highlight ruby %}
     class FujiApple
       def eat
         "NOM NOM NOM"
       end
     end
+  {% endhighlight %}
 
 I can do this:
 
