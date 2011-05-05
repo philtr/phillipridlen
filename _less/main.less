@@ -5,14 +5,14 @@
 html { 
   margin: 0; padding: 0; }
 
-body { .letterpress;
-  background: @bgcolor url('/img/gradient_v.png') repeat-x;
+body {
+  background: @bgcolor;
   color: @textcolor;
   font-family: @copy;
   font-size: @basefont;
   line-height: @lineheight;
   margin: @basefont*3 auto;
-  max-width: 550px;}
+  max-width: 600px;}
   
 h1 { .heading; font-size: @bigheading; }
 h2 { .heading; font-size: @bigheading * .67; }
@@ -23,8 +23,7 @@ p { margin: 0 0 @basefont 0; }
 a { .rounded-corners(3px);
   color: @linkcolor;
   &:hover { 
-    background: @highlight; 
-    color: @accent2; }
+    color: @accent3; }
   img { border: 0 } }
     
 pre { .code; .rounded-corners;
@@ -38,10 +37,10 @@ pre { .code; .rounded-corners;
    margin: @basefont;
    width: 5px; }
   &::-webkit-scrollbar-track { 
-    background-color: rgba(76, 156, 178,0.3); 
+    background-color: rgba(0,0,0,0.3); 
     border-radius: 3px; }
   &::-webkit-scrollbar-thumb { 
-    background-color: rgba(76, 156, 178,0.5);
+    background-color: rgba(0,0,0,0.5);
     border-radius: 3px;  }
   code {
     background: none; 
@@ -52,7 +51,6 @@ code { .code; .rounded-corners(2px);
   padding: 2px; }
   
 blockquote {
-  background: url('/img/gradient_h.png') repeat-y;
   border-left: 1px solid #ddd;
   color: @unimportant;
   margin-left: @basefont;
@@ -149,13 +147,19 @@ h1#draft {
 
 #post article { padding-bottom: 0; }
 
-#paginator { .dividerBottom;
+#paginator {
   float: left; 
   width: 100%;
-  p { margin-bottom: 0; }
+  p { .rounded-corners(5px);
+    background: @linkcolor;
+    color: @bgcolor;
+    margin-bottom: @padding;
+    padding: 0px 7px;
+    &:hover { background: @accent3; }
+    a { color: @bgcolor; text-decoration: none; } }
   .older { float: left; }
   .newer { float: right; }
-  .older a, .newer a { color: @accent2; } }
+}
 
 #contact {
   color: @textcolor;
