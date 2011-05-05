@@ -20,7 +20,12 @@ layout: nil
    <link href="{{ site.url }}{{ post.url }}"/>
    <updated>{{ post.date | date_to_xmlschema }}</updated>
    <id>http://blog.phillipridlen.com{{ post.id }}</id>
-   <content type="html">{% if post.photo %}<a href="{{ site.url }}{{ post.url}}"><img src="{{ site.url }}/photos/{{ post.photo}}"/></a>{% endif %}{{ post.content | xml_escape }}</content>
+   <content type="html">
+    {% if post.photo %}
+      &lt;a href="{{ site.url }}{{ post.url}}"&gt;&lt;img src="{{ site.url }}/photos/{{ post.photo}}"/&gt;&lt;/a&gt;
+    {% endif %}
+    {{ post.content | xml_escape }}
+  </content>
  </entry>
  {% endfor %}
 
