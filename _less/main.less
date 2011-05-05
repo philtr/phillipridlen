@@ -102,7 +102,10 @@ article { .dividerBottom;
   &.quote:before { content: url('/img/quote.png'); }
   &.video:before { content: url('/img/video.png'); }}
   
-footer { font-family: @sans; clear: both; }
+footer { 
+  font-family: @sans;
+  font-size: @basefont - 2px;
+  clear: both; }
 
 h1#title {
   font-size: @bigheading * .6;
