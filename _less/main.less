@@ -161,12 +161,14 @@ h1#draft {
   .newer { float: right; }
 }
 
-#contact {
+#contact { .rounded-corners(5px 5px 0px 0px);
+  background: #FFE;
   color: @textcolor;
   display: none;
   font-family: @sans;
   font-style: normal;
-  font-weight: bold; 
+  font-weight: bold;
+  padding: @basefont;
   table { width: 100%; }
   label { 
     line-height: 1 }
@@ -177,8 +179,6 @@ h1#draft {
     padding: 6px; }
   input[type="text"] { width: 90%; }
   textarea { height: 125px; width: 95%; } }
-
-
 
 #license { 
   position: relative;
