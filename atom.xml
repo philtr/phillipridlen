@@ -22,7 +22,7 @@ layout: nil
    <id>http://blog.phillipridlen.com{{ post.id }}</id>
    <content type="html">
     {% if post.photo %}
-      &lt;a href=&quot;{{ site.url }}{{ post.url}}&quot;&gt;&lt;img src=&quot;{{ site.url }}/photos/{{ post.photo}}&quot;/&gt;&lt;/a&gt;
+      &lt;a href=&quot;{{ site.url }}{{ post.url}}&quot;&gt;&lt;img src=&quot;{{ site.url }}/photos/{{ post.photo }}_preview.png&quot;/&gt;&lt;/a&gt;
     {% endif %}
     {{ post.content | xml_escape }}
   </content>
