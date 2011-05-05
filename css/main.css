@@ -10,7 +10,7 @@ h3{-webkit-text-shadow:2px 2px 0px #ffffff;-moz-text-shadow:2px 2px 0px #ffffff;
 p{margin:0 0 14px 0;}
 a{-webkit-border-radius:3px;-moz-border-radius:3px;border-radius:3px;color:#21b080;text-decoration:none;}a:hover{background:#dbf9fe;color:#e71a5d;}
 a img{border:0;}
-pre{background:#dbf9fe;font-family:"Inconsolata","Consolas","Menlo","Monaco",monospace;-webkit-border-radius:5px;-moz-border-radius:5px;border-radius:5px;border:1px solid #4c9cb2;overflow-x:auto;padding:14px;}pre::-webkit-scrollbar{height:5px;margin:14px;width:5px;}
+pre{background:#dbf9fe;font-family:"Inconsolata","Consolas","Menlo","Monaco",monospace;-webkit-border-radius:5px;-moz-border-radius:5px;border-radius:5px;border:1px solid #4c9cb2;max-height:500px;overflow:auto;overflow-x:auto;padding:14px;}pre::-webkit-scrollbar{height:5px;margin:14px;width:5px;}
 pre::-webkit-scrollbar-track{background-color:rgba(76, 156, 178, 0.3);border-radius:3px;}
 pre::-webkit-scrollbar-thumb{background-color:rgba(76, 156, 178, 0.5);border-radius:3px;}
 pre code{background:none;padding:0;}
