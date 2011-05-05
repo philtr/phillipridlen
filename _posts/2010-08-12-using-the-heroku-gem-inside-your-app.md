@@ -27,16 +27,16 @@ I opened up the [Heroku client source code][client.rb] and it's actually
 designed to be used inside your code. How about that. The first few
 lines after all the requires describe perfectly how to use it:
 
-  {% highlight ruby %}
-    # A Ruby class to call the Heroku REST API.  You might use this if you want to
-    # manage your Heroku apps from within a Ruby program, such as Capistrano.
-    #
-    # Example:
-    #
-    #   require 'heroku'
-    #   heroku = Heroku::Client.new('me@example.com', 'mypass')
-    #   heroku.create('myapp')
-  {% endhighlight %}
+{% highlight ruby %}
+# A Ruby class to call the Heroku REST API.  You might use this if you want to
+# manage your Heroku apps from within a Ruby program, such as Capistrano.
+#
+# Example:
+#
+#   require 'heroku'
+#   heroku = Heroku::Client.new('me@example.com', 'mypass')
+#   heroku.create('myapp')
+{% endhighlight %}
 
  [client.rb]: http://github.com/heroku/heroku/blob/master/lib/heroku/client.rb
 
@@ -44,17 +44,17 @@ As you scroll down through the functions, you find that you can do anything in
 your source code that you could do on the command line. To answer the original
 question, if you wanted to use this command-line task:
 
-  {% highlight sh %}
-    heroku domains:add www.example.com
-  {% endhighlight %}
+{% highlight sh %}
+heroku domains:add www.example.com
+{% endhighlight %}
 
 You would simply put these lines in your source code:
 
-  {% highlight ruby %}
-    require 'heroku'
-    heroku = Heroku::Client.new('me@example.com','mypass')
-    heroku.add_domain('myapp','www.example.com')
-  {% endhighlight %}
+{% highlight ruby %}
+require 'heroku'
+heroku = Heroku::Client.new('me@example.com','mypass')
+heroku.add_domain('myapp','www.example.com')
+{% endhighlight %}
 
 The add_domain function is found on [line #120 of client.rb][add_domain].
 
@@ -66,17 +66,17 @@ environment variable. Heroku already stores your app name by default in
 `ENV["APP_NAME"]`. So, to make the above code a little DRYer and safe to
 distribute. At the terminal:
 
-  {% highlight sh %}
-    heroku config:add HEROKU_EMAIL=me@example.com HEROKU_PASS=mypass
-  {% endhighlight %}
+{% highlight sh %}
+heroku config:add HEROKU_EMAIL=me@example.com HEROKU_PASS=mypass
+{% endhighlight %}
 
 And then in our code:
 
-  {% highlight ruby %}
-    require 'heroku'
-    heroku = Heroku::Client.new(ENV["HEROKU_EMAIL"],ENV["HEROKU_PASS"])
-    heroku.add_domain(ENV["APP_NAME"], 'www.example.com')
-  {% endhighlight %}
+{% highlight ruby %}
+require 'heroku'
+heroku = Heroku::Client.new(ENV["HEROKU_EMAIL"],ENV["HEROKU_PASS"])
+heroku.add_domain(ENV["APP_NAME"], 'www.example.com')
+{% endhighlight %}
 
 Now we won't be distributing our Heroku credentials with our code.
 
