@@ -22,7 +22,6 @@ p { margin: 0 0 @basefont 0; }
 
 a { .rounded-corners(3px);
   color: @linkcolor;
-  text-decoration: none;
   &:hover { 
     background: @highlight; 
     color: @accent2; }
@@ -107,7 +106,8 @@ article { .dividerBottom;
 footer { 
   font-family: @sans;
   font-size: @basefont;
-  clear: both; }
+  clear: both; 
+  a { text-decoration: none; } }
 
 h1#title {
   font-size: @bigheading * .6;
