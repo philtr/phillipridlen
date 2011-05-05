@@ -104,7 +104,7 @@ article { .dividerBottom;
   
 footer { 
   font-family: @sans;
-  font-size: @basefont - 2px;
+  font-size: @basefont;
   clear: both; }
 
 h1#title {
@@ -147,9 +147,13 @@ h1#draft {
 
 #post article { padding-bottom: 0; }
 
-.older { float: left; }
-.newer { float: right; }
-.older a, .newer a { color: @accent2; }
+#paginator { .dividerBottom;
+  float: left; 
+  width: 100%;
+  p { margin-bottom: 0; }
+  .older { float: left; }
+  .newer { float: right; }
+  .older a, .newer a { color: @accent2; } }
 
 #contact {
   color: @textcolor;
@@ -167,3 +171,9 @@ h1#draft {
     padding: 6px; }
   input[type="text"] { width: 90%; }
   textarea { height: 125px; width: 95%; } }
+
+
+
+#license { 
+  position: relative;
+  top: 3px; }
