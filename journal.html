@@ -1,0 +1,23 @@
+---
+layout: default
+---
+<section id="posts">
+{% for post in site.posts %}
+{% if post.type == "blog" %}
+  <article class="{{ post.type }}">
+
+    <header>
+      <h2><a href="{{ post.url }}">{{ post.title }}</a></h2>
+      <time datetime="{{ post.date }}">{{ post.date | date: '%B %d, %Y' }}</a></time>
+    </header>
+
+    {% if post.photo %}
+      <p><a href="/photos/{{ post.photo }}.png"><img src="/photos/{{ post.photo }}_preview.png" /></a></p>
+    {% endif %}
+
+    {{ post.content }}
+
+  </article>
+{% endif %}
+{% endfor %}
+</section>
