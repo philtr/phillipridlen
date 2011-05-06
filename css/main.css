@@ -46,4 +46,4 @@ h1#draft{color:#999999;float:left;font-size:200px;line-height:0;margin:150px 0 -
 #contact input[type="text"],#contact textarea{-webkit-border-radius:2px;-moz-border-radius:2px;border-radius:2px;border:1px solid #ddd;font-family:"proxima-nova-1","proxima-nova-2",sans-serif;font-size:14px;padding:6px;}
 #contact input[type="text"]{width:90%;}
 #contact textarea{height:125px;width:95%;}
-#license{position:relative;top:3px;}
+#license,#rss{position:relative;top:3px;}
