@@ -40,8 +40,8 @@ h1#draft{color:#999999;float:left;font-size:200px;line-height:0;margin:150px 0 -
 #post article{padding-bottom:0;}
 .album .cover{float:left;margin-right:28px;}
 .album .music_info{padding:42px 0;}.album .music_info .album_title{font-size:38.5px;}
-.album .artist{line-height:1;}
-.album a{font-weight:bold;text-decoration:none;}
+.album .music_info .artist{line-height:1;}
+.album .music_info a{font-weight:bold;text-decoration:none;}
 .album .review{clear:left;}
 #paginator{float:left;width:100%;}#paginator p{-webkit-border-radius:5px;-moz-border-radius:5px;border-radius:5px;background:#264e59;color:#ffffff;margin-bottom:28px;padding:0px 7px;}#paginator p:hover{background:#e71a5d;}
 #paginator p a{color:#ffffff;text-decoration:none;}

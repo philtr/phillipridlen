@@ -14,4 +14,6 @@ production of mainstream worship music. Refreshingly raw and honest.
 Josh White, formerly of [Telecast](http://www.becrecordings.com/artists/75/Telecast/) and
 current pastor of [Door of Hope](http://www.doorofhopepdx.org) in
 Portland, Oregon, tries his hand at writing meaningful, heartfelt
-worship and succeeds in a huge way. Also available on [vinyl](http://www.zambooie.com/becrecordings/detail.tpl?sku=BEDVINYL006673).
+worship and succeeds in a huge way.
+
+Also available on [vinyl](http://www.zambooie.com/becrecordings/detail.tpl?sku=BEDVINYL006673).
