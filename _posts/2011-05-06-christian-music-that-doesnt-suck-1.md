@@ -1,7 +1,7 @@
 ---
 layout: music
 type: music
-title: | Christian Music that Doesn't Suck &num;1
+title: | Christian Music that Doesn't Suck Vol. 1 (Achor by Josh White)
 artist: Josh White
 artist_url: | http://www.doorofhopepdx.org/music/itunes
 album: Achor
