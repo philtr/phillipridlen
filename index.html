@@ -14,12 +14,26 @@ layout: default
       <p><a href="/photos/{{ post.photo }}.png"><img src="/photos/{{ post.photo }}_preview.png" /></a></p>
     {% endif %}
 
-    {% if post.type == "blog" %}
+    {% case post.type %}
+    {% when 'blog' %}
       <p>{{ post.content | strip_html | truncatewords: 35 }}
       <a href="{{ post.url }}">Read more</a></p>
+    {% when 'music' %}
+      <div class="album">
+        <div class="cover">
+          <a href="{{ post.album_url }}">
+            <img src="/photos/music/{{ post.cover }}.png" />
+          </a>
+        </div>
+        <div class="music_info">
+          <div class="album_title"><a href="{{ post.album_url }}">{{ post.album }}</a></div>
+          <div class="artist"><span class="by">by</span> <a href="{{ post.artist_url }}">{{ post.artist }}</a></div>
+        </div>
+        <div class="review">{{ post.content }}</div>
+      </div>
     {% else %}
       {{ post.content }}
-    {% endif %}
+    {% endcase %}
 
   </article>
 {% endfor %}

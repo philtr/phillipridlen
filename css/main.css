@@ -26,6 +26,7 @@ article.video iframe{height:400px;width:550px;}
 article:before{float:left;margin-left:-48px;margin-top:8px;}
 article.blog:before{content:url('/img/blog.png');}
 article.link:before{content:url('/img/link.png');}
+article.music:before{content:url('/img/music.png');}
 article.photo:before{content:url('/img/photo.png');}
 article.quote:before{content:url('/img/quote.png');}
 article.video:before{content:url('/img/video.png');}
@@ -37,6 +38,11 @@ h1#title .f{color:#777777;font-family:"Palatino","Palatino Linotype","URW Pallad
 h1#draft{color:#999999;float:left;font-size:200px;line-height:0;margin:150px 0 -200px -525px;-moz-text-shadow:-3px 2px 1px #ffffff;-webkit-text-shadow:-3px 2px 1px #ffffff;text-shadow:-3px 2px 1px #ffffff;text-transform:uppercase;-webkit-transform:rotate(-90deg);-moz-transform:rotate(-90deg);transform:rotate(-90deg);}
 #posts{border-bottom:1px solid #e6e6e6;margin-bottom:28px;padding-bottom:28px;padding-bottom:0;}
 #post article{padding-bottom:0;}
+.album .cover{float:left;margin-right:28px;}
+.album .music_info{padding:42px 0;}.album .music_info .album_title{font-size:38.5px;}
+.album .artist{line-height:1;}
+.album a{font-weight:bold;text-decoration:none;}
+.album .review{clear:left;}
 #paginator{float:left;width:100%;}#paginator p{-webkit-border-radius:5px;-moz-border-radius:5px;border-radius:5px;background:#264e59;color:#ffffff;margin-bottom:28px;padding:0px 7px;}#paginator p:hover{background:#e71a5d;}
 #paginator p a{color:#ffffff;text-decoration:none;}
 #paginator .older{float:left;}

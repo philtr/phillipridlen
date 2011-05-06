@@ -1,0 +1,15 @@
+---
+layout: post
+---
+<div class="album">
+  <div class="cover">
+    <a href="{{ page.album_url }}">
+      <img src="/photos/music/{{ page.cover }}.png" />
+    </a>
+  </div>
+  <div class="music_info">
+    <div class="album_title"><a href="{{ page.album_url }}">{{ page.album }}</a></div>
+    <div class="artist"><span class="by">by</span> <a href="{{ page.artist_url }}">{{ page.artist }}</a></div>
+  </div>
+  <div class="review">{{ content }}</div>
+</div>
