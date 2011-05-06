@@ -3,7 +3,7 @@
 .dividerBottom{border-bottom:1px solid #e6e6e6;margin-bottom:26px;padding-bottom:26px;}
 .dividerTop{border-top:1px solid #e6e6e6;margin-top:26px;padding-top:26px;}
 html{margin:0;padding:0;}
-body{background:#ffffff;color:#555555;font-family:"proxima-nova-1","proxima-nova-2",sans-serif;font-size:13px;line-height:29.25px;margin:39px auto;max-width:600px;}
+body{background:#ffffff;color:#555555;font-family:"proxima-nova-1","proxima-nova-2",sans-serif;font-size:13px;line-height:29.25px;margin:39px auto;max-width:550px;}
 h1{font-family:"proxima-nova-1","proxima-nova-2",sans-serif;line-height:1;font-size:35.75px;}h1 a{text-decoration:none;}
 h2{font-family:"proxima-nova-1","proxima-nova-2",sans-serif;line-height:1;font-size:23.9525px;}h2 a{text-decoration:none;}
 h3{font-family:"proxima-nova-1","proxima-nova-2",sans-serif;line-height:1;font-size:17.875px;}h3 a{text-decoration:none;}
@@ -55,4 +55,3 @@ h1#draft{color:#999999;float:left;font-size:200px;line-height:0;margin:150px 0 -
 #license,#rss{position:relative;top:3px;}
 #archive{border-bottom:1px solid #e6e6e6;margin-bottom:26px;padding-bottom:26px;float:left;width:100%;}#archive dt{clear:left;float:left;}
 #archive dd{float:left;margin-left:1ex;}
-#search{float:right;}
