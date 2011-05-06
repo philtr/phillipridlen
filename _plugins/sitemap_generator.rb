@@ -103,6 +103,8 @@ module Jekyll
 
   class SitemapGenerator < Generator
 
+    safe true
+
     # Valid values allowed by sitemap.xml spec for change frequencies
     VALID_CHANGE_FREQUENCY_VALUES = ["always", "hourly", "daily", "weekly",
       "monthly", "yearly", "never"]
