@@ -108,8 +108,6 @@ footer {
   clear: both; 
   a { text-decoration: none; } }
 
-#search { text-align: center; }
-
 h1#title {
   font-size: @bigheading * .6;
   margin: @padding*2 0 @padding*3 0;
@@ -121,8 +119,8 @@ h1#title {
     display: block;
     font-size: @bigheading * 1.75;
     letter-spacing: -2px;
-    margin-bottom: 10px;
-    padding-bottom: 4px; }
+    margin-bottom: @basefont;
+    padding-bottom: @basefont; }
   .f {
     color: @accent2;
     font-family: @serif;
@@ -195,3 +193,11 @@ h1#draft {
 #license, #rss { 
   position: relative;
   top: 3px; }
+  
+#archive { .dividerBottom;
+  float: left;
+  width: 100%;
+  dt { clear: left; float: left; }
+  dd { float: left; margin-left: 1ex; } }
+  
+#search { float: right; }
