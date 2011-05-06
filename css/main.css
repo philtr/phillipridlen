@@ -39,7 +39,7 @@ h1#draft{color:#999999;float:left;font-size:200px;line-height:0;margin:150px 0 -
 #posts{border-bottom:1px solid #e6e6e6;margin-bottom:28px;padding-bottom:28px;padding-bottom:0;}
 #post article{padding-bottom:0;}
 .album .cover{float:left;margin-right:28px;}
-.album .music_info{padding:42px 0;}.album .music_info .album_title{font-size:38.5px;}
+.album .music_info{padding:56px 0;}.album .music_info .album_title{font-size:38.5px;}
 .album .music_info .artist{line-height:1;}
 .album .music_info a{font-weight:bold;text-decoration:none;}
 .album .review{clear:left;}
