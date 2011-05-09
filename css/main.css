@@ -47,7 +47,7 @@ h1#draft{color:#999999;float:left;font-size:200px;line-height:0;margin:150px 0 -
 #paginator p a{color:#ffffff;text-decoration:none;}
 #paginator .older{float:left;}
 #paginator .newer{float:right;}
-#contact{-webkit-border-radius:5px 5px 0px 0px;-moz-border-radius:5px 5px 0px 0px;border-radius:5px 5px 0px 0px;background:#FFE;color:#555555;display:none;font-family:"proxima-nova-1","proxima-nova-2",sans-serif;font-style:normal;font-weight:bold;padding:13px;}#contact table{width:100%;}
+#contact{-webkit-border-radius:5px 5px 0px 0px;-moz-border-radius:5px 5px 0px 0px;border-radius:5px 5px 0px 0px;background:#FFE;border:1px solid #eed;color:#555555;display:none;font-family:"proxima-nova-1","proxima-nova-2",sans-serif;font-style:normal;font-weight:bold;padding:13px;}#contact table{width:100%;}
 #contact label{line-height:1;}
 #contact input[type="text"],#contact textarea{-webkit-border-radius:2px;-moz-border-radius:2px;border-radius:2px;border:1px solid #ddd;font-family:"proxima-nova-1","proxima-nova-2",sans-serif;font-size:13px;padding:6px;}
 #contact input[type="text"]{width:90%;}
@@ -55,3 +55,4 @@ h1#draft{color:#999999;float:left;font-size:200px;line-height:0;margin:150px 0 -
 #license,#rss{position:relative;top:3px;}
 #archive{border-bottom:1px solid #e6e6e6;margin-bottom:26px;padding-bottom:26px;float:left;width:100%;}#archive dt{clear:left;float:left;}
 #archive dd{float:left;margin-left:1ex;}
+#notice{-webkit-border-radius:5px;-moz-border-radius:5px;border-radius:5px;background:#ffe;border:1px solid #eed;display:none;padding:13px;color:#555555;}
