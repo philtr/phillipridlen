@@ -14,6 +14,10 @@ body {
   margin: @basefont*3 auto;
   max-width: 550px;}
   
+header {
+  a { text-decoration: none; }
+}
+
 h1 { .heading; font-size: @bigheading; }
 h2 { .heading; font-size: @bigheading * .67; }
 h3 { .heading; font-size: @bigheading * .5; }
@@ -108,6 +112,10 @@ footer {
   clear: both; 
   a { text-decoration: none; } }
 
+img#pr {
+  position: relative;
+  top: 6px; }
+
 h1#title {
   font-size: @bigheading * .6;
   margin: @padding*2 0 @padding*3 0;
@@ -115,7 +123,7 @@ h1#title {
   img { float: left; margin-left: -100px; }
   a:hover { background-color: @bgcolor; }
   .p { .dividerBottom;
-    color: @textcolor;
+    color: @linkcolor;
     display: block;
     font-size: @bigheading * 1.75;
     letter-spacing: -2px;

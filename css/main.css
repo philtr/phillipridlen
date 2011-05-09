@@ -4,6 +4,7 @@
 .dividerTop{border-top:1px solid #e6e6e6;margin-top:26px;padding-top:26px;}
 html{margin:0;padding:0;}
 body{background:#ffffff;color:#555555;font-family:"proxima-nova-1","proxima-nova-2",sans-serif;font-size:13px;line-height:29.25px;margin:39px auto;max-width:550px;}
+header a{text-decoration:none;}
 h1{font-family:"proxima-nova-1","proxima-nova-2",sans-serif;line-height:1;font-size:35.75px;}h1 a{text-decoration:none;}
 h2{font-family:"proxima-nova-1","proxima-nova-2",sans-serif;line-height:1;font-size:23.9525px;}h2 a{text-decoration:none;}
 h3{font-family:"proxima-nova-1","proxima-nova-2",sans-serif;line-height:1;font-size:17.875px;}h3 a{text-decoration:none;}
@@ -31,9 +32,10 @@ article.photo:before{content:url('/img/photo.png');}
 article.quote:before{content:url('/img/quote.png');}
 article.video:before{content:url('/img/video.png');}
 footer{font-family:"proxima-nova-1","proxima-nova-2",sans-serif;font-size:13px;clear:both;}footer a{text-decoration:none;}
+img#pr{position:relative;top:6px;}
 h1#title{font-size:21.45px;margin:52px 0 78px 0;text-align:center;}h1#title img{float:left;margin-left:-100px;}
 h1#title a:hover{background-color:#ffffff;}
-h1#title .p{border-bottom:1px solid #e6e6e6;margin-bottom:26px;padding-bottom:26px;color:#555555;display:block;font-size:62.5625px;letter-spacing:-2px;margin-bottom:13px;padding-bottom:13px;}
+h1#title .p{border-bottom:1px solid #e6e6e6;margin-bottom:26px;padding-bottom:26px;color:#264e59;display:block;font-size:62.5625px;letter-spacing:-2px;margin-bottom:13px;padding-bottom:13px;}
 h1#title .f{color:#777777;font-family:"Palatino","Palatino Linotype","URW Palladio L",serif;font-size:14.3px;font-style:italic;font-weight:100;text-transform:lowercase;}
 h1#draft{color:#999999;float:left;font-size:200px;line-height:0;margin:150px 0 -200px -525px;-moz-text-shadow:-3px 2px 1px #ffffff;-webkit-text-shadow:-3px 2px 1px #ffffff;text-shadow:-3px 2px 1px #ffffff;text-transform:uppercase;-webkit-transform:rotate(-90deg);-moz-transform:rotate(-90deg);transform:rotate(-90deg);}
 #posts{border-bottom:1px solid #e6e6e6;margin-bottom:26px;padding-bottom:26px;padding-bottom:0;}
