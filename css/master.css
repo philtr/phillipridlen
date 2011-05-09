@@ -1,7 +1,7 @@
 html {
-  background: #EAECDF url('/images/bg.jpg') top center no-repeat;
-  color: #5C6058;
-  font: 300 14px/18px "calluna-1","calluna-2","Times","Times New Roman",serif;
+  background: #FFF;
+  color: #555;
+  font: 300 14px/18px "chaparral-pro-1", "chaparral-pro-2", serif;
   height: 100%;
   margin: 0;
   width: 100%; }
@@ -13,47 +13,45 @@ html {
 
     a {
       text-decoration: none;
-      color: #2F4F4F;
+      color: #264E59;
       font-weight: bold; }
     a:hover { color: #3A7878; }
-    
-    .amp {
-      font-style: italic;
-      font-family: Baskerville,"Palatino Linotype","calluna-1","calluna-2",serif; }
 
     h1 {
-      color: #2F4F4F;
+      color: #264E59;
       text-indent: 0;
       font-family: "bello-pro-1","bello-pro-2",sans-serif;
-      font-size: 70px;
+      font-size: 96px;
       line-height: 1;
-      margin: 0;
-      text-shadow: 2px 2px 1px white; }
-    
+      margin: 0; }
+
     #logo {
       float: right;
       position: relative;
       top: -10px; }
-    
+
     #intro {
-      font-size: 32px;
-      line-height: 48px;
-      margin-top: 75px;
-      text-shadow: 1px 1px 0px white; }
-      
-    label { 
+      font-size: 34px;
+      line-height: 1.75;
+      margin-top: 75px; }
+
+    label {
       clear: left;
       display: block;
       float: left;
       font-size: 18px;
-      width: 150px; }      
+      width: 150px; }
     input, textarea, button {
-      font-family: "calluna-1","calluna-2","Times","Times New Roman",serif; 
-      font-size: 18px; }
+      float: left;
+      font-family: "chaparral-pro-1", "chaparral-pro-2", serif;
+      font-size: 18px;
+      margin-bottom: 1.5em; }
     textarea { height: 300px; width: 600px; }
     form p { margin: 1em 0 0 0; }
     form p.actions { margin: 0 0 0 150px;}
     button {
+      clear: both;
+      float: left;
       padding: 5px 10px 0 10px;
       color: #5C6058;
       cursor: pointer;
@@ -64,14 +62,12 @@ html {
       background: #F4F4F4;
       filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0,startColorstr='#F4F4F4',endColorstr='#EAECDF');
       background: -webkit-gradient(linear,left top,left bottom,from(#F4F4F4),to(#EAECDF));
-      background: -moz-linear-gradient(top,#F4F4F4,#EAECDF);
-      text-shadow: 1px 1px 0 white; }
-    
+      background: -moz-linear-gradient(top,#F4F4F4,#EAECDF); }
+
     footer {
       clear: left;
-      font-size: 13px;
-      margin-top: 175px;
-      text-shadow: 1px 1px 0px white; }
+      font-size: 15px;
+      margin-top: 125px; }
     footer a { font-weight: normal;}
     footer ul,footer li {
       list-style: none;
