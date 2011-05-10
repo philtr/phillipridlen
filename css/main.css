@@ -3,7 +3,7 @@
 .dividerBottom{border-bottom:1px solid #e6e6e6;margin-bottom:26px;padding-bottom:26px;}
 .dividerTop{border-top:1px solid #e6e6e6;margin-top:26px;padding-top:26px;}
 html{margin:0;padding:0;}
-body{background:#ffffff;color:#555555;font-family:"proxima-nova-1","proxima-nova-2",sans-serif;font-size:13px;line-height:32.5px;margin:39px auto;max-width:550px;}
+body{background:#ffffff;color:#555555;font-family:"proxima-nova-1","proxima-nova-2",sans-serif;font-size:13px;line-height:32.5px;margin:39px auto;max-width:550px;padding:0 20px 0 60px;}
 header a{text-decoration:none;}
 h1{font-family:"proxima-nova-1","proxima-nova-2",sans-serif;line-height:1;font-size:35.75px;}h1 a{text-decoration:none;}
 h2{font-family:"proxima-nova-1","proxima-nova-2",sans-serif;line-height:1;font-size:23.9525px;}h2 a{text-decoration:none;}
@@ -23,6 +23,7 @@ article p:last-child{margin-bottom:0;}
 article:last-child{border-bottom:none;margin-bottom:0;}
 article aside{border-top:1px solid #e6e6e6;margin-top:26px;padding-top:26px;border-bottom:1px solid #e6e6e6;margin-bottom:26px;padding-bottom:26px;color:#888888;font-family:"Palatino","Palatino Linotype" "URW Palladio L",serif;font-style:italic;font-weight:100;}
 article aside+aside{border-top:none;margin-top:0;padding-top:0;}
+article.photo img{width:100%;}
 article.video iframe{height:400px;width:550px;}
 article:before{float:left;margin-left:-48px;margin-top:8px;}
 article.blog:before{content:url('/img/blog.png');}

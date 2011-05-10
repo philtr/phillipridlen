@@ -12,7 +12,8 @@ body {
   font-size: @basefont;
   line-height: @lineheight;
   margin: @basefont*3 auto;
-  max-width: 550px;}
+  max-width: 550px;
+  padding: 0 20px 0 60px; }
   
 header {
   a { text-decoration: none; }
@@ -92,6 +93,8 @@ article { .dividerBottom;
     margin-top: 0;
     padding-top: 0; }
     
+  &.photo {
+    img { width: 100%; } }
   &.video {
     iframe { height: 400px; width: 550px; }}
     
