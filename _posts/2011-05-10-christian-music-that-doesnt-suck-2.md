@@ -4,9 +4,6 @@ layout: music
 type: music
 
 title: Christian Music that Doesn't Suck Vol. 2 (Beautiful Things by Gungor)
-date: 2011-05-15
-
-draft: true
 
 artist: Gungor
 album: Beautiful Things
