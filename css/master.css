@@ -8,8 +8,8 @@ html {
 
   body {
     margin: 0 auto;
-    width: 850px;
-    padding-top: 75px; }
+    max-width: 850px;
+    padding: 75px 5% 0 5%; }
 
     a {
       text-decoration: none;
@@ -73,3 +73,11 @@ html {
       list-style: none;
       display: inline-block;
       padding: 0 3px 0 0; }
+
+@media all and (max-width: 700px) {
+  h1 { font-size: 60px; }
+  #intro {
+    font-size: 22px;
+    margin-top: 25px; }
+  footer { margin-top: 25px;}
+}
