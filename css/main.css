@@ -46,7 +46,7 @@ h1#draft{color:#999999;float:left;font-size:200px;line-height:0;margin:150px 0 -
 .album .music_info .artist{line-height:1;}
 .album .music_info a{font-weight:bold;text-decoration:none;}
 .album .review{clear:left;}
-#paginator{float:left;font-family:"proxima-nova-1","proxima-nova-2",sans-serif;padding-bottom:26px;width:100%;}#paginator p{-webkit-border-radius:5px;-moz-border-radius:5px;border-radius:5px;background:#264e59;color:#ffffff;margin-bottom:26px;padding:0px 7px;}#paginator p:hover{background:#e71a5d;}
+#paginator{float:left;font-family:"proxima-nova-1","proxima-nova-2",sans-serif;padding-bottom:26px;width:100%;}#paginator p{-webkit-border-radius:5px;-moz-border-radius:5px;border-radius:5px;font-family:"bello-pro-1","bello-pro-2","proxima-nova-1","proxima-nova-2",sans-serif;background:#264e59;color:#ffffff;margin-bottom:26px;padding:0px 7px;}#paginator p:hover{background:#e71a5d;}
 #paginator p a{color:#ffffff;text-decoration:none;}
 #paginator .older{float:left;}
 #paginator .newer{float:right;}
