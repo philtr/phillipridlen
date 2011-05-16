@@ -1,7 +1,7 @@
 html {
   background: #FFF;
   color: #555;
-  font: 300 14px/18px "chaparral-pro-1", "chaparral-pro-2", serif;
+  font: 300 14px/18px "proxima-nova-1","proxima-nova-2",sans-serif;
   height: 100%;
   margin: 0;
   width: 100%; }
@@ -14,7 +14,7 @@ html {
     a {
       text-decoration: none;
       color: #264E59;
-      font-weight: bold; }
+      font-weight: 500; }
     a:hover { color: #3A7878; }
 
     h1 {
@@ -32,6 +32,7 @@ html {
 
     #intro {
       font-size: 34px;
+      font-weight: 100;
       line-height: 1.75;
       margin-top: 75px; }
 
@@ -43,7 +44,7 @@ html {
       width: 150px; }
     input, textarea, button {
       float: left;
-      font-family: "chaparral-pro-1", "chaparral-pro-2", serif;
+      font-family: "proxima-nova-1","proxima-nova-2", serif;
       font-size: 18px;
       margin-bottom: 1.5em; }
     textarea { height: 300px; width: 600px; }
