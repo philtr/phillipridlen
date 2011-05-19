@@ -128,17 +128,20 @@ h1#title {
   .p { .dividerBottom;
     color: @linkcolor;
     display: block;
-    font-size: @bigheading * 1.75;
-    letter-spacing: -2px;
-    margin-bottom: @basefont;
-    padding-bottom: @basefont; }
+    font-size: @bigheading * 2;
+    font-weight: 700;
+    letter-spacing: -4px;
+    margin-bottom: @basefont - 2px;
+    padding-bottom: @basefont - 4px;
+    text-transform: uppercase; }
   .f {
     color: @accent2;
     font-family: @serif;
     font-size: @bigheading * .4;
     font-style: italic;
     font-weight: 100;
-    text-transform: lowercase; } }
+    text-transform: lowercase;
+    .a { color: @accent2; } } }
     
 h1#draft {
   color: @accent1;
@@ -173,7 +176,6 @@ h1#draft {
   padding-bottom: @padding;
   width: 100%;
   p { .rounded-corners(5px);
-    font-family: @fancy;
     background: @linkcolor;
     color: @bgcolor;
     margin-bottom: @padding;
