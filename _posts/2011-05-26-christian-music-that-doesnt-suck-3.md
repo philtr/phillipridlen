@@ -4,9 +4,6 @@ layout: music
 type: music
 
 title: Christian Music that Doesn't Suck Vol. 3 (Flags by Brooke Fraser)
-date: 2011-05-12
-
-draft: true
 
 artist: Brooke Fraser
 artist_url: | http://www.brookefraser.com/
@@ -21,7 +18,7 @@ but Fraser's work can be heard in churches across the country. She has
 written beautiful congregational songs such as [Hosanna][hosanna]
 (YouTube) for [Hillsong Church][hillsong] in Australia.
 
-[Brian Palmer of Glide Magazine says:][glide]
+[Brian Palmer of _Glide Magazine_ says:][glide]
 
 > Brooke Fraser’s third release, _Flags_, is a wonder. From the
 > stunning lyrical imagery throughout to the impressive guest vocalists
