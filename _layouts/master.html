@@ -2,28 +2,13 @@
 <html>
   <head>
     <title>Phillip Ridlen</title>
-    <link rel="stylesheet" href="/css/master.css" type="text/css" media="screen" charset="utf-8">
-    <script type="text/javascript" src="http://use.typekit.com/cak6cdh.js"></script>
-    <script type="text/javascript">try{Typekit.load();}catch(e){}</script>
+    {% include libraries.html %}
   </head>
   <body>
     <header>
-      <div id="logotype">
-        <h1><a href="/">Phillip Ridlen</a></h1>
-      </div>
+      {% include logotype %}
       </div>
       {{ content }}
     </header>
-    <footer>
-      <p>Copyright &copy; 2011 Phillip Ridlen.</p>
-      <ul>
-          <li><a href="http://blog.phillipridlen.com">blog</a></li>
-        / <li><a href="http://github.com/philtr">github</a></li>
-        / <li><a href="http://twitter.com/philtr">twitter</a></li>
-        / <li><a href="http://forrst.me/philtr">forrst</a></li>
-        / <li><a href="http://linkedin.com/in/philtr">linkedin</a></li>
-      </ul>
-      {% include coderwall.html %}
-    </footer>
   </body>
 </html>
