@@ -5,10 +5,10 @@
     {% include libraries.html %}
   </head>
   <body>
-    <header>
-      {% include logotype %}
-      </div>
-      {{ content }}
-    </header>
+    {% include header.html %}
+
+    {{ content }}
+
+    {% include footer.html %}
   </body>
 </html>
