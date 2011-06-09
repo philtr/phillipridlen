@@ -25,11 +25,6 @@ html {
       line-height: 1;
       margin: 0; }
 
-    #logo {
-      float: right;
-      position: relative;
-      top: -10px; }
-
     #intro {
       font-size: 34px;
       font-weight: 100;
