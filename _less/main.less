@@ -222,3 +222,12 @@ h1#draft {
   display: none;
   padding: @basefont;
   color: @textcolor; }
+  
+@media all and (max-width: 700px) {
+  #header-main-inner {
+    padding: 0 20px;  }
+  section#content {
+    padding: 0 20px; }
+  article::before {
+    display: none; }
+}

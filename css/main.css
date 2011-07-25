@@ -58,3 +58,4 @@ h1#draft{color:#999999;float:left;font-size:200px;line-height:0;margin:150px 0 -
 #archive{border-bottom:1px solid #e6e6e6;margin-bottom:28px;padding-bottom:28px;float:left;width:100%;}#archive dt{clear:left;float:left;}
 #archive dd{float:left;margin-left:1ex;}
 #notice{-webkit-border-radius:5px;-moz-border-radius:5px;border-radius:5px;background:#ffe;border:1px solid #eed;display:none;padding:14px;color:#555555;}
+@media all and (max-width: 700px){#header-main-inner{padding:0 20px;} section#content{padding:0 20px;} article::before{display:none;}}
