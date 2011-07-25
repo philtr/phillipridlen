@@ -20,7 +20,9 @@ header {
   &#header-main {
     background: @linkcolor;
     color: @bgcolor;
-    height: 35px;
+    height: 25px;
+    line-height: 1;
+    padding-top: 10px;
     a { color: @bgcolor; }
     #home { 
       font-family: @fancy;
@@ -30,11 +32,11 @@ header {
     #header-main-inner { 
       max-width: @content-width;
       margin: 0 auto;
-      h1 { 
+      h1 {
         float: right;
         font-size: @basefont * 1.1;
         text-transform: uppercase;
-        margin-top: 10px; } } }
+        margin: 0; } } }
   a { text-decoration: none; }
 }
 

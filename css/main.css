@@ -4,9 +4,9 @@
 .dividerTop{border-top:1px solid #e6e6e6;margin-top:28px;padding-top:28px;}
 html{margin:0;padding:0;}
 body{background:#ffffff;color:#555555;font-family:"proxima-nova-1","proxima-nova-2",sans-serif;font-size:14px;line-height:1.75;margin:0;padding:0;}
-header#header-main{background:#264e59;color:#ffffff;height:35px;}header#header-main a{color:#ffffff;}
+header#header-main{background:#264e59;color:#ffffff;height:25px;line-height:1;padding-top:10px;}header#header-main a{color:#ffffff;}
 header#header-main #home{font-family:"bello-pro-1","bello-pro-2","proxima-nova-1","proxima-nova-2",sans-serif;font-size:15.400000000000002px;float:left;margin-top:3px;}
-header#header-main #header-main-inner{max-width:700px;margin:0 auto;}header#header-main #header-main-inner h1{float:right;font-size:15.400000000000002px;text-transform:uppercase;margin-top:10px;}
+header#header-main #header-main-inner{max-width:700px;margin:0 auto;}header#header-main #header-main-inner h1{float:right;font-size:15.400000000000002px;text-transform:uppercase;margin:0;}
 header a{text-decoration:none;}
 section#content{clear:both;margin:42px auto;max-width:700px;padding:0 20px 0 60px;}
 h1{font-family:"proxima-nova-1","proxima-nova-2",sans-serif;line-height:1;font-size:42px;}h1 a{text-decoration:none;}
