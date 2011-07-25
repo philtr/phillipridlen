@@ -17,19 +17,22 @@ html {
       font-weight: 500; }
     a:hover { color: #3A7878; }
 
+    header, #logotype { width: 100%; }
+
     h1 {
       color: #264E59;
       text-indent: 0;
       font-family: "bello-pro-1","bello-pro-2",sans-serif;
-      font-size: 96px;
+      font-size: 150px;
       line-height: 1;
-      margin: 0; }
+      margin: 0;
+      width: 100%; }
 
     #intro {
       font-size: 32px;
       font-weight: 100;
       line-height: 1.75;
-      margin-top: 75px; }
+      margin-top: 25px; }
 
     label {
       clear: left;
@@ -72,7 +75,6 @@ html {
     footer #coderwall img:hover { opacity: 0.8; }
 
 @media all and (max-width: 700px) {
-  h1 { font-size: 60px; }
   #intro {
     font-size: 22px;
     margin-top: 25px; }
