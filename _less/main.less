@@ -2,6 +2,8 @@
 @import url(fonts.less);
 @import url(mixins.less);
 
+@content-width: 800px;
+
 html { 
   margin: 0; padding: 0; }
 
@@ -11,17 +13,40 @@ body {
   font-family: @copy;
   font-size: @basefont;
   line-height: @lineheight;
-  margin: @basefont*3 auto;
-  max-width: 550px;
-  padding: 0 20px 0 60px; }
+  margin: 0;
+  padding: 0; }
   
 header {
+  &#header-main {
+    background: @linkcolor;
+    color: @bgcolor;
+    height: 35px;
+    a { color: @bgcolor; }
+    #home { 
+      font-family: @fancy;
+      font-size: @basefont * 1.1;
+      float: left;
+      margin-top: 3px; }
+    #header-main-inner { 
+      max-width: @content-width;
+      margin: 0 auto;
+      h1 { 
+        float: right;
+        font-size: @basefont * 1.1;
+        text-transform: uppercase;
+        margin-top: 10px; } } }
   a { text-decoration: none; }
 }
 
+section#content {
+  clear: both;
+  margin: @basefont*3 auto;
+  max-width: @content-width;
+  padding: 0 20px 0 60px; }
+
 h1 { .heading; font-size: @bigheading; }
-h2 { .heading; font-size: @bigheading * .67; }
-h3 { .heading; font-size: @bigheading * .5; }
+h2 { .heading; font-size: @bigheading * .5; }
+h3 { .heading; font-size: @bigheading * .4; }
 
 p { margin: 0 0 @basefont 0; }
 
@@ -71,7 +96,7 @@ article { .dividerBottom;
     color: @accent2;
     display: block;
     font-family: @display;
-    font-size: @bigheading * .5;
+    font-size: @basefont;
     font-weight: 100;
     letter-spacing: 0;
     margin-bottom: @basefont; }
@@ -113,36 +138,11 @@ footer {
   font-family: @sans;
   font-size: @basefont;
   clear: both; 
-  a { text-decoration: none; } }
-
-img#pr {
-  position: relative;
-  top: 6px; }
-
-h1#title {
-  font-size: @bigheading * .6;
-  margin: @padding*2 0 @padding*3 0;
-  text-align: center;
-  img { float: left; margin-left: -100px; }
-  a:hover { background-color: @bgcolor; }
-  .p { .dividerBottom;
-    color: @linkcolor;
-    display: block;
-    font-size: @bigheading * 2;
-    font-weight: 700;
-    letter-spacing: -4px;
-    margin-bottom: @basefont - 2px;
-    padding-bottom: @basefont - 4px;
-    text-transform: uppercase; }
-  .f {
-    color: @accent2;
-    font-family: @serif;
-    font-size: @bigheading * .4;
-    font-style: italic;
-    font-weight: 100;
-    text-transform: lowercase;
-    .a { color: @accent2; } } }
-    
+  a { text-decoration: none; }
+  margin: @basefont*3 auto;
+  max-width: @content-width;
+  padding: 0 20px 0 60px; }
+  
 h1#draft {
   color: @accent1;
   float: left;
