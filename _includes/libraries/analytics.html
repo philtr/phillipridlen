@@ -11,3 +11,12 @@
   })();
 
 </script>
+
+<script>
+  $(function() {
+    $('a.exit').click(function() {
+      _gaq.push(['_trackEvent', 'Exit', 'Link', $(this).html()]);
+    });
+  });
+
+</script>
