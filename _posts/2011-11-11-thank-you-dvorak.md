@@ -8,8 +8,6 @@ date: 2011-05-11
 
 aside: "Thank you, Dvorak!" was originally published on the "Balcom Agency blog":http://balcomagency.com/blog. I have syndicated it here for archival purposes. "Read it on the Balcom blog &raquo;":http://balcomagency.com/phillip/blog/thank-you-dvorak
 
-
-draft: true
 ---
 _Dvorak_. Not exactly a common name.
 
