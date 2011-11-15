@@ -45,7 +45,25 @@ html {
       float: left;
       font-family: "proxima-nova-1","proxima-nova-2", serif;
       font-size: 18px;
-      margin-bottom: 1.5em; }
+      margin-bottom: 1.5em;
+      -webkit-transition: border linear 0.2s, box-shadow linear 0.2s;
+      -moz-transition: border linear 0.2s, box-shadow linear 0.2s;
+      -ms-transition: border linear 0.2s, box-shadow linear 0.2s;
+      -o-transition: border linear 0.2s, box-shadow linear 0.2s;
+      transition: border linear 0.2s, box-shadow linear 0.2s;
+      -webkit-box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1);
+      -moz-box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1);
+      box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1);
+      display: inline-block;
+      padding: 4px;
+      font-size: 13px;
+      line-height: 18px;
+      color: gray;
+      border: 1px solid #CCC;
+      -webkit-border-radius: 3px;
+      -moz-border-radius: 3px;
+      border-radius: 3px; }
+      input[type=text] { width: 270px; }
     textarea { height: 300px; width: 600px; }
     form p { margin: 1em 0 0 0; }
     form p.actions { margin: 0 0 0 150px;}
