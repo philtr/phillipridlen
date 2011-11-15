@@ -89,9 +89,11 @@ html {
         outline: 1px dotted #666; }
 
     footer {
+      color: #999;
       clear: left;
-      font-size: 15px;
-      margin-top: 125px; }
+      font-size: 12px;
+      font-weight: 500;
+      padding: 125px 0 50px 0; }
     footer a { font-weight: normal;}
     footer ul,footer li {
       list-style: none;
@@ -99,9 +101,9 @@ html {
       padding: 0 3px 0 0; }
     footer #coderwall img:hover { opacity: 0.8; }
 
-@media all and (max-width: 700px) {
+@media all and (max-width: 750px) {
   #intro {
     font-size: 22px;
     margin-top: 25px; }
-  footer { margin-top: 25px;}
+  footer { padding-top: 50px;}
 }
