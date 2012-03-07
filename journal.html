@@ -12,7 +12,7 @@ layout: default
     </header>
 
     {% if post.photo %}
-      <p><a href="/photos/{{ post.photo }}.png"><img src="/photos/{{ post.photo }}_preview.png" /></a></p>
+      <p><a href="{{ site.baseurl }}/photos/{{ post.photo }}.png"><img src="{{ site.baseurl }}/photos/{{ post.photo }}_preview.png" /></a></p>
     {% endif %}
 
     {{ post.content }}

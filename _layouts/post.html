@@ -9,7 +9,7 @@ layout: default
     </header>
 
     {% if page.photo %}
-      <p><a href="/photos/{{ page.photo }}.png"><img src="/photos/{{ page.photo }}_preview.png" /></a></p>
+      <p><a href="{{ site.baseurl }}/photos/{{ page.photo }}.png"><img src="{{ site.baseurl }}/photos/{{ page.photo }}_preview.png" /></a></p>
     {% endif %}
 
     {{ content }}
