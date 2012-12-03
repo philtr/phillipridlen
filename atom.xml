@@ -19,7 +19,7 @@ layout: nil
    <title>{{ post.title | xml_escape }}</title>
    <link href="{{ site.url }}{{ post.url }}"/>
    <updated>{{ post.date | date_to_xmlschema }}</updated>
-   <id>http://blog.phillipridlen.com{{ post.id }}</id>
+   <id>{{ site.url }}{{ post.id }}</id>
    <content type="html">
     {% if post.photo %}
       &lt;a href=&quot;{{ site.url }}{{ post.url}}&quot;&gt;&lt;img src=&quot;{{ site.url }}/photos/{{ post.photo }}_preview.png&quot;/&gt;&lt;/a&gt;
