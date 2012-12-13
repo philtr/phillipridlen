@@ -7,8 +7,8 @@ title: Christian Music that Doesn't Suck Vol. 2 (Beautiful Things by Gungor)
 
 artist: Gungor
 album: Beautiful Things
-artist_url: http://www.gungormusic.com/
-album_url: http://itunes.apple.com/us/album/beautiful-things/id353582848
+artist_url: "http://www.gungormusic.com/"
+album_url: "http://itunes.apple.com/us/album/beautiful-things/id353582848"
 cover: gungor_beautifulthings
 
 ---

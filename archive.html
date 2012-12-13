@@ -5,6 +5,6 @@ layout: default
 <dl id="archive">
 {% for post in site.posts %}
   <dt>{{ post.date | date: '%Y.%m.%d' }}</dt>
-  <dd><a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a></dd>
+  <dd><a href="{{ post.url }}">{{ post.title }}</a></dd>
 {% endfor %}
 </dl>

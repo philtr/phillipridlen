@@ -4,7 +4,10 @@ type: blog
 
 title: "Thank you, Dvorak!"
 
-aside: | "Thank you, Dvorak!" was originally published on the "Balcom Agency blog":http://balcomagency.com/blog. I have syndicated it here for archival purposes. "Read it on the Balcom blog &raquo;":http://balcomagency.com/phillip/blog/thank-you-dvorak
+aside: >
+  "Thank you, Dvorak!" was originally published on the "Balcom Agency blog":http://balcomagency.com/blog.
+  I have syndicated it here for archival purposes.
+  "Read it on the Balcom blog &raquo;":http://balcomagency.com/phillip/blog/thank-you-dvorak
 
 ---
 _Dvorak_. Not exactly a common name.

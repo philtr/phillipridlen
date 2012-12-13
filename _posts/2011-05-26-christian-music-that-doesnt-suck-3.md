@@ -3,12 +3,12 @@
 layout: music
 type: music
 
-title: Christian Music that Doesn't Suck Vol. 3 (Flags by Brooke Fraser)
+title: "Christian Music that Doesn't Suck Vol. 3 (Flags by Brooke Fraser)"
 
 artist: Brooke Fraser
-artist_url: | http://www.brookefraser.com/
+artist_url: "http://www.brookefraser.com/"
 album: Flags
-album_url: | http://itunes.apple.com/us/album/flags/id390551037
+album_url: "http://itunes.apple.com/us/album/flags/id390551037"
 cover: brookefraser_flags
 
 ---

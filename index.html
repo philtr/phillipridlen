@@ -6,23 +6,23 @@ layout: default
   <article class="{{ post.type }}">
 
     <header>
-      <h2><a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a></h2>
+      <h2><a href="{{ post.url }}">{{ post.title }}</a></h2>
       <time datetime="{{ post.date }}">{{ post.date | date: '%B %d, %Y' }}</a></time>
     </header>
 
     {% if post.photo %}
-      <p><a href="{{ site.baseurl }}/photos/{{ post.photo }}.png"><img src="{{ site.baseurl }}/photos/{{ post.photo }}_preview.png" /></a></p>
+      <p><a href="/photos/{{ post.photo }}.png"><img src="/photos/{{ post.photo }}_preview.png" /></a></p>
     {% endif %}
 
     {% case post.type %}
     {% when 'blog' %}
       <p>{{ post.content | strip_html | truncatewords: 100 }}
-      <a href="{{ site.baseurl }}{{ post.url }}">Read more</a></p>
+      <a href="{{ post.url }}">Read more</a></p>
     {% when 'music' %}
       <div class="album">
         <div class="cover">
           <a href="{{ post.album_url }}">
-            <img src="{{ site.baseurl }}/photos/music/{{ post.cover }}.png" />
+            <img src="/photos/music/{{ post.cover }}.png" />
           </a>
         </div>
         <div class="music_info">
@@ -39,12 +39,12 @@ layout: default
 {% endfor %}
 </section>
 <section id="paginator">
-{% if paginator.next_page %}<p class="older"><a href="{{ site.baseurl }}/page{{ paginator.next_page }}">&laquo; Older Posts</a></p>{% endif %}
+{% if paginator.next_page %}<p class="older"><a href="/page{{ paginator.next_page }}">&laquo; Older Posts</a></p>{% endif %}
 {% if paginator.previous_page %}
   {% if paginator.previous_page == 1 %}
-    <p class="newer"><a href="{{ site.baseurl }}/">Newer Posts &raquo;</p>
+    <p class="newer"><a href="/">Newer Posts &raquo;</p>
   {% else %}
-    <p class="newer"><a href="{{ site.baseurl }}/page{{ paginator.previous_page }}">Newer Posts &raquo;</p>
+    <p class="newer"><a href="/page{{ paginator.previous_page }}">Newer Posts &raquo;</p>
   {% endif %}
 {% endif %}
 </section>

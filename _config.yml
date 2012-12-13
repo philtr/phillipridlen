@@ -1,4 +1,4 @@
-baseurl: /notes
+base-url: /notes
 markdown: rdiscount
 paginate: 5
 permalink: pretty
@@ -7,7 +7,7 @@ rdiscount:
   extensions: [smart]
 
 title: Phillip's Blog
-tagline: The Notes, Quotes, and Other Miscellany of Phillip T. Ridlen
+tagline: "The Notes, Quotes, and Other Miscellany of Phillip T. Ridlen"
 name: Phillip T. Ridlen
 url: http://phillipridlen.com/notes/
 email: p@rdln.net
