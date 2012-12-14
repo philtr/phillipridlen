@@ -2,49 +2,10 @@
 layout: default
 ---
 <section id="posts">
-{% for post in paginator.posts %}
-  <article class="{{ post.type }}">
-
-    <header>
-      <h2><a href="{{ site.base-url }}{{ post.url }}">{{ post.title }}</a></h2>
-      <time datetime="{{ post.date }}">{{ post.date | date: '%B %d, %Y' }}</a></time>
-    </header>
-
-    {% if post.photo %}
-    <p><a href="{{ site.base-url }}/photos/{{ post.photo }}.png"><img src="{{ site.base-url }}/photos/{{ post.photo }}_preview.png" /></a></p>
-    {% endif %}
-
-    {% case post.type %}
-    {% when 'blog' %}
-      <p>{{ post.content | strip_html | truncatewords: 100 }}
-      <a href="{{ site.base-url }}{{ post.url }}">Read more</a></p>
-    {% when 'music' %}
-      <div class="album">
-        <div class="cover">
-          <a href="{{ site.base-url }}{{ post.album_url }}">
-            <img src="{{ site.base-url }}/photos/music/{{ post.cover }}.png" />
-          </a>
-        </div>
-        <div class="music_info">
-          <div class="album_title"><a href="{{ site.base-url }}{{ post.album_url }}">{{ post.album }}</a></div>
-          <div class="artist"><span class="by">by</span> <a href="{{ site.base-url }}{{ post.artist_url }}">{{ post.artist }}</a></div>
-        </div>
-        <div class="review">{{ post.content }}</div>
-      </div>
-    {% else %}
-      {{ post.content }}
-    {% endcase %}
-
-  </article>
-{% endfor %}
-</section>
-<section id="paginator">
-  {% if paginator.next_page %}<p class="older"><a href="{{ site.base-url }}/page{{ paginator.next_page }}">&laquo; Older Posts</a></p>{% endif %}
-{% if paginator.previous_page %}
-  {% if paginator.previous_page == 1 %}
-    <p class="newer"><a href="/">Newer Posts &raquo;</p>
-  {% else %}
-  <p class="newer"><a href="{{ site.base-url }}/page{{ paginator.previous_page }}">Newer Posts &raquo;</p>
-  {% endif %}
-{% endif %}
+  <dl class="posts">
+    {% for post in site.posts %}
+      <dt>{{ post.date | date: '%b %d %Y' }}</dt>
+      <dd><a href="{{ site.base-url }}{{ post.url }}">{{ post.title }}</a></dd>
+    {% endfor %}
+  </dl>
 </section>
