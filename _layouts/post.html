@@ -8,10 +8,6 @@ layout: default
       <time datetime="{{ page.date }}">{{ page.date | date: '%B %d, %Y' }}</a></time>
     </header>
 
-    {% if page.photo %}
-    <p><a href="{{ site.base-url }}/photos/{{ page.photo }}.png"><img src="{{ site.base-url }}/photos/{{ page.photo }}_preview.png" /></a></p>
-    {% endif %}
-
     {{ content }}
 
     {% if page.aside %}

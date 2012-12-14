@@ -7,17 +7,17 @@
 }
 .code {
   background: #f7f7f7;
-  font-family: "Inconsolata", "Consolas", "Menlo", "Monaco", monospace;
+  font-family: "source-code-pro-1", "source-code-pro-2", "Inconsolata", "Consolas", "Menlo", "Monaco", monospace;
 }
 .dividerBottom {
   border-bottom: 1px solid #e6e6e6;
-  margin-bottom: 28px;
-  padding-bottom: 28px;
+  margin-bottom: 36px;
+  padding-bottom: 36px;
 }
 .dividerTop {
   border-top: 1px solid #e6e6e6;
-  margin-top: 28px;
-  padding-top: 28px;
+  margin-top: 36px;
+  padding-top: 36px;
 }
 .hll {
   background-color: #ffffcc;
@@ -301,35 +301,31 @@ body {
   background: #ffffff;
   color: #555555;
   font-family: "proxima-nova-1", "proxima-nova-2", sans-serif;
-  font-size: 14px;
+  font-size: 18px;
   line-height: 1.75;
-  margin: 0;
+  margin-left: 270px;
+  margin-top: 18px;
   padding: 0;
 }
 header#header-main {
-  background: #264e59;
-  color: #ffffff;
-  height: 25px;
+  color: #888888;
+  left: 36px;
   line-height: 1;
-  padding-top: 10px;
+  margin: 0;
+  position: fixed;
+  top: 18px;
+  width: 216px;
 }
 header#header-main a {
-  color: #ffffff;
-}
-header#header-main #home {
-  font-family: "bello-pro-1", "bello-pro-2", "proxima-nova-1", "proxima-nova-2", sans-serif;
-  font-size: 15.400000000000002px;
-  float: left;
-  margin-top: 3px;
+  color: #888888;
 }
 header#header-main #header-main-inner {
-  max-width: 1000px;
+  max-width: 800px;
   margin: 0 auto;
 }
 header#header-main #header-main-inner h1 {
-  float: right;
-  font-size: 15.400000000000002px;
-  text-transform: uppercase;
+  font-weight: 300;
+  font-size: 150%;
   margin: 0;
 }
 header a {
@@ -337,14 +333,13 @@ header a {
 }
 section#content {
   clear: both;
-  margin: 42px auto;
-  max-width: 1000px;
-  padding: 0 20px 0 60px;
+  margin: 0;
+  max-width: 800px;
 }
 h1 {
   font-family: "proxima-nova-1", "proxima-nova-2", sans-serif;
   line-height: 1;
-  font-size: 42px;
+  font-size: 300%;
 }
 h1 a {
   text-decoration: none;
@@ -352,7 +347,8 @@ h1 a {
 h2 {
   font-family: "proxima-nova-1", "proxima-nova-2", sans-serif;
   line-height: 1;
-  font-size: 21px;
+  font-size: 150%;
+  margin: 0;
 }
 h2 a {
   text-decoration: none;
@@ -360,13 +356,13 @@ h2 a {
 h3 {
   font-family: "proxima-nova-1", "proxima-nova-2", sans-serif;
   line-height: 1;
-  font-size: 16.8px;
+  font-size: 120%;
 }
 h3 a {
   text-decoration: none;
 }
 p {
-  margin: 0 0 14px 0;
+  margin: 0 0 18px 0;
 }
 a {
   -webkit-border-radius: 3px;
@@ -382,19 +378,18 @@ a img {
 }
 pre {
   background: #f7f7f7;
-  font-family: "Inconsolata", "Consolas", "Menlo", "Monaco", monospace;
+  font-family: "source-code-pro-1", "source-code-pro-2", "Inconsolata", "Consolas", "Menlo", "Monaco", monospace;
   -webkit-border-radius: 5px;
   -moz-border-radius: 5px;
   border-radius: 5px;
   border: 1px solid #aaaaaa;
-  max-height: 500px;
   overflow: auto;
   overflow-x: auto;
-  padding: 14px;
+  padding: 18px;
 }
 pre::-webkit-scrollbar {
   height: 5px;
-  margin: 14px;
+  margin: 18px;
   width: 5px;
 }
 pre::-webkit-scrollbar-track {
@@ -411,26 +406,26 @@ pre code {
 }
 code {
   background: #f7f7f7;
-  font-family: "Inconsolata", "Consolas", "Menlo", "Monaco", monospace;
+  font-family: "source-code-pro-1", "source-code-pro-2", "Inconsolata", "Consolas", "Menlo", "Monaco", monospace;
   -webkit-border-radius: 2px;
   -moz-border-radius: 2px;
   border-radius: 2px;
-  font-size: 13px;
+  font-size: 75%;
   padding: 2px;
 }
 blockquote {
   border-left: 1px solid #ddd;
   color: #888888;
-  margin-left: 14px;
-  padding-left: 14px;
+  margin-left: 18px;
+  padding-left: 18px;
 }
 blockquote code {
   font-style: normal;
 }
 article {
   border-bottom: 1px solid #e6e6e6;
-  margin-bottom: 28px;
-  padding-bottom: 28px;
+  margin-bottom: 36px;
+  padding-bottom: 36px;
 }
 article h2 {
   margin-bottom: 0;
@@ -440,10 +435,10 @@ article time {
   color: #777777;
   display: block;
   font-family: "proxima-nova-1", "proxima-nova-2", sans-serif;
-  font-size: 14px;
+  font-size: 18px;
   font-weight: 100;
   letter-spacing: 0;
-  margin-bottom: 14px;
+  margin: 18px 0;
 }
 article p:last-child {
   margin-bottom: 0;
@@ -454,14 +449,12 @@ article:last-child {
 }
 article aside {
   border-top: 1px solid #e6e6e6;
-  margin-top: 28px;
-  padding-top: 28px;
+  margin-top: 36px;
+  padding-top: 36px;
   border-bottom: 1px solid #e6e6e6;
-  margin-bottom: 28px;
-  padding-bottom: 28px;
+  margin-bottom: 36px;
+  padding-bottom: 36px;
   color: #888888;
-  font-family: "Palatino", "Palatino Linotype" "URW Palladio L", serif;
-  font-style: italic;
   font-weight: 100;
 }
 article aside + aside {
@@ -476,72 +469,27 @@ article.video iframe {
   height: 400px;
   width: 550px;
 }
-article:before {
-  float: left;
-  margin-left: -48px;
-  margin-top: 8px;
-}
-article.blog:before {
-  content: url('/notes/img/blog.png');
-}
-article.link:before {
-  content: url('/notes/img/link.png');
-}
-article.music:before {
-  content: url('/notes/img/music.png');
-}
-article.photo:before {
-  content: url('/notes/img/photo.png');
-}
-article.quote:before {
-  content: url('/notes/img/quote.png');
-}
-article.video:before {
-  content: url('/notes/img/video.png');
-}
 footer {
   font-family: "proxima-nova-1", "proxima-nova-2", sans-serif;
-  font-size: 14px;
+  font-size: 18px;
   clear: both;
-  margin: 42px auto;
-  max-width: 1000px;
-  padding: 0 20px 0 60px;
+  max-width: 800px;
 }
 footer a {
   text-decoration: none;
-}
-h1#draft {
-  color: #999999;
-  float: left;
-  font-size: 200px;
-  line-height: 0;
-  margin: 150px 0 -200px -525px;
-  -moz-text-shadow: -3px 2px 1px #ffffff;
-  -webkit-text-shadow: -3px 2px 1px #ffffff;
-  text-shadow: -3px 2px 1px #ffffff;
-  text-transform: uppercase;
-  -webkit-transform: rotate(-90deg);
-  -moz-transform: rotate(-90deg);
-  transform: rotate(-90deg);
-}
-#posts {
-  border-bottom: 1px solid #e6e6e6;
-  margin-bottom: 28px;
-  padding-bottom: 28px;
-  padding-bottom: 0;
 }
 #post article {
   padding-bottom: 0;
 }
 .album .cover {
   float: left;
-  margin-right: 28px;
+  margin-right: 36px;
 }
 .album .music_info {
-  padding: 56px 0;
+  padding: 72px 0;
 }
 .album .music_info .album_title {
-  font-size: 42px;
+  font-size: 300%;
 }
 .album .music_info .artist {
   line-height: 1;
@@ -556,7 +504,7 @@ h1#draft {
 #paginator {
   float: left;
   font-family: "proxima-nova-1", "proxima-nova-2", sans-serif;
-  padding-bottom: 28px;
+  padding-bottom: 36px;
   width: 100%;
 }
 #paginator p {
@@ -565,7 +513,7 @@ h1#draft {
   border-radius: 5px;
   background: #264e59;
   color: #ffffff;
-  margin-bottom: 28px;
+  margin-bottom: 36px;
   padding: 0px 7px;
 }
 #paginator p:hover {
@@ -592,7 +540,7 @@ h1#draft {
   font-family: "proxima-nova-1", "proxima-nova-2", sans-serif;
   font-style: normal;
   font-weight: bold;
-  padding: 14px;
+  padding: 18px;
 }
 #contact table {
   width: 100%;
@@ -607,7 +555,7 @@ h1#draft {
   border-radius: 2px;
   border: 1px solid #ddd;
   font-family: "proxima-nova-1", "proxima-nova-2", sans-serif;
-  font-size: 14px;
+  font-size: 18px;
   padding: 6px;
 }
 #contact input[type="text"] {
@@ -622,20 +570,26 @@ h1#draft {
   position: relative;
   top: 3px;
 }
-#archive {
+dl.posts {
   border-bottom: 1px solid #e6e6e6;
-  margin-bottom: 28px;
-  padding-bottom: 28px;
+  margin-bottom: 36px;
+  padding-bottom: 36px;
   float: left;
+  margin-top: 0;
   width: 100%;
 }
-#archive dt {
+dl.posts dt {
   clear: left;
   float: left;
+  font-weight: 300;
+  width: 126px;
 }
-#archive dd {
+dl.posts dd {
   float: left;
   margin-left: 1ex;
+}
+dl.posts dd a {
+  text-decoration: none;
 }
 #notice {
   -webkit-border-radius: 5px;
@@ -644,20 +598,24 @@ h1#draft {
   background: #ffe;
   border: 1px solid #eed;
   display: none;
-  padding: 14px;
+  padding: 18px;
   color: #555555;
 }
-@media all and (max-width: 700px) {
+@media all and (max-width: 1070px) {
   body {
-    line-height: 1.3125;
+    margin-left: 0;
   }
-  #header-main-inner {
-    padding: 0 20px;
+  header#header-main {
+    padding: 0 36px;
+    position: static;
   }
   section#content {
-    padding: 0 20px;
+    margin-top: 18px;
+    padding: 0 36px;
   }
-  article::before {
-    display: none;
+}
+@media all and (max-width: 800px) {
+  body {
+    font-size: 16px;
   }
 }

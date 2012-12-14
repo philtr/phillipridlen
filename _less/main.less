@@ -3,7 +3,7 @@
 @import url(mixins.less);
 @import url(pygments.less);
 
-@content-width: 1000px;
+@content-width: 800px;
 
 html { 
   margin: 0; padding: 0; }
@@ -14,42 +14,38 @@ body {
   font-family: @copy;
   font-size: @basefont;
   line-height: @lineheight;
-  margin: 0;
+  margin-left: 15 * @basefont;
+  margin-top: @basefont;
   padding: 0; }
   
 header {
   &#header-main {
-    background: @linkcolor;
-    color: @bgcolor;
-    height: 25px;
+    color: @accent4;
+    left: @basefont * 2;
     line-height: 1;
-    padding-top: 10px;
-    a { color: @bgcolor; }
-    #home { 
-      font-family: @fancy;
-      font-size: @basefont * 1.1;
-      float: left;
-      margin-top: 3px; }
+    margin: 0;
+    position: fixed;
+    top: @basefont;
+    width: @basefont * 12;
+    a { color: @accent4; }
     #header-main-inner { 
       max-width: @content-width;
       margin: 0 auto;
       h1 {
-        float: right;
-        font-size: @basefont * 1.1;
-        text-transform: uppercase;
+        font-weight: 300;
+        font-size: 150%; 
         margin: 0; } } }
   a { text-decoration: none; }
 }
 
 section#content {
   clear: both;
-  margin: @basefont*3 auto;
-  max-width: @content-width;
-  padding: 0 20px 0 60px; }
+  margin: 0;
+  max-width: @content-width; }
 
 h1 { .heading; font-size: @bigheading; }
-h2 { .heading; font-size: @bigheading * .5; }
-h3 { .heading; font-size: @bigheading * .4; }
+h2 { .heading; font-size: 150%; margin: 0; }
+h3 { .heading; font-size: 120%; }
 
 p { margin: 0 0 @basefont 0; }
 
@@ -61,7 +57,6 @@ a { .rounded-corners(3px);
     
 pre { .code; .rounded-corners;
   border: 1px solid @textcolor*2;
-  max-height: 500px; 
   overflow: auto;
   overflow-x: auto;
   padding: @basefont;
@@ -80,7 +75,7 @@ pre { .code; .rounded-corners;
     padding: 0; } }
   
 code { .code; .rounded-corners(2px);
-  font-size: @basefont - 1px;
+  font-size: 75%;
   padding: 2px; }
   
 blockquote {
@@ -102,7 +97,7 @@ article { .dividerBottom;
     font-size: @basefont;
     font-weight: 100;
     letter-spacing: 0;
-    margin-bottom: @basefont; }
+    margin: @basefont 0; }
     
   p:last-child { margin-bottom: 0; }
   
@@ -112,8 +107,6 @@ article { .dividerBottom;
     
   aside { .dividerTop; .dividerBottom;
     color: @unimportant; 
-    font-family: @serif;
-    font-style: italic;
     font-weight: 100; }
     
   aside + aside {
@@ -125,42 +118,14 @@ article { .dividerBottom;
     img { width: 100%; } }
   &.video {
     iframe { height: 400px; width: 550px; }}
-    
-  &:before {
-    float: left;
-    margin-left: -48px;
-    margin-top: 8px; }
-  &.blog:before  { content: url('/notes/img/blog.png'); }
-  &.link:before  { content: url('/notes/img/link.png'); }
-  &.music:before  { content: url('/notes/img/music.png'); }
-  &.photo:before { content: url('/notes/img/photo.png'); }
-  &.quote:before { content: url('/notes/img/quote.png'); }
-  &.video:before { content: url('/notes/img/video.png'); }}
-  
+}
+
 footer { 
   font-family: @sans;
   font-size: @basefont;
   clear: both; 
   a { text-decoration: none; }
-  margin: @basefont*3 auto;
-  max-width: @content-width;
-  padding: 0 20px 0 60px; }
-  
-h1#draft {
-  color: @accent1;
-  float: left;
-  font-size: 200px;
-  line-height: 0;
-  margin: 150px 0 -200px -525px;
-  -moz-text-shadow: -3px 2px 1px #fff;
-  -webkit-text-shadow: -3px 2px 1px #fff;
-  text-shadow: -3px 2px 1px #fff;
-  text-transform: uppercase;
-  -webkit-transform: rotate(-90deg);
-  -moz-transform: rotate(-90deg);
-  transform: rotate(-90deg); }
-
-#posts { .dividerBottom; padding-bottom: 0; }
+  max-width: @content-width; }
 
 #post article { padding-bottom: 0; }
 
@@ -213,11 +178,19 @@ h1#draft {
   position: relative;
   top: 3px; }
   
-#archive { .dividerBottom;
+dl.posts { .dividerBottom;
   float: left;
+  margin-top: 0;
   width: 100%;
-  dt { clear: left; float: left; }
-  dd { float: left; margin-left: 1ex; } }
+  dt {
+    clear: left; 
+    float: left;
+    font-weight: 300;
+    width: @basefont * 7; }
+  dd {
+    float: left; 
+    margin-left: 1ex;
+    a { text-decoration: none; } } }
   
 #notice { .rounded-corners(5px);
   background: #ffe;
@@ -225,14 +198,21 @@ h1#draft {
   display: none;
   padding: @basefont;
   color: @textcolor; }
-  
-@media all and (max-width: 700px) {
-  body {
-    line-height: @lineheight*.75  }
-  #header-main-inner {
-    padding: 0 20px;  }
+
+
+@first-breakpoint: @content-width + @basefont*15;
+
+@media all and (max-width: @first-breakpoint) {
+  body { margin-left: 0; }
+  header#header-main {
+    padding: 0 @basefont * 2;
+    position: static; }
   section#content {
-    padding: 0 20px; }
-  article::before {
-    display: none; }
+    margin-top: @basefont;
+    padding: 0 @basefont * 2; }
 }
+
+@media all and (max-width: @content-width) {
+  body { font-size: 16px; }
+}
+
