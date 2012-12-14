@@ -6,8 +6,6 @@ type: blog
 title: "Returning Multiple Formats with Custom Dynamic Error Pages in Rails"
 date: 2012-12-13
 
-draft: true
-
 ---
 
 Yesterday my coworker [Eric][eh] asked me to build out some dynamic
