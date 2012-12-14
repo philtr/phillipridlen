@@ -29,7 +29,7 @@ simple, like this:
 
 {% highlight ruby %}
 # app/controllers/errorrs_controller.rb
-class ErrorsController.rb
+class ErrorsController < ApplicationController
   layout 'error' # only if you want a separate layout for your errors
 
   # 404 Not Found
