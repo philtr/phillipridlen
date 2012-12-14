@@ -4,12 +4,12 @@ layout: default
 <section id="post">
   <article class="{{ page.type }}">
     <header>
-      <h2><a href="{{ page.url }}">{{ page.title }}</a></h2>
+      <h2><a href="{{ site.base-url }}{{ page.url }}">{{ page.title }}</a></h2>
       <time datetime="{{ page.date }}">{{ page.date | date: '%B %d, %Y' }}</a></time>
     </header>
 
     {% if page.photo %}
-      <p><a href="/photos/{{ page.photo }}.png"><img src="/photos/{{ page.photo }}_preview.png" /></a></p>
+    <p><a href="{{ site.base-url }}/photos/{{ page.photo }}.png"><img src="{{ site.base-url }}/photos/{{ page.photo }}_preview.png" /></a></p>
     {% endif %}
 
     {{ content }}
