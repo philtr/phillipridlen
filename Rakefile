@@ -1,4 +1,4 @@
-BASE_URL = '/notes'
+BASE_URL = ''
 
 desc "Run a local server"
 task :serve do
