@@ -32,7 +32,6 @@ header {
     a { color: @accent4; }
     #header-main-inner { 
       max-width: @content-width;
-      margin: 0 auto;
       h1 {
         font-weight: 300;
         font-size: 150%; 
@@ -50,6 +49,7 @@ section#content {
   clear: both;
   margin: 0;
   max-width: @content-width; }
+
 
 h1 { .heading; font-size: @bigheading; }
 h2 { .heading; font-size: 150%; margin: 0; }
@@ -128,12 +128,14 @@ article { .dividerBottom;
     iframe { height: 400px; width: 550px; }}
 }
 
-footer { 
+footer {
   font-family: @sans;
-  font-size: @basefont;
   clear: both; 
   a { text-decoration: none; }
   max-width: @content-width; }
+
+section#intro {
+  margin: 1em 0; }
 
 #post article { padding-bottom: 0; }
 
@@ -187,17 +189,22 @@ footer {
   top: 3px; }
   
 dl.posts { .dividerBottom;
+  @date-width: @basefont * 7;
   float: left;
+  line-height: 1;
   margin-top: 0;
   width: 100%;
   dt {
+    color: @textcolor + #111;
     clear: left; 
     float: left;
+    font-size: 75%;
     font-weight: 300;
-    width: @basefont * 7; }
+     line-height: 1 / 0.75;
+    width: @date-width; }
   dd {
-    float: left; 
-    margin-left: 1ex;
+    margin-left: @date-width;
+    margin-bottom: .75em;
     a { text-decoration: none; } } }
   
 #notice { .rounded-corners(5px);
@@ -213,14 +220,19 @@ dl.posts { .dividerBottom;
 @media all and (max-width: @first-breakpoint) {
   body { margin-left: 0; }
   header#header-main {
-    padding: 0 @basefont * 2;
-    position: static; }
+    float: left;
+    position: static;
+    width: 100%;
+    #header-main-inner { padding: 0 @basefont * 2; }
+    h1 { float: left; }
     .social {
       line-height: 1;
       float: right; } }
   section#content {
     margin-top: @basefont;
     padding: 0 @basefont * 2; }
+  footer {
+    padding: 0 @basefont*2; }
 }
 
 @media all and (max-width: @content-width) {
