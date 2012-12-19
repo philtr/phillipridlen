@@ -1,6 +1,8 @@
 @import url(colors.less);
+@import url(icons.less);
 @import url(fonts.less);
 @import url(mixins.less);
+@import url(form.less);
 @import url(pygments.less);
 
 @content-width: 800px;
@@ -34,7 +36,13 @@ header {
       h1 {
         font-weight: 300;
         font-size: 150%; 
-        margin: 0; } } }
+        margin: 0; } }
+    .social {
+      font-family: "icomoon";
+      font-size: 133%;
+      line-height: @lineheight;
+      a { color: @linkcolor; }
+      a:hover { color: @accent3; } } }
   a { text-decoration: none; }
 }
 
@@ -207,6 +215,9 @@ dl.posts { .dividerBottom;
   header#header-main {
     padding: 0 @basefont * 2;
     position: static; }
+    .social {
+      line-height: 1;
+      float: right; } }
   section#content {
     margin-top: @basefont;
     padding: 0 @basefont * 2; }
