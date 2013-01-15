@@ -8,3 +8,4 @@ end
 task :build do
   `jekyll --base-url #{BASE_URL}`
 end
+
