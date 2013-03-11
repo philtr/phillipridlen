@@ -40,7 +40,7 @@
   content: "\66";
 }
 .heading {
-  font-family: "proxima-nova-1", "proxima-nova-2", sans-serif;
+  font-family: "brandon-grotesque", sans-serif;
   line-height: 1;
 }
 .heading a {
@@ -48,7 +48,7 @@
 }
 .code {
   background: #f7f7f7;
-  font-family: "source-code-pro-1", "source-code-pro-2", "Inconsolata", "Consolas", "Menlo", "Monaco", monospace;
+  font-family: "source-code-pro", "Inconsolata", "Consolas", "Menlo", "Monaco", monospace;
 }
 .dividerBottom {
   border-bottom: 1px solid #e6e6e6;
@@ -427,7 +427,7 @@ html {
 body {
   background: #ffffff;
   color: #555555;
-  font-family: "proxima-nova-1", "proxima-nova-2", sans-serif;
+  font-family: "garamond-premier-pro", "Palatino", "Palatino Linotype" "URW Palladio L", serif;
   font-size: 18px;
   line-height: 1.75;
   margin-left: 270px;
@@ -474,7 +474,7 @@ section#content {
   max-width: 800px;
 }
 h1 {
-  font-family: "proxima-nova-1", "proxima-nova-2", sans-serif;
+  font-family: "brandon-grotesque", sans-serif;
   line-height: 1;
   font-size: 300%;
 }
@@ -482,7 +482,7 @@ h1 a {
   text-decoration: none;
 }
 h2 {
-  font-family: "proxima-nova-1", "proxima-nova-2", sans-serif;
+  font-family: "brandon-grotesque", sans-serif;
   line-height: 1;
   font-size: 150%;
   margin: 0;
@@ -491,7 +491,7 @@ h2 a {
   text-decoration: none;
 }
 h3 {
-  font-family: "proxima-nova-1", "proxima-nova-2", sans-serif;
+  font-family: "brandon-grotesque", sans-serif;
   line-height: 1;
   font-size: 120%;
 }
@@ -515,7 +515,7 @@ a img {
 }
 pre {
   background: #f7f7f7;
-  font-family: "source-code-pro-1", "source-code-pro-2", "Inconsolata", "Consolas", "Menlo", "Monaco", monospace;
+  font-family: "source-code-pro", "Inconsolata", "Consolas", "Menlo", "Monaco", monospace;
   -webkit-border-radius: 5px;
   -moz-border-radius: 5px;
   border-radius: 5px;
@@ -543,7 +543,7 @@ pre code {
 }
 code {
   background: #f7f7f7;
-  font-family: "source-code-pro-1", "source-code-pro-2", "Inconsolata", "Consolas", "Menlo", "Monaco", monospace;
+  font-family: "source-code-pro", "Inconsolata", "Consolas", "Menlo", "Monaco", monospace;
   -webkit-border-radius: 2px;
   -moz-border-radius: 2px;
   border-radius: 2px;
@@ -571,7 +571,7 @@ article h2 {
 article time {
   color: #777777;
   display: block;
-  font-family: "proxima-nova-1", "proxima-nova-2", sans-serif;
+  font-family: "brandon-grotesque", sans-serif;
   font-size: 18px;
   font-weight: 100;
   letter-spacing: 0;
@@ -607,7 +607,7 @@ article.video iframe {
   width: 550px;
 }
 footer {
-  font-family: "proxima-nova-1", "proxima-nova-2", sans-serif;
+  font-family: "brandon-grotesque", sans-serif;
   clear: both;
   max-width: 800px;
 }
@@ -642,7 +642,7 @@ section#intro {
 }
 #paginator {
   float: left;
-  font-family: "proxima-nova-1", "proxima-nova-2", sans-serif;
+  font-family: "brandon-grotesque", sans-serif;
   padding-bottom: 36px;
   width: 100%;
 }
@@ -676,7 +676,7 @@ section#intro {
   border: 1px solid #eed;
   color: #555555;
   display: none;
-  font-family: "proxima-nova-1", "proxima-nova-2", sans-serif;
+  font-family: "brandon-grotesque", sans-serif;
   font-style: normal;
   font-weight: bold;
   padding: 18px;
@@ -693,7 +693,7 @@ section#intro {
   -moz-border-radius: 2px;
   border-radius: 2px;
   border: 1px solid #ddd;
-  font-family: "proxima-nova-1", "proxima-nova-2", sans-serif;
+  font-family: "garamond-premier-pro", "Palatino", "Palatino Linotype" "URW Palladio L", serif;
   font-size: 18px;
   padding: 6px;
 }
