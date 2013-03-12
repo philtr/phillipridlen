@@ -427,8 +427,9 @@ html {
 body {
   background: #ffffff;
   color: #555555;
-  font-family: "garamond-premier-pro", "Palatino", "Palatino Linotype" "URW Palladio L", serif;
+  font-family: "brandon-grotesque", sans-serif;
   font-size: 18px;
+  font-weight: 200;
   line-height: 1.75;
   margin-left: 270px;
   margin-top: 18px;
@@ -454,9 +455,10 @@ header#header-main #header-main-inner {
   max-width: 800px;
 }
 header#header-main #header-main-inner h1 {
-  font-weight: 300;
+  font-weight: 700;
   font-size: 150%;
   margin: 0;
+  -webkit-font-smoothing: antialiased;
 }
 header#header-main .social {
   font-family: "icomoon";
@@ -697,7 +699,7 @@ section#intro {
   -moz-border-radius: 2px;
   border-radius: 2px;
   border: 1px solid #ddd;
-  font-family: "garamond-premier-pro", "Palatino", "Palatino Linotype" "URW Palladio L", serif;
+  font-family: "brandon-grotesque", sans-serif;
   font-size: 18px;
   padding: 6px;
 }
