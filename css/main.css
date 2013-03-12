@@ -699,6 +699,8 @@ dl.posts dd a {
   }
   header#header-main h1 {
     float: left;
+    font-size: 100%;
+    margin-top: 3px;
   }
   header#header-main .social {
     line-height: 1;
