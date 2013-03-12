@@ -2,7 +2,6 @@
 @import url(icons.less);
 @import url(fonts.less);
 @import url(mixins.less);
-@import url(form.less);
 @import url(pygments.less);
 
 @content-width: 800px;
@@ -170,25 +169,43 @@ section#intro {
   .newer { float: right; }
 }
 
-#contact { .rounded-corners(5px 5px 0px 0px);
+#contact { 
+  .rounded-corners(5px);
   background: #FFE;
   border: 1px solid #eed;
   color: @textcolor;
   display: none;
   font-family: @sans;
   font-style: normal;
-  font-weight: bold;
+  font-weight: 200;
   padding: @basefont;
   table { width: 100%; }
-  label { 
+  label {
     line-height: 1 }
-  input[type="text"], textarea { .rounded-corners(2px);
+  input[type="text"], textarea {
+    .rounded-corners(2px);
     border: 1px solid #ddd;
+    -webkit-box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1);
+    -moz-box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1);
+    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1);
+    color: @textcolor;
     font-family: @copy;
     font-size: @basefont;
+    font-weight: 200;
     padding: 6px; }
   input[type="text"] { width: 90%; }
   textarea { height: 125px; width: 95%; } }
+  input[type="submit"] {
+    .rounded-corners(2px);
+    background: @linkcolor;
+    border: none;
+    color: @bgcolor;
+    cursor: pointer;
+    font-family: @sans;
+    font-size: @basefont;
+    padding: 10px 20px;
+    &:hover { background-color: @linkcolor + #111; }
+  }
 
 #license, #rss { 
   position: relative;

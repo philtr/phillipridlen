@@ -60,92 +60,6 @@
   margin-top: 36px;
   padding-top: 36px;
 }
-label {
-  clear: left;
-  display: block;
-  float: left;
-  font-size: 18px;
-  width: 150px;
-}
-input,
-textarea,
-button {
-  float: left;
-  font-family: "proxima-nova-1", "proxima-nova-2", serif;
-  font-size: 18px;
-  margin-bottom: 1.5em;
-  -webkit-transition: border linear 0.2s, box-shadow linear 0.2s;
-  -moz-transition: border linear 0.2s, box-shadow linear 0.2s;
-  -ms-transition: border linear 0.2s, box-shadow linear 0.2s;
-  -o-transition: border linear 0.2s, box-shadow linear 0.2s;
-  transition: border linear 0.2s, box-shadow linear 0.2s;
-  -webkit-box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1);
-  -moz-box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1);
-  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1);
-  display: inline-block;
-  padding: 4px;
-  font-size: 13px;
-  line-height: 18px;
-  color: gray;
-  border: 1px solid #CCC;
-  -webkit-border-radius: 3px;
-  -moz-border-radius: 3px;
-  border-radius: 3px;
-}
-input[type=text] {
-  width: 270px;
-}
-textarea {
-  height: 300px;
-  width: 600px;
-}
-form p {
-  margin: 1em 0 0 0;
-}
-form p.actions {
-  margin: 0 0 0 150px;
-}
-button {
-  clear: both;
-  float: left;
-  cursor: pointer;
-  display: inline-block;
-  background-color: #e6e6e6;
-  background-repeat: no-repeat;
-  background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#ffffff), color-stop(25%, #ffffff), to(#e6e6e6));
-  background-image: -webkit-linear-gradient(#ffffff, #ffffff 25%, #e6e6e6);
-  background-image: -moz-linear-gradient(top, #ffffff, #ffffff 25%, #e6e6e6);
-  background-image: -ms-linear-gradient(#ffffff, #ffffff 25%, #e6e6e6);
-  background-image: -o-linear-gradient(#ffffff, #ffffff 25%, #e6e6e6);
-  background-image: linear-gradient(#ffffff, #ffffff 25%, #e6e6e6);
-  filter: progid:dximagetransform.microsoft.gradient(startColorstr='#ffffff', endColorstr='#e6e6e6', GradientType=0);
-  padding: 5px 14px 6px;
-  text-shadow: 0 1px 1px rgba(255, 255, 255, 0.75);
-  color: #333;
-  font-size: 13px;
-  line-height: normal;
-  border: 1px solid #ccc;
-  border-bottom-color: #bbb;
-  -webkit-border-radius: 4px;
-  -moz-border-radius: 4px;
-  border-radius: 4px;
-  -webkit-box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 1px 2px rgba(0, 0, 0, 0.05);
-  -moz-box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 1px 2px rgba(0, 0, 0, 0.05);
-  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 1px 2px rgba(0, 0, 0, 0.05);
-  -webkit-transition: 0.1s linear all;
-  -moz-transition: 0.1s linear all;
-  -ms-transition: 0.1s linear all;
-  -o-transition: 0.1s linear all;
-  transition: 0.1s linear all;
-}
-button:hover {
-  background-position: 0 -15px;
-  color: #333;
-  text-decoration: none;
-}
-button:focus {
-  outline: 1px dotted #666;
-}
 .hll {
   background-color: #ffffcc;
 }
@@ -675,16 +589,16 @@ section#intro {
   float: right;
 }
 #contact {
-  -webkit-border-radius: 5px 5px 0px 0px;
-  -moz-border-radius: 5px 5px 0px 0px;
-  border-radius: 5px 5px 0px 0px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
   background: #FFE;
   border: 1px solid #eed;
   color: #555555;
   display: none;
   font-family: "brandon-grotesque", sans-serif;
   font-style: normal;
-  font-weight: bold;
+  font-weight: 200;
   padding: 18px;
 }
 #contact table {
@@ -699,8 +613,13 @@ section#intro {
   -moz-border-radius: 2px;
   border-radius: 2px;
   border: 1px solid #ddd;
+  -webkit-box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1);
+  -moz-box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1);
+  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1);
+  color: #555555;
   font-family: "brandon-grotesque", sans-serif;
   font-size: 18px;
+  font-weight: 200;
   padding: 6px;
 }
 #contact input[type="text"] {
@@ -709,6 +628,21 @@ section#intro {
 #contact textarea {
   height: 125px;
   width: 95%;
+}
+input[type="submit"] {
+  -webkit-border-radius: 2px;
+  -moz-border-radius: 2px;
+  border-radius: 2px;
+  background: #264e59;
+  border: none;
+  color: #ffffff;
+  cursor: pointer;
+  font-family: "brandon-grotesque", sans-serif;
+  font-size: 18px;
+  padding: 10px 20px;
+}
+input[type="submit"]:hover {
+  background-color: #375f6a;
 }
 #license,
 #rss {
