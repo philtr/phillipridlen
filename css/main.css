@@ -697,12 +697,12 @@ dl.posts dd a {
   header#header-main #header-main-inner {
     padding: 0 36px;
   }
-  header#header-main h1 {
+  header#header-main #header-main-inner h1 {
     float: left;
     font-size: 100%;
     margin-top: 3px;
   }
-  header#header-main .social {
+  header#header-main #header-main-inner .social {
     line-height: 1;
     float: right;
   }
