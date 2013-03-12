@@ -435,16 +435,20 @@ body {
   padding: 0;
 }
 header#header-main {
-  color: #888888;
-  left: 36px;
+  background: #264e59;
+  color: #ffffff;
+  height: 100%;
+  left: 0;
   line-height: 1;
   margin: 0;
+  padding-left: 36px;
+  padding-top: 18px;
   position: fixed;
-  top: 18px;
-  width: 216px;
+  top: 0;
+  width: 198px;
 }
 header#header-main a {
-  color: #888888;
+  color: #ffffff;
 }
 header#header-main #header-main-inner {
   max-width: 800px;
@@ -460,7 +464,7 @@ header#header-main .social {
   line-height: 1.75;
 }
 header#header-main .social a {
-  color: #264e59;
+  color: #abb;
 }
 header#header-main .social a:hover {
   color: #e71a5d;
@@ -746,10 +750,11 @@ dl.posts dd a {
 }
 @media all and (max-width: 1070px) {
   body {
-    margin-left: 0;
+    margin: 0;
   }
   header#header-main {
     float: left;
+    padding-left: 0;
     position: static;
     width: 100%;
   }
@@ -764,8 +769,9 @@ dl.posts dd a {
     float: right;
   }
   section#content {
+    clear: both;
     margin-top: 18px;
-    padding: 0 36px;
+    padding: 18px 36px;
   }
   footer {
     padding: 0 36px;
