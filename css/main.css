@@ -614,6 +614,12 @@ section#intro {
   font-weight: 200;
   padding: 18px;
 }
+.donthidemeplzkthx #contact {
+  display: block;
+}
+.donthidemeplzkthx #contact  .alt-action {
+  display: none;
+}
 #contact table {
   width: 100%;
 }
