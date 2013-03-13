@@ -233,13 +233,16 @@ dl.posts { .dividerBottom;
     margin-left: @date-width;
     margin-bottom: .75em;
     a { text-decoration: none; } } }
-  
-#notice { .rounded-corners(5px);
+
+#notice {
+  .rounded-corners(5px);
   background: #ffe;
   border: 1px solid #eed;
+  color: @textcolor; 
   display: none;
+  margin-bottom: @basefont;
   padding: @basefont;
-  color: @textcolor; }
+}
 
 
 @first-breakpoint: @content-width + @basefont*15;

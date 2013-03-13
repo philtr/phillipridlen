@@ -699,9 +699,10 @@ dl.posts dd a {
   border-radius: 5px;
   background: #ffe;
   border: 1px solid #eed;
-  display: none;
-  padding: 18px;
   color: #555555;
+  display: none;
+  margin-bottom: 18px;
+  padding: 18px;
 }
 @media all and (max-width: 1070px) {
   body {
