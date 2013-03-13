@@ -39,6 +39,19 @@
 .icon-facebook:before {
   content: "\66";
 }
+@font-face {
+  font-family: 'Creative Commons Icons';
+  src: url('cc-icons/cc-icons-webfont.eot');
+  src: url('cc-icons/cc-icons-webfont.eot?#iefix') format('embedded-opentype'), url('cc-icons/cc-icons-webfont.woff') format('woff'), url('cc-icons/cc-icons-webfont.ttf') format('truetype'), url('cc-icons/cc-icons-webfont.svg#cc_iconsregular') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+.cc-icons {
+  font-family: 'Creative Commons Icons';
+  letter-spacing: 2px;
+  position: relative;
+  bottom: -2px;
+}
 .heading {
   font-family: "brandon-grotesque", sans-serif;
   line-height: 1;
