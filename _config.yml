@@ -1,10 +1,8 @@
 base-url:
-markdown: rdiscount
+markdown: kramdown
 paginate: 5
 permalink: pretty
 pygments: true
-rdiscount:
-  extensions: [smart]
 
 title: Phillip's Blog
 tagline: "The Notes, Quotes, and Other Miscellany of Phillip T. Ridlen"
