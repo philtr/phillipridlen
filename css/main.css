@@ -348,12 +348,15 @@
 }
 /* Literal.Number.Integer.Long */
 html {
+  height: 100%;
   margin: 0;
   padding: 0;
 }
 body {
-  background: #ffffff;
-  color: #555555;
+  background: #555 url("/img/hero.jpg") no-repeat;
+  background-size: cover;
+  background-position: center;
+  color: #eee;
   font-family: "freight-sans-pro", "freight-sans-pro", sans-serif;
   font-size: 18px;
   font-weight: 200;
@@ -361,6 +364,7 @@ body {
   margin-left: 270px;
   margin-top: 18px;
   padding: 0;
+  height: 100%;
 }
 header#header-main {
   background: #264e59;
@@ -438,7 +442,7 @@ a {
   -webkit-border-radius: 3px;
   -moz-border-radius: 3px;
   border-radius: 3px;
-  color: #264e59;
+  color: #d5eaef;
 }
 a:hover {
   color: #e71a5d;
@@ -711,6 +715,7 @@ dl.posts dd a {
   }
   header#header-main {
     float: left;
+    height: 2em;
     padding-left: 0;
     position: static;
     width: 100%;
@@ -740,7 +745,7 @@ dl.posts dd a {
   body {
     font-size: 16px;
   }
-  
+
   section#intro {
     font-size: 20px;
   }

@@ -4,6 +4,8 @@ paginate: 5
 permalink: pretty
 pygments: true
 
+exclude: [ vendor ]
+
 title: Phillip's Blog
 tagline: "The Notes, Quotes, and Other Miscellany of Phillip T. Ridlen"
 name: Phillip T. Ridlen
