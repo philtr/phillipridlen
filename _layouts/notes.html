@@ -6,12 +6,17 @@
     <title>{% if page.title %}{{ page.title }} | {% endif %}Phillip Ridlen</title>
     <link href="http://feeds.feedburner.com/philtrblog" rel="alternate" title="Phillip's Blog" type="application/atom+xml" />
 
-    {% include libraries.html %}
+    <link rel="stylesheet" href="{{ site.base-url}}/assets/css/notes.css" />
+
+    <script>
+      {% include js/ga.js %}
+    </script>
+
+    <script type="text/javascript" src="//use.typekit.net/bcz6xxf.js"></script>
+    <script type="text/javascript">try{Typekit.load();}catch(e){}</script>
 
   </head>
   <body>
-
-    {% include header.html %}
 
     <section id="content">
       {{ content }}

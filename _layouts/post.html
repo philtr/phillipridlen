@@ -1,11 +1,11 @@
 ---
-layout: default
+layout: notes
 ---
-<section id="post">
+<section class="post">
   <article class="{{ page.type }}">
     <header>
       <h2><a href="{{ site.base-url }}{{ page.url }}">{{ page.title }}</a></h2>
-      <time datetime="{{ page.date }}">{{ page.date | date: '%B %d, %Y' }}</a></time>
+      <time datetime="{{ page.date }}">First published on {{ page.date | date: '%B %d, %Y' }}</time>
     </header>
 
     {{ content }}
