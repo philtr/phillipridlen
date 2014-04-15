@@ -367,8 +367,8 @@ body {
   height: 100%;
 }
 header#header-main {
-  background: #264e59;
-  color: #ffffff;
+  background: #ffffff;
+  color: #555;
   height: 100%;
   left: 0;
   line-height: 1;
@@ -380,7 +380,7 @@ header#header-main {
   width: 198px;
 }
 header#header-main a {
-  color: #ffffff;
+  color: #264e59;
 }
 header#header-main #header-main-inner {
   max-width: 800px;
@@ -442,7 +442,7 @@ a {
   -webkit-border-radius: 3px;
   -moz-border-radius: 3px;
   border-radius: 3px;
-  color: #d5eaef;
+  color: #abb;
 }
 a:hover {
   color: #e71a5d;
