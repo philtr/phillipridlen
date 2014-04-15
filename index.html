@@ -8,16 +8,7 @@ title: "Hi, I&rsquo;m Phillip"
   I love constructing awesome software. I'm a Ruby developer currently
   employed at <a href="http://ovenbits.com">Oven Bits</a> in Dallas, Texas.
   I&rsquo;m not available for freelance work right now, but feel free to take
-  a look at my <a href="http://philtr.github.io">projects</a>, read a blog
-  post or two below, or shoot me an <a href="/contact/">email</a>.
+  a look at my <a href="http://philtr.github.io">projects</a> or shoot me an
+  <a href="/contact/">email</a>.
 </section>
 
-<h3>Blog Posts</h3>
-<section id="posts">
-  <dl class="posts">
-    {% for post in site.categories.notes %}
-      <dt>{{ post.date | date: '%b %d %Y' }}</dt>
-      <dd><a href="{{ site.base-url }}{{ post.url }}">{{ post.title }}</a></dd>
-    {% endfor %}
-  </dl>
-</section>
