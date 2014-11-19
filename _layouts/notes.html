@@ -9,6 +9,14 @@
     <link rel="stylesheet" href="{{ site.base-url}}/assets/css/notes.css" />
     <link rel="stylesheet" media="screen,projector" href="https://cdn.rawgit.com/chrissealey/tutti-frutti/master/tutti-frutti.css" />
 
+    {% if page.teaser %}
+      <meta name="description" content="{{ page.teaser }}" />
+    {% else %}
+      <meta name="description" content="{{ content | strip_html | truncate: 60 }}"/>
+    {% endif %}
+
+    {% if page.keywords %}<meta name="keywords" content="{{ page.keywords | join: " " }}"/>{% endif %}
+
     <script>
       {% include js/ga.js %}
     </script>
