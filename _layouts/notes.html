@@ -12,7 +12,7 @@
     {% if page.teaser %}
       <meta name="description" content="{{ page.teaser }}" />
     {% else %}
-      <meta name="description" content="{{ content | strip_html | truncate: 60 }}"/>
+      <meta name="description" content="{{ content | strip_html | strip_newlines | truncate: 60 }}"/>
     {% endif %}
 
     {% if page.keywords %}<meta name="keywords" content="{{ page.keywords | join: " " }}"/>{% endif %}
