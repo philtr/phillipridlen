@@ -1,7 +1,7 @@
 .post {
   & + .post { margin-top: 3em; }
 
-  .title {
+  .post-title {
     font-family: $headings-font-family;
     font-size: $font-size-large;
     font-weight: bold;
@@ -10,18 +10,17 @@
     a {
       text-decoration: underline;
 
-      .permalink {
-        color: $gray-lighter;
-        font-size: $font-size-small;
-        margin-left: 0.5em;
+     }
 
-      }
-      &:hover .permalink {
+    .post-permalink {
+      color: $gray-lighter;
+      font-size: $font-size-small;
+      margin-left: 0.5em;
+      &:hover {
         color: $link-hover-color;
       }
     }
-
-  }
+ }
 
   code {
     font-size: 70%;
@@ -32,5 +31,13 @@
     padding-top: 1em;
 
     font-size: $font-size-small;
+  }
+
+  .post-date {
+    color: $gray-light;
+    margin-top: 2em;
+    text-align: center;
+
+    .fa { color: $gray-lighter }
   }
 }

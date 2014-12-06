@@ -1,18 +1,19 @@
 <div class="post">
-  <div class="title">
+  <div class="post-title">
     {% if the_post.type == "link" %}
-      <a href="{{ the_post.source }}">
-        {{ the_post.title }}
-        <span class="permalink" href="{{ the_post.source }}"><span class="fa fa-external-link"></span></a>
-      </a>
+      <a href="{{ the_post.source }}">{{ the_post.title }}</a>
     {% else %}
-      <a href="{{ the_post.url }}">
-        {{ the_post.title }}
-        <span class="permalink" href="{{ site.url }}/{{ the_post.url }}"><span class="fa fa-asterisk"></span></a>
-      </a>
+      <a href="{{ the_post.url }}">{{ the_post.title }}</a>
     {% endif %}
   </div>
 
   {{ the_post.content | markdownify }}
+
+  <div class="post-date">
+    <span class="fa fa-chevron-left"></span>
+    <a class="post-permalink" href="{{ site.url }}/{{ post.url }}" data-toggle="tooltip" data-placement="bottom" title="Permalink"><span class="fa fa-link" title="Permalink"></a>
+    <span class="fa fa-clock-o" data-toggle="tooltip" data-placement="bottom" title="Posted on {{ the_post.date | date: "%B %d, %Y" }}"></span>
+    <span class="fa fa-chevron-right"></span>
+  </div>
 </div>
 
