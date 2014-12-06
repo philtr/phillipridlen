@@ -4,6 +4,9 @@ paginate: 5
 permalink: pretty
 highlighter: pygments
 
+gems:
+  - jemoji
+
 exclude: [ vendor, s3_website.yml ]
 
 navigation:
