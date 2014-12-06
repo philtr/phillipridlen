@@ -2,6 +2,9 @@
   margin-top: 2em;
 
   .navbar-brand {
+    font-family: $font-family-serif;
+    font-size: 200%;
+    font-style: italic;
     font-weight: bold;
   }
 }
