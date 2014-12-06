@@ -1,16 +1,13 @@
 <header id="header-main">
+  <div class="pull-right">
+    <ul class="nav nav-pills hidden-xs">
+      {% for nav in site.navigation %}
+        <li><a href="{{ nav.url }}">{{ nav.name }}</a></li>
+      {% endfor %}
+    </ul>
+  </div>
   <div id="header-main-inner">
     <h1 id="title"><a href="{{ site.base-url }}/">Phillip Ridlen</a></h1>
-    <p class="social">
-      <a href="https://github.com/philtr">g</a>
-      <a href="http://dribbble.com/philtr">d</a>
-      <a href="https://facebook.com/philtr">f</a>
-      <a href="http://twitter.com/philtr">t</a>
-      <a href="/contact">e</a>
-    </p>
   </div>
 </header>
 
-{% if page.draft %}
-  <h1 id="draft">Draft</h1>
-{% endif %}

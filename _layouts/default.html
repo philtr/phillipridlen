@@ -11,13 +11,14 @@
   </head>
   <body>
 
-    {% include header.html %}
+    <div class="container">
+      {% include header.html %}
+    </div>
 
-    <section id="content">
-      {{ content }}
-    </section>
+    {{ content }}
 
-    {% include footer.html %}
-
+    <div class="container">
+      {% include footer.html %}
+    </div>
   </body>
 </html>

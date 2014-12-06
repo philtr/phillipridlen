@@ -1,28 +1,30 @@
 ---
-layout: notes
+layout: default
 ---
-<section class="post">
-  <article class="{{ page.type }}">
-    <header>
-      <h2><a href="{{ site.base-url }}{{ page.url }}">{{ page.title }}</a></h2>
-      <time datetime="{{ page.date }}">Published on {{ page.date | date: '%B %d, %Y' }}</time>
-    </header>
+<div class="container">
+  <section class="post">
+    <article class="{{ page.type }}">
+      <header>
+        <h2><a href="{{ site.base-url }}{{ page.url }}">{{ page.title }}</a></h2>
+        <time datetime="{{ page.date }}">Published on {{ page.date | date: '%B %d, %Y' }}</time>
+      </header>
 
-    {{ content }}
+      {{ content }}
 
-    {% if page.aside %}
-    <aside>
-      {{ page.aside | textilize }}
-    </aside>
-    {% endif %}
+      {% if page.aside %}
+      <aside>
+        {{ page.aside | textilize }}
+      </aside>
+      {% endif %}
 
-    <aside>
-      If you have any comments or concerns, feel free to <a id="send_email"
-      href="mailto:{{ site.email }}" onclick="_gaq.push(['_trackEvent',
-      'comment', 'initiated'])"/>send an email to {{ site.email }}</a> or
-      mention <a href="http://twitter.com/?status=%40philtr">@philtr</a> on
-      Twitter. I'll update this post with any insightful, interesting, or
-      corrective comments.
-    </aside>
-  </article>
-</section>
+      <aside>
+        If you have any comments or concerns, feel free to <a id="send_email"
+        href="mailto:{{ site.email }}" onclick="_gaq.push(['_trackEvent',
+        'comment', 'initiated'])"/>send an email to {{ site.email }}</a> or
+        mention <a href="http://twitter.com/?status=%40philtr">@philtr</a> on
+        Twitter. I'll update this post with any insightful, interesting, or
+        corrective comments.
+      </aside>
+    </article>
+  </section>
+</div>

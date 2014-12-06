@@ -6,5 +6,13 @@ highlighter: pygments
 
 exclude: [ vendor ]
 
+navigation:
+  - name: "Notes"
+    url: "/notes/"
+  - name: "Open Source"
+    url: "http://philtr.github.io"
+  - name: "Contact"
+    url: "/contact/"
+
 url: http://phillipridlen.com
 email: p@rdln.net
