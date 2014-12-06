@@ -3,14 +3,8 @@ layout: default
 ---
 
 {% for post in paginator.posts %}
-  <div class="post">
-    <div class="title">
-      <a href="{{ post.url }}">{{ post.title }}</a>
-      <a class="permalink" href="{{ site.url }}/{{ post.url }}"><span class="fa fa-asterisk"></span></a>
-    </div>
-
-    {{ post.content }}
-  </div>
+  {% assign the_post = post %}
+  {% include post.html %}
 {% endfor %}
 
 <nav>

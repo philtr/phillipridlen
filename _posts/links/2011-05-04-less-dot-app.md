@@ -10,7 +10,7 @@ source: "http://incident57.com/less/"
 > {Less} extends CSS with variables, nested rules, operators and
 > more. If you're still building websites without it, you're an
 > idiot. This app makes it dead simple to use {Less} by automatically
-> compiling *.less files into standard CSS.
+> compiling `*.less` files into standard CSS.
 
 <s>Using it to precompile the styles for this very site.</s>
 **Update:** NOPE.

@@ -8,14 +8,14 @@
     margin-bottom: 1em;
 
     a {
-      &.permalink {
+      .permalink {
         color: $gray-lighter;
         font-size: $font-size-small;
         margin-left: 0.5em;
 
-        &:hover {
-          color: $link-hover-color;
-        }
+      }
+      &:hover .permalink {
+        color: $link-hover-color;
       }
     }
 

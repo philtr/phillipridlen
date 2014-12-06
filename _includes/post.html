@@ -1,0 +1,18 @@
+<div class="post">
+  <div class="title">
+    {% if the_post.type == "link" %}
+      <a href="{{ the_post.source }}">
+        {{ the_post.title }}
+        <span class="permalink" href="{{ the_post.source }}"><span class="fa fa-external-link"></span></a>
+      </a>
+    {% else %}
+      <a href="{{ the_post.url }}">
+        {{ the_post.title }}
+        <span class="permalink" href="{{ site.url }}/{{ the_post.url }}"><span class="fa fa-asterisk"></span></a>
+      </a>
+    {% endif %}
+  </div>
+
+  {{ the_post.content | markdownify }}
+</div>
+

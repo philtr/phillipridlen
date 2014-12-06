@@ -1,13 +1,5 @@
 ---
 layout: default
 ---
-
-<div class="post">
-  <div class="title">
-    <a href="{{ page.url }}">{{ page.title }}</a>
-    <a class="permalink" href="{{ site.url }}/{{ page.url }}"><span class="fa fa-asterisk"></span></a>
-  </div>
-
-  {{ content }}
-</div>
-
+{% assign the_post = page %}
+{% include post.html %}
