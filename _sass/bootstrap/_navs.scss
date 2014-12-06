@@ -22,8 +22,7 @@
       padding: $nav-link-padding;
       &:hover,
       &:focus {
-        text-decoration: none;
-        background-color: $nav-link-hover-bg;
+        text-decoration: underline;
       }
     }
 
@@ -133,6 +132,7 @@
       &:focus {
         color: $nav-pills-active-link-hover-color;
         background-color: $nav-pills-active-link-hover-bg;
+        text-decoration: underline;
       }
     }
   }
