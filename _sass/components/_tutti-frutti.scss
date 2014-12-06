@@ -6,8 +6,8 @@ $highlight-blue: #1b9af7;
 $highlight-green: #8bd300;
 $highlight-pink: #ed4694;
 $highlight-red: #ff4351;
-$highlight-orange: #fc880f
-$highlight-magenta: #db49d8
+$highlight-orange: #fc880f;
+$highlight-magenta: #db49d8;
 $highlight-purple: #7b72e9;
 
 .highlight, .highlight pre, .highlight code {
@@ -91,7 +91,7 @@ $highlight-purple: #7b72e9;
   color: $highlight-pink;
 }
 .highlight .s { /* literal.string */
-  color: ;
+  color: $highlight-orange;
 }
 .highlight .na { /* name.attribute */
   color: $highlight-green;
