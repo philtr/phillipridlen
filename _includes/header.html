@@ -1,15 +1,22 @@
 <nav class="navbar">
   <div class="container">
     <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#main-menu">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="fa fa-bars"></span>
+      </button>
       <a class="navbar-brand" href="{{ site.base-url }}/">Phillip Ridlen</a>
     </div>
 
-    <div class="navbar-right">
-      <ul class="nav nav-pills hidden-xs">
-        {% for nav in site.navigation %}
-          <li {% if page.url == nav.url %}class="selected active"{% endif %}><a href="{{ nav.url }}">{{ nav.name }}</a></li>
-        {% endfor %}
-      </ul>
+    <div class="collapse navbar-collapse" id="main-menu">
+      <div class="navbar-right">
+        <ul class="nav navbar-nav nav-pills">
+          {% for nav in site.navigation %}
+            <li {% if page.url == nav.url %}class="selected active"{% endif %}><a href="{{ nav.url }}">{{ nav.name }}</a></li>
+          {% endfor %}
+        </ul>
+      </div>
+
     </div>
   </div>
 </nav>
