@@ -1,7 +1,7 @@
 ---
 layout: post
 type: blog
-title: Returning Multiple Formats with Dynamic Error Pages in Rails
+title: Returning Multiple Formats with Rails Dynamic Error Pages
 published: true
 ---
 

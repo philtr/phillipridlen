@@ -100,7 +100,7 @@ $highlight-purple: #7b72e9;
   color: $highlight-blue;
 }
 .highlight .nc { /* name.class */
-  background-color: transparentize($highlight-purple, .05);
+  background-color: transparentize($highlight-purple, .95);
   border-radius: 2px;
   color: $highlight-purple;
 }
@@ -114,7 +114,7 @@ $highlight-purple: #7b72e9;
   color: $highlight-pink;
 }
 .highlight .nf { /* name.function */
-  background-color: transparentize($highlight-purple, .05);
+  background-color: transparentize($highlight-purple, .95);
   border-radius: 2px;
   color: $highlight-purple;
 }
@@ -125,7 +125,7 @@ $highlight-purple: #7b72e9;
   color: $highlight-pink;
 }
 .highlight .nt { /* name.tag */
-  background-color: transparentize($highlight-blue, .05);
+  background-color: transparentize($highlight-blue, .95);
   border-radius: 2px;
   color: $highlight-blue;
 }
@@ -133,7 +133,7 @@ $highlight-purple: #7b72e9;
   color: $highlight-pink;
 }
 .highlight .nx { /* name.other */
-  background-color: transparentize($highlight-pink, .05);
+  background-color: transparentize($highlight-pink, .95);
   border-radius: 2px;
   color: $highlight-pink;
 }
