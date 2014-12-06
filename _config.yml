@@ -8,11 +8,12 @@ exclude: [ vendor ]
 
 navigation:
   - name: "Notes"
-    url: "/notes/"
+    url: "/"
   - name: "Open Source"
     url: "http://philtr.github.io"
-  - name: "Contact"
-    url: "/contact/"
+
+paginate: 5
+paginate_path: "notes/page/:num"
 
 url: http://phillipridlen.com
 email: p@rdln.net

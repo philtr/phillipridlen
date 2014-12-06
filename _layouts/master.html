@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <meta name="viewport" content="initial-scale=1.0"/>
+    <title>{% if page.title %}{{ page.title }} | {% endif %}Phillip Ridlen</title>
+    <link href="http://feeds.feedburner.com/philtrblog" rel="alternate" title="Phillip's Blog" type="application/atom+xml" />
+
+    {% include libraries.html %}
+
+  </head>
+  <body>
+
+    {% include header.html %}
+
+    {{ content }}
+
+    <div class="container">
+      {% include footer.html %}
+    </div>
+  </body>
+</html>

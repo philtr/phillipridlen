@@ -1,15 +1,27 @@
 ---
-layout: plank
-title: "Hi, I&rsquo;m Phillip"
-style: fancy
+layout: default
 ---
 
-<h2>Hi, I&rsquo;m Phillip.</h2>
+{% for post in paginator.posts %}
+  <div class="post">
+    <div class="title">
+      <a href="{{ post.url }}">{{ post.title }}</a>
+      <a class="permalink" href="{{ site.url }}/{{ post.url }}"><span class="fa fa-asterisk"></span></a>
+    </div>
 
-I love constructing awesome software. I&rsquo;m a Ruby developer 
-at <a href="http://ovenbits.com">Oven Bits</a> in Dallas, Texas.
-I&rsquo;m not available for freelance work, but feel free to take
-a look at my <a href="http://philtr.github.io">projects</a> or shoot me an
-<a href="/contact/">email</a>.
-</div>
+    {{ post.content }}
+  </div>
+{% endfor %}
+
+<nav>
+  <ul class="pager">
+    {% if paginator.next_page %}
+      <li class="previous"><a href="{{ paginator.next_page_path }}"><span aria-hidden="true">&larr;</span> Older</a></li>
+    {% endif %}
+
+    {% if paginator.previous_page %}
+      <li class="next"><a href="{{ paginator.previous_page_path }}">Newer <span aria-hidden="true">&rarr;</span></a></li>
+    {% endif %}
+  </ul>
+</nav>
 

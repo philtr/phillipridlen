@@ -1,13 +1,15 @@
-<header id="header-main">
-  <div class="pull-right">
-    <ul class="nav nav-pills hidden-xs">
-      {% for nav in site.navigation %}
-        <li><a href="{{ nav.url }}">{{ nav.name }}</a></li>
-      {% endfor %}
-    </ul>
-  </div>
-  <div id="header-main-inner">
-    <h1 id="title"><a href="{{ site.base-url }}/">Phillip Ridlen</a></h1>
-  </div>
-</header>
+<nav class="navbar">
+  <div class="container">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="{{ site.base-url }}/">Phillip Ridlen</a>
+    </div>
 
+    <div class="navbar-right">
+      <ul class="nav nav-pills hidden-xs">
+        {% for nav in site.navigation %}
+          <li><a href="{{ nav.url }}">{{ nav.name }}</a></li>
+        {% endfor %}
+      </ul>
+    </div>
+  </div>
+</nav>

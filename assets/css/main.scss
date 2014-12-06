@@ -3,4 +3,13 @@
 @import "bootstrap";
 @import "components/cc-icons";
 
-@import "notes";
+@import "elements/header";
+@import "elements/post";
+
+.intro {
+  @extend h4;
+  border-bottom: 1px solid $gray-lighter;
+  margin: 0 0 1em 0;
+  padding: 0 0 1em 0;
+}
+
