@@ -1,3 +1,5 @@
+require File.expand_path("../ruby_pants", __FILE__)
+
 module Jekyll
   require 'haml'
   class HamlConverter < Converter
@@ -16,7 +18,7 @@ module Jekyll
       begin
         Tilt.prefer(Tilt::KramdownTemplate)
         engine = Haml::Engine.new(content)
-        engine.render
+        RubyPants.new(engine.render).to_html
       rescue StandardError => e
           puts "!!! HAML Error: " + e.message
       end

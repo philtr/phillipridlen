@@ -1,0 +1,3 @@
+Turbolinks.enableTransitionCache();
+Turbolinks.enableProgressBar();
+
