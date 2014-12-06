@@ -5,9 +5,15 @@
 @import "components/tutti-frutti";
 
 @import "elements/header";
+@import "elements/intro";
 @import "elements/post";
 
-p {
+html.turbolinks-progress-bar::before {
+  background-color: $brand-danger !important;
+  height: 1px !important;
+}
+
+p, ul:not([class~="nav"]) {
   a {
     text-decoration: underline;
   }

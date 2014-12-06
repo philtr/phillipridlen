@@ -1,0 +1,25 @@
+---
+layout: default
+---
+
+%form{ role: "form", id: "contact" }
+  .form-group
+    .row
+      .col-md-6
+        %label.control-label{ for: "name" } Your Name
+        %input.form-control{ id: "name", type: "text", name: "name" }
+      .col-md-6
+        %label.control-label{ for: "name" } Your Email
+        %input.form-control{ id: "name", type: "email", name: "email" }
+
+  .form-group
+    .row
+      .col-md-12
+        %label.control-label{ for: "message" } Your Message
+        %textarea.form-control{ id: "message", name: "message", rows: 5 }
+
+  .form-group
+    .row
+      .col-md-12
+        %p
+          %button.btn.btn-primary{ type: "submit" } Submit

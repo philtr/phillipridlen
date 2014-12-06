@@ -2,6 +2,7 @@ source "https://rubygems.org"
 
 gem "jekyll", "~> 2.5"
 
+gem "haml"
 gem "jemoji"
 gem "kramdown"
 gem "pygments.rb"
