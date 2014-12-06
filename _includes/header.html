@@ -7,7 +7,7 @@
     <div class="navbar-right">
       <ul class="nav nav-pills hidden-xs">
         {% for nav in site.navigation %}
-          <li><a href="{{ nav.url }}">{{ nav.name }}</a></li>
+          <li {% if page.url == nav.url %}class="selected active"{% endif %}><a href="{{ nav.url }}">{{ nav.name }}</a></li>
         {% endfor %}
       </ul>
     </div>

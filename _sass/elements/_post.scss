@@ -8,6 +8,8 @@
     margin-bottom: 1em;
 
     a {
+      text-decoration: underline;
+
       .permalink {
         color: $gray-lighter;
         font-size: $font-size-small;
