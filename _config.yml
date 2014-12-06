@@ -4,7 +4,7 @@ paginate: 5
 permalink: pretty
 highlighter: pygments
 
-exclude: [ vendor ]
+exclude: [ vendor, s3_website.yml ]
 
 navigation:
   - name: "Notes"
