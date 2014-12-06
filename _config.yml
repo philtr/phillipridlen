@@ -7,7 +7,7 @@ highlighter: pygments
 gems:
   - jemoji
 
-exclude: [ vendor, s3_website.yml ]
+exclude: [ vendor, s3_website.yml, env.sample ]
 
 navigation:
   - name: "Notes"
