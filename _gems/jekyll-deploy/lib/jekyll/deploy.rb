@@ -7,6 +7,12 @@ class Deploy < Jekyll::Command
 
         c.action do |args, options|
           Jekyll::Commands::Build.process({})
+
+          if `tidy --version` =~ /HTML5/
+            puts "Tidying HTML..."
+            system("find _site/ -name '*.html' -exec tidy -config _config/tidy.conf {} \\;")
+          end
+
           system("bundle exec s3_website push", out: $stdout)
         end
       end
