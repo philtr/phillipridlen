@@ -9,11 +9,14 @@ gems:
 
 exclude: [ vendor, s3_website.yml, env.sample ]
 
+collections:
+  - projects
+
 navigation:
   - name: "Notes"
     url: "/"
   - name: "Projects"
-    url: "http://philtr.github.io"
+    url: "/projects/"
   - name: "About"
     url: "/about/"
   - name: "Contact"

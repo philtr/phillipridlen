@@ -1,0 +1,24 @@
+---
+layout: default
+---
+<div class="intro">
+  <p>
+    I like to build stuff and give it away. Most of these are released under an MIT license (check
+    each project for specifics) so you can do what you want with them.
+  </p>
+</div>
+
+{% for project in site.projects %}
+  {% capture odd %}{% cycle "true", "false" %}{% endcapture %}
+  {% if odd == "true" %}<div class="row">{% endif %}
+    <div class="col-sm-6">
+      <div class="thumbnail">
+        <a href="{{ project.link }}"><img src="/assets/images/{{ project.relative_path | remove_first:"_" | remove_first,".md"  }}/preview.png?{{ site.version }}" class="img-responsive" /></a>
+      </div>
+      <div class="caption">
+        <h3><a href="{{ project.link }}">{{ project.title }}</a></h3>
+        <p>{{ project.summary }}</p>
+      </div>
+    </div>
+  {% if odd == "false" %}</div>{% endif %}
+{% endfor %}
