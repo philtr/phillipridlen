@@ -6,23 +6,24 @@ layout: default
     Submit the form below, or if you'd prefer, send an email directly to p _at_ rdln _dot_ net.
 
 %form{ role: "form", id: "contact", action: "https://formkeep.com/f/321d46f244f3", method: "post" }
-  .form-group
-    .row
-      .col-md-6
+  .row
+    .col-sm-6
+      .form-group
         %label.control-label{ for: "name" } Your Name
         %input.form-control{ id: "name", type: "text", name: "name" }
-      .col-md-6
+    .col-sm-6
+      .form-group
         %label.control-label{ for: "name" } Your Email
         %input.form-control{ id: "name", type: "email", name: "email" }
 
-  .form-group
-    .row
-      .col-md-12
+  .row
+    .col-sm-12
+      .form-group
         %label.control-label{ for: "message" } Your Message
         %textarea.form-control{ id: "message", name: "message", rows: 5 }
 
-  .form-group
-    .row
-      .col-md-12
+  .row
+    .col-sm-12
+      .form-group
         %p
           %button.btn.btn-primary{ type: "submit" } Submit
