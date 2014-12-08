@@ -11,15 +11,6 @@
       text-decoration: underline;
 
      }
-
-    .post-permalink {
-      color: $gray-lighter;
-      font-size: $font-size-small;
-      margin-left: 0.5em;
-      &:hover {
-        color: $link-hover-color;
-      }
-    }
  }
 
   code {
@@ -38,10 +29,16 @@
   }
 
   .post-date {
-    color: $gray-light;
+    color: $gray-lightly;
     margin-top: 2em;
     text-align: center;
 
-    .fa { color: $gray-lighter }
+    .fa, a {
+      Color: $gray-lightly;
+    }
+
+    .fa-chevron-left, .fa-chevron-right {
+      color: $gray-lighter;
+    }
   }
 }
