@@ -1,6 +1,17 @@
 ---
 layout: post
-type: blog
+type: note
+
+title: Using the Heroku Gem Inside Your App
+description:
+
+category: Programming
+tags:
+  - ruby
+  - ruby on rails
+  - heroku
+  - gems
+  - API
 ---
 Brett asked [this question][q] on the Heroku mailing list:
 

@@ -1,24 +1,33 @@
 ---
 layout: post
-type: blog
+type: note
+
 title: Returning Multiple Formats with Rails Dynamic Error Pages
-published: true
+description: |
+  Yesterday my coworker Eric asked me to build out some dynamic error pages for the upcoming
+  version of one of our apps. He suggested a certain pattern that we used in a previous
+  application. Being the adventurous soul that I am, I wanted to make sure his way was the best
+  way.
+
+category: Programming
+tags:
+  - ruby
+  - ruby on rails
+  - JSON
+  - errors
 ---
 
-Yesterday my coworker [Eric][eh] asked me to build out some dynamic
-error pages for the upcoming version of one of our apps. He suggested a
-certain pattern that we used in a previous application. Being the
-adventurous soul that I am, I wanted to make sure his way was the
-_best_ way. After some deep <s>soul</s> google searching, I found out that
-Eric's method was considered best practice. It's described in some
-detail on [Jos&eacute; Valim's blog post][hidden-rails-features], but I'll
-break it down for you here:
+Yesterday my coworker [Eric][eh] asked me to build out some dynamic error pages for the upcoming
+version of one of our apps. He suggested a certain pattern that we used in a previous application.
+Being the adventurous soul that I am, I wanted to make sure his way was the _best_ way. After some
+deep <s>soul</s> google searching, I found out that Eric's method was considered best practice. It's
+described in some detail on [Jos&eacute; Valim's blog post][hidden-rails-features], but I'll break
+it down for you here:
 
 [eh]: http://erichurst.com
 [hidden-rails-features]: http://blog.plataformatec.com.br/2012/01/my-five-favorite-hidden-features-in-rails-3-2/
 
-First, we need a controller for our error pages. Start out with something
-simple, like this:
+First, we need a controller for our error pages. Start out with something simple, like this:
 
 {% highlight ruby %}
 # app/controllers/errorrs_controller.rb
@@ -49,9 +58,9 @@ YourApp::Application.routes.draw do
 end
 {% endhighlight %}
 
-With Rails 3.2, error pages have been extracted to a [Rack Middleware][mw].
-Fortunately for us, so are the application routes. We can to tell rails to use
-our routes app for the error pages in `config/application.rb`:
+With Rails 3.2, error pages have been extracted to a [Rack Middleware][mw].  Fortunately for us, so
+are the application routes. We can to tell rails to use our routes app for the error pages in
+`config/application.rb`:
 
 [mw]: http://stackoverflow.com/a/2257031/383950
 
@@ -66,11 +75,10 @@ module YourApp
 end
 {% endhighlight %}
 
-And that's it! Add some page templates in `app/views/errors/` and you
-should be good to go.
+And that's it! Add some page templates in `app/views/errors/` and you should be good to go.
 
-To test it, we need to turn off the development mode error pages. Set
-`consider_all_requests_local` to false in `config/environments/development.rb`:
+To test it, we need to turn off the development mode error pages. Set `consider_all_requests_local`
+to false in `config/environments/development.rb`:
 
 {% highlight ruby %}
 # config/environments/development.rb
@@ -83,20 +91,16 @@ YourApp::Application.configure do
  end
 {% endhighlight %}
 
-You'll want to set that back to true before committing your code, or
-else you won't receive any helpful feedback while developing your
-application.
+You'll want to set that back to true before committing your code, or else you won't receive any
+helpful feedback while developing your application.
 
-All of the above steps were fairly simple, but figuring out how to
-determine which format to return is a little complex.
-`env['REQUEST_PATH']` contains the error path (e.g. "/404") and no
-format information is getting passed to the errors controller, so the standard
-Rails `respond_to` stuff is not going to work here. We can grab the
-original request path via `env['ORIGINAL_FULLPATH']`. I added a few
-private methods to errors ontroller to help out. The first two help me
-figure out what format the request came as. I want to return a JSON
-respons if the request starts with '/api' or ends in '.json'. The third
-will render our template in the format we want.
+All of the above steps were fairly simple, but figuring out how to determine which format to return
+is a little complex.  `env['REQUEST_PATH']` contains the error path (e.g. "/404") and no format
+information is getting passed to the errors controller, so the standard Rails `respond_to` stuff is
+not going to work here. We can grab the original request path via `env['ORIGINAL_FULLPATH']`. I
+added a few private methods to errors ontroller to help out. The first two help me figure out what
+format the request came as. I want to return a JSON respons if the request starts with '/api' or
+ends in '.json'. The third will render our template in the format we want.
 
 {% highlight ruby %}
 class ErrorsController
@@ -138,8 +142,7 @@ class ErrorsController
 end
 {% endhighlight %}
 
-And we're done! Make sure you add your json templates to
-`app/views/errors`.
+And we're done! Make sure you add your json templates to `app/views/errors`.
 
 {% highlight bash %}
 $ curl http://localhost:3000/api/v1/nothing-here

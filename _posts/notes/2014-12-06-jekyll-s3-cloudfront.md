@@ -1,7 +1,17 @@
 ---
 layout: post
-title: "Jekyll, S3, and CloudFront"
-description: "The latest version of this site is published using Jekyll, S3 and CloudFront"
+type: note
+
+title: Jekyll, S3, and CloudFront
+description: The latest version of this site is published using Jekyll, S3 and CloudFront
+
+category: Programming
+tags:
+  - ruby
+  - jekyll
+  - amazon web services
+  - hosting
+  - deployment
 ---
 
 GitHub pages is awesome. Like, _really_ awesome. But I wanted to try something new that would give

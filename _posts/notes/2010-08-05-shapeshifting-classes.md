@@ -1,7 +1,15 @@
 ---
 layout: post
-type: blog
+type: note
+
 title: "Shapeshifting &ldquo;Classes&rdquo;"
+description:
+
+category: "Programming"
+tags:
+  - ruby
+  - object-oriented programming
+  - constants
 ---
 I've been using Ruby full-time+ for the last few weeks, working on projects at
 work and then personal projects when I get home. There are a few things I've

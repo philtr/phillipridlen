@@ -1,10 +1,15 @@
 ---
 layout: post
-type: blog
-aside: >
-  This post was originally published on the "Balcom Agency blog":http://balcomagency.com/blog.
-  I have syndicated it here for archival purposes.
-  "Read it on the Balcom blog &raquo;":http://balcomagency.com/phillip/blog/head-in-the-clouds
+type: note
+
+title: Head in the Clouds
+description: "Valentine&rsquo;s day was a few days ago, and since I&rsquo;m still in the mood, I am going to declare my love for the cloud."
+
+category: Programming
+tags:
+  - cloud
+  - backups
+  - hosting
 ---
 Valentine's day was a few days ago, and since I'm still in the mood, I am going
 to declare my love for the cloud. I love that at [Balcom
