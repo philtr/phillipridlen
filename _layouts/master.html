@@ -1,22 +1,8 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
-    <meta name="viewport" content="initial-scale=1.0"/>
+---
+layout: bare
+---
+{% include header.html %}
 
-    <title>{% if page.title %}{{ page.title }} | {% endif %}Phillip Ridlen</title>
+{{ content }}
 
-    <link href="http://feeds.feedburner.com/phillipridlen" rel="alternate" title="Phillip Ridlen" type="application/atom+xml" />
-
-    {% include metadata.html %}
-
-    {% include libraries.html %}
-  </head>
-  <body>
-    {% include header.html %}
-
-    {{ content }}
-
-    {% include footer.html %}
-  </body>
-</html>
+{% include footer.html %}
