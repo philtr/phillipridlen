@@ -43,20 +43,20 @@ cloudfront_invalidate_root: true
 concurrency_level: 5
 
 redirects:
-  notes/2012/12/13/returning-multiple-formats-with-custom-dynamic-error-pages-in-rails: notes/programming/2012/12/13/returning-multiple-formats-with-custom-dynamic-error-pages-in-rails/
-  notes/2012/12/13/returning-multiple-formats-with-custom-dynamic-error-pages-in-rails/: notes/programming/2012/12/13/returning-multiple-formats-with-custom-dynamic-error-pages-in-rails/
-  notes/2011/11/11/thank-you-dvorak: notes/programming/2011/11/11/thank-you-dvorak/
-  notes/2011/11/11/thank-you-dvorak/: notes/programming/2011/11/11/thank-you-dvorak/
-  notes/2011/05/04/less-dot-app: notes/programming/2011/05/04/less-dot-app
-  notes/2011/05/04/less-dot-app/: notes/programming/2011/05/04/less-dot-app/
-  notes/2011/05/03/moms-secret-sauce-for-success: notes/life/2011/05/03/moms-secret-sauce-for-success/
-  notes/2011/05/03/moms-secret-sauce-for-success/: notes/life/2011/05/03/moms-secret-sauce-for-success/
-  notes/2011/02/17/head-in-the-clouds: notes/programming/2011/02/17/head-in-the-clouds/
-  notes/2011/02/17/head-in-the-clouds/: notes/programming/2011/02/17/head-in-the-clouds/
-  notes/2010/08/12/using-the-heroku-gem-inside-your-app: notes/programming/2010/08/12/using-the-heroku-gem-inside-your-app/
-  notes/2010/08/12/using-the-heroku-gem-inside-your-app/: notes/programming/2010/08/12/using-the-heroku-gem-inside-your-app/
-  notes/2010/08/05/shapeshifting-classes: notes/programming/2010/08/05/shapeshifting-classes/
-  notes/2010/08/05/shapeshifting-classes/: notes/programming/2010/08/05/shapeshifting-classes/
+  notes/2012/12/13/returning-multiple-formats-with-custom-dynamic-error-pages-in-rails: programming/2012/12/13/returning-multiple-formats-with-custom-dynamic-error-pages-in-rails/
+  notes/2012/12/13/returning-multiple-formats-with-custom-dynamic-error-pages-in-rails/: programming/2012/12/13/returning-multiple-formats-with-custom-dynamic-error-pages-in-rails/
+  notes/2011/11/11/thank-you-dvorak: programming/2011/11/11/thank-you-dvorak/
+  notes/2011/11/11/thank-you-dvorak/: programming/2011/11/11/thank-you-dvorak/
+  notes/2011/05/04/less-dot-app: programming/2011/05/04/less-dot-app
+  notes/2011/05/04/less-dot-app/: programming/2011/05/04/less-dot-app/
+  notes/2011/05/03/moms-secret-sauce-for-success: life/2011/05/03/moms-secret-sauce-for-success/
+  notes/2011/05/03/moms-secret-sauce-for-success/: life/2011/05/03/moms-secret-sauce-for-success/
+  notes/2011/02/17/head-in-the-clouds: programming/2011/02/17/head-in-the-clouds/
+  notes/2011/02/17/head-in-the-clouds/: programming/2011/02/17/head-in-the-clouds/
+  notes/2010/08/12/using-the-heroku-gem-inside-your-app: programming/2010/08/12/using-the-heroku-gem-inside-your-app/
+  notes/2010/08/12/using-the-heroku-gem-inside-your-app/: programming/2010/08/12/using-the-heroku-gem-inside-your-app/
+  notes/2010/08/05/shapeshifting-classes: programming/2010/08/05/shapeshifting-classes/
+  notes/2010/08/05/shapeshifting-classes/: programming/2010/08/05/shapeshifting-classes/
 
 # routing_rules:
 #   - condition:
