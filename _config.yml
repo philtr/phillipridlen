@@ -1,4 +1,4 @@
-permalink: pretty
+permalink: /notes/:categories/:year/:month/:day/:title/
 
 markdown: kramdown
 
@@ -23,7 +23,7 @@ navigation:
     url: "/contact/"
 
 paginate: 5
-paginate_path: "/page/:num"
+paginate_path: "/notes/page/:num"
 
 url: http://phillipridlen.com
 email: p@rdln.net
