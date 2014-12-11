@@ -43,7 +43,7 @@ the English language. The end result: a keyboard layout that was able to to be l
 in one-third of the time that it took a typist to learn QWERTY, and consistently produced faster
 typists who made fewer errors.
 
-![Dvorak Simplified Keyboard][dsk-img]
+![Dvorak Simplified Keyboard](http://upload.wikimedia.org/wikipedia/commons/thumb/2/25/KB_United_States_Dvorak.svg/500px-KB_United_States_Dvorak.svg.png)
 
 The effort and attention to detail on the design of this layout is insane:
 
@@ -66,5 +66,3 @@ original typing speed of 35 WPM. Within a year I doubled that. Thanks, Dvorak! (
 
 [dsk]: http://en.wikipedia.org/wiki/Dvorak_Simplified_Keyboard [wp]: http://wordpress.org/
 
-[dsk-img]:
-http://upload.wikimedia.org/wikipedia/commons/thumb/2/25/KB_United_States_Dvorak.svg/500px-KB_United_States_Dvorak.svg.png
