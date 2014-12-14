@@ -14,7 +14,7 @@ tags:
   - carols
 ---
 
-[John Piper]({{ source }}):
+[John Piper]({{ page.link.source }}):
 
 > And so the “us” of “O come let us adore him” is the “us” of heaven and earth, singing together.
 > According to Revelation 9:16, there are at least 200 million angels at God’s bidding. Surely at
