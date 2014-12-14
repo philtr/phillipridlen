@@ -13,6 +13,16 @@
     }
   }
 
+  .post-date {
+    color: $gray-light;
+  }
+
+  .post-category {
+    color: $gray-lightly;
+    display: inline-block;
+  }
+
+
   code {
     font-size: 70%;
   }
@@ -28,7 +38,12 @@
     font-size: $font-size-small;
   }
 
-  .post-date {
+  .post-via {
+    color: $gray-lightly;
+    font-style: italic;
+  }
+
+  .post-meta {
     color: $gray-lightly;
     margin-top: 2em;
     text-align: center;

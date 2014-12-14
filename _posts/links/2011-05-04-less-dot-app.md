@@ -26,4 +26,3 @@ tags:
 <s>Using it to precompile the styles for this very site.</s>
 **Update:** NOPE.
 
-{via [Spenser Jones on Forrst](http://forrst.com/posts/SASS_LESS_or-9TF#comment-283016)}

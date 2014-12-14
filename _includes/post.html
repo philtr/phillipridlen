@@ -1,5 +1,21 @@
 <div class="post">
+  <div class="post-date">
+    <time datetime="{{ page.date }}">{{ page.date | date: "%B %d, %Y" }}</time>
+  </div>
+
   <div class="post-title">
+    <div class="post-category" data-toggle="tooltip" data-placement="left" title="{{ page.category }}">
+      {% case page.category %}
+      {% when "Christianity" %}
+        <span class="fa fa-book"></span>
+      {% when "Life" %}
+        <span class="fa fa-leaf"></span>
+      {% when "Programming" %}
+        <span class="fa fa-code"></span>
+      {% when "Food" %}
+        <span class="fa fa-birthday-cake"></span>
+      {% endcase %}
+    </div>
     {% if page.type == "link" %}
       <a href="{{ page.link.source }}">{{ page.title }}</a>
     {% else %}
@@ -13,9 +29,15 @@
     {% else %}
       {{ page.content }}
     {% endif %}
+
+    {% if page.link.via %}
+      <div class="post-via">
+        via <a href="{{ page.link.via_link }}">{{ page.link.via }}</a>.
+      </div>
+    {% endif %}
   </div>
 
-  <div class="post-date">
+  <div class="post-meta">
     <span class="fa fa-chevron-left"></span>
     <a class="post-permalink" href="{{ site.url }}{{ page.url }}" data-toggle="tooltip" data-placement="bottom" title="Permalink"><span class="fa fa-link" title="Permalink"></a>
     <span class="fa fa-clock-o" data-toggle="tooltip" data-placement="bottom" title="Posted on {{ page.date | date: "%B %d, %Y" }}"></span>
