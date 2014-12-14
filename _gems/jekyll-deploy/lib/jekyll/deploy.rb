@@ -5,12 +5,16 @@ class Deploy < Jekyll::Command
         c.syntax "deploy"
         c.description 'Deploy site using s3_website'
 
+        c.option "tidy", "--tidy", "Use tidy-html5 to format outputted site"
+
         c.action do |args, options|
           Jekyll::Commands::Build.process({})
 
-          if `tidy --version` =~ /HTML5/
-            puts "Tidying HTML..."
-            system("find _site/ -name '*.html' -exec tidy -config _config/tidy.conf {} \\;")
+          if options["tidy"]
+            if `tidy --version` =~ /HTML5/
+              puts "Tidying HTML..."
+              system("find _site/ -name '*.html' -exec tidy -config _config/tidy.conf {} \\;")
+            end
           end
 
           system("bundle exec s3_website push", out: $stdout)
