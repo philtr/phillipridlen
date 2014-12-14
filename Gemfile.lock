@@ -14,11 +14,13 @@ GEM
       minitest (~> 5.1)
       thread_safe (~> 0.1)
       tzinfo (~> 1.1)
+    addressable (2.3.6)
     blankslate (2.1.2.4)
     celluloid (0.16.0)
       timers (~> 4.0.0)
     classifier-reborn (2.0.2)
       fast-stemmer (~> 1.0)
+    coderay (1.1.0)
     coffee-script (2.3.0)
       coffee-script-source
       execjs
@@ -30,6 +32,8 @@ GEM
     deep_merge (1.0.0)
     dotenv (1.0.2)
     execjs (2.2.2)
+    faraday (0.9.0)
+      multipart-post (>= 1.2, < 3)
     fast-stemmer (1.0.2)
     ffi (1.9.6)
     gemoji (2.1.0)
@@ -39,6 +43,7 @@ GEM
     html-pipeline (1.9.0)
       activesupport (>= 2)
       nokogiri (~> 1.4)
+    htmlentities (4.3.2)
     i18n (0.6.11)
     jekyll (2.5.2)
       classifier-reborn (~> 2.0)
@@ -75,13 +80,21 @@ GEM
       rb-fsevent (>= 0.9.3)
       rb-inotify (>= 0.9)
     mercenary (0.3.5)
+    method_source (0.8.2)
     mini_portile (0.6.1)
     minitest (5.4.3)
+    multipart-post (2.0.0)
     nokogiri (1.6.5)
       mini_portile (~> 0.6.0)
+    octokit (3.7.0)
+      sawyer (~> 0.6.0, >= 0.5.3)
     parslet (1.5.0)
       blankslate (~> 2.0)
     posix-spawn (0.3.9)
+    pry (0.10.1)
+      coderay (~> 1.1.0)
+      method_source (~> 0.8.1)
+      slop (~> 3.4)
     pygments.rb (0.6.0)
       posix-spawn (~> 0.3.6)
       yajl-ruby (~> 1.1.0)
@@ -96,6 +109,10 @@ GEM
       thor (~> 0.18)
     safe_yaml (1.0.4)
     sass (3.4.9)
+    sawyer (0.6.0)
+      addressable (~> 2.3.5)
+      faraday (~> 0.8, < 0.10)
+    slop (3.6.0)
     thor (0.19.1)
     thread_safe (0.3.4)
     tilt (2.0.1)
@@ -113,9 +130,12 @@ PLATFORMS
 DEPENDENCIES
   dotenv
   haml
+  htmlentities
   jekyll (~> 2.5)
   jekyll-deploy!
   jemoji
   kramdown
+  octokit
+  pry
   pygments.rb
   s3_website

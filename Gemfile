@@ -6,11 +6,14 @@ group :jekyll_plugins do
   gem "jekyll-deploy", path: "_gems/jekyll-deploy"
 end
 
+gem "dotenv"
 gem "haml"
+gem "htmlentities"
 gem "jemoji"
 gem "kramdown"
+gem "octokit"
 gem "pygments.rb"
-
-gem "dotenv"
+gem "pry"
 gem "s3_website"
+
 
