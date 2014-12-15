@@ -7,9 +7,16 @@ module Jekyll
     def generate(site)
       @site = site
 
-      site.posts.each do |post|
-        next unless post.data["category"].downcase == "programming"
+      begin
+        Net::HTTP.start("http://www.github.com") do |http|
+          http.read_timeout = 2
+          http.head("/")
+        end
+      rescue
+        return nil
+      end
 
+      site.posts.each do |post|
         post.data["ghi"] = issue_link(post)
       end
     end
@@ -23,12 +30,12 @@ module Jekyll
     def issue_link(post)
       title = HTMLEntities.new.decode(post.data["title"])
 
-      issues = github.search_issues(%("#{title}"), repo: "spatula/phillipridlen", labels: "comments")
+      issues = github.search_issues(%("#{title}" repo:spatula/phillipridlen), labels: "comments")
       return issues.items.first.html_url unless issues.total_count == 0
 
       body = "**Comments for: #{ @site.config["url"] + post.url }** \n\n#{ post.excerpt }"
 
-      github.create_issue("spatula/phillipridlen", title, body, labels: "comments").html_url
+      github.create_issue("spatula/phillipridlen", title, body, labels: "comments,#{ post.data["category"] }").html_url
     end
   end
 end
