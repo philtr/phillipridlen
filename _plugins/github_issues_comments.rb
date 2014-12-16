@@ -24,6 +24,8 @@ module Jekyll
 
     # Check for network connection.
     def connected?
+      return true if ENV["DO_NOT_CHECK_NETWORK_CONNECTION"]
+
       connection = begin
         Net::HTTP.start("http://www.github.com") do |http|
           http.read_timeout = 2
