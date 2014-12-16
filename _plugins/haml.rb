@@ -1,7 +1,7 @@
-require File.expand_path("../ruby_pants", __FILE__)
-
 module Jekyll
   require 'haml'
+  require "rubypants-unicode"
+
   class HamlConverter < Converter
     safe true
     priority :low

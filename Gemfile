@@ -6,15 +6,15 @@ gem "jekyll", "~> 2.5"
 
 group :jekyll_plugins do
   gem "jekyll-deploy", path: "_gems/jekyll-deploy"
+  gem "jekyll-github_issues_comments", path: "_gems/jekyll-github_issues_comments"
 end
 
 gem "dotenv"
 gem "haml"
-gem "htmlentities"
 gem "jemoji"
 gem "kramdown"
-gem "octokit"
 gem "pygments.rb"
+gem "rubypants-unicode"
 gem "s3_website"
 
 group :development, :test do
