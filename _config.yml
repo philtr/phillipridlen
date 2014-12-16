@@ -7,7 +7,7 @@ highlighter: pygments
 gems:
   - jemoji
 
-exclude: [ vendor, s3_website.yml, env.sample, Gemfile, Gemfile.lock, README.md ]
+exclude: [ vendor, s3_website.yml, env.sample, Gemfile, Gemfile.lock, README.md, circle.yml ]
 
 collections:
   - projects
