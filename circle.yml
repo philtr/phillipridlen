@@ -2,6 +2,10 @@ machine:
   ruby:
     version: 2.1.3
 
+dependencies:
+  post:
+    - "[ -e /home/ubuntu/phillipridlen/vendor/bundle/ruby/2.1.0/gems/s3_website-2.7.2/s3_website-2.7.2.jar ] || (mkdir -p _site && bundle exec s3_website push --dry-run --force)"
+
 deployment:
   production:
     branch: master
