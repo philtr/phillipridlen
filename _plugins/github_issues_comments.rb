@@ -10,7 +10,7 @@ module Jekyll
   # data as `ghi`.
   class GithubIssuesComments < Jekyll::Generator
     def generate(site)
-      return nil if disconnected?
+      return nil if disconnected? || ENV["SKIP_GITHUB_ISSUES"]
       puts "\nUsing GitHub Issues on #{ repo } for comments..."
 
       @site = site
