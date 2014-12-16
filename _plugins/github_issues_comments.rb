@@ -11,6 +11,7 @@ module Jekyll
   class GithubIssuesComments < Jekyll::Generator
     def generate(site)
       return nil if disconnected?
+      puts "\nUsing GitHub Issues on #{ repo } for comments..."
 
       @site = site
 
@@ -48,15 +49,21 @@ module Jekyll
       # Decode the post title (for converting fancy quotes back to their utf-8 versions)
       title = HTMLEntities.new.decode(post.data["title"])
 
-      # If an issue is found, return its URL. Otherwise continue on
       issues = github.search_issues("#{ title } repo:#{ repo }", labels: "Comments")
-      return issues.items.first.html_url unless issues.total_count == 0
 
-      body = "**Comments for: #{ @site.config["url"] + post.url }** \n\n#{ post.excerpt }"
-      labels = [ "Comments", post.data["category"] ].join(",")
+      # If an issue is found, return its URL. Otherwise continue on
+      if issues.total_count == 0
+        body = "**Comments for: #{ @site.config["url"] + post.url }** \n\n#{ post.excerpt }"
+        labels = [ "Comments", post.data["category"] ].join(",")
 
-      # Create the issue and return the URL.
-      github.create_issue(repo, title, body, labels: labels).html_url
+        # Create the issue and return the URL.
+        issue = github.create_issue(repo, title, body, labels: labels)
+        puts "  --> \033[32m★ \033[0m \033[1mCreated issue ##{ issue.number}\033[0m for #{ title }"
+      else
+        puts "  --> \033[33m☆ \033[0m \033[1mIssue found, using ##{ issues.items.first.number }\033[0m for #{ title }"
+        return issues.items.first.html_url unless issues.total_count == 0
+      end
+
     end
 
     def repo
