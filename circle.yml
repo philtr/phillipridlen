@@ -2,10 +2,6 @@ machine:
   ruby:
     version: 2.1.5
 
-dependencies:
-  post:
-    - bundle exec ruby -e "load './vendor/bundle/ruby/2.1.0/bin/s3_website'; resolve_jar('./vendor/bundle/ruby/2.1.0/s3_website-2.7.2', Logger.new(STDOUT))"
-
 deployment:
   production:
     branch: master
