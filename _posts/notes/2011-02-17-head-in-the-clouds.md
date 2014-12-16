@@ -3,7 +3,7 @@ layout: post
 type: note
 
 title: Head in the Clouds
-description: "Valentine&rsquo;s day was a few days ago, and since I&rsquo;m still in the mood, I am going to declare my love for the cloud."
+excerpt: "Valentine&rsquo;s day was a few days ago, and since I&rsquo;m still in the mood, I am going to declare my love for the cloud."
 
 category: Programming
 tags:

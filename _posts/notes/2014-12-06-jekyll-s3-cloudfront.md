@@ -3,7 +3,7 @@ layout: post
 type: note
 
 title: Jekyll, S3, and CloudFront
-description: The latest version of this site is published using Jekyll, S3 and CloudFront
+excerpt: The latest version of this site is published using Jekyll, S3 and CloudFront
 
 category: Programming
 tags:

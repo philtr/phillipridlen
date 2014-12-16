@@ -3,7 +3,6 @@ layout: post
 type: note
 
 title: Using the Heroku Gem Inside Your App
-description:
 
 category: Programming
 tags:

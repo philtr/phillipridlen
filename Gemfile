@@ -15,7 +15,10 @@ gem "jemoji"
 gem "kramdown"
 gem "octokit"
 gem "pygments.rb"
-gem "pry"
 gem "s3_website"
 
+group :development, :test do
+  gem "pry"
+  gem "rspec", "~> 3.0"
+end
 

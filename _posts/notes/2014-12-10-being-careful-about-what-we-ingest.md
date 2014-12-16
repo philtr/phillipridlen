@@ -5,7 +5,7 @@ layout: post
 type: note
 
 title: "Being Careful About What We Ingest"
-description: |
+excerpt: |
   Many people are very careful about what they eat. In the same way, we should be careful about what
   we eat, but on a spiritual plane.
 

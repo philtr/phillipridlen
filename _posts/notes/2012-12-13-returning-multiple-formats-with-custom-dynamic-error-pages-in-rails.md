@@ -3,7 +3,7 @@ layout: post
 type: note
 
 title: Returning Multiple Formats with Rails Dynamic Error Pages
-description: |
+excerpt: |
   Yesterday my coworker Eric asked me to build out some dynamic error pages for the upcoming
   version of one of our apps. He suggested a certain pattern that we used in a previous
   application. Being the adventurous soul that I am, I wanted to make sure his way was the best

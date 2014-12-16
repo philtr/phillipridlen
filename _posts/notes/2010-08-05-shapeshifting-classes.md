@@ -3,7 +3,6 @@ layout: post
 type: note
 
 title: "Shapeshifting &ldquo;Classes&rdquo;"
-description:
 
 category: "Programming"
 tags:

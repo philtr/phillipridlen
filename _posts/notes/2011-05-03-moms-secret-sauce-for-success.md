@@ -3,7 +3,7 @@ layout: post
 type: note
 
 title: Mom&rsquo;s Secret Sauce for Success
-description: |
+excerpt: |
   I owe every accomplishment I have ever achieved to three things my mom instilled in
   me from a young age. She was relentless, frustating at times, but looking back I know
   it was out of a deep love for me and my future well-being.
