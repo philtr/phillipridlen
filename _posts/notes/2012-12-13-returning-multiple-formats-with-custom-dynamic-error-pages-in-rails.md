@@ -11,10 +11,10 @@ excerpt: |
 
 category: Programming
 tags:
-  - ruby
-  - ruby on rails
+  - Ruby
+  - Ruby on Rails
   - JSON
-  - errors
+  - Errors
 
 ghi: "https://github.com/spatula/phillipridlen/issues/7"
 ---
@@ -32,7 +32,7 @@ it down for you here:
 First, we need a controller for our error pages. Start out with something simple, like this:
 
 {% highlight ruby %}
-# app/controllers/errorrs_controller.rb
+# app/controllers/errors_controller.rb
 class ErrorsController < ApplicationController
   layout 'error' # only if you want a separate layout for your errors
 
@@ -100,8 +100,8 @@ All of the above steps were fairly simple, but figuring out how to determine whi
 is a little complex.  `env['REQUEST_PATH']` contains the error path (e.g. "/404") and no format
 information is getting passed to the errors controller, so the standard Rails `respond_to` stuff is
 not going to work here. We can grab the original request path via `env['ORIGINAL_FULLPATH']`. I
-added a few private methods to errors ontroller to help out. The first two help me figure out what
-format the request came as. I want to return a JSON respons if the request starts with '/api' or
+added a few private methods to errors controller to help out. The first two help me figure out what
+format the request came as. I want to return a JSON response if the request starts with '/api' or
 ends in '.json'. The third will render our template in the format we want.
 
 {% highlight ruby %}

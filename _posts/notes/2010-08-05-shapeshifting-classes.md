@@ -6,9 +6,9 @@ title: "Shapeshifting &ldquo;Classes&rdquo;"
 
 category: "Programming"
 tags:
-  - ruby
-  - object-oriented programming
-  - constants
+  - Ruby
+  - Object-Oriented Programming
+  - Constants
 
 ghi: "https://github.com/spatula/phillipridlen/issues/5"
 ---
@@ -52,7 +52,7 @@ end
 
 I can do this:
 
-    > AppleType = FujiAple
+    > AppleType = FujiApple
       => FujiApple
     > myApple = AppleType.new
       => #<FujiApple:0x1011b31c0>

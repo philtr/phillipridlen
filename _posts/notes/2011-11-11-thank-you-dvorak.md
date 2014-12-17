@@ -8,8 +8,8 @@ description: |
 
 category: Programming
 tags:
-  - keyboard
-  - dvorak
+  - Keyboard
+  - Dvorak
 
 ghi: "https://github.com/spatula/phillipridlen/issues/10"
 ---

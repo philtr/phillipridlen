@@ -1,4 +1,7 @@
 machine:
+  pre:
+    - sudo apt-get update; sudo apt-get install aspell
+
   ruby:
     version: 2.1.3
 

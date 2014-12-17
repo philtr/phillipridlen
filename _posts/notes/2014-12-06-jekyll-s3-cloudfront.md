@@ -7,11 +7,11 @@ excerpt: The latest version of this site is published using Jekyll, S3 and Cloud
 
 category: Programming
 tags:
-  - ruby
-  - jekyll
-  - amazon web services
-  - hosting
-  - deployment
+  - Ruby
+  - Jekyll
+  - Amazon Web Services
+  - Hosting
+  - Deployment
 
 ghi: "https://github.com/spatula/phillipridlen/issues/11"
 ---
@@ -21,7 +21,7 @@ me a little more flexibility (e.g. the ability to use Jekyll plugins). So I star
 for the best way to deploy my static site to S3.
 
 Boy, did I ever tumble down a rabbit hole. It seems like everyone's got their own idea of [how
-it](http://vvv.tobiassjosten.net/development/jekyll-blog-on-amazon-s3-and-cloudfront/) [shoud
+it](http://vvv.tobiassjosten.net/development/jekyll-blog-on-amazon-s3-and-cloudfront/) [should
 work](http://brettterpstra.com/2014/02/21/a-jekyll-cdn-with-cloudfront/), each with their custom
 one-off scripts that I would hate to debug, and not fully supporting what I was trying to
 accomplish. That's when I remembered seeing [jekyll-s3](https://github.com/laurilehmijoki/jekyll-s3)

@@ -11,9 +11,9 @@ link:
 
 category: Programming
 tags:
-  - css
-  - less
-  - utilities
+  - CSS
+  - LESS
+  - Utilities
 
 ghi: "https://github.com/spatula/phillipridlen/issues/9"
 ---

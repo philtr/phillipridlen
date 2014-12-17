@@ -6,10 +6,10 @@ title: Using the Heroku Gem Inside Your App
 
 category: Programming
 tags:
-  - ruby
-  - ruby on rails
-  - heroku
-  - gems
+  - Ruby
+  - Ruby on Rails
+  - Heroku
+  - Gems
   - API
 
 ghi: "https://github.com/spatula/phillipridlen/issues/6"
@@ -21,7 +21,7 @@ Brett asked [this question][q] on the Heroku mailing list:
   > I want to let users purchase custom domain names to access my app on
   Heroku. When the purchase transaction takes place, I'd like to add the
   custom domain to my app in real time. I thought of using the Heroku
-  gem/command line tool from within the app, analagous to the
+  gem/command line tool from within the app, analogous to the
   command-line expression: `heroku domains:add www.example.com`. Is this
   possible?
 

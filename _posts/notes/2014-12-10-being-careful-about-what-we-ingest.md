@@ -1,6 +1,4 @@
 ---
-publised: false
-
 layout: post
 type: note
 
@@ -11,9 +9,9 @@ excerpt: |
 
 category: Christianity
 tags:
-  - discipleship
-  - growth
-  - pleasing god
+  - Discipleship
+  - Growth
+  - Pleasing God
 
 ghi: "https://github.com/spatula/phillipridlen/issues/13"
 ---

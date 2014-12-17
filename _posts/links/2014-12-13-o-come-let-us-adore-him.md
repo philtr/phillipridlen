@@ -9,9 +9,9 @@ link:
 
 category: Christianity
 tags:
-  - christmas
-  - hymns
-  - carols
+  - Christmas
+  - Hymns
+  - Carols
 
 ghi: "https://github.com/spatula/phillipridlen/issues/14"
 ---

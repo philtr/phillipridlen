@@ -7,9 +7,9 @@ excerpt: "Valentine&rsquo;s day was a few days ago, and since I&rsquo;m still in
 
 category: Programming
 tags:
-  - cloud
-  - backups
-  - hosting
+  - Cloud
+  - Backups
+  - Hosting
 
 ghi: "https://github.com/spatula/phillipridlen/issues/8"
 ---
