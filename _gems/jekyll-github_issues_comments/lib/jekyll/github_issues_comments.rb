@@ -1,5 +1,6 @@
 require "htmlentities"
 require "octokit"
+require "pry"
 
 module Jekyll
   # == Use GitHub issues as the comments provider.
@@ -16,7 +17,7 @@ module Jekyll
       @site = site
 
       site.posts.each do |post|
-        post.data["ghi"] = issue_link(post)
+        post.data["ghi"] = issue_link(post) unless post.relative_path =~ /^\/_drafts/
       end
     end
 
