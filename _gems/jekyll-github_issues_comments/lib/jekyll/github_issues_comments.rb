@@ -51,6 +51,13 @@ module Jekyll
       # Decode the post title (for converting fancy quotes back to their utf-8 versions)
       title = HTMLEntities.new.decode(post.data["title"])
 
+      # If 'ghi' is already defined, write to the logs and use that value
+      if post.data["ghi"]
+        number = post.data["ghi"].split("/").last
+        puts "  --> \033[37m★ \033[0m Issue selected manually, using \033[1m##{ number }\033[0m for #{ title }"
+        return post.data["ghi"]
+      end
+
       issues = github.search_issues("#{ title } repo:#{ repo }", labels: "Comments")
 
       # If an issue is found, return its URL. Otherwise continue on
@@ -60,9 +67,9 @@ module Jekyll
 
         # Create the issue and return the URL.
         issue = github.create_issue(repo, title, body, labels: labels)
-        puts "  --> \033[32m★ \033[0m \033[1mCreated issue ##{ issue.number}\033[0m for #{ title }"
+        puts "  --> \033[32m✚ \033[0m Created issue \033[1m##{ issue.number}\033[0m for #{ title }"
       else
-        puts "  --> \033[33m☆ \033[0m \033[1mIssue found, using ##{ issues.items.first.number }\033[0m for #{ title }"
+        puts "  --> \033[34m☁︎ \033[0m Issue found, using \033[1m##{ issues.items.first.number }\033[0m for #{ title }"
         return issues.items.first.html_url unless issues.total_count == 0
       end
 
