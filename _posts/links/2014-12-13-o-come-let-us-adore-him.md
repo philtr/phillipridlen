@@ -12,6 +12,8 @@ tags:
   - christmas
   - hymns
   - carols
+
+ghi: "https://github.com/spatula/phillipridlen/issues/14"
 ---
 
 [John Piper]({{ page.link.source }}):

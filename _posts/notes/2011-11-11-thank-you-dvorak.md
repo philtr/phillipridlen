@@ -10,6 +10,8 @@ category: Programming
 tags:
   - keyboard
   - dvorak
+
+ghi: "https://github.com/spatula/phillipridlen/issues/10"
 ---
 _Dvorak_. Not exactly a common name.
 
