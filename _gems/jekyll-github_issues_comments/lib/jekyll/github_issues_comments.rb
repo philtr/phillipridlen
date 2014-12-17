@@ -67,7 +67,8 @@ module Jekyll
 
         # Create the issue and return the URL.
         issue = github.create_issue(repo, title, body, labels: labels)
-        puts "  --> \033[32m✚ \033[0m Created issue \033[1m##{ issue.number}\033[0m for #{ title }"
+        puts "  --> \033[32m✚ \033[0m Created issue \033[1m##{ issue.number }\033[0m for #{ title }"
+        return issue.html_url
       else
         puts "  --> \033[34m☁︎ \033[0m Issue found, using \033[1m##{ issues.items.first.number }\033[0m for #{ title }"
         return issues.items.first.html_url unless issues.total_count == 0
