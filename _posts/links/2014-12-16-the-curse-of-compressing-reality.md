@@ -4,7 +4,7 @@ type: link
 
 title: "The curse of compressing reality"
 excerpt: |
-  Noah Lorang on Signal v. Noise: But don’t judge your reality against someone else’s
+  Noah Lorang on Signal v. Noise: But don’t judge your reality against someone else's
   compressed work. It’s ok if it takes you a day to make a cutting board like one that someone made in
   six minutes on YouTube; the truth is it probably took them a day too."
 
@@ -22,7 +22,7 @@ Noah Lorang on [Signal v. Noise](https://signalvnoise.com/posts/3813-the-curse-o
 
 > Any creative endeavor is highly non-linear, but the sharing of it almost always skips a lot of the
 > actual work that goes into it. That’s ok; a clear progression makes for a good story that’s easy
-> to tell. But don’t judge your reality against someone else’s compressed work. It’s ok if it takes
+> to tell. But don’t judge your reality against someone else's compressed work. It’s ok if it takes
 > you a day to make a cutting board like one that someone made in six minutes on YouTube; the truth
 > is it probably took them a day too.
 
