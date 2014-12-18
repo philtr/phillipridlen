@@ -1,23 +1,12 @@
 <div class="post">
   <div class="post-date">
+    <span class="post-category" data-toggle="tooltip" data-placement="left" title="{{ page.category }}">
+      {% include post/icon.html %}
+    </span>
     <time datetime="{{ page.date }}">{{ page.date | date: "%B %d, %Y" }}</time>
   </div>
 
   <div class="post-title">
-    <div class="post-category" data-toggle="tooltip" data-placement="left" title="{{ page.category }}">
-      {% case page.category %}
-      {% when "Christianity" %}
-        <span class="fa fa-book"></span>
-      {% when "Life" %}
-        <span class="fa fa-leaf"></span>
-      {% when "Programming" %}
-        <span class="fa fa-code"></span>
-      {% when "Technology" %}
-        <span class="fa fa-desktop"></span>
-      {% when "Food" %}
-        <span class="fa fa-birthday-cake"></span>
-      {% endcase %}
-    </div>
     {% if page.type == "link" %}
       <a href="{{ page.link.source }}">{{ page.title }}</a>
     {% else %}
@@ -38,6 +27,7 @@
       </div>
     {% endif %}
   </div>
+
 
   <div class="post-meta">
     <span class="fa fa-chevron-left"></span>
