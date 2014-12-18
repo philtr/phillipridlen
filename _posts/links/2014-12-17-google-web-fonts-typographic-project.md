@@ -14,6 +14,8 @@ link:
   source: http://femmebot.github.io/google-type/
   via: Decodering
   via_link: "http://decodering.com/post/96269660184/google-font-pairings"
+
+ghi: "https://github.com/spatula/phillipridlen/issues/19"
 ---
 
 > There are over 650 [Google Fonts](https://www.google.com/fonts) available for free. But, pairing
