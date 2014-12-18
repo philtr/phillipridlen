@@ -43,6 +43,8 @@ cloudfront_invalidate_root: true
 concurrency_level: 5
 
 redirects:
+  keyzen-dvorak: http://philtr.github.io/keyzen-dvorak/
+  keyzen-dvorak/index.html: http://philtr.github.io/keyzen-dvorak/
   notes/2012/12/13/returning-multiple-formats-with-custom-dynamic-error-pages-in-rails: programming/2012/12/13/returning-multiple-formats-with-custom-dynamic-error-pages-in-rails/
   notes/2012/12/13/returning-multiple-formats-with-custom-dynamic-error-pages-in-rails/: programming/2012/12/13/returning-multiple-formats-with-custom-dynamic-error-pages-in-rails/
   notes/2011/11/11/thank-you-dvorak: programming/2011/11/11/thank-you-dvorak/
