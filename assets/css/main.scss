@@ -19,3 +19,7 @@ p, ul:not([class~="nav"]) {
   }
 }
 
+.pager li > a {
+  border: none;
+}
+
