@@ -1,0 +1,9 @@
+<div class="post-content post-{{ page.type }}">
+  {% if content %}
+    {{ content }}
+  {% else %}
+    {{ page.content }}
+  {% endif %}
+
+  {% include post/via.html %}
+</div>
