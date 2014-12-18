@@ -62,7 +62,7 @@ module Jekyll
       issues = github.search_issues("#{ title } repo:#{ repo }", labels: "Comments")
 
       # If an issue is found, return its URL. Otherwise continue on
-      if issues.total_count == 0
+      if issues.total_count == 0 || issues.items.first.title != title
         body = "**Comments for: #{ @site.config["url"] + post.url }** \n\n#{ post.excerpt }"
         labels = [ "Comments", post.data["category"] ].join(",")
 
