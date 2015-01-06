@@ -1,24 +1,44 @@
 ---
 ---
+// Frameworks
+// ================================================================================================
 @import "bootstrap";
+
+// Components
+// ================================================================================================
 @import "components/cc-icons";
 @import "components/tutti-frutti";
 
+// Elements
+// ================================================================================================
 @import "elements/header";
 @import "elements/intro";
 @import "elements/post";
 
+
+// Simple Customizations
+// ================================================================================================
+
+// Turbolinks Progress Bar
 html.turbolinks-progress-bar::before {
   background-color: $brand-danger !important;
   height: 1px !important;
 }
 
+// Underline links in text
 p, ul:not([class~="nav"]) {
   a {
     text-decoration: underline;
   }
 }
 
+// Blockquote spacing
+blockquote {
+  padding-top: 0;
+  padding-bottom: 0;
+}
+
+// Remove border from pager buttons
 .pager li > a {
   border: none;
 }
