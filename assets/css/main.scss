@@ -4,6 +4,10 @@
 // ================================================================================================
 @import "bootstrap";
 
+// Mixins
+// ================================================================================================
+@import "mixins/nice-underline";
+
 // Components
 // ================================================================================================
 @import "components/cc-icons";
@@ -28,9 +32,7 @@ html.turbolinks-progress-bar::before {
 
 // Underline links in text
 p, ul:not([class~="nav"]) {
-  a {
-    text-decoration: underline;
-  }
+  a { @include nice-underline(3px); }
 }
 
 // Blockquote spacing

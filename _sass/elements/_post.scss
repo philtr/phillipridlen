@@ -7,10 +7,7 @@
     font-weight: bold;
     margin-bottom: 1em;
 
-    a {
-      text-decoration: underline;
-
-    }
+    a { @include nice-underline(1px, 1.0); }
   }
 
   .post-date {
