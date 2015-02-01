@@ -30,9 +30,13 @@ html.turbolinks-progress-bar::before {
   height: 1px !important;
 }
 
+.container-wide {
+  width: 1000px;
+}
+
 // Underline links in text
 p, ul:not([class~="nav"]) {
-  a { @include nice-underline(3px); }
+  a { @include nice-underline(6px); }
 }
 
 // Blockquote spacing

@@ -1,24 +1,26 @@
 ---
-layout: default
+layout: master
 ---
-<div class="intro">
-  <p>
-    I like to build stuff and give it away. Most of these are re&shy;leased under an MIT license
-    (check each pro&shy;ject for speci&shy;fics) so you can do what you want with them.
-  </p>
-</div>
+<div class="container container-wide">
+  <div class="intro">
+    <p>
+      I like to build stuff and give it away. Most of these are re&shy;leased under an MIT license
+      (check each pro&shy;ject for speci&shy;fics) so you can do what you want with them.
+    </p>
+  </div>
 
-{% for project in site.projects %}
-  {% capture odd %}{% cycle "true", "false" %}{% endcapture %}
-  {% if odd == "true" %}<div class="row">{% endif %}
-    <div class="col-sm-6">
-      <div class="thumbnail">
-        <a href="{{ project.link }}"><img src="/assets/images/{{ project.relative_path | remove_first:"_" | remove_first,".md"  }}/preview.png?{{ site.version }}" class="img-responsive" /></a>
+  {% for project in site.projects %}
+    {% capture col %}{% cycle "one", "two", "three" %}{% endcapture %}
+    {% if col == "one" %}<div class="row">{% endif %}
+      <div class="col-sm-4">
+        <div class="thumbnail">
+          <a href="{{ project.link }}"><img src="/assets/images/{{ project.relative_path | remove_first:"_" | remove_first,".md"  }}/preview.png?{{ site.version }}" class="img-responsive" /></a>
+        </div>
+        <div class="caption">
+          <h5><a href="{{ project.link }}">{{ project.title }}</a></h5>
+          <p>{{ project.summary }}</p>
+        </div>
       </div>
-      <div class="caption">
-        <h3><a href="{{ project.link }}">{{ project.title }}</a></h3>
-        <p>{{ project.summary }}</p>
-      </div>
-    </div>
-  {% if odd == "false" %}</div>{% endif %}
-{% endfor %}
+    {% if col == "three" %}</div>{% endif %}
+  {% endfor %}
+</div>
