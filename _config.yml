@@ -28,3 +28,5 @@ paginate_path: "/page-:num"
 url: http://phillipridlen.com
 email: p@rdln.net
 rss: http://feeds.feedburner.com/phillipridlen
+
+asset_version: 2.1.0
