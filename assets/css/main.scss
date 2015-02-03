@@ -31,8 +31,11 @@ html.turbolinks-progress-bar::before {
 }
 
 .container-wide {
-  width: 1000px;
+  @media(min-width: $screen-lg-min) {
+    width: $container-lg * 1.5;
+  }
 }
+
 
 // Underline links in text
 p, ul:not([class~="nav"]) {
