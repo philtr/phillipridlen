@@ -14,7 +14,7 @@ layout: master
     {% if col == "one" %}<div class="row">{% endif %}
       <div class="col-sm-4">
         <div class="thumbnail">
-          <a href="{{ project.link }}"><img src="/assets/images/{{ project.relative_path | remove_first:"_" | remove_first,".md"  }}/preview.png?{{ site.version }}" class="img-responsive" /></a>
+          <a href="{{ project.link }}"><img src="{{ project.preview | asset_path }}" class="img-responsive"/></a>
         </div>
         <div class="caption">
           <h5><a href="{{ project.link }}">{{ project.title }}</a></h5>

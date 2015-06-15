@@ -1,3 +1,7 @@
+Turbolinks.enableTransitionCache();
+Turbolinks.enableProgressBar();
+Turbolinks.pagesCached(20);
+
 var ready = function ready_() {
   $('[data-toggle="tooltip"]').tooltip();
 }
