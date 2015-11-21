@@ -1,5 +1,5 @@
-# Phillip's Notes, Quotes, *and* Other Miscellany
+# Phillip Ridlen's Website
 
-<http://blog.phillipridlen.com>
+<https://phillipridlen.com>
 
 
