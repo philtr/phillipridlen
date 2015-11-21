@@ -20,11 +20,11 @@ $gray-light:             lighten($gray-base, 46.7%) !default; // #777
 $gray-lightly:           lighten($gray-base, 70.1%) !default; //
 $gray-lighter:           lighten($gray-base, 93.5%) !default; // #eee
 
-$brand-primary:         #264e59 !default;
-$brand-success:         #5cb85c !default;
-$brand-info:            #5bc0de !default;
+$brand-primary:         #1F3A52 !default;
+$brand-success:         #8CCA6E !default;
+$brand-info:            #D3F689 !default;
 $brand-warning:         #f0ad4e !default;
-$brand-danger:          #e71a5d !default;
+$brand-danger:          #41A186 !default;
 
 
 //== Scaffolding
@@ -48,17 +48,17 @@ $link-hover-decoration: underline !default;
 //
 //## Font, line-height, and color for body text, headings, and more.
 
-$font-family-sans-serif:  "freight-sans-pro", "Seravek", "Segoe UI", "Helvetica Neue", Arial, sans-serif !default;
+$font-family-sans-serif:  "Lato", "Seravek", "Segoe UI", "Helvetica Neue", Arial, sans-serif !default;
 $font-family-serif:       "Constantina" ,"Charter", "Georgia", serif !default;
 //** Default monospace fonts for `<code>`, `<kbd>`, and `<pre>`.
 $font-family-monospace:   "source-code-pro", "Source Code Pro", Consolas, Menlo, Monaco, monospace !default;
 $font-family-base:        $font-family-sans-serif !default;
 
-$font-size-base:          19px !default;
+$font-size-base:          15px !default;
 $font-size-large:         ceil(($font-size-base * 1.25)) !default; // ~18px
 $font-size-small:         ceil(($font-size-base * 0.85)) !default; // ~12px
 
-$font-weight-base:        200 !default;
+$font-weight-base:        400 !default;
 
 $font-size-h1:            floor(($font-size-base * 2.6)) !default; // ~36px
 $font-size-h2:            floor(($font-size-base * 2.15)) !default; // ~30px
@@ -522,7 +522,7 @@ $tooltip-max-width:           200px !default;
 //** Tooltip text color
 $tooltip-color:               #fff !default;
 //** Tooltip background color
-$tooltip-bg:                  #000 !default;
+$tooltip-bg:                  $brand-primary !default;
 $tooltip-opacity:             .9 !default;
 
 //** Tooltip arrow width

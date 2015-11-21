@@ -1,5 +1,5 @@
 .post {
-  & + .post { margin-top: 3em; }
+  & + .post { margin-top: 4em; }
 
   .post-title {
     font-family: $headings-font-family;
@@ -10,7 +10,7 @@
     a:hover { @include nice-underline(8px) }
   }
 
-  .post-date {
+  .post-date, .post-permalink {
     color: $gray-light;
   }
 

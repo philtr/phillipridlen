@@ -1,4 +1,6 @@
 <div class="post-date">
   {% include post/category.html %}
-  <time datetime="{{ page.date }}">{{ page.date | date: "%B %d, %Y" }}</time>
+  <a href="{{ site.url }}{{ page.url }}" class="post-permalink">
+    <time datetime="{{ page.date }}">{{ page.date | date: "%B %d, %Y" }}</time>
+  </a>
 </div>

@@ -1,11 +1,9 @@
 permalink: pretty
-
 markdown: kramdown
-
 highlighter: pygments
 
 gems:
-  - jemoji
+  - jekyll-assets
 
 exclude: [ vendor, s3_website.yml, env.sample, Gemfile, Gemfile.lock, README.md, circle.yml, spec ]
 
