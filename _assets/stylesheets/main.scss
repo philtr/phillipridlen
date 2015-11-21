@@ -8,7 +8,6 @@
 
 // Components
 // ================================================================================================
-@import "components/cc-icons";
 @import "components/hyphens";
 @import "components/tutti-frutti";
 
@@ -28,12 +27,12 @@ html.turbolinks-progress-bar::before {
   height: 1px !important;
 }
 
+// Extra-wide container for certain pages
 .container-wide {
   @media(min-width: $screen-lg-min) {
     width: $container-lg * 1.5;
   }
 }
-
 
 // Underline links in text
 p, ul:not([class~="nav"]) {
@@ -46,8 +45,24 @@ blockquote {
   padding-bottom: 0;
 }
 
+// Footer
+footer {
+  margin-top: 6em;
+}
+
+// Self portrait
+.mister-ridlen {
+  text-align: center;
+  margin: 3em 0 4em;
+}
+
 // Remove border from pager buttons
-.pager li > a {
-  border: none;
+.pager {
+  margin-bottom: -4em;
+  margin-top: 3em;
+
+  & li > a {
+    border: none;
+  }
 }
 

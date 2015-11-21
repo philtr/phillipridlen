@@ -5,14 +5,14 @@ highlighter: pygments
 gems:
   - jekyll-assets
 
-exclude: [ vendor, s3_website.yml, env.sample, Gemfile, Gemfile.lock, README.md, circle.yml, spec ]
+exclude: [ .asset-cache, vendor, s3_website.yml, env.sample, Gemfile, Gemfile.lock, README.md, circle.yml, spec ]
 
 collections:
   - projects
 
 navigation:
   - name: "Notes"
-    url: "/"
+    url: "/notes/"
   - name: "Projects"
     url: "/projects/"
   - name: "About"
@@ -21,7 +21,7 @@ navigation:
     url: "/contact/"
 
 paginate: 5
-paginate_path: "/page-:num"
+paginate_path: "/notes/page-:num"
 
 url: http://phillipridlen.com
 email: p@rdln.net
