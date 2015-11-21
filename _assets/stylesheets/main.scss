@@ -53,7 +53,11 @@ footer {
 // Self portrait
 .mister-ridlen {
   text-align: center;
-  margin: 3em 0 4em;
+  margin-bottom: 2em;
+
+  @media(min-width: $screen-sm-min) {
+    margin: 3em 0 4em;
+  }
 }
 
 // Remove border from pager buttons
