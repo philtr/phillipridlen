@@ -1,72 +1,42 @@
 // Frameworks
 // ================================================================================================
-@import "bootstrap";
-
-// Mixins
-// ================================================================================================
-@import "mixins/nice-underline";
+@import "bourbon/bourbon";
+@import "base/base";
+@import "neat/neat";
 
 // Components
 // ================================================================================================
+@import "components/highlight";
 @import "components/hyphens";
-@import "components/tutti-frutti";
+@import "components/markdown";
 
-// Elements
-// ================================================================================================
-@import "elements/header";
-@import "elements/intro";
-@import "elements/post";
-
+@import "components/contact";
+@import "components/footer";
+@import "components/navigation";
+@import "components/posts";
+@import "components/projects";
+@import "components/text";
 
 // Simple Customizations
 // ================================================================================================
 
-// Turbolinks Progress Bar
-html.turbolinks-progress-bar::before {
-  background-color: $brand-danger !important;
-  height: 1px !important;
+.container {
+  padding: 0 1em;
 }
 
-// Extra-wide container for certain pages
-.container-wide {
-  @media(min-width: $screen-lg-min) {
-    width: $container-lg * 1.5;
-  }
-}
-
-// Underline links in text
-p, ul:not([class~="nav"]) {
-  a { @include nice-underline(6px); }
-}
-
-// Blockquote spacing
-blockquote {
-  padding-top: 0;
-  padding-bottom: 0;
-}
-
-// Footer
-footer {
-  margin-top: 6em;
-}
-
-// Self portrait
 .mister-ridlen {
+  @include outer-container;
   text-align: center;
-  margin-bottom: 2em;
 
-  @media(min-width: $screen-sm-min) {
-    margin: 3em 0 4em;
+  img {
+    @include span-columns(6 of 12);
+    @include shift(3 of 12);
+    margin-bottom: 4em;
+    margin-top: 2em;
+  }
+
+  p {
+    @include span-columns(12 of 12);
+    font-size: $base-font-size * $scale-up;
   }
 }
-
-// Remove border from pager buttons
-.pager {
-  margin-bottom: -4em;
-  margin-top: 3em;
-
-  & li > a {
-    border: none;
-  }
-}
-

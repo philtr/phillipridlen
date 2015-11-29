@@ -1,0 +1,203 @@
+$highlight-base: #2f1e2e;
+$highlight-light: #8d8687;
+$highlight-blue: #06b6ef;
+$highlight-green: #48b685;
+$highlight-aqua: #5bc4bf;
+$highlight-red: #ef6155;
+$highlight-orange: #f99b15;
+$highlight-yellow: #fec418;
+$highlight-purple: #815ba4;
+
+.highlight, .highlight pre, .highlight code {
+  color: $highlight-base;
+}
+.highlight .n { /* name */
+  color: $highlight-blue;
+}
+.highlight .k { /* keyword */
+  color: $highlight-green;
+}
+.highlight .o { /* operator */
+  color: $highlight-aqua;
+}
+.highlight .p { /* punctuation */
+}
+.highlight .c { /* comment */
+  color: $highlight-light;
+}
+.highlight .err { /* error */
+  color: $highlight-red;
+}
+.highlight .cm { /* comment.multiline */
+  color: $highlight-light;
+}
+.highlight .cp { /* comment.preproc */
+  color: $highlight-light;
+}
+.highlight .c1 { /* comment.single */
+  color: $highlight-light;
+}
+.highlight .cs { /* comment.special */
+  color: $highlight-light;
+}
+.highlight .gd { /* generic.deleted */
+}
+.highlight .gd .x { /* generic.deleted.specific */
+}
+.highlight .ge { /* generic.emph */
+}
+.highlight .gr { /* generic.error */
+  color: $highlight-red;
+}
+.highlight .gh { /* generic.heading */
+  color: $highlight-light;
+}
+.highlight .gi { /* generic.inserted */
+}
+.highlight .gi .x { /* generic.inserted.specific */
+}
+.highlight .go { /* generic.output */
+  color: $highlight-light;
+}
+.highlight .gp { /* generic.prompt */
+  color: $highlight-light;
+}
+.highlight .gs { /* generic.strong */
+}
+.highlight .gu { /* generic.subheading */
+  color: $highlight-light;
+}
+.highlight .gt { /* generic.traceback */
+  color: $highlight-red;
+}
+.highlight .kc { /* keyword.constant */
+  color: $highlight-blue;
+}
+.highlight .kd { /* keyword.declaration */
+  color: $highlight-blue;
+}
+.highlight .kp { /* keyword.pseudo */
+  color: $highlight-blue;
+}
+.highlight .kr { /* keyword.reserved */
+  color: $highlight-blue;
+}
+.highlight .kt { /* keyword.type */
+  color: $highlight-blue;
+}
+.highlight .m { /* literal.number */
+  color: $highlight-aqua;
+}
+.highlight .s { /* literal.string */
+  color: $highlight-orange;
+}
+.highlight .na { /* name.attribute */
+  color: $highlight-green;
+}
+.highlight .nb { /* name.builtin */
+  color: $highlight-blue;
+}
+.highlight .nc { /* name.class */
+  background-color: transparentize($highlight-purple, .95);
+  border-radius: 2px;
+  color: $highlight-purple;
+}
+.highlight .no { /* name.constant */
+  color: $highlight-green;
+}
+.highlight .ni { /* name.entity */
+  color: $highlight-purple;
+}
+.highlight .ne { /* name.exception */
+  color: $highlight-aqua;
+}
+.highlight .nf { /* name.function */
+  background-color: transparentize($highlight-purple, .95);
+  border-radius: 2px;
+  color: $highlight-purple;
+}
+.highlight .nd { /* name.decorator */
+  color: $highlight-aqua;
+}
+.highlight .nn { /* name.namespace */
+  color: $highlight-aqua;
+}
+.highlight .nt { /* name.tag */
+  background-color: transparentize($highlight-blue, .95);
+  border-radius: 2px;
+  color: $highlight-blue;
+}
+.highlight .nv { /* name.variable */
+  color: $highlight-aqua;
+}
+.highlight .nx { /* name.other */
+  background-color: transparentize($highlight-aqua, .95);
+  border-radius: 2px;
+  color: $highlight-aqua;
+}
+.highlight .ow { /* operator.word */
+  color: $highlight-aqua;
+}
+.highlight .w { /* text.whitespace */
+  color: $highlight-light;
+}
+.highlight .mf { /* literal.number.float */
+  color: $highlight-green;
+}
+.highlight .mh { /* literal.number.hex */
+  color: $highlight-green;
+}
+.highlight .mi { /* literal.number.integer */
+  color: $highlight-green;
+}
+.highlight .mo { /* literal.number.oct */
+  color: $highlight-green;
+}
+.highlight .sb { /* literal.string.backtick */
+  color: $highlight-orange;
+}
+.highlight .sc { /* literal.string.char */
+  color: $highlight-orange;
+}
+.highlight .sd { /* literal.string.doc */
+  color: $highlight-orange;
+}
+.highlight .s2 { /* literal.string.double */
+  color: $highlight-orange;
+}
+.highlight .se { /* literal.string.escape */
+  color: $highlight-orange;
+}
+.highlight .sh { /* literal.string.heredoc */
+  color: $highlight-orange;
+}
+.highlight .si { /* literal.string.interpol */
+  color: $highlight-orange;
+}
+.highlight .sx { /* literal.string.other */
+  color: $highlight-orange;
+}
+.highlight .sr { /* literal.string.regex */
+  color: $highlight-orange;
+}
+.highlight .s1 { /* literal.string.single */
+  color: $highlight-orange;
+}
+.highlight .ss { /* literal.string.symbol */
+  color: $highlight-yellow;
+}
+.highlight .bp { /* name.builtin.pseudo */
+  color: $highlight-aqua;
+}
+.highlight .vc { /* name.variable.class */
+  color: $highlight-green;
+}
+.highlight .vg { /* name.variable.global */
+  color: $highlight-green;
+}
+.highlight .vi { /* name.variable.instance */
+  color: $highlight-green;
+}
+.highlight .il { /* literal.number.integer.long */
+  color: $highlight-green;
+}

@@ -23,10 +23,11 @@ navigation:
 paginate: 5
 paginate_path: "/notes/page-:num"
 
-url: http://phillipridlen.com
+url: https://phillipridlen.com
 email: p@rdln.net
-rss: http://feeds.feedburner.com/phillipridlen
+rss: https://feeds.feedburner.com/phillipridlen
 
 assets:
-  js_compressor: uglifier
-  css_compressor: sass
+  compress:
+    css: true
+    js: true

@@ -1,0 +1,26 @@
+section.contact {
+  @include outer-container;
+
+  .form-group {
+    @include media($large-screen-up) {
+      margin-bottom: 1em;
+
+      &#name-field {
+        @include span-columns(6);
+      }
+
+      &#email-field {
+        @include span-columns(6);
+        @include omega;
+      }
+
+      &#message-field {
+        @include span-columns(12);
+      }
+
+      &#submit {
+        @include span-columns(12);
+      }
+    }
+  }
+}
