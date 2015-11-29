@@ -9,8 +9,8 @@ function initMenuToggler() {
 }
 
 function initNavHighlighter() {
-  $("li.nav-link").on('click', function(e) {
-    $(this).siblings().removeClass("active-nav-item");
+  $("li.nav-link, a.logo").on('click', function(e) {
+    $("li.nav-link, a.logo").removeClass("active-nav-item");
     $(this).addClass("active-nav-item");
   });
 }
