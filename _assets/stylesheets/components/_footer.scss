@@ -13,13 +13,11 @@ html, body {
 }
 
 footer {
-  @include outer-container;
-
   border-top: 1px solid tint($light-gray, 80%);
   color: $light-gray;
   margin-top: 4em;
-  padding-top: 1em;
-  text-align: right;
+  padding: 2em 0;
+  text-align: center;
 
   .footer-icon {
     @include filter(grayscale(60%) opacity(70%));

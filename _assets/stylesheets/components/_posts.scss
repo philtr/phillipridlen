@@ -13,13 +13,17 @@ section.posts {
     }
 
     &-title {
-      font-size: $base-font-size * $scale-up * $scale-up;
+      font-size: $base-font-size * $scale-up;
       font-weight: 900;
       margin-bottom: 1em;
       text-align: center;
 
       a {
         color: tint($base-font-color, 20%);
+      }
+
+      @include media($medium-screen-up) {
+        font-size: $base-font-size * $scale-up * $scale-up;
       }
     }
 
@@ -31,7 +35,7 @@ section.posts {
 
     & + .post {
       &::before {
-        color: $light-gray;
+        color: tint($light-gray, 60%);
         content: "• • •";
         display: block;
         margin-bottom: 3em;
