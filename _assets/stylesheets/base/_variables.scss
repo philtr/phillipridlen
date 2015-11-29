@@ -1,6 +1,10 @@
 // Typography
-$base-font-family: $helvetica;
+$base-font-family: -apple-system, BlinkMacSystemFont, "Avenir", "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
 $heading-font-family: $base-font-family;
+
+// Scale
+$scale-up: 1.62;
+$scale-down: 0.62;
 
 // Font Sizes
 $base-font-size: 1em;
@@ -16,14 +20,16 @@ $small-spacing: $base-spacing / 2;
 $base-z-index: 0;
 
 // Colors
-$blue: #477dca;
-$dark-gray: #333;
-$medium-gray: #999;
-$light-gray: #ddd;
+$blue:        #1F3A52;
+$green:       #41A186;
+$dark-gray:   #41323f;
+$medium-gray: #8d8687;
+$light-gray:  #b9b6b0;
 
 // Font Colors
 $base-font-color: $dark-gray;
-$action-color: $blue;
+$action-color: $green;
+$highlight-color: $blue;
 
 // Border
 $base-border-color: $light-gray;

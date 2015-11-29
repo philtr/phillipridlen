@@ -1,29 +1,23 @@
 ---
 layout: default
 ---
-.intro
-  :markdown
-    Submit the form below, or if you'd pre&shy;fer, send an email di&shy;rectly to p _at_ rdln _dot_ net.
+%section.contact
+  .contact
+    .markdown
+      :markdown
+        Submit the form below, or if you'd pre&shy;fer, send an email di&shy;rectly to p _at_ rdln _dot_ net.
 
-%form{ role: "form", id: "contact", action: "https://formkeep.com/f/321d46f244f3", method: "post" }
-  .row
-    .col-sm-6
-      .form-group
+    %form{ role: "form", id: "contact", action: "https://formkeep.com/f/321d46f244f3", method: "post" }
+      .form-group#name-field
         %label.control-label{ for: "name" } Your Name
         %input.form-control{ id: "name", type: "text", name: "name" }
-    .col-sm-6
-      .form-group
+      .form-group#email-field
         %label.control-label{ for: "name" } Your Email
         %input.form-control{ id: "name", type: "email", name: "email" }
 
-  .row
-    .col-sm-12
-      .form-group
+      .form-group#message-field
         %label.control-label{ for: "message" } Your Message
         %textarea.form-control{ id: "message", name: "message", rows: 5 }
 
-  .row
-    .col-sm-12
-      .form-group
-        %p
-          %button.btn.btn-primary{ type: "submit" } Submit
+      .form-group#submit
+        %button.btn.btn-primary{ type: "submit" } Say Hello

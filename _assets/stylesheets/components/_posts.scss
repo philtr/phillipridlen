@@ -1,0 +1,54 @@
+section.posts {
+  @include outer-container;
+
+  .post {
+    margin-top: 2em;
+
+    &-date {
+      text-align: center;
+    }
+
+    &-permalink {
+      color: $medium-gray;
+    }
+
+    &-title {
+      font-size: $base-font-size * $scale-up * $scale-up;
+      font-weight: 900;
+      margin-bottom: 1em;
+      text-align: center;
+
+      a {
+        color: tint($base-font-color, 20%);
+      }
+    }
+
+    blockquote {
+      border-left: 2px solid $light-gray;
+      margin-left: 1em;
+      padding-left: 1em;
+    }
+
+    & + .post {
+      &::before {
+        color: $light-gray;
+        content: "• • •";
+        display: block;
+        margin-bottom: 3em;
+        margin-top: 3em;
+        text-align: center;
+        width: 100%;
+      }
+    }
+  }
+
+  ul.pager.nav {
+    margin-top: 2em;
+    text-align: center;
+
+    .previous, .next {
+      display: inline-block;
+      padding: 0 2em;
+    }
+  }
+}

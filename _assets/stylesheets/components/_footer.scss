@@ -1,0 +1,30 @@
+html, body {
+  height: 100%;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  min-height: 98%;
+}
+
+.container-content {
+  flex: 1;
+}
+
+footer {
+  @include outer-container;
+
+  border-top: 1px solid tint($light-gray, 80%);
+  color: $light-gray;
+  margin-top: 4em;
+  padding-top: 1em;
+  text-align: right;
+
+  .footer-icon {
+    @include filter(grayscale(60%) opacity(70%));
+    height: 1.5em;
+    position: relative;
+    top: 0.33em;
+  }
+}

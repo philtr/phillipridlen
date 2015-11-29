@@ -3,19 +3,22 @@ layout: default
 description: "Thoughts on web development and life in general by Phillip Ridlen, a Ruby developer in Dallas, Texas."
 ---
 
-{% for page in paginator.posts %}
-  {% include post.html %}
-{% endfor %}
+<section class="posts">
+  {% for page in paginator.posts %}
+    {% include post.html %}
+  {% endfor %}
 
-<nav>
-  <ul class="pager nav">
-    {% if paginator.next_page %}
-      <li class="previous"><a href="{{ paginator.next_page_path }}"><span aria-hidden="true">&larr;</span> Older</a></li>
-    {% endif %}
+  <nav>
+    <ul class="pager nav">
+      {% if paginator.next_page %}
+        <li class="previous"><a href="{{ paginator.next_page_path }}"><span aria-hidden="true">&larr;</span> Older Posts</a></li>
+      {% endif %}
 
-    {% if paginator.previous_page %}
-      <li class="next"><a href="{{ paginator.previous_page_path }}">Newer <span aria-hidden="true">&rarr;</span></a></li>
-    {% endif %}
-  </ul>
-</nav>
+      {% if paginator.previous_page %}
+        <li class="next"><a href="{{ paginator.previous_page_path }}">Newer Posts <span aria-hidden="true">&rarr;</span></a></li>
+      {% endif %}
+    </ul>
+  </nav>
+</section>
+
 

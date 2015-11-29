@@ -1,22 +1,20 @@
-<nav class="navbar">
-  <div class="container">
-    <div class="navbar-header">
-      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#main-menu">
-        <span class="sr-only">Toggle navigation</span>
-        <span class="fa fa-bars"></span>
-      </button>
-      <a class="navbar-brand" href="/">Phillip Ridlen</a>
-    </div>
-
-    <div class="collapse navbar-collapse" id="main-menu">
-      <div class="navbar-right">
-        <ul class="nav navbar-nav nav-pills">
-          {% for nav in site.navigation %}
-            <li {% if page.url == nav.url %}class="selected active"{% endif %}><a href="{{ nav.url }}">{{ nav.name }}</a></li>
-          {% endfor %}
-        </ul>
-      </div>
-
-    </div>
+<header class="navigation" id="navigation" role="banner" data-turbolinks-permanent>
+  <div class="navigation-wrapper">
+    <a href="/" class="logo">
+      Phillip Ridlen
+    </a>
+    <a href="javascript:void(0)" class="navigation-menu-button" id="js-mobile-menu">Menu</a>
+    <nav role="navigation">
+      <ul id="js-navigation-menu" class="navigation-menu show">
+        {% for nav in site.navigation %}
+          {% if nav.url == page.url %}
+            <li class="nav-link active-nav-item"><a href="{{ nav.url }}">{{ nav.name }}</a></li>
+          {% else %}
+            <li class="nav-link"><a href="{{ nav.url }}">{{ nav.name }}</a></li>
+          {% endif %}
+        {% endfor %}
+      </ul>
+    </nav>
   </div>
-</nav>
+</header>
+

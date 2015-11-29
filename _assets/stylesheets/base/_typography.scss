@@ -30,7 +30,7 @@ a {
   &:active,
   &:focus,
   &:hover {
-    color: shade($action-color, 25%);
+    color: $highlight-color;
   }
 }
 
@@ -46,4 +46,22 @@ img,
 picture {
   margin: 0;
   max-width: 100%;
+}
+
+pre, code {
+  font-family: Consolas, Inconsolata, monospace;
+  font-size: 0.9em;
+}
+
+pre {
+  background: tint($light-gray, 95%);
+  border: 1px solid tint($light-gray, 70%);
+  border-radius: 0.25em;
+  margin: 0;
+  padding: 1em;
+  overflow: scroll;
+}
+
+figure {
+  margin: 1em 0;
 }

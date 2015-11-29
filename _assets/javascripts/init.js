@@ -1,9 +1,4 @@
-Turbolinks.enableTransitionCache();
-Turbolinks.enableProgressBar();
-Turbolinks.pagesCached(20);
+$(document).ready(initMenuToggler);
+$(document).ready(initNavHighlighter);
+$(document).on("page:load", initMenuToggler);
 
-var ready = function ready_() {
-  $('[data-toggle="tooltip"]').tooltip();
-}
-
-$(document).on("ready page:load", ready);
