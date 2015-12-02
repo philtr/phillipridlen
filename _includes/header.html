@@ -6,13 +6,11 @@
     <a href="javascript:void(0)" class="navigation-menu-button" id="js-mobile-menu">Menu</a>
     <nav role="navigation">
       <ul id="js-navigation-menu" class="navigation-menu show">
-        {% for nav in site.navigation %}
-          {% if nav.url == page.url %}
+        {% for nav in site.navigation %}{% if nav.url == page.url %}
             <li class="nav-link active-nav-item"><a href="{{ nav.url }}">{{ nav.name }}</a></li>
           {% else %}
             <li class="nav-link"><a href="{{ nav.url }}">{{ nav.name }}</a></li>
-          {% endif %}
-        {% endfor %}
+          {% endif %}{% endfor %}
       </ul>
     </nav>
   </div>

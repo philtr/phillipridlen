@@ -22,7 +22,7 @@ header.navigation {
 
   background-color: $navigation-background;
   border-bottom: 1px solid darken($navigation-background, 10);
-  margin-bottom: 1em;
+  margin: 1em 0 3em 0;
   min-height: $navigation-height;
   width: 100%;
   z-index: 999;
@@ -36,7 +36,7 @@ header.navigation {
 
   .logo {
     float: left;
-    font-size: $base-font-size * $scale-up;
+    font-size: modular-scale(2);
     font-weight: bold;
     line-height: $navigation-height;
     max-height: $navigation-height;
@@ -109,7 +109,7 @@ header.navigation {
     display: block;
     line-height: $navigation-height;
     overflow: hidden;
-    padding-right: 0.8em;
+    padding-left: 0.8em;
     text-align: right;
     width: 100%;
     z-index: 9999;
@@ -128,7 +128,7 @@ header.navigation {
       text-decoration: none;
 
       @include media ($horizontal-bar-mode) {
-        padding-right: 1em;
+        padding-left: 1em;
       }
 
       &:focus,

@@ -1,5 +1,6 @@
 section.contact {
   @include outer-container;
+  margin-bottom: 3em;
 
   .form-group {
     @include media($large-screen-up) {

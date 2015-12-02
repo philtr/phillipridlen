@@ -1,3 +1,7 @@
 section.text {
   @include outer-container;
+
+  .intro {
+    font-size: modular-scale(1);
+  }
 }

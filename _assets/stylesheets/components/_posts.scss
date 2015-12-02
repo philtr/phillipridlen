@@ -2,10 +2,9 @@ section.posts {
   @include outer-container;
 
   .post {
-    margin-top: 2em;
-
     &-date {
       text-align: center;
+      margin-bottom: modular-scale(4);
     }
 
     &-permalink {
@@ -13,9 +12,8 @@ section.posts {
     }
 
     &-title {
-      font-size: $base-font-size * $scale-up;
+      font-size: modular-scale(1);
       font-weight: 900;
-      margin-bottom: 1em;
       text-align: center;
 
       a {
@@ -23,7 +21,7 @@ section.posts {
       }
 
       @include media($medium-screen-up) {
-        font-size: $base-font-size * $scale-up * $scale-up;
+        font-size: modular-scale(3);
       }
     }
 

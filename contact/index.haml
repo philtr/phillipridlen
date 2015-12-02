@@ -1,11 +1,10 @@
 ---
 layout: default
 ---
+
+
 %section.contact
   .contact
-    .markdown
-      :markdown
-        Submit the form below, or if you'd pre&shy;fer, send an email di&shy;rectly to p _at_ rdln _dot_ net.
 
     %form{ role: "form", id: "contact", action: "https://formkeep.com/f/321d46f244f3", method: "post" }
       .form-group#name-field
@@ -21,3 +20,7 @@ layout: default
 
       .form-group#submit
         %button.btn.btn-primary{ type: "submit" } Say Hello
+
+%section.text
+  :markdown
+    Or get in touch directly: <p@rdln.net>.

@@ -5,7 +5,7 @@ section.error {
 
   h1 {
     color: tint($base-font-color, 20%);
-    font-size: $base-font-size * $scale-up * $scale-up * $scale-up * $scale-up;
+    font-size: modular-scale(4);
     font-weight: 900;
   }
 }

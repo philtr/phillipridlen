@@ -22,6 +22,7 @@
 // ================================================================================================
 
 .container {
+  min-height: 100%;
   padding: 0 1em;
 }
 
@@ -38,6 +39,6 @@
 
   p {
     @include span-columns(12 of 12);
-    font-size: $base-font-size * $scale-up;
+    font-size: modular-scale(2);
   }
 }
