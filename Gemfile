@@ -15,7 +15,6 @@ gem "kramdown"
 gem "pygments.rb"
 gem "rubypants-unicode"
 gem "s3_website"
-gem "therubyracer"
 gem "uglifier"
 
 group :development, :test do
