@@ -11,10 +11,10 @@ tags:
   - Communication
 
 link:
-  source: http://blog.desk.pm/friendly/
+  source: http://john.do/friendly/
 ---
 
-John Saddington, on the [Desk](http://desk.pm) blog:
+John Saddington, on [his blog](http://john.do/friendly/):
 
 > Friendly? Ah, that’s curious to me because I have not always been the nicest nor the friendliest
 > person on the internet. The truth is that I once saw the internet as an opportunity to just shout
@@ -27,3 +27,5 @@ John Saddington, on the [Desk](http://desk.pm) blog:
 It never hurts to be a nice person. People will take notice. And, of course---as we all
 know---[_Mean People Fail_](http://paulgraham.com/mean.html).
 
+**Update:** Fixed the broken link to John's blog which was previously on the [Desk](http://desk.pm)
+site.
