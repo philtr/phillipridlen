@@ -3,3 +3,19 @@
   margin-left: 1em;
 }
 
+%markdown-heading {
+  color: tint($base-font-color, 20%);
+  font-weight: 800;
+  margin: 1em 0;
+}
+
+.markdown h1 {
+  @extend %markdown-heading;
+  font-size: modular-scale(3);
+}
+
+.markdown h2 {
+  @extend %markdown-heading;
+  font-size: modular-scale(2);
+}
+
