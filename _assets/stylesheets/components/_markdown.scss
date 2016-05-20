@@ -19,3 +19,13 @@
   font-size: modular-scale(2);
 }
 
+.markdown h3 {
+  @extend %markdown-heading;
+  font-size: modular-scale(1);
+}
+
+.markdown blockquote {
+  border-left: 2px solid $light-gray;
+  margin-left: 1em;
+  padding-left: 1em;
+}
