@@ -11,7 +11,7 @@ class Deploy < Jekyll::Command
           Jekyll::Commands::Build.process({})
 
           if options["tidy"]
-            if `tidy --version` =~ /HTML5/
+            if `tidy --version` =~ /version 5\./
               puts "Tidying HTML..."
               system("find _site/ -name '*.html' -exec tidy -config _config/tidy.conf {} \\;")
             end
