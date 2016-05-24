@@ -11,17 +11,12 @@ collections:
   - projects
 
 navigation:
-  - name: "Notes"
-    url: "/notes/"
   - name: "Projects"
     url: "/projects/"
-  - name: "About"
-    url: "/about/"
   - name: "Contact"
     url: "/contact/"
-
-paginate: 5
-paginate_path: "/notes/page-:num"
+  - name: "About"
+    url: "/about/"
 
 url: https://phillipridlen.com
 email: p@rdln.net

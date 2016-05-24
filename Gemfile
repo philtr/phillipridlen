@@ -1,12 +1,11 @@
 source "https://rubygems.org"
 
-gem "jekyll", "~> 3.0.1"
+gem "jekyll", "~> 3.1"
 
 group :jekyll_plugins do
   gem "jekyll-assets"
-  gem "jekyll-deploy", path: "_gems/jekyll-deploy"
-  gem "jekyll-paginate"
 end
+  gem "jekyll-deploy", path: "_gems/jekyll-deploy"
 
 gem "coffee-script"
 gem "dotenv"

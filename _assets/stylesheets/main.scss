@@ -4,6 +4,10 @@
 @import "base/base";
 @import "neat/neat";
 
+// Mixins
+// ================================================================================================
+@import "mixins/callout";
+
 // Components
 // ================================================================================================
 @import "components/highlight";
@@ -27,6 +31,10 @@
   padding: 0 1em;
 }
 
+.container-content {
+  margin-top: 3em;
+}
+
 .mister-ridlen {
   @include outer-container;
   text-align: center;
@@ -35,7 +43,6 @@
     @include span-columns(6 of 12);
     @include shift(3 of 12);
     margin-bottom: 4em;
-    margin-top: 2em;
   }
 
   p {

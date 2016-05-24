@@ -7,5 +7,10 @@ layout: bare
   <div class="container-content">
     {{ content }}
   </div>
-  {% include footer.html %}
+
+  {% if page.footer == false %}
+    <!-- footer intentionally hidden -->
+  {% else %}
+    {% include footer.html %}
+  {% endif %}
 </div>

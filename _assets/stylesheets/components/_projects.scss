@@ -2,7 +2,7 @@ section.projects {
   @include outer-container;
 
   .projects-intro {
-    font-size: modular-scale(1);
+    @extend %callout;
   }
 
   .project {
