@@ -4,8 +4,8 @@ gem "jekyll", "~> 3.1"
 
 group :jekyll_plugins do
   gem "jekyll-assets"
-end
   gem "jekyll-deploy", path: "_gems/jekyll-deploy"
+end
 
 gem "coffee-script"
 gem "dotenv"
