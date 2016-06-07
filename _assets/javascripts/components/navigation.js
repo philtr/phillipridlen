@@ -7,5 +7,5 @@
     });
   }
 
-  $(document).ready(initMenuToggler);
+  $(document).on("turbolinks:load", initMenuToggler);
 }).call(window, Sprint);
