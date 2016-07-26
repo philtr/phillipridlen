@@ -8,8 +8,8 @@ s3_bucket: phillipridlen.com
 # site: path-to-your-website
 
 max_age:
-  "assets/*": 6000
-  "*": 300
+  "assets/*": 31536000
+  "*": 3600
 
 gzip:
   - .html
