@@ -1,6 +1,36 @@
 section.posts {
   @include outer-container;
 
+  ul li {
+    text-align: center;
+
+    @include media($large-screen-up) {
+      text-align: left;
+      line-height: 2.4;
+    }
+
+    small {
+      display: block;
+      color: tint($base-font-color, 50%);
+
+      @include media($large-screen-up) {
+        display: inline-block;
+        text-align: right;
+        width: 10em;
+      }
+    }
+
+    a {
+      display: block;
+      margin-bottom: modular-scale(1);
+
+      @include media($large-screen-up) {
+        display: inline;
+        width: 75%;
+      }
+    }
+  }
+
   .post {
     &-date {
       text-align: center;

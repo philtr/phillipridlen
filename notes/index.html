@@ -3,13 +3,16 @@ layout: default
 description: "Thoughts on web development and life in general by Phillip Ridlen, a Ruby developer in Dallas, Texas."
 ---
 
-<section class="posts markdown">
-  <h1>Notes</h1>
+<section class="posts">
+  <div class="markdown">
+    <h1>Notes</h1>
+  </div>
+
   <ul>
   {% for post in site.posts %}
   <li>
-    <a href="{{ post.url }}">{{ post.title }}</a>
     <small>{{ post.date | date: "%B %d, %Y" }}</small>
+    <a href="{{ post.url }}">{{ post.title }}</a>
   </li>
   {% endfor %}
 </section>

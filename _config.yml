@@ -11,8 +11,8 @@ collections:
   - projects
 
 navigation:
-  - name: "Projects"
-    url: "/projects/"
+  - name: "Notes"
+    url: "/notes/"
   - name: "Contact"
     url: "/contact/"
   - name: "About"
