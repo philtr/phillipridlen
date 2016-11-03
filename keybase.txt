@@ -1,0 +1,69 @@
+==================================================================
+https://keybase.io/philtr
+--------------------------------------------------------------------
+
+I hereby claim:
+
+  * I am an admin of https://phillipridlen.com
+  * I am philtr (https://keybase.io/philtr) on keybase.
+  * I have a public key with fingerprint 4949 35F1 0934 A5CB 6239  A7CB 9FCB 499F C2A3 203B
+
+To do so, I am signing this object:
+
+{
+    "body": {
+        "key": {
+            "eldest_kid": "0101373106ca3ff0c3b168134d496b99c4fa3e4e61af2dede7d094cad58c02bd3edb0a",
+            "fingerprint": "494935f10934a5cb6239a7cb9fcb499fc2a3203b",
+            "host": "keybase.io",
+            "key_id": "9fcb499fc2a3203b",
+            "kid": "0101373106ca3ff0c3b168134d496b99c4fa3e4e61af2dede7d094cad58c02bd3edb0a",
+            "uid": "926f8cec7c22bec01a42e6f6764b1b19",
+            "username": "philtr"
+        },
+        "service": {
+            "hostname": "phillipridlen.com",
+            "protocol": "https:"
+        },
+        "type": "web_service_binding",
+        "version": 1
+    },
+    "ctime": 1478213220,
+    "expire_in": 157680000,
+    "prev": "2555ca01600473ec4ad8b9a4d59cbab7ae21c78936cc3963acb0887aa79d36fe",
+    "seqno": 9,
+    "tag": "signature"
+}
+
+which yields the signature:
+
+-----BEGIN PGP MESSAGE-----
+Version: Keybase OpenPGP v2.0.58
+Comment: https://keybase.io/crypto
+
+yMIrAnicrVJbbExRFJ2iShE0QWgQ19A0GXXOPfd1hoo0TSMhCIpqZXpet72MuWPm
+tlpNvROExCtBqA9B0rQfDfGoiEeLKA0i8ZZIxVtESPpTj+Fcj8SHT+fjnJy911p7
+7Z19ZVDvQGZa+6rs9w1K8c20zrYDVYHF2Rd4nUJdXquE65Tl4ucjolwkvchyhyth
+BUAAkYkgMBhBtg0YotCwINK4hg2KMdNsgoQmDEhslQsuTA6wxgjXLQZUypHgFBAl
+pNhOrEIk4gkn5klZDWsY6TYEGGlEZ9RQESYmo9hmVMPyVglSAaKSWOkmfYY0R0lS
+5DmujMlP5Ke9f+D/s++qX3VUw7aYYCZTVSoYgERThWEbpqFRSCH2gUmRiJEVQqLj
+lU7USyj1IUXGqh0m/LH6ffyVjzpyFjwqYnnMXSHp8YTrucyNynSl58WTYZ/u1cZ9
+/CpBI7+VItSJcTlKyagWiaTjxpQwlEjmOb401ExLhUhVQUgRNXEnISKOj9BNwwLy
++HVEtZRUdV1nBEADAM1EgmmEWxQTjeuYUUJNIlTITAsjgzGEDUQYBZZlEmJijgxb
+KH5vK2OuEsbSJqmQkkmnIka8qoRQ6tsvlfUJpGUG+qb38lcskNl/yJ/Fa/6ckdLL
+b5Smdg1sPD+xpaN4W6E1RCzsKjk7s+Z21pvRp/j2y29OPkfPxuFOb1+q6WL31677
+tYNZ/pIZ7t7jw3rKp2wY2ZqrnE6PFt2cnP/pzrLO3Akr1z1pWHNxzoDmsitHeEk/
+OP36+O9bw4c2Ds9Z1vqlOHupGewGHwP35jeWPtv5sKylbktTzvq897uHPgo1H7+1
+tmD/9sdthfbOF1lw/Z6Hs5raZm4alLv0aVffGckzl+iHMyfqz9Vk9IwJlhd9P/zg
+6tzGaS87FuwqLYqEr73N/1b+9F3h2N7zZm9uf90x9VOBPmnHsdTBitKe9O6Mo6nr
+i4/kdwQLclpGHQsGH/VZ9O7ViNDq5yV3fwDnIEdM
+=9KKH
+-----END PGP MESSAGE-----
+
+And finally, I am proving ownership of this host by posting or
+appending to this document.
+
+View my publicly-auditable identity here: https://keybase.io/philtr
+
+==================================================================
+
