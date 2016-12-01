@@ -13,8 +13,6 @@ collections:
 navigation:
   - name: "Notes"
     url: "/notes/"
-  - name: "Contact"
-    url: "/contact/"
   - name: "About"
     url: "/about/"
 
