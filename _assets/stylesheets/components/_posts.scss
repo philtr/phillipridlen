@@ -12,11 +12,13 @@ section.posts {
     small {
       display: block;
       color: tint($base-font-color, 50%);
+      font-size: 70%;
+      text-transform: uppercase;
 
       @include media($large-screen-up) {
         display: inline-block;
-        text-align: right;
-        width: 10em;
+        text-align: left;
+        width: 14em;
       }
     }
 
