@@ -1,7 +1,0 @@
-section.text {
-  @include outer-container;
-
-  .intro {
-    @extend %callout;
-  }
-}

@@ -52,12 +52,14 @@ end
 
 I can do this:
 
-    > AppleType = FujiApple
-      => FujiApple
-    > myApple = AppleType.new
-      => #<FujiApple:0x1011b31c0>
-    > myApple.eat
-      => "NOM NOM NOM"
+{% highlight ruby %}
+> AppleType = FujiApple
+  => FujiApple
+> myApple = AppleType.new
+  => #<FujiApple:0x1011b31c0>
+> myApple.eat
+  => "NOM NOM NOM"
+{% endhighlight %}
 
 **Should I use it?**
 

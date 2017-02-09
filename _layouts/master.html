@@ -3,8 +3,19 @@ layout: bare
 ---
 
 <div class="container">
-  {% include header.html %}
+  <h1><a href="/">Phillip Ridlen</a></h1>
   <div class="container-content">
     {{ content }}
   </div>
+  <hr>
+  <footer>
+    <p>Copyright &copy; 2017 Phillip Ridlen.</p>
+    <table>
+      <tr>
+        {% for nav in site.navigation %}
+          <td><a href="{{ nav.url }}">{{ nav.name }}</a></td>
+        {% endfor %}
+      </tr>
+    </table>
+  </footer>
 </div>
