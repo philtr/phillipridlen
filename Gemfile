@@ -7,7 +7,6 @@ group :jekyll_plugins do
   gem "jekyll-deploy", path: "_gems/jekyll-deploy"
 end
 
-gem "coffee-script"
 gem "dotenv"
 gem "haml"
 gem "kramdown"
