@@ -7,7 +7,6 @@ group :jekyll_plugins do
   gem "jekyll-deploy", path: "_gems/jekyll-deploy"
 end
 
-gem "dotenv"
 gem "haml"
 gem "kramdown"
 gem "pygments.rb"
@@ -16,6 +15,7 @@ gem "s3_website"
 gem "uglifier"
 
 group :development, :test do
+  gem "dotenv"
   gem "pry"
   gem "rspec", "~> 3.0"
 end
