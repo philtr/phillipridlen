@@ -8,8 +8,7 @@ s3_bucket: phillipridlen.com
 # site: path-to-your-website
 
 max_age:
-  "assets/*": 31536000
-  "*": 3600
+  "*": 31536000
 
 gzip:
   - .html
@@ -32,13 +31,14 @@ cloudfront_distribution_id: <%= ENV["CLOUDFRONT_DISTRIBUTION_ID"] %>
 
 cloudfront_distribution_config:
   default_cache_behavior:
-    min_TTL: <%= 60 * 60 * 24 %>
+    min_TTL: <%= 60 * 60 * 24 * 365 %>
   aliases:
     quantity: 1
     items:
       CNAME: phillipridlen.com
 
 cloudfront_invalidate_root: true
+cloudfront_wildcard_invalidation: true
 
 concurrency_level: 5
 
