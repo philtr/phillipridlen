@@ -23,12 +23,20 @@ footer
 
   p
     margin: 0
-    float: left
+    text-align: center
 
   table
-    float: right
+    border-collapse: collapse
+    margin: 0 auto
     min-width: 10rem
-    text-align: right
+    text-align: center
+
+  @media screen and (min-width: 500px)
+    p
+      float: left
+    table
+      float: right
+      text-align: right
 
 hr
   background: #b9b6b0
