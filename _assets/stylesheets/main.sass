@@ -4,15 +4,15 @@ body
   padding: 2rem
   margin: 0 auto
   max-width: 46rem
-  font-family: -apple-system, BlinkMacSystemFont, "Roboto", "Segoe UI", "Oxygen", "Ubuntu", "Droid Sans", "Cantarell", sans-serif
+  font-family: avenir, "Segoe UI", sans-serif
   line-height: 1.5
 
 a
   color: #41A186
   text-decoration: none
 
-a:hover
-  text-decoration: underline
+  &:hover
+    text-decoration: underline
 
 img
   max-width: 100%
@@ -44,7 +44,6 @@ hr
   height: 1px
   margin: 2rem 0
 
-
 .intro
   font-size: 1.2rem
 
@@ -53,29 +52,36 @@ hr
 
   img
     width: 40%
-    margin: 0 auto
 
-.posts
-  ul.posts-list
-    list-style-type: none
-    padding: 0
-    line-height: 2
+ul.posts-list
+  list-style-type: none
+  padding: 0
+  line-height: 2
 
-    li small
-      clear: left
-      color: #b9b6b0
-      float: left
-      text-transform: uppercase
-      width: 11rem
-
-  .post-title, .post-title a
-    color: #41323f
-    margin-bottom: 0
-
-  .post-date a
+  li small
     color: #b9b6b0
+    display: block
+    margin-top: 1rem
+    text-transform: uppercase
+
+  @media screen and (min-width: 414px)
+    li small
+      clear: both
+      float: left
+      margin: 0
+      width: 11rem
+    li a
+      display: block
+      margin-left: 11rem
+
+.post-title, .post-title a
+  color: #41323f
+  margin-bottom: 0
+
+.post-date a
+  color: #b9b6b0
 
 figure.highlight, blockquote
   border-left: 3px solid #b9b6b0
-  margin-left: 0
-  padding-left: 1.5rem
+  margin-left: .5rem
+  padding-left: 1rem
