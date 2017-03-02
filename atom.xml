@@ -14,6 +14,9 @@ layout: nil
    <email>{{ site.email }}</email>
  </author>
 
+ <icon>{% asset_path favicon/favicon-180.png %}</icon>
+ <logo>{% asset_path phillipridlen.png %}</logo>
+
  {% for post in site.posts %}
  <entry>
    <title>{{ post.title | xml_escape }}</title>
