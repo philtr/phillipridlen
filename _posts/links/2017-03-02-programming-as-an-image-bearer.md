@@ -3,7 +3,7 @@ layout: post
 type: link
 
 title: Programming as an Image-Bearer
-description:
+description: "That you’re building something from basically nothing has long been my favorite thing about programming. I’ve never thought about how it ties in with Genesis in God’s act of creating the universe ex nihilo."
 
 link:
   source: "https://www.thegospelcoalition.org/article/coding-for-the-kingdom"
