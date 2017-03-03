@@ -32,7 +32,7 @@ on because I didn't think it would fall off. It fell off. I never found it.
 When I still had that original wedding ring, I was constantly afraid of losing
 it or not knowing where it was. Losing the wedding ring was liberating, in a
 way, because now I place more weight on the _meaning_ of the symbol on my finger
-more than the actual object itself.
+than the actual object itself.
 
 The modern practice of men wearing a wedding band only really dates back about a
 hundred years, and mostly due to increased advertising from the jewelry
