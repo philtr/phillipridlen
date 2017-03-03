@@ -14,6 +14,9 @@ tags:
   - Pleasing God
 
 ghi: "https://github.com/spatula/phillipridlen/issues/13"
+
+styles:
+  - post-note-journal
 ---
 
 [Romans 8:5-6 (ESV)](http://www.esvbible.org/Romans+8:5-6/):

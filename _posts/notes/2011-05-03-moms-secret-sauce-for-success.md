@@ -10,6 +10,9 @@ tags:
   - Learning
 
 ghi: "https://github.com/spatula/phillipridlen/issues/12"
+
+styles:
+  - post-note-journal
 ---
 I owe every accomplishment I have ever achieved to three things my mom
 instilled in me from a young age. She was relentless, frustrating at

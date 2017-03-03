@@ -1,0 +1,35 @@
+section.posts
+  h3
+    margin-top: 2rem
+
+  h3:after
+    content: " "
+    border-bottom: 1px solid transparentize(#b9b6b0, 0.75)
+    display: block
+
+ul.posts-list
+  display: table
+  list-style-type: none
+  padding: 0
+  position: relative
+  width: 100%
+
+  li
+    display: table-row
+  li small
+    color: #b9b6b0
+    display: table-cell
+    line-height: 2
+    width: 3.5rem
+  li a
+    display: table-cell
+    width: auto
+  li aside
+    display: none
+    @media screen and (min-width: 500px)
+      color: #b9b6b0
+      display: table-cell
+      font-size: 0.75rem
+      text-align: right
+
+

@@ -9,6 +9,12 @@
     <link href="{{ site.url }}/atom.xml" rel="alternate" title="Phillip Ridlen" type="application/atom+xml" />
 
     {% css main %}
+    {% for style in layout.styles %}
+      {% css '{{ style }}' %}
+    {% endfor %}
+    {% for style in page.styles %}
+      {% css '{{ style }}' %}
+    {% endfor %}
 
     {% include head/favicon.html %}
     {% include head/metadata.html %}
