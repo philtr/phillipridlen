@@ -8,12 +8,15 @@ description: "That you’re building something from basically nothing has long b
 link:
   source: "https://www.thegospelcoalition.org/article/coding-for-the-kingdom"
 
-category: Programming
+category: Christianity
+
 tags:
   - Christianity
   - creation
   - making
   - worship
+  - software
+  - development
 ---
 
 Adam Murray, in an [interview with The Gospel
