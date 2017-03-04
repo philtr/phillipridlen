@@ -1,28 +1,33 @@
+@import "shared"
+
+html
+  font-size: $base-font-size
+
 body
-  color: #41323f
+  color: $primary-text-color
   font-size: 1rem
   padding: 2rem
   margin: 0 auto
   max-width: 46rem
-  font-family: avenir, "Segoe UI", sans-serif
-  line-height: 1.5
+  font-family: $sans-serif
+  line-height: 1.6
 
 a
-  color: #41A186
+  color: $primary-accent-color
   text-decoration: none
 
   &:hover
     text-decoration: underline
 
 .header-link, .header-link a
-  color: #41323f
+  color: $primary-text-color
   margin-bottom: 0
 
 img
   max-width: 100%
 
 footer
-  color: #b9b6b0
+  color: $dim-text-color
   padding: 0 0 2rem 0
 
   p
@@ -35,7 +40,7 @@ footer
     min-width: 10rem
     text-align: center
 
-  @media screen and (min-width: 500px)
+  @media screen and (min-width: $breakpoint)
     p
       float: left
     table
@@ -43,7 +48,7 @@ footer
       text-align: right
 
 hr
-  background: #b9b6b0
+  background: $dim-text-color
   border: 0
   height: 1px
   margin: 2rem 0
@@ -52,6 +57,6 @@ hr
   font-size: 1.2rem
 
 figure.highlight, blockquote
-  border-left: 3px solid #b9b6b0
+  border-left: 3px solid $dim-text-color
   margin-left: .5rem
   padding-left: 1rem

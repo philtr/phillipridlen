@@ -4,7 +4,7 @@ type: note
 
 title: I Lost My Wedding Ring and Lived to Tell the Story
 description: I have a wedding ring in the Pacific Ocean somewhere. No, it wasn&rsquo;t some dramatic gesture. In fact, the story is not really that interesting.
-image: "notes/pva-ocean-sunset"
+image: "notes/pva-ocean-sunset.jpg"
 
 category: Life
 
@@ -16,6 +16,7 @@ tags:
 
 styles:
   - post-note-journal
+  - post-image
 ---
 
 I have a wedding ring in the Pacific Ocean somewhere.
@@ -27,7 +28,9 @@ on because I didn't think it would fall off. It fell off. I never found it.
 
 [gob]: https://www.youtube.com/watch?v=I51aM8cWUj8
 
-{% img '{{ page.image }}' 'class="pixelated"' %}
+{% img '{{ page.image }}' %}
+
+<figcaption>The little cove in the Pacific where my ring forever rests.</figcaption>
 
 When I still had that original wedding ring, I was constantly afraid of losing
 it or not knowing where it was. Losing the wedding ring was liberating, in a
