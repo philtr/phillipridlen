@@ -1,6 +1,6 @@
 <meta name="description" content="{{ page.description }}" />
 
-<meta property="og:title" content="{% if page.title %}{{ page.title }} | {% endif %}Phillip Ridlen" />
+<meta property="og:title" content="{% if page.title %}{{ page.title }}{% else %}Phillip Ridlen{% endif %}" />
 <meta property="og:url" content="{{ site.url }}{{ page.url }}" />
 <meta property="og:description" content="{{ page.description }}" />
 
