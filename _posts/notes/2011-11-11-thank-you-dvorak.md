@@ -15,6 +15,7 @@ ghi: "https://github.com/spatula/phillipridlen/issues/10"
 
 styles:
   - posts/journal
+  - posts/image
 ---
 _Dvorak_. Not exactly a common name.
 
@@ -48,7 +49,12 @@ the English language. The end result: a keyboard layout that was able to to be l
 in one-third of the time that it took a typist to learn QWERTY, and consistently produced faster
 typists who made fewer errors.
 
-![Dvorak Simplified Keyboard](http://upload.wikimedia.org/wikipedia/commons/thumb/2/25/KB_United_States_Dvorak.svg/500px-KB_United_States_Dvorak.svg.png)
+![](https://upload.wikimedia.org/wikipedia/commons/thumb/2/25/KB_United_States_Dvorak.svg/900px-KB_United_States_Dvorak.svg.png)
+
+<figcaption>
+  The US Dvorak keyboard layout.
+  (Image: <a href="https://en.wikipedia.org/wiki/Dvorak_Simplified_Keyboard">Wikipedia</a>).
+</figcaption>
 
 The effort and attention to detail on the design of this layout is insane:
 
@@ -70,4 +76,5 @@ Then Dvorak found me. I was forever changed. A fresh start. Within a month I was
 original typing speed of 35 WPM. Within a year I doubled that. Thanks, Dvorak! (Take that, QWERTY!)
 
 [dsk]: http://en.wikipedia.org/wiki/Dvorak_Simplified_Keyboard [wp]: http://wordpress.org/
+[wp]: http://wordpress.org
 

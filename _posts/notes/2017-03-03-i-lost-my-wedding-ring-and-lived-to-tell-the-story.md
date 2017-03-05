@@ -28,7 +28,7 @@ on because I didn't think it would fall off. It fell off. I never found it.
 
 [gob]: https://www.youtube.com/watch?v=I51aM8cWUj8
 
-{% img '{{ page.image }}' %}
+{% img '{{ page.image }}' 'class="framed"' %}
 
 <figcaption>The little cove in the Pacific where my ring forever rests.</figcaption>
 
