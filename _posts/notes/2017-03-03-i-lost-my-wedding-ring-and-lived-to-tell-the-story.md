@@ -15,8 +15,8 @@ tags:
   - Jewelry
 
 styles:
-  - post-note-journal
-  - post-image
+  - posts/journal
+  - posts/image
 ---
 
 I have a wedding ring in the Pacific Ocean somewhere.

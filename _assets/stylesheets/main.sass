@@ -1,16 +1,16 @@
 @import "shared"
 
 html
-  font-size: $base-font-size
+  font-size: 16px
 
 body
   color: $primary-text-color
-  font-size: 1rem
-  padding: 2rem
+  font-size: $font-size-base
+  padding: $gutter
   margin: 0 auto
-  max-width: 46rem
+  max-width: 45rem
   font-family: $sans-serif
-  line-height: 1.6
+  line-height: $line-height-base
 
 a
   color: $primary-accent-color
@@ -21,14 +21,13 @@ a
 
 .header-link, .header-link a
   color: $primary-text-color
-  margin-bottom: 0
 
 img
   max-width: 100%
 
 footer
   color: $dim-text-color
-  padding: 0 0 2rem 0
+  padding: 0 0 $gutter 0
 
   p
     margin: 0
@@ -48,15 +47,15 @@ footer
       text-align: right
 
 hr
-  background: $dim-text-color
+  background: $faded-text-color
   border: 0
   height: 1px
-  margin: 2rem 0
+  margin: $gutter 0
 
 .intro
   font-size: 1.2rem
 
-figure.highlight, blockquote
+blockquote
   border-left: 3px solid $dim-text-color
   margin-left: .5rem
   padding-left: 1rem

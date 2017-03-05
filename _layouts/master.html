@@ -2,14 +2,14 @@
 layout: bare
 ---
 
-<div class="container">
+<div>
   <h1><a href="/">Phillip Ridlen</a></h1>
-  <div class="container-content">
+  <div class="content">
     {{ content }}
   </div>
   <hr>
   <footer>
-    <p>Copyright &copy; 2017 Phillip Ridlen.</p>
+    <p>Copyright &copy; {{ 'now' | date: "%Y" }} Phillip Ridlen.</p>
     <table>
       <tr>
         {% for nav in site.navigation %}

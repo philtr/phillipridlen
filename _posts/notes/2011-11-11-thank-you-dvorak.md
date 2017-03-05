@@ -14,7 +14,7 @@ tags:
 ghi: "https://github.com/spatula/phillipridlen/issues/10"
 
 styles:
-  - post-note-journal
+  - posts/journal
 ---
 _Dvorak_. Not exactly a common name.
 
