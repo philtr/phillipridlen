@@ -13,9 +13,28 @@ body
   line-height: $line-height-base
 
 h1.brand
+  display: table
   font-size: 1.5rem
+  line-height: 2rem
   @media screen and (min-width: $breakpoint)
     font-size: 2rem
+
+  a
+    display: table-cell
+    height: 100%
+    vertical-align: middle
+
+.breadcrumb
+  .caret
+    display: table-cell
+    color: $faded-text-color
+    padding: 0 0.5rem
+    vertical-align: middle
+  a
+    color: $dim-text-color
+    font-weight: 500
+    font-size: 1.2rem
+    vertical-align: middle
 
 a
   color: $primary-accent-color
@@ -23,6 +42,7 @@ a
 
   &:hover
     text-decoration: underline
+
 
 .header-link, .header-link a
   color: $primary-text-color
