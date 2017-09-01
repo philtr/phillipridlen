@@ -16,5 +16,4 @@ group :development, :test do
   gem "dotenv"
   gem "pry"
   gem "rspec", "~> 3.0"
-  gem "s3_website"
 end
