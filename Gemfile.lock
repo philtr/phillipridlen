@@ -1,10 +1,3 @@
-PATH
-  remote: _gems/jekyll-deploy
-  specs:
-    jekyll-deploy (0.1.0)
-      jekyll
-      s3_website
-
 GEM
   remote: https://rubygems.org/
   specs:
@@ -119,7 +112,6 @@ DEPENDENCIES
   haml
   jekyll (~> 3.4)
   jekyll-assets
-  jekyll-deploy!
   kramdown
   pry
   pygments.rb
