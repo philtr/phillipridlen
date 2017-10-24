@@ -2,10 +2,10 @@ permalink: pretty
 markdown: kramdown
 highlighter: pygments
 
-gems:
+plugins:
   - jekyll-assets
 
-exclude: [ .asset-cache, vendor, s3_website.yml, env.sample, Gemfile, Gemfile.lock, README.md, circle.yml, spec ]
+exclude: [ .asset-cache, vendor, s3_website.yml, env.sample, Gemfile, Gemfile.lock, README.md, spec ]
 
 collections:
   - projects

@@ -41,10 +41,6 @@ RSpec.describe :posts do
           expect(@data["link"]["source"]).to match(/^http/)
         end
       end
-
-      it "should be spelled correctly" do
-        expect(`cat #@filename | aspell --personal=./spec/support/aspell.en.pws --ignore=4 --ignore-accents=true list`.chomp.split("\n")).to be_empty
-      end
     end
   end
 end
