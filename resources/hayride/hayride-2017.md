@@ -2,6 +2,12 @@
 layout: default
 permalink: /resources/bbc/hayride/2017/index.html
 ---
+<style>
+  body {
+    background-color: #000;
+    color: #999;
+  }
+</style>
 
 ## BBC Hayride 2017
 
