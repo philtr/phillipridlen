@@ -6,7 +6,7 @@ permalink: /resources/bbc/hayride/2017/index.html
 ## BBC Hayride 2017
 
 - [Glory to God Forever](#glory-to-god-forever)
-- [10,000 Reasons](#10-000-reasons)
+- [10,000 Reasons](#10000-reasons)
 - [Rejoice](#rejoice)
 - [This is Amazing Grace](#this-is-amazing-grace)
 - [Man of Sorrows](#man-of-sorrows)
