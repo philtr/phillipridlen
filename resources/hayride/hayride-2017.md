@@ -16,7 +16,7 @@ permalink: /resources/bbc/hayride/2017/index.html
 - [Rejoice](#rejoice)
 - [This is Amazing Grace](#this-is-amazing-grace)
 - [Man of Sorrows](#man-of-sorrows)
-- [What a Beautiful Name](#what-a-beautiful-name)
+- [Blessed Be Your Name](#blessed-be-your-name)
 
 ### Glory to God Forever
 
@@ -267,60 +267,46 @@ Now my soul cries out "Hallelujah!"
 Praise and honour unto Thee  
 Praise and honour unto Thee  
 
+### Blessed Be Your Name
 
-### What a Beautiful Name
-
-You were the Word at the beginning  
-One with God the Lord Most High  
-Your hidden glory in creation  
-Now revealed in You our Christ  
+Blessed Be Your Name  
+In the land that is plentiful   
+Where Your streams of abundance flow  
+Blessed be Your name  
   
-What a beautiful Name it is  
-What a beautiful Name it is  
-The Name of Jesus Christ my King  
-What a beautiful Name it is  
-Nothing compares to this  
-What a beautiful Name it is  
-The Name of Jesus  
+Blessed Be Your name  
+When I'm found in the desert place  
+Though I walk through the wilderness  
+Blessed Be Your name  
   
-You didn't want heaven without us  
-So Jesus You brought heaven down  
-My sin was great Your love was greater  
-What could separate us now?  
+Every blessing You pour out   
+I'll turn back to praise  
+When the darkness closes in, Lord  
+Still I will say  
   
-What a wonderful Name it is  
-What a wonderful Name it is  
-The Name of Jesus Christ my King  
-What a wonderful Name it is  
-Nothing compares to this  
-What a wonderful Name it is  
-The Name of Jesus  
-What a wonderful Name it is  
-The Name of Jesus  
+Blessed be the name of the Lord  
+Blessed be Your name  
+Blessed be the name of the Lord  
+Blessed be Your glorious name  
   
-Death could not hold You  
-The veil tore before You  
-You silenced the boast of sin and grave  
-The heavens are roaring  
-The praise of Your glory  
-For You are raised to life again  
-You have no rival  
-You have no equal  
-Now and forever God You reign  
-Yours is the Kingdom  
-Yours is the glory  
-Yours is the Name above all names  
+Blessed be Your name  
+When the sun's shining down on me  
+When the world's 'all as it should be'  
+Blessed be Your name  
   
-What a powerful Name it is  
-What a powerful Name it is  
-The Name of Jesus Christ my King  
-What a powerful Name it is  
-Nothing can stand against  
-What a powerful Name it is  
-The Name of Jesus  
+Blessed be Your name  
+On the road marked with suffering   
+Though there's pain in the offering   
+Blessed be Your name  
   
-What a powerful Name it is  
-The Name of Jesus  
-What a powerful Name it is  
-The Name of Jesus!  
+Blessed be the name of the Lord  
+Blessed be Your name  
+Blessed be the name of the Lord  
+Blessed be Your glorious name  
+  
+  
+You give and take away  
+You give and take away  
+My heart will choose to say  
+Lord, blessed be Your name  
 
