@@ -6,7 +6,7 @@ title: A Little "Special" Goes a Long Way
 description: "Every client will tell you that they want two things: be on time, and stay within their budget. At the heart of every project, every client also wants a third thing: results."
 image: "notes/desk.jpg"
 
-category: Business
+category: Programming
 
 tags:
   -  TODO
