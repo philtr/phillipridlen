@@ -20,7 +20,6 @@ url: https://phillipridlen.com
 email: p@rdln.net
 
 assets:
-  compress:
-    css: true
-    js: true
+  compression: true
+  gzip: true
   digest: true

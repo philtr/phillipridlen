@@ -5,7 +5,7 @@
 <meta property="og:description" content="{{ page.description }}" />
 
 {% if page.image %}
-  <meta property="og:image" content="{{ site.url }}{% asset_path '{{ page.image }}' %}" />
+  <meta property="og:image" content="{{ site.url }}{{ assets['{{ page.image }}'].digest_path }}" />
 {% else %}
   <meta property="og:image" content="http://gravatar.com/avatar/a9afd72caf82c3b98c292a379f53228a?s=256" />
 {% endif %}

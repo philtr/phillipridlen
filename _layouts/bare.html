@@ -8,12 +8,12 @@
 
     <link href="{{ site.url }}/atom.xml" rel="alternate" title="Phillip Ridlen" type="application/atom+xml" />
 
-    {% css main %}
+    {% asset main.css %}
     {% for style in layout.styles %}
-      {% css '{{ style }}' %}
+      {% asset '{{ style }}.css' %}
     {% endfor %}
     {% for style in page.styles %}
-      {% css '{{ style }}' %}
+      {% asset '{{ style }}.css' %}
     {% endfor %}
 
     {% include head/favicon.html %}

@@ -1,9 +1,9 @@
 source "https://rubygems.org"
 
-gem "jekyll", "~> 3.4"
+gem "jekyll"
 
 group :jekyll_plugins do
-  gem "jekyll-assets", "< 3"
+  gem "jekyll-assets"
 end
 
 gem "haml"
@@ -15,5 +15,5 @@ gem "uglifier"
 group :development, :test do
   gem "dotenv"
   gem "pry"
-  gem "rspec", "~> 3.0"
+  gem "rspec"
 end
