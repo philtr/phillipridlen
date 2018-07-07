@@ -8,6 +8,11 @@ styles:
 <h1>Notes</h1>
 
 <section class="posts">
+  <p class="intro">
+    I don't write often or very much. Many of the following articles are barely
+    more than links to other, better articles, and the rest are short and
+    unpolished. Read at your own risk. ;)
+  </p>
   {% for category in site.categories %}
     <h3 id="{{ category[0] }}" class="header-link"><a href="#{{ category[0] }}">{{ category[0] }}</a></h3>
     <ul class="posts-list">
