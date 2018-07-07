@@ -1,23 +1,28 @@
-permalink: pretty
-markdown: kramdown
-highlighter: pygments
+# Hi, glad you stopped by!
+# Source for this website can be found at:
+# https://github.com/spatula/phillipridlen
+#
+url: https://phillipridlen.com
+email: p@rdln.net
 
-plugins:
-  - jekyll-assets
-
-exclude: [ .asset-cache, vendor, s3_website.yml, env.sample, Gemfile, Gemfile.lock, README.md, spec ]
-
-collections:
-  - projects
-
+# Used to specify the navigation links in the UI
 navigation:
   - name: "Notes"
     url: "/notes/"
   - name: "About"
     url: "/about/"
 
-url: https://phillipridlen.com
-email: p@rdln.net
+# Site generation options
+strict_front_matter: true
+permalink: pretty
+timezone: "America/Chicago"
+markdown: kramdown
+highlighter: pygments
+exclude: [ Gemfile, Gemfile.lock, README.md, spec ]
+include: [ _config.yml ]
+
+# Plugins
+plugins: [ jekyll-assets ]
 
 assets:
   compression: true
