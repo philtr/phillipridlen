@@ -14,7 +14,7 @@ styles:
       {% for post in category[1] %}
         <li>
           <a href="{{ post.url }}">{{ post.title }}</a>
-          <aside>{{ post.date | date: "%Y" }}</aside>
+          <aside><time datetime="{{ post.date | date: "%Y-%m-%d" }}" title="{{ post.date | date: "%A, %B %-d, %Y" }}">{{ post.date | date: "%Y" }}</time></aside>
         </li>
       {% endfor %}
     </ul>
