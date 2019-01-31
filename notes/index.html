@@ -17,10 +17,12 @@ styles:
     <h3 id="{{ category[0] }}" class="header-link"><a href="#{{ category[0] }}">{{ category[0] }}</a></h3>
     <ul class="posts-list">
       {% for post in category[1] %}
-        <li>
-          <a href="{{ post.url }}">{{ post.title }}</a>
-          <aside><time datetime="{{ post.date | date: "%Y-%m-%d" }}" title="{{ post.date | date: "%A, %B %-d, %Y" }}">{{ post.date | date: "%Y" }}</time></aside>
-        </li>
+        {% if site.show_drafts and post.draft or site.show_drafts != true and post.draft != true %}
+          <li>
+            <a href="{{ post.url }}">{{ post.title }}</a>
+            <aside><time datetime="{{ post.date | date: "%Y-%m-%d" }}" title="{{ post.date | date: "%A, %B %-d, %Y" }}">{{ post.date | date: "%Y" }}</time></aside>
+          </li>
+        {% endif %}
       {% endfor %}
     </ul>
   {% endfor %}
