@@ -1,2 +1,4 @@
+---
+---
 User-agent: *
-Allow: /
+{% if site.show_drafts %}Disallow: /{% else %}Allow: /{% endif %}

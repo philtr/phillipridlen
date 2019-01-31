@@ -16,6 +16,10 @@
       {% asset '{{ style }}.css' %}
     {% endfor %}
 
+    {% if site.show_drafts %}
+      {% asset drafts.css %}
+    {% endif %}
+
     {% include head/favicon.html %}
     {% include head/metadata.html %}
 
