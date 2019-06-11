@@ -1,1 +1,13 @@
+<script>
+  function checkInput(e) {
+    if ((e.which == 39) || (e.which == 8216) || (e.which == 8217)) {
+      e.preventDefault();
+      document.execCommand('insertText', 0, "'");
+    }
+  }   
+
+  var el = document.getElementById('txtIn');
+  el.addEventListener('keypress', checkInput, false);
+</script>
+
 <textarea autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
