@@ -1,5 +1,4 @@
-_site/*
-.jekyll-cache/*
-.asset-cache/*
-.env
 .ruby-version
+output/
+tmp/nanoc/
+crash.log

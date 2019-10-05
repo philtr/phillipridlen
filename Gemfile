@@ -1,19 +1,10 @@
 source "https://rubygems.org"
 
-gem "jekyll"
+gem "nanoc", "~> 4.11.12"
 
-group :jekyll_plugins do
-  gem "jekyll-assets"
-end
+gem "adsf-live"
+gem "flickraw", github: "hanklords/flickraw", ref: "95700877e6e396845704258b854eeee7c699f1fe"
+gem "guard"
+gem "guard-nanoc"
+gem "nanoc-live"
 
-gem "haml"
-gem "kramdown"
-gem "pygments.rb"
-gem "rubypants-unicode"
-gem "uglifier"
-
-group :development, :test do
-  gem "dotenv"
-  gem "pry"
-  gem "rspec"
-end
