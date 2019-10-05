@@ -10,11 +10,11 @@ compile "/index.html.erb" do
   write "/index.html"
 end
 
-end
-
 compile '/**/*.html' do
   layout '/default.*'
   write item.identifier.without_ext + '/index.html'
+end
+
 ignore '/**/_*.scss'
 ignore '/**/_*.scss', rep: :source_map
 compile '/**/*.scss' do
