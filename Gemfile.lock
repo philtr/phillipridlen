@@ -1,5 +1,5 @@
 GIT
-  remote: https://github.com/hanklords/flickraw.git
+  remote: https://github.com/hanklords/flickraw
   revision: 95700877e6e396845704258b854eeee7c699f1fe
   ref: 95700877e6e396845704258b854eeee7c699f1fe
   specs:
@@ -131,7 +131,4 @@ DEPENDENCIES
   sassc
 
 RUBY VERSION
-   ruby 2.6.5p114
-
-BUNDLED WITH
-   2.0.2
+   ruby 2.6.2p47
