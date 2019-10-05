@@ -7,4 +7,5 @@ gem "flickraw", github: "hanklords/flickraw", ref: "95700877e6e396845704258b854e
 gem "guard"
 gem "guard-nanoc"
 gem "nanoc-live"
+gem "sassc"
 

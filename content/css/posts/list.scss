@@ -1,0 +1,51 @@
+@import "../shared";
+
+section.posts {
+  h3 {
+    margin: $gutter 0 0 0;
+  }
+
+  h3:after {
+    content: " ";
+    border-bottom: 1px solid $faded-text-color;
+    display: block;
+  }
+}
+
+ul.posts-list {
+  display: table;
+  list-style-type: none;
+  margin: 0.5rem 0;
+  padding: 0;
+  position: relative;
+  width: 100%;
+
+  li {
+    display: table-row;
+  }
+
+  li small {
+    color: $dim-text-color;
+    display: table-cell;
+    line-height: 2;
+    width: 3.5rem;
+  }
+
+  li a {
+    display: table-cell;
+    width: auto;
+    padding-bottom: 0.5rem;
+  }
+
+  li aside {
+    display: none;
+
+    @media screen and (min-width: $breakpoint) {
+      color: $dim-text-color;
+      display: table-cell;
+      padding-left: $gutter;
+      font-size: 0.75rem;
+      text-align: right;
+    }
+  }
+}

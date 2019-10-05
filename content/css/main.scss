@@ -1,0 +1,99 @@
+@import "shared";
+
+html {
+  font-size: $font-size-base-px;
+}
+
+body {
+  color: $primary-text-color;
+  font-size: $font-size-base;
+  padding: $gutter;
+  margin: 0 auto;
+  max-width: 40rem;
+  font-family: $sans-serif;
+  line-height: $line-height-base;
+}
+
+h1.brand {
+  display: table;
+  font-size: 1.5rem;
+  line-height: 2rem;
+}
+
+.breadcrumb {
+  .caret {
+    bottom: -0.1rem;
+    display: inline-block;
+    color: $faded-text-color;
+    padding-left: 0.5rem;
+    position: relative;
+  }
+
+  a {
+    color: $dim-text-color;
+    font-weight: 500;
+    font-size: 75%;
+  }
+}
+
+a {
+  color: $primary-accent-color;
+  text-decoration: none;
+
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+.header-link, .header-link a {
+  color: $primary-text-color;
+}
+
+img {
+  max-width: 100%;
+}
+
+footer {
+  color: $dim-text-color;
+  padding: 0 0 $gutter 0;
+
+  p {
+    margin: 0;
+    text-align: center;
+  }
+
+  table {
+    border-collapse: collapse;
+    margin: 0 auto;
+    min-width: 10rem;
+    text-align: center;
+  }
+
+  @media screen and (min-width: $breakpoint) {
+    p {
+      float: left;
+    }
+
+    table {
+      float: right;
+      text-align: right;
+    }
+  }
+}
+
+hr {
+  background: $faded-text-color;
+  border: 0;
+  height: 1px;
+  margin: $gutter 0;
+}
+
+.intro {
+  font-size: 1.2rem;
+}
+
+blockquote {
+  border-left: 3px solid $dim-text-color;
+  margin-left: 0.5rem;
+  padding-left: 1rem;
+}

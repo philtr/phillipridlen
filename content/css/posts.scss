@@ -1,0 +1,32 @@
+@import "shared";
+
+.post-title {
+  font-size: 1.75rem;
+  line-height: 1.2;
+  margin-bottom: 0;
+  font-weight: 900;
+
+  @media screen and (min-width: $breakpoint) {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    max-width: 75%;
+  }
+}
+
+.post-date {
+  margin-bottom: $gutter;
+}
+
+.post-date a {
+  color: $dim-text-color;
+}
+
+.footnotes {
+  border-top: 1px solid $faded-text-color;
+  margin-top: $gutter;
+  padding-top: $gutter;
+
+  ol, ol li:first-child p {
+    margin: 0;
+  }
+}

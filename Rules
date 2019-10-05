@@ -1,14 +1,25 @@
 #!/usr/bin/env ruby
 
-compile '/index.html.erb' do
+# Ignore transitional Jekyll files
+ignore "/_*/**/*"
+
+# Main Index Page
+compile "/index.html.erb" do
   filter :erb
-  layout '/default.*'
-  write '/index.html'
+  layout "/default.*"
+  write "/index.html"
+end
+
 end
 
 compile '/**/*.html' do
   layout '/default.*'
   write item.identifier.without_ext + '/index.html'
+ignore '/**/_*.scss'
+ignore '/**/_*.scss', rep: :source_map
+compile '/**/*.scss' do
+  filter :sassc, syntax: :scss
+  write ext: '.css'
 end
 
 # This is an example rule that matches Markdown (.md) files, and filters them
