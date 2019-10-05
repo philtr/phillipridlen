@@ -10,9 +10,6 @@ compile "/index.html.erb" do
   write "/index.html"
 end
 
-compile '/**/*.html' do
-  layout '/default.*'
-  write item.identifier.without_ext + '/index.html'
 # Blog Posts
 compile %r{\A/posts/(links|notes)/(\d+)-(\d+)-(\d+)-(.+).md\z} do |post_type, year, month, day, slug|
   filter :kramdown
