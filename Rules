@@ -13,8 +13,14 @@ end
 compile '/**/*.html' do
   layout '/default.*'
   write item.identifier.without_ext + '/index.html'
+# Blog Posts
+compile %r{\A/posts/(links|notes)/(\d+)-(\d+)-(\d+)-(.+).md\z} do |post_type, year, month, day, slug|
+  filter :kramdown
+  layout "/default.*"
+  write "/#{post_type}/#{item.attributes.fetch(:category).downcase}/#{year}/#{month}/#{day}/#{slug}/index.html"
 end
 
+# Stylesheets
 ignore '/**/_*.scss'
 ignore '/**/_*.scss', rep: :source_map
 compile '/**/*.scss' do
@@ -22,18 +28,9 @@ compile '/**/*.scss' do
   write ext: '.css'
 end
 
-# This is an example rule that matches Markdown (.md) files, and filters them
-# using the :kramdown filter. It is commented out by default, because kramdown
-# is not bundled with Nanoc or Ruby.
-#
-#compile '/**/*.md' do
-#  filter :kramdown
-#  layout '/default.*'
-#  write item.identifier.without_ext + '/index.html'
-#end
-
-compile '/**/*' do
+# Catch-all
+compile "/**/*" do
   write item.identifier.to_s
 end
 
-layout '/**/*', :erb
+layout "/**/*", :erb
