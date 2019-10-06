@@ -14,9 +14,9 @@
     <p>Copyright &copy; <%= Time.now.year %> Phillip Ridlen.</p>
     <table>
       <tr>
-        {% for nav in site.navigation %}
-          <td><a href="{{ nav.url }}">{{ nav.name }}</a></td>
-        {% endfor %}
+        <% navigation_items.each do |nav| %>
+          <td><a href="<%= nav.url %>"><%= nav.name %></a></td>
+        <% end %>
       </tr>
     </table>
   </footer>

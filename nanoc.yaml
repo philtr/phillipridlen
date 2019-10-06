@@ -9,3 +9,9 @@ prune:
 data_sources:
   - type: filesystem
     encoding: utf-8
+
+navigation:
+  - name: "Notes"
+    url: "/notes/"
+  - name: "About"
+    url: "/about/"
