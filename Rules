@@ -1,5 +1,17 @@
 #!/usr/bin/env ruby
 
+preprocess do
+  begin # blog post attributes from filename
+    post_regex = %r{\A/posts/(links|notes)/(\d+)-(\d+)-(\d+)-(.+).md\z}
+    @items.find_all(post_regex).each do |item|
+      post_type, year, month, day, slug = item.identifier.to_s.match(post_regex).captures
+      item[:post_type] = post_type
+      item[:date] = Time.new(year, month, day)
+      item[:slug] = slug
+    end
+  end
+end
+
 # Ignore transitional Jekyll files
 ignore "/_*/**/*"
 
@@ -11,10 +23,16 @@ compile "/index.haml" do
 end
 
 # Blog Posts
-compile %r{\A/posts/(links|notes)/(\d+)-(\d+)-(\d+)-(.+).md\z} do |post_type, year, month, day, slug|
+compile "/posts/**/*.md" do
   filter :kramdown
   layout "/default.*"
-  write "/#{post_type}/#{item.attributes.fetch(:category).downcase}/#{year}/#{month}/#{day}/#{slug}/index.html"
+
+  post_type     = @item[:post_type]
+  category      = @item[:category]
+  yyyy, mm, dd  = [@item[:date].year, @item[:date].month, @item[:date].day]
+  slug          = @item[:slug]
+
+  write "/#{post_type}/#{category}/#{yyyy}/#{mm}/#{dd}/#{slug}/index.html"
 end
 
 # Stylesheets
