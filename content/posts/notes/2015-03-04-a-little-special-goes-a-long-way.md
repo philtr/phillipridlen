@@ -30,7 +30,7 @@ third thing–results. We like to take it one step further and say that every
 client wants us to be on time, stay within their budget, deliver results, and be
 special every step of the way.
 
-{% asset '{{ page.image }}' class="framed" %}
+<img src="/images/<%= @item[:image] %>" class="framed">
 
 ## Discovering Results
 
