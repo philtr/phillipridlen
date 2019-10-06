@@ -25,6 +25,13 @@ compile '/**/*.scss' do
   write ext: '.css'
 end
 
+# Haml
+compile "/**/*.haml" do
+  filter :haml
+  layout "/default.*"
+  write item.identifier.without_ext + "/index.html"
+end
+
 # Catch-all
 compile "/**/*" do
   write item.identifier.to_s
