@@ -109,6 +109,7 @@ GEM
     rb-inotify (0.10.0)
       ffi (~> 1.0)
     ref (2.0.0)
+    rouge (3.11.1)
     sassc (2.2.1)
       ffi (~> 1.9)
     shellany (0.0.1)
@@ -136,6 +137,7 @@ DEPENDENCIES
   kramdown
   nanoc (~> 4.11.12)
   nanoc-live
+  rouge
   sassc
 
 RUBY VERSION

@@ -34,7 +34,7 @@ it down for you here:
 
 First, we need a controller for our error pages. Start out with something simple, like this:
 
-{% highlight ruby %}
+~~~ ruby
 # app/controllers/errors_controller.rb
 class ErrorsController < ApplicationController
   layout 'error' # only if you want a separate layout for your errors
@@ -51,17 +51,17 @@ class ErrorsController < ApplicationController
   def internal_server
   end
 end
-{% endhighlight %}
+~~~
 
 Now let's add some routes:
 
-{% highlight ruby %}
+~~~ ruby
 YourApp::Application.routes.draw do
   match '/404', to: 'errors#not_found'
   match '/422', to: 'errors#unprocessable'
   match '/500', to: 'errors#internal_server'
 end
-{% endhighlight %}
+~~~
 
 With Rails 3.2, error pages have been extracted to a [Rack Middleware][mw].  Fortunately for us, so
 are the application routes. We can to tell rails to use our routes app for the error pages in
@@ -69,7 +69,7 @@ are the application routes. We can to tell rails to use our routes app for the e
 
 [mw]: http://stackoverflow.com/a/2257031/383950
 
-{% highlight ruby %}
+~~~ ruby
 # config/application.rb
 module YourApp
   class Application < Rails::Application
@@ -78,14 +78,14 @@ module YourApp
     config.exceptions_app = self.routes
   end
 end
-{% endhighlight %}
+~~~
 
 And that's it! Add some page templates in `app/views/errors/` and you should be good to go.
 
 To test it, we need to turn off the development mode error pages. Set `consider_all_requests_local`
 to false in `config/environments/development.rb`:
 
-{% highlight ruby %}
+~~~ ruby
 # config/environments/development.rb
 YourApp::Application.configure do
   # ...
@@ -94,7 +94,7 @@ YourApp::Application.configure do
 
   # ...
  end
-{% endhighlight %}
+~~~
 
 You'll want to set that back to true before committing your code, or else you won't receive any
 helpful feedback while developing your application.
@@ -107,7 +107,7 @@ added a few private methods to errors controller to help out. The first two help
 format the request came as. I want to return a JSON response if the request starts with '/api' or
 ends in '.json'. The third will render our template in the format we want.
 
-{% highlight ruby %}
+~~~ ruby
 class ErrorsController
   private
 
@@ -127,11 +127,11 @@ class ErrorsController
     end
   end
 end
-{% endhighlight %}
+~~~
 
 Now we just need to update the actions in our controller:
 
-{% highlight ruby %}
+~~~ ruby
 class ErrorsController
   def not_found
     render_error "not_found"
@@ -145,15 +145,15 @@ class ErrorsController
     render_error "internal_server"
   end
 end
-{% endhighlight %}
+~~~
 
 And we're done! Make sure you add your json templates to `app/views/errors`.
 
-{% highlight bash %}
+~~~ bash
 $ curl http://localhost:3000/api/v1/nothing-here
 { error: "not_found" }
 $ curl http://localhost:3000/nothing-here.json
 { error: "not_found" }
 $ curl http://localhost:3000/nothing-here
 <h1>404 Not Found</h1>
-{% endhighlight %}
+~~~

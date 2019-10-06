@@ -25,6 +25,7 @@ end
 # Blog Posts
 compile "/posts/**/*.md" do
   filter :kramdown
+  filter :colorize_syntax, default_colorizer: :rouge
   layout "/post.*"
 
   post_type     = @item[:post_type]

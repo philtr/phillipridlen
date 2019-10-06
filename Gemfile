@@ -10,6 +10,7 @@ gem "guard-nanoc"
 gem "haml"
 gem "kramdown"
 gem "nanoc-live"
+gem "rouge"
 gem "sassc"
 
 gem "flickraw",

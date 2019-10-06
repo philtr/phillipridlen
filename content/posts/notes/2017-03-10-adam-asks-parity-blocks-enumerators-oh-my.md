@@ -32,7 +32,7 @@ the number, that is to say whether the number is even or odd.
 
 Here is Adam's original code:
 
-{% highlight ruby %}
+~~~ ruby
 def numbereven(numarr)
   neven = 0
   nodd = 0
@@ -57,7 +57,7 @@ end
 my_array = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 100, 1001]
 
 numbereven(my_array)
-{% endhighlight %}
+~~~
 
 I may have scared him off with the sheer volume of my reply. I wrote a bit how I
 would write it, another way to write it, and why I wouldn't write it that
@@ -66,7 +66,7 @@ way.
 
 ## How I Would Write It
 
-{% highlight ruby %}
+~~~ ruby
 def parity_counts(numbers)
   evens = numbers.select { |number| number.even? }
   odds  = numbers - evens
@@ -76,7 +76,7 @@ def parity_counts(numbers)
   puts "Evens: #{evens}"
   puts "Odds:  #{odds}"
 end
-{% endhighlight %}
+~~~
 
 - An array knows its size, so there is no need to keep track of it separately.
 - Ruby integers have handy `even?` and `odd?` methods that return true or false.
@@ -97,11 +97,11 @@ end
 
 There is more than one way to skin a cat. Here’s an alternate implementation:
 
-{% highlight ruby %}
+~~~ ruby
 def parity_counts(ns)
   ns.reduce([[],[]]){|(e,o),n|n.odd? ? o<<n : e<<n;[e,o]}
 end
-{% endhighlight %}
+~~~
 
 This will return an array where the first element is an array of even numbers,
 and the second is an array of odd numbers. But there is very little about this
@@ -128,14 +128,14 @@ solution that is best practice. Clarity should be preferred to brevity:
 
 So, given the concepts above, using `reduce`, I would write it this way:
 
-{% highlight ruby %}
+~~~ ruby
 def parity_counts(numbers)
   numbers.reduce([[], []]) do |(evens, odds), number|
     number.odd? ? odds << number : evens << number
     [evens, odds]
   end
 end
-{% endhighlight %}
+~~~
 
 The `[[], []]` sets up the data structure that we are going to pass to the first
 iteration to store the values in. Reduce takes the return value of the block and
