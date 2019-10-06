@@ -1,6 +1,5 @@
 ---
-layout: default
-permalink: /resources/kjhs/2016/index.html
+title: 2016 Kennedale Jr. High Career Day Resources
 ---
 
 %br= # Oh yes I did
@@ -144,18 +143,7 @@ permalink: /resources/kjhs/2016/index.html
       It's Friday! <http://fridayhug.com>
 
   .gallery
-    .gallery-item
-      %a{ href: "{{ assets['resources/kjhs/2016/hugs/original/hug1.jpg'].digest_path }}" }
-        %img{ src: "{{ assets['resources/kjhs/2016/hugs/thumb/hug1.jpg'].digest_path }}" }
-    .gallery-item
-      %a{ href: "{{ assets['resources/kjhs/2016/hugs/original/hug2.jpg'].digest_path }}" }
-        %img{ src: "{{ assets['resources/kjhs/2016/hugs/thumb/hug2.jpg'].digest_path }}" }
-    .gallery-item
-      %a{ href: "{{ assets['resources/kjhs/2016/hugs/original/hug3.jpg'].digest_path }}" }
-        %img{ src: "{{ assets['resources/kjhs/2016/hugs/thumb/hug3.jpg'].digest_path }}" }
-    .gallery-item
-      %a{ href: "{{ assets['resources/kjhs/2016/hugs/original/hug4.jpg'].digest_path }}" }
-        %img{ src: "{{ assets['resources/kjhs/2016/hugs/thumb/hug4.jpg'].digest_path }}" }
-    .gallery-item
-      %a{ href: "{{ assets['resources/kjhs/2016/hugs/original/hug5.jpg'].digest_path }}" }
-        %img{ src: "{{ assets['resources/kjhs/2016/hugs/thumb/hug5.jpg'].digest_path }}" }
+    - 1.upto(5) do |number|
+      .gallery-item{ style: "display: inline-block; width: 49.5%" }
+        %a{ href: "/images/resources/kjhs/2016/hugs/original/hug#{number}.jpg" }
+          %img{ src: "/images/resources/kjhs/2016/hugs/thumb/hug#{number}.jpg" }
