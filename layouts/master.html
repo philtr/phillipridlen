@@ -1,0 +1,24 @@
+<% render "/bare.html" do %>
+<div>
+  <h1 class="brand">
+    <a href="/">Phillip Ridlen</a>
+    /* {% for breadcrumb in layout.breadcrumbs %} */
+    /*   <span class="breadcrumb"><span class="caret">⟩</span> <a href="{{breadcrumb.link}}">{{ breadcrumb.title }}</a></span> */
+    /* {% endfor %} */
+  </h1>
+  <div class="content">
+    <%= yield %>
+  </div>
+  <hr>
+  <footer>
+    <p>Copyright &copy; <%= Time.now.year %> Phillip Ridlen.</p>
+    <table>
+      <tr>
+        {% for nav in site.navigation %}
+          <td><a href="{{ nav.url }}">{{ nav.name }}</a></td>
+        {% endfor %}
+      </tr>
+    </table>
+  </footer>
+</div>
+<% end %>

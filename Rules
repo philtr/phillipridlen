@@ -4,8 +4,8 @@
 ignore "/_*/**/*"
 
 # Main Index Page
-compile "/index.html.erb" do
-  filter :erb
+compile "/index.haml" do
+  filter :haml
   layout "/default.*"
   write "/index.html"
 end

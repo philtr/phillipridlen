@@ -1,0 +1,32 @@
+<meta charset="utf-8">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<meta name="viewport" content="initial-scale=1.0"/>
+<meta name="generator" content="Nanoc <%= Nanoc::VERSION %>">
+
+<title><%= @item.attributes.fetch(:title) + " | " if @item.attributes[:title] %>Phillip Ridlen</title>
+
+<!-- <link href="{{ site.url }}/atom.xml" rel="alternate" title="Phillip Ridlen" type="application/atom+xml" /> -->
+
+<link href="/css/main.css" rel="stylesheet" type="text/css">
+<% @item.attributes.fetch(:styles, []).each do |style| %>
+<link href="/css/<%= style %>.css" rel="stylesheet" type="text/css">
+<% end %>
+
+<link rel="apple-touch-icon-precomposed" href="{{ assets['favicon/favicon-180.png'].digest_path }}">
+<link rel="icon" href="{{ assets['favicon/favicon-180.png'].digest_path }}">
+<meta name="msapplication-TileColor" content="#264E59">
+<meta name="msapplication-TileImage" content="{{ assets['favicon/favicon-180.png'].digest_path }}">
+
+<meta name="description" content="{{ page.description }}" />
+
+<meta property="og:title" content="{% if page.title %}{{ page.title }}{% else %}Phillip Ridlen{% endif %}" />
+<meta property="og:url" content="{{ site.url }}{{ page.url }}" />
+<meta property="og:description" content="{{ page.description }}" />
+
+{% if assets[page.image] %}
+  <meta property="og:image" content="{{ site.url }}{{ assets[page.image].digest_path }}" />
+{% else %}
+  <meta property="og:image" content="http://gravatar.com/avatar/a9afd72caf82c3b98c292a379f53228a?s=256" />
+{% endif %}
+
+<link rel="author" href="https://plus.google.com/102506368462184573833" />
