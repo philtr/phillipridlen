@@ -8,7 +8,10 @@
 <!-- <link href="{{ site.url }}/atom.xml" rel="alternate" title="Phillip Ridlen" type="application/atom+xml" /> -->
 
 <link href="/css/main.css" rel="stylesheet" type="text/css">
-<% @item.attributes.fetch(:styles, []).each do |style| %>
+<% @item.fetch(:styles, []).each do |style| %>
+<link href="/css/<%= style %>.css" rel="stylesheet" type="text/css">
+<% end %>
+<% (@layout_styles || []).each do |style| %>
 <link href="/css/<%= style %>.css" rel="stylesheet" type="text/css">
 <% end %>
 

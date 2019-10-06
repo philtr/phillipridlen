@@ -1,0 +1,9 @@
+<div class="post-content post-<%= @item[:post_type] %>">
+  <%= yield %>
+
+  <% if @item[:link]&.fetch(:via, nil) %>
+    <div class="post-via">
+      via <%= link_to @item[:link][:via], @item[:link][:via_link] %>.
+    </div>
+  <% end %>
+</div>

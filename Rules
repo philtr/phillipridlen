@@ -25,7 +25,7 @@ end
 # Blog Posts
 compile "/posts/**/*.md" do
   filter :kramdown
-  layout "/default.*"
+  layout "/post.*"
 
   post_type     = @item[:post_type]
   category      = @item[:category]
