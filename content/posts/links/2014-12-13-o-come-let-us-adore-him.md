@@ -16,7 +16,7 @@ tags:
 ghi: "https://github.com/spatula/phillipridlen/issues/14"
 ---
 
-[John Piper]({{ page.link.source }}):
+[John Piper](<%= @item[:link][:source] %>):
 
 > And so the “us” of “O come let us adore him” is the “us” of heaven and earth, singing together.
 > According to Revelation 9:16, there are at least 200 million angels at God’s bidding. Surely at

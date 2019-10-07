@@ -38,4 +38,4 @@ I reviewed _You Need a Budget_ by Jesse Mecham [on Amazon][ynab]:
 > me a renewed vision and helped me realize I was looking at my budget as a
 > "what," but I needed to examine the "why".
 
-[ynab]: {{ page.link.source }}
+[ynab]: <%= @item[:link][:source] %>

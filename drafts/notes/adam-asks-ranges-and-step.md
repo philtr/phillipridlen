@@ -22,7 +22,7 @@ tags:
 > I don't really know any best practices stuff and was hoping you could show me
 > some.
 
-{% highlight ruby %}
+~~~ ruby
 def counter(start = 1, to = 100, by = 1)
   while start <= to
     numbers ||= []
@@ -32,15 +32,15 @@ def counter(start = 1, to = 100, by = 1)
 
   return numbers
 end
-{% endhighlight %}
+~~~
 
 This should do it: 
 
-{% highlight ruby %}
+~~~ ruby
 def counter(start = 1, to = 100, by = 1)
   (start..to).step(by).to_a
 end
-{% endhighlight %}
+~~~
 
 <http://ruby-doc.org/core-2.3.1/Range.html#method-i-step>
 

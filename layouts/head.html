@@ -5,7 +5,7 @@
 
 <title><%= @item.attributes.fetch(:title) + " | " if @item.attributes[:title] %>Phillip Ridlen</title>
 
-<!-- <link href="{{ site.url }}/atom.xml" rel="alternate" title="Phillip Ridlen" type="application/atom+xml" /> -->
+<link href="<%= site_config.base_url %>/atom.xml" rel="alternate" title="Phillip's Notes" type="application/atom+xml" />
 
 <link href="/css/main.css" rel="stylesheet" type="text/css">
 <% @item.fetch(:styles, []).each do |style| %>
@@ -15,21 +15,21 @@
 <link href="/css/<%= style %>.css" rel="stylesheet" type="text/css">
 <% end %>
 
-<link rel="apple-touch-icon-precomposed" href="{{ assets['favicon/favicon-180.png'].digest_path }}">
-<link rel="icon" href="{{ assets['favicon/favicon-180.png'].digest_path }}">
+<link rel="apple-touch-icon-precomposed" href="/images/favicon/favicon-180.png">
+<link rel="icon" href="/images/favicon/favicon-180.png">
 <meta name="msapplication-TileColor" content="#264E59">
-<meta name="msapplication-TileImage" content="{{ assets['favicon/favicon-180.png'].digest_path }}">
+<meta name="msapplication-TileImage" content="/images/favicon/favicon-180.png">
 
-<meta name="description" content="{{ page.description }}" />
+<meta name="description" content="<%= @item[:description] %>" />
 
-<meta property="og:title" content="{% if page.title %}{{ page.title }}{% else %}Phillip Ridlen{% endif %}" />
-<meta property="og:url" content="{{ site.url }}{{ page.url }}" />
-<meta property="og:description" content="{{ page.description }}" />
+<meta property="og:title" content="<% if @item[:title] then @item[:title] else %>Phillip Ridlen<% end %>" />
+<meta property="og:url" content="<%= site_config.base_url + @item.path %>" />
+<meta property="og:description" content="<%= @item[:description] %>" />
 
 <% if page_image = @item.attributes[:image] %>
-  <meta property="og:image" content="{{ site.url }}/images/<%= page_image %>" />
+<meta property="og:image" content="<%= site_config.base_url %>/images/<%= page_image %>" />
 <% else %>
-  <meta property="og:image" content="http://gravatar.com/avatar/a9afd72caf82c3b98c292a379f53228a?s=256" />
+<meta property="og:image" content="http://gravatar.com/avatar/a9afd72caf82c3b98c292a379f53228a?s=256" />
 <% end %>
 
 <link rel="author" href="https://plus.google.com/102506368462184573833" />

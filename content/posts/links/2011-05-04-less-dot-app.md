@@ -18,7 +18,7 @@ tags:
 ghi: "https://github.com/spatula/phillipridlen/issues/9"
 ---
 
-[Less.app]({{ page.link.source }}):
+[Less.app](<%= @item[:link][:source] %>):
 
 > {Less} extends CSS with variables, nested rules, operators and
 > more. If you're still building websites without it, you're an
