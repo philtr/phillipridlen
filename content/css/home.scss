@@ -2,10 +2,14 @@
   img {
     float: left;
     width: 32%;
-    margin-right: 1%;
   }
 
   & + hr {
     clear: left;
+  }
+
+  .text {
+    margin-left: 32%;
+    padding-left: 1rem;
   }
 }
