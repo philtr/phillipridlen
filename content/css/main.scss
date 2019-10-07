@@ -12,6 +12,11 @@ body {
   max-width: 40rem;
   font-family: $sans-serif;
   line-height: $line-height-base;
+
+  -ms-hyphens: auto;
+  -webkit-hyphens: auto;
+  hyphens: auto;
+  font-feature-settings: "liga" 1;
 }
 
 h1.brand {
