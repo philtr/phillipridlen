@@ -51,6 +51,11 @@ compile "/posts/**/*.md" do
   write "/#{post_type}/#{category}/#{yyyy}/#{mm}/#{dd}/#{slug}/index.html"
 end
 
+compile "/atom.xml" do
+  filter :erb
+  write item.identifier
+end
+
 # Stylesheets
 ignore '/**/_*.scss'
 ignore '/**/_*.scss', rep: :source_map

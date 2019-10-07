@@ -10,7 +10,10 @@ data_sources:
   - type: filesystem
     encoding: utf-8
 
-email: p@rdln.net
+site:
+  base_url: https://phillipridlen.com
+  author: Phillip Ridlen
+  email: p@rdln.net
 
 navigation:
   - name: "Notes"
