@@ -10,6 +10,12 @@ preprocess do
       item[:slug] = slug
     end
   end
+
+  begin # assign date for drafts
+    @items.find_all("/drafts/**/*").each do |item|
+      item[:date] = Time.now
+    end
+  end if @config[:drafts]
 end
 
 # Ignore transitional Jekyll files
@@ -54,12 +60,26 @@ compile "/posts/**/*.md" do
   layout "/post.*"
   filter :typogruby
 
-  post_type     = @item[:post_type]
-  category      = @item[:category]
+  category      = @item[:category].downcase
   yyyy, mm, dd  = [@item[:date].year, @item[:date].month, @item[:date].day]
   slug          = @item[:slug]
 
-  write "/#{post_type}/#{category}/#{yyyy}/#{mm}/#{dd}/#{slug}/index.html"
+  write "/#{category}/#{yyyy}/#{mm}/#{dd}/#{slug}/index.html"
+end
+
+if @config[:drafts]
+  compile "/drafts/**/*" do
+    filter :erb
+    filter :kramdown
+    filter :colorize_syntax, default_colorizer: :rouge
+
+    layout "/post.*"
+    filter :typogruby
+
+    write item.identifier.without_ext + "/index.html"
+  end
+else
+  ignore "/drafts/**/*"
 end
 
 compile "/atom.xml" do
