@@ -15,7 +15,7 @@ def site_config
 end
 
 def navigation_items
-  @config[:navigation].map do |nav_data|
+  @config.fetch(:navigation, []).map do |nav_data|
     NavigationItem.new(nav_data)
   end
 end

@@ -9,13 +9,15 @@
   <hr>
   <footer>
     <p>Copyright &copy; <%= Time.now.year %> Phillip Ridlen.</p>
-    <table>
-      <tr>
-        <% navigation_items.each do |nav| %>
-          <td><a href="<%= nav.url %>"><%= nav.name %></a></td>
-        <% end %>
-      </tr>
-    </table>
+    <% if navigation_items.any? %>
+      <table>
+        <tr>
+          <% navigation_items.each do |nav| %>
+            <td><a href="<%= nav.url %>"><%= nav.name %></a></td>
+          <% end %>
+        </tr>
+      </table>
+    <% end %>
   </footer>
 </div>
 <% end %>

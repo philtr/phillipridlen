@@ -14,9 +14,3 @@ site:
   base_url: https://phillipridlen.com
   author: Phillip Ridlen
   email: p@rdln.net
-
-navigation:
-  - name: "Notes"
-    url: "/notes/"
-  - name: "About"
-    url: "/about/"

@@ -6,4 +6,3 @@
   from    = "/resources/bbc/hayride/:year/"
   to      = "/resources/hayride/hayride-:year/"
   status  = 200
-
