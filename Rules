@@ -18,21 +18,30 @@ ignore "/_*/**/*"
 # Main Index Page
 compile "/index.haml" do
   filter :haml
+
   layout "/default.*"
+  filter :typogruby
+
   write "/index.html"
 end
 
 # 404 Page
 compile "/error.haml" do
   filter :haml
+
   layout "/default.*"
+  filter :typogruby
+
   write "/404.html"
 end
 
 # KJHS 2016
 compile "/resources/kjhs-2016.haml" do
   filter :haml
+
   layout "/default.*"
+  filter :typogruby
+
   write "/resources/kjhs/2016/index.html"
 end
 
@@ -41,7 +50,9 @@ compile "/posts/**/*.md" do
   filter :erb
   filter :kramdown
   filter :colorize_syntax, default_colorizer: :rouge
+
   layout "/post.*"
+  filter :typogruby
 
   post_type     = @item[:post_type]
   category      = @item[:category]
@@ -61,13 +72,17 @@ ignore '/**/_*.scss'
 ignore '/**/_*.scss', rep: :source_map
 compile '/**/*.scss' do
   filter :sassc, syntax: :scss
+
   write ext: '.css'
 end
 
 # Haml
 compile "/**/*.haml" do
   filter :haml
+
   layout "/default.*"
+  filter :typogruby
+
   write item.identifier.without_ext + "/index.html"
 end
 
@@ -78,6 +93,7 @@ compile "/**/*.md" do
   filter :colorize_syntax, default_colorizer: :rouge
 
   layout "/default.*"
+  filter :typogruby
 
   write item.identifier.without_ext + "/index.html"
 end

@@ -110,6 +110,7 @@ GEM
       ffi (~> 1.0)
     ref (2.0.0)
     rouge (3.11.1)
+    rubypants (0.7.0)
     sassc (2.2.1)
       ffi (~> 1.9)
     shellany (0.0.1)
@@ -123,6 +124,8 @@ GEM
       pastel (~> 0.7.0)
     tty-platform (0.2.1)
     tty-which (0.4.1)
+    typogruby (1.0.18)
+      rubypants
     zeitwerk (2.1.10)
 
 PLATFORMS
@@ -139,6 +142,7 @@ DEPENDENCIES
   nanoc-live
   rouge
   sassc
+  typogruby
 
 RUBY VERSION
    ruby 2.6.2p47

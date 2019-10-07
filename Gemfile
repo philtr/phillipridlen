@@ -12,6 +12,7 @@ gem "kramdown"
 gem "nanoc-live"
 gem "rouge"
 gem "sassc"
+gem "typogruby"
 
 gem "flickraw",
   # This can be updated to `github: "hanklords/flickraw" once Netlify supports
