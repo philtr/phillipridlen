@@ -1,0 +1,3 @@
+[build]
+  command = "rspec && jekyll build"
+  publish = "_site/"
