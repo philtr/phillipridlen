@@ -3,7 +3,7 @@
 <% end %>
 <h1 class="post-title header-link">
   <% if @item[:post_type] == "link" %>
-  <a href="<%= @item[:link][:source] %>"><%= page.title %></a>
+    <%= link_to @item[:title], @item[:link][:source] %>
   <% else %>
     <%= link_to @item[:title], @item %>
   <% end %>
