@@ -2,13 +2,10 @@
 #
 # Try to keep the number of rules defined in this file to a minumum.
 #
-# - Preprocess methods go in `lib/preprocessors`
-# - Rule sets go in `lib/rules`
+# - Preprocess methods can go in `lib/preprocessors`
+# - Rule sets go in `lib/rules` and have their own preprocess blocks
 # - Everything else can go here
 #
-preprocess do
-  preprocess_blog
-end
 
 layout "/**/*", :erb
 

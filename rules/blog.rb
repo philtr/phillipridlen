@@ -1,4 +1,8 @@
-# Blog Posts
+preprocess do
+  blog_post_attributes_from_filename
+  blog_post_date_for_drafts
+end
+
 compile "/posts/**/*.md" do
   filter :erb
   filter :kramdown
