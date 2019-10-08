@@ -1,0 +1,43 @@
+@import "shared";
+
+pre, code {
+  font-family: $monospace;
+  font-size: 0.8rem;
+}
+
+code {
+  display: inline-block;
+  background: $dim-background-color;
+  border: 1px solid transparentize($dim-text-color, 0.5);
+  border-radius: 3px;
+  padding: 0 2px;
+}
+
+pre.highlight {
+  background: $dim-background-color;
+  border-radius: $radius;
+  margin: 0;
+  max-width: 100%;
+  overflow-x: auto;
+  padding: 0.5rem 1.5rem;
+
+  code {
+    border: none;
+  }
+
+  .c, .cm, .c1, .cs,
+  .ge, .gh, .gp, .gs, .gu,
+  .kc, .kd, .kn, .kr, .ow,
+  .p, .o, .k {
+    color: $dim-text-color;
+  }
+
+  .k, .ne, .ni, .nn, .nt,
+  .s, .sb, .sc, .sd, .s2, .se, .sh, .sx, .s1, .ss {
+    color: $primary-accent-color;
+  }
+
+  .nc, .no {
+    color: $secondary-accent-color;
+  }
+}

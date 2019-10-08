@@ -1,0 +1,78 @@
+@import "../shared";
+
+section.posts {
+  h3 {
+    margin: $gutter 0 0 0;
+  }
+
+  h3:after {
+    content: " ";
+    border-bottom: 1px solid $faded-text-color;
+    display: block;
+  }
+}
+
+.posts-categories {
+  @media screen and (min-width: $breakpoint-large) {
+    display: flex;
+    flex-flow: column wrap;
+    align-content: space-between;
+    height: 50rem;
+
+    &::before,
+    &::after {
+      content: "";
+      flex-basis: 100%;
+      width: 0;
+      order: 2;
+    }
+  }
+}
+
+.posts-category {
+  @media screen and (min-width: $breakpoint-large) {
+    width: 19rem;
+    margin-right: 2rem;
+
+    &:nth-child(2n+1) { order: 1; }
+    &:nth-child(2n)   { order: 2; }
+  }
+}
+
+ul.posts-list {
+  display: table;
+  list-style-type: none;
+  margin: 0.5rem 0;
+  padding: 0;
+  position: relative;
+  width: 100%;
+
+  li {
+    display: table-row;
+  }
+
+  li small {
+    color: $dim-text-color;
+    display: table-cell;
+    line-height: 2;
+    width: 3.5rem;
+  }
+
+  li a {
+    display: table-cell;
+    width: auto;
+    padding-bottom: 0.5rem;
+  }
+
+  li aside {
+    display: none;
+
+    @media screen and (min-width: $breakpoint-medium) {
+      color: $dim-text-color;
+      display: table-cell;
+      padding-left: $gutter;
+      font-size: 0.75rem;
+      text-align: right;
+    }
+  }
+}

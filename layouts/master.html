@@ -1,0 +1,23 @@
+<% render "/bare.html", layout_styles: @layout_styles do %>
+<div>
+  <h1 class="brand">
+    <a href="/">Phillip Ridlen</a>
+  </h1>
+  <div class="content">
+    <%= yield %>
+  </div>
+  <hr>
+  <footer>
+    <p>Copyright &copy; <%= Time.now.year %> Phillip Ridlen.</p>
+    <% if navigation_items.any? %>
+      <table>
+        <tr>
+          <% navigation_items.each do |nav| %>
+            <td><a href="<%= nav.url %>"><%= nav.name %></a></td>
+          <% end %>
+        </tr>
+      </table>
+    <% end %>
+  </footer>
+</div>
+<% end %>

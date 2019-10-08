@@ -1,0 +1,5 @@
+<div class="post-date">
+  <time datetime="<%= @item[:date].strftime("%Y-%m-%d") %>">
+    <%= link_to @item[:date].strftime("%A, %B %d, %Y"), @item, class: "post-permalink" %>
+  </time>
+</div>

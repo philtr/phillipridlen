@@ -1,0 +1,35 @@
+<meta charset="utf-8">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<meta name="viewport" content="initial-scale=1.0"/>
+<meta name="generator" content="Nanoc <%= Nanoc::VERSION %>">
+
+<title><%= @item.attributes.fetch(:title) + " | " if @item.attributes[:title] %>Phillip Ridlen</title>
+
+<link href="<%= site_config.base_url %>/atom.xml" rel="alternate" title="Phillip's Notes" type="application/atom+xml" />
+
+<link href="/css/main.css" rel="stylesheet" type="text/css">
+<% @item.fetch(:styles, []).each do |style| %>
+<link href="/css/<%= style %>.css" rel="stylesheet" type="text/css">
+<% end %>
+<% (@layout_styles || []).each do |style| %>
+<link href="/css/<%= style %>.css" rel="stylesheet" type="text/css">
+<% end %>
+
+<link rel="apple-touch-icon-precomposed" href="/images/favicon/favicon-180.png">
+<link rel="icon" href="/images/favicon/favicon-180.png">
+<meta name="msapplication-TileColor" content="#264E59">
+<meta name="msapplication-TileImage" content="/images/favicon/favicon-180.png">
+
+<meta name="description" content="<%= @item[:description] %>" />
+
+<meta property="og:title" content="<% if @item[:title] then @item[:title] else %>Phillip Ridlen<% end %>" />
+<meta property="og:url" content="<%= site_config.base_url + @item.path %>" />
+<meta property="og:description" content="<%= @item[:description] %>" />
+
+<% if page_image = @item.attributes[:image] %>
+<meta property="og:image" content="<%= site_config.base_url %>/images/<%= page_image %>" />
+<% else %>
+<meta property="og:image" content="http://gravatar.com/avatar/a9afd72caf82c3b98c292a379f53228a?s=256" />
+<% end %>
+
+<link rel="author" href="https://plus.google.com/102506368462184573833" />

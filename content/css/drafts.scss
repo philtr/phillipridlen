@@ -1,0 +1,11 @@
+.post-draft-notice {
+  bottom: -2rem;
+  position: relative;
+  color: #ab6748;
+  font-weight: 900;
+  font-size: 2rem;
+
+  &:before {
+    content: "*";
+  }
+}

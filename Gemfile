@@ -1,19 +1,22 @@
 source "https://rubygems.org"
 
-gem "jekyll"
+ruby "2.6.2"
 
-group :jekyll_plugins do
-  gem "jekyll-assets"
-end
+gem "nanoc", "~> 4.11.12"
 
+gem "adsf-live"
+gem "guard"
+gem "guard-nanoc"
 gem "haml"
 gem "kramdown"
-gem "pygments.rb"
-gem "rubypants-unicode"
-gem "uglifier"
+gem "nanoc-live"
+gem "rouge"
+gem "sassc"
+gem "typogruby"
 
-group :development, :test do
-  gem "dotenv"
-  gem "pry"
-  gem "rspec"
-end
+gem "flickraw",
+  # This can be updated to `github: "hanklords/flickraw" once Netlify supports
+  # bundler 2.0.2. See https://github.com/netlify/build-image/issues/296 for
+  # more information on why Netlify does not support bundler 2.0.2 yet
+  git: "https://github.com/hanklords/flickraw",
+  ref: "95700877e6e396845704258b854eeee7c699f1fe"

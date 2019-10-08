@@ -1,0 +1,57 @@
+---
+layout: master
+description: "I'm a software engineer baking up awesome digital treats in Texas."
+styles:
+  - home
+  - posts/list
+---
+
+.mister-ridlen
+  %img{src: "images/phillipridlen.svg"}
+
+  %section#about.text
+    .markdown
+      .intro
+        :markdown
+          Hi, there! I'm a software engineer weaving code at [Stitch
+          Fix](http://stitchfix.com). Before that I was baking up awesome digital
+          treats at [Oven Bits](http://ovenbits.com) in Dallas.
+
+          I occasionally [write a note or two](/notes/) on topics I'm passionate
+          about. I'm also the youth director at [Burleson Bible
+          Church](http://burlesonbible.org) for students in 7th-12th grade. I
+          apologize in advance for the fart jokes.
+
+          I previously organized [Ruby FTW](http://rubyftw.org), the Ruby enthuisast group
+          of Fort Worth, Texas, but have since passed the torch on to others.
+
+
+%hr
+
+%h1#notes Notes
+
+%section.posts
+  %p.intro
+    I don't write often or very much. Many of the following articles are barely
+    more than links to other, better articles, and the rest are short and
+    unpolished. Read at your own risk. ;)
+
+  .posts-categories
+    - posts_grouped_by_category.each do |category, posts|
+      .posts-category
+        %h3.header-link{ id: category }
+          = link_to category, "##{category}"
+        %ul.posts-list
+          - posts.each do |post|
+            %li
+              = link_to post.attributes[:title], post
+              %aside
+                %time{ datetime: post[:date].strftime("%Y-%m-%d"), title: post[:date].strftime("%A, %B %-d, %Y") }
+                  = post[:date].year
+
+:markdown
+  ---
+
+  I try to respond to email within 48 hours. Feel free to get in touch
+  directly: <#{site_config.email}>.
+

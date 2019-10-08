@@ -1,0 +1,11 @@
+<% if @item[:draft] %>
+  <p class="post-draft-notice">DRAFT</p>
+<% end %>
+<h1 class="post-title header-link">
+  <% if @item[:post_type] == "link" %>
+    <%= link_to @item[:title], @item[:link][:source] %>
+  <% else %>
+    <%= link_to @item[:title], @item %>
+  <% end %>
+</h1>
+
