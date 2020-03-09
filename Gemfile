@@ -2,7 +2,7 @@ source "https://rubygems.org"
 
 ruby "2.6.2"
 
-gem "nanoc", "~> 4.11.14"
+gem "nanoc", "~> 4.11.15"
 
 gem "adsf-live"
 gem "guard"
