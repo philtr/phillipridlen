@@ -11,11 +11,20 @@ one][now], too._
 When Twitter first arrived on the scene, it had one mission: answer the
 question, "What are you doing?" Twitter no longer serves that purpose for most
 of its users, and as such, a better place to keep up with me is to watch this page.
-This is what I'm doing as of February 2020.
+This is what I'm doing as of March 30, 2020.
 
 [now]: https://nownownow.com/about
 
-## Family
+## 🦠 COVID-19
+
+Currently sheltering in place. I'm thankful that the stay-at-home order allows for 
+outdoor activity such as exercise and walks in the park. As part of the livestream
+team for my church, I get to go see a few of the people there on Sundays as well.
+I haven't in contact with anyone who's tested positive, so I am also thankful that my
+family is healthy and alive, even if we have a bit of cabin fever.
+
+
+## 👨‍👩‍👧‍👦 Family
 
 I [recently adopted][legacy] a beautiful one-year-old girl on February 21, 2020.
 I live in Burleson, Texas (just south of Fort Worth) with my wife and our
@@ -26,35 +35,37 @@ my youngest two share a birthday!
 [hudson]:  http://hudsonkruse.co
 [legacy]:  http://legacyrose.co
 
-## Employment
+## 👨‍💻 Career
 
 I'm currently happily employed as  a Lead Software Engineer at [Stitch
 Fix][stitchfix].  It's a fantastic place to work: competitive compensation,
 interesting challenges to solve with a great deal of autonomy, great benefits,
 and a serious commitment to life/work balance.
 
-I work remotely on the Payments team, where I (among other things) ensure that
-you are charged the correct amount for your orders. No more, no less. Our tech
+I work remotely keeping the our payment systems running smoothly. Our tech
 stack is mostly Ruby on Rails, with a smattering of Go and React. You should
 come [work with me][careers]!
 
-I'm not seeking other employement or contract work at this time. Please do not
-solicit me for open positions.
+I'm not seeking other employement or contract work at this time. **Please do not
+solicit me for open positions.**
 
 [stitchfix]: https://www.stitchfix.com/
 [careers]:   https://www.stitchfix.com/careers
 
 ## Extra-curriculars
 
-I wrangled the [RubyFTW Fort Worth Ruby Enthusiasts Group][fwrb] for a number of
+👨‍🏫 I'm still the [youth leader][youth] at [Burleson Bible Church][bbc] where I
+mentor and teach students in grades 7 through 12. Yes, I still laugh at fart
+jokes. Because they are funny.
+
+⛰🏃‍♂️ I love trail running. I'm slowly working up to longer distances. Most recently
+I completed my [first trail 10K in September 2019][roughcreek]. I was training
+for an [8-mile trail run][coyote] on April 18th, but that has been canceled due
+to this stupid virus and I'm looking forward to it next year.
+
+🤠 I wrangled the [RubyFTW Fort Worth Ruby Enthusiasts Group][fwrb] for a number of
 years, but I hung my hat, and eventually that group was put out to pasture.
 
-I'm still the [youth leader][youth] at [Burleson Bible Church][bbc] where I
-mentor and teach students in grades 7 through 12. Yes, I still laugh at fart
-jokes.  Because they are funny.
-
-I completed my [first trail 10K in September 2019][roughcreek], and I'm training
-for an [8-mile trail run][coyote] on April 18th.
 
 [fwrb]:       http://rubyftw.org/
 [bbc]:        http://burlesonbiblechurch.org
