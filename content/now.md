@@ -11,6 +11,7 @@ one][now], too._
 When Twitter first arrived on the scene, it had one mission: answer the
 question, "What are you doing?" Twitter no longer serves that purpose for most
 of its users, and as such, a better place to keep up with me is to watch this page.
+
 This is what I'm doing as of March 30, 2020.
 
 [now]: https://nownownow.com/about
