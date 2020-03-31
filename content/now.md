@@ -18,12 +18,13 @@ This is what I'm doing as of March 30, 2020.
 
 ## 🦠 COVID-19
 
-Currently sheltering in place. I'm thankful that the stay-at-home order allows for 
+Currently sheltering in place. I'm thankful that the [stay-at-home order] allows for 
 outdoor activity such as exercise and walks in the park. As part of the livestream
 team for my church, I get to go see a few of the people there on Sundays as well.
-I haven't in contact with anyone who's tested positive, so I am also thankful that my
-family is healthy and alive, even if we have a bit of cabin fever.
+I haven't been in contact with anyone who's tested positive, so I am also incredibly
+thankful that my family is healthy and alive, even if we do have a bit of cabin fever.
 
+[stay-at-home order]: https://www.burlesontx.com/DocumentCenter/View/20007/CSO1316-03-2020
 
 ## 👨‍👩‍👧‍👦 Family
 
