@@ -1,0 +1,22 @@
+<style>
+  .comment { margin-bottom: 2rem }
+  .comment p { margin: 1rem 0; }
+
+  .title { font-size: 2rem; font-weight: 900 }
+
+  .c6 { margin-left: 2rem; }
+  .c11 { margin-left: 4rem; }
+</style>
+
+<div class=".comment">
+  <p class="intro">
+      Given the recent need for churches everywhere to invest time, effort, and
+      money into livestreaming their worship service, having a list of recommended
+      resources could come in handy. This page is regularly updated from the
+      publicly-editable
+      <a href="https://docs.google.com/document/d/1LJ7Gd1riOXBQaogUdNmkLPdnIWypnUeZpMniATvVWuI/edit#">Google Doc</a>.
+  </p>
+  <p><em>Last updated <%= site_time.to_s(:rfc822) %>.</em></p>
+</div>
+
+<%= church_av_resources %>

@@ -14,3 +14,4 @@ site:
   base_url: https://phillipridlen.com
   author: Phillip Ridlen
   email: p@rdln.net
+  tz: "Central Time (US & Canada)"

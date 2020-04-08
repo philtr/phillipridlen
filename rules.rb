@@ -21,6 +21,7 @@ include_rules "rules/blog"
 include_rules "rules/stylesheets"
 
 # Rules for Specific File Extensions
+include_rules "rules/erb"
 include_rules "rules/haml"
 include_rules "rules/markdown"
 
