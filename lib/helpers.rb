@@ -1,3 +1,6 @@
+require "nokogiri"
+require "active_support/core_ext/time"
+
 use_helper Nanoc::Helpers::LinkTo
 use_helper Nanoc::Helpers::Rendering
 
@@ -42,5 +45,12 @@ def church_av_resources
   uri = URI("https://docs.google.com/document/d/e/2PACX-1vQy9mIg73kxkN2tG9u1N4svmeuJ2Q2Kn4RhhrhaEWEMbX1wBjsFCAL1oEKDWAxlsgccrrwQa8dozrzE/pub")
   document = Nokogiri::HTML(Net::HTTP.get(uri))
   document.encoding = "UTF-8"
+  document.xpath('.//@style').remove
+  document.xpath('.//style').remove
   document.css("#contents").to_html.encode("UTF-8", invalid: :replace, undef: :replace)
+end
+
+def site_time
+  tz = ActiveSupport::TimeZone.new(@config[:site][:tz])
+  ActiveSupport::TimeWithZone.new(Time.now, tz)
 end
