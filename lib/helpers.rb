@@ -37,3 +37,10 @@ def posts_grouped_by_category(sort: :desc)
   posts_sorted_by_date(direction: sort)
     .group_by { |item| item[:category] }
 end
+
+def church_av_resources
+  uri = URI("https://docs.google.com/document/d/e/2PACX-1vQy9mIg73kxkN2tG9u1N4svmeuJ2Q2Kn4RhhrhaEWEMbX1wBjsFCAL1oEKDWAxlsgccrrwQa8dozrzE/pub")
+  document = Nokogiri::HTML(Net::HTTP.get(uri))
+  document.encoding = "UTF-8"
+  document.css("#contents").to_html.encode("UTF-8", invalid: :replace, undef: :replace)
+end
