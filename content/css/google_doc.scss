@@ -1,7 +1,9 @@
 @import "shared";
 
-.comment { margin-bottom: 2rem }
-.comment p { margin: 1rem 0; }
+.page-description {
+  margin-bottom: 2rem;
+  p { margin: 1rem 0; }
+}
 
 .title { font-size: 2rem; font-weight: 900 }
 
