@@ -46,7 +46,7 @@ def church_av_resources
   document = Nokogiri::HTML(Net::HTTP.get(uri))
   document.encoding = "UTF-8"
   document.xpath('.//@style').remove
-  document.xpath('.//style').remove
+  # document.xpath('.//style').remove
   document.css("#contents").to_html.encode("UTF-8", invalid: :replace, undef: :replace)
 end
 
