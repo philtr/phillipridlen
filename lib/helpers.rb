@@ -45,6 +45,15 @@ def church_av_resources
   document = Nokogiri::HTML(Net::HTTP.get(uri))
   document.encoding = "UTF-8"
   document.xpath('.//@style').remove
-  # document.xpath('.//style').remove
+  document.css('a').each do |link|
+    href = link.attributes["href"].value
+    if href =~ /google.com/
+      href = href.gsub(%r{https://www.google.com/url\?q=}, '')
+      href = href.gsub(%r{&sa=.+&ust=\d+}, '')
+      href = CGI.unescape(href)
+    end
+
+    link.attributes["href"].value = href
+  end
   document.css("#contents").to_html.encode("UTF-8", invalid: :replace, undef: :replace)
 end
