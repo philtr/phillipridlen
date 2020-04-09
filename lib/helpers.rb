@@ -1,5 +1,4 @@
 require "nokogiri"
-require "active_support/core_ext/time"
 
 use_helper Nanoc::Helpers::LinkTo
 use_helper Nanoc::Helpers::Rendering
@@ -48,9 +47,4 @@ def church_av_resources
   document.xpath('.//@style').remove
   # document.xpath('.//style').remove
   document.css("#contents").to_html.encode("UTF-8", invalid: :replace, undef: :replace)
-end
-
-def site_time
-  tz = ActiveSupport::TimeZone.new(@config[:site][:tz])
-  ActiveSupport::TimeWithZone.new(Time.now, tz)
 end

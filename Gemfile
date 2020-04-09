@@ -4,7 +4,6 @@ ruby "2.6.2"
 
 gem "nanoc", "~> 4.11.15"
 
-gem "activesupport", require: "active_support/core_ext/time"
 gem "adsf-live"
 gem "guard"
 gem "guard-nanoc"
