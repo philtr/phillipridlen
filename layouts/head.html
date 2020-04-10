@@ -28,8 +28,6 @@
 
 <% if page_image = @item.attributes[:image] %>
 <meta property="og:image" content="<%= site_config.base_url %>/images/<%= page_image %>" />
-<% else %>
-<meta property="og:image" content="http://gravatar.com/avatar/a9afd72caf82c3b98c292a379f53228a?s=256" />
 <% end %>
 
 <link rel="author" href="https://plus.google.com/102506368462184573833" />
