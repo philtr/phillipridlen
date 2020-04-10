@@ -20,7 +20,6 @@ body {
 }
 
 h1.brand {
-  display: table;
   font-size: 1.5rem;
   line-height: 4rem;
 }
@@ -53,6 +52,7 @@ a {
 .header-link, .header-link a {
   color: $primary-text-color;
 }
+
 
 img {
   max-width: 100%;

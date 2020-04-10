@@ -43,17 +43,24 @@ end
 def church_av_resources
   uri = URI("https://docs.google.com/document/d/e/2PACX-1vQy9mIg73kxkN2tG9u1N4svmeuJ2Q2Kn4RhhrhaEWEMbX1wBjsFCAL1oEKDWAxlsgccrrwQa8dozrzE/pub")
   document = Nokogiri::HTML(Net::HTTP.get(uri))
+
   document.encoding = "UTF-8"
-  document.xpath('.//@style').remove
-  document.css('a').each do |link|
+
+  # Remove Google proxy from links
+  document.css("a").each do |link|
     href = link.attributes["href"].value
     if href =~ /google.com/
-      href = href.gsub(%r{https://www.google.com/url\?q=}, '')
-      href = href.gsub(%r{&sa=.+&ust=\d+}, '')
+      href = href.gsub(%r{https://www.google.com/url\?q=}, "")
+      href = href.gsub(%r{&sa=.+&ust=\d+}, "")
       href = CGI.unescape(href)
     end
-
     link.attributes["href"].value = href
   end
-  document.css("#contents").to_html.encode("UTF-8", invalid: :replace, undef: :replace)
+
+  document.xpath(".//style").remove
+
+  document_html = document.css("#contents").to_html
+    .encode("UTF-8", invalid: :replace, undef: :replace)
+
+  %{<div class="google-doc">#{document_html}</div>}
 end

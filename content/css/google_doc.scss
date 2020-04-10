@@ -7,11 +7,9 @@
 
 .title { font-size: 2rem; font-weight: 900 }
 
-#google-doc {
-  * { font-family: $sans-serif !important }
-  ul { list-style-type: disc !important }
-  li::before { content: ''; }
-  li, p { line-height: inherit !important; }
-  a { color: $primary-accent-color !important; }
+.google-doc {
+  ul { margin: 0.5rem 0; }
+  ul[class*="-1"] { margin-left: 2rem; }
+  ul[class*="-2"] { margin-left: 4rem; }
 }
 
