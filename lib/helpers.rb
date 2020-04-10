@@ -40,9 +40,9 @@ def posts_grouped_by_category(sort: :desc)
     .group_by { |item| item[:category] }
 end
 
-def church_av_resources
-  uri = URI("https://docs.google.com/document/d/e/2PACX-1vQy9mIg73kxkN2tG9u1N4svmeuJ2Q2Kn4RhhrhaEWEMbX1wBjsFCAL1oEKDWAxlsgccrrwQa8dozrzE/pub")
-  document = Nokogiri::HTML(Net::HTTP.get(uri))
+def google_doc_content(uri)
+  response = Net::HTTP.get(URI(uri))
+  document = Nokogiri::HTML(response)
 
   document.encoding = "UTF-8"
 
