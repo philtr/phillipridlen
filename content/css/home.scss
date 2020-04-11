@@ -3,9 +3,7 @@
 .latest-updates {
   margin-top: 1rem;
 
-  display: grid;
-  grid-template-columns: 2fr 1fr;
-  grid-gap: 1rem;
+
 
   .update {
     background-color: fade-out($faded-text-color, 0.5);
@@ -16,5 +14,11 @@
   .update-title {
     font-weight: bold;
     margin-bottom: 1rem;
+  }
+  
+  @media screen and (min-width: $breakpoint-medium) {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    grid-gap: 1rem;
   }
 }
