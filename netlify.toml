@@ -1,12 +1,3 @@
 [build]
   command = "nanoc compile"
   publish = "output"
-
-[[redirects]]
-  from    = "/resources/bbc/hayride/:year/"
-  to      = "/resources/hayride/hayride-:year/"
-  status  = 200
-
-[[redirects]]
-  from    = "/about/"
-  to      = "/#about"

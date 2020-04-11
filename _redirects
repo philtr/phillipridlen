@@ -1,0 +1,20 @@
+# Rewrites
+/resources/bbc/hayride/:year/ /resources/hayride/hayride-:year/ 200
+
+# Redirects
+/about/ /#about 302
+
+# Fix accidentally broken permalinks
+/life/2018/1/3/* /life/2018/01/03/:splat 301
+/life/2017/3/3/* /life/2017/03/03/:splat 301
+/life/2015/1/6/* /life/2015/01/06/:splat 301
+/life/2011/5/3/* /life/2011/05/03/:splat 301
+/christianity/2017/3/2/* /christianity/2017/03/02/:splat 301
+/food/2011/4/30/* /food/2011/04/30/:splat 301
+/programming/2017/3/10/* /programming/2017/03/10/:splat 301
+/programming/2015/3/4/* /programming/2015/03/04/:splat 301
+/programming/2014/12/6/* /programming/2014/12/06/:splat 301
+/programming/2011/5/4/* /programming/2011/05/04/:splat 301
+/programming/2011/2/17/* /programming/2011/02/17/:splat 301
+/programming/2010/8/12/* /programming/2010/08/12/:splat 301
+/programming/2010/8/5/* /programming/2010/08/05/:splat 301

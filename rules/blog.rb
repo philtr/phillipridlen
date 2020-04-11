@@ -12,7 +12,7 @@ compile "/posts/**/*.md" do
   filter :typogruby
 
   category      = @item[:category].downcase
-  yyyy, mm, dd  = [@item[:date].year, @item[:date].month, @item[:date].day]
+  yyyy, mm, dd  = @item[:date].strftime("%Y/%m/%d").split("/")
   slug          = @item[:slug]
 
   write "/#{category}/#{yyyy}/#{mm}/#{dd}/#{slug}/index.html"
