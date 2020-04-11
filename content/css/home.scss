@@ -1,24 +1,20 @@
 @import "shared";
 
-.mister-ridlen {
-  img {
-    max-height: 25vh;
+.latest-updates {
+  margin-top: 1rem;
+
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  grid-gap: 1rem;
+
+  .update {
+    background-color: fade-out($faded-text-color, 0.5);
+    padding: 1rem 2rem;
+    border-radius: 0.25rem;
   }
 
-  @media screen and (min-width: $breakpoint-medium) {
-    $side: right;
-
-    img {
-      float: $side;
-      width: 33%;
-      max-height: 75vh;
-
-      @if $side == left { padding-right: $gutter; }
-      @else { padding-left: $gutter; }
-    }
-
-    & + hr {
-      clear: $side;
-    }
+  .update-title {
+    font-weight: bold;
+    margin-bottom: 1rem;
   }
 }
