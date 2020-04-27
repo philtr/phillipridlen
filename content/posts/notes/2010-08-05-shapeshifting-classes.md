@@ -14,7 +14,6 @@ ghi: "https://github.com/spatula/phillipridlen/issues/5"
 
 styles:
   - code
-  - posts/journal
 ---
 I've been using Ruby full-time+ for the last few weeks, working on projects at
 work and then personal projects when I get home. There are a few things I've
