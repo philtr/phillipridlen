@@ -18,13 +18,17 @@ This is what I'm doing as of March 30, 2020.
 
 ## 🦠 COVID-19
 
-Currently sheltering in place. I'm thankful that the [stay-at-home order] allows for 
-outdoor activity such as exercise and walks in the park. As part of the livestream
-team for my church, I get to go see a few of the people there on Sundays as well.
-I haven't been in contact with anyone who's tested positive, so I am also incredibly
-thankful that my family is healthy and alive, even if we do have a bit of cabin fever.
+My family is starting to venture out more now, since the number of new cases
+in my county has been relatively flat for quite some time now. I'm continuing to
+monitor the situation, but things are looking hopeful as businesses and other
+places are starting to open up. I'm trying to be realistic about how things are
+looking;  realizing that just because I _can_ go do things doesn't mean that I
+necessarily _should_.
 
-[stay-at-home order]: https://www.burlesontx.com/DocumentCenter/View/20007/CSO1316-03-2020
+I'm spending about 20 hours a week on my church's pre-recorded video service,
+since we don't have enough upload bandwith to do a livestream. I'm having a ton
+of fun learning new things, but I'm also looking forward to the day when I no
+longer am required to spend that much time on this.
 
 ## 👨‍👩‍👧‍👦 Family
 
