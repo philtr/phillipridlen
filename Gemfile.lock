@@ -57,7 +57,7 @@ GEM
     hamster (3.0.0)
       concurrent-ruby (~> 1.0)
     http_parser.rb (0.6.0)
-    json_schema (0.20.8)
+    json_schema (0.20.9)
     kramdown (2.2.1)
       rexml
     listen (3.2.1)
@@ -66,12 +66,12 @@ GEM
     lumberjack (1.2.4)
     method_source (1.0.0)
     mini_portile2 (2.4.0)
-    nanoc (4.11.17)
+    nanoc (4.11.18)
       addressable (~> 2.5)
       colored (~> 1.2)
       nanoc-checking (~> 1.0)
-      nanoc-cli (= 4.11.17)
-      nanoc-core (= 4.11.17)
+      nanoc-cli (= 4.11.18)
+      nanoc-core (= 4.11.18)
       nanoc-deploying (~> 1.0)
       parallel (~> 1.12)
       tty-command (~> 0.8)
@@ -79,12 +79,13 @@ GEM
     nanoc-checking (1.0.0)
       nanoc-cli (~> 4.11, >= 4.11.15)
       nanoc-core (~> 4.11, >= 4.11.15)
-    nanoc-cli (4.11.17)
+    nanoc-cli (4.11.18)
       cri (~> 2.15)
       diff-lcs (~> 1.3)
-      nanoc-core (= 4.11.17)
+      nanoc-core (= 4.11.18)
       zeitwerk (~> 2.1)
-    nanoc-core (4.11.17)
+    nanoc-core (4.11.18)
+      concurrent-ruby (~> 1.1)
       ddmemoize (~> 1.0)
       ddmetrics (~> 1.0)
       ddplugin (~> 1.0)
@@ -109,7 +110,7 @@ GEM
     notiffany (0.1.3)
       nenv (~> 0.1)
       shellany (~> 0.0)
-    parallel (1.19.1)
+    parallel (1.19.2)
     pastel (0.7.4)
       equatable (~> 0.6)
       tty-color (~> 0.5)
@@ -154,7 +155,7 @@ DEPENDENCIES
   guard-nanoc
   haml
   kramdown
-  nanoc (~> 4.11.17)
+  nanoc (~> 4.11.18)
   nanoc-live
   nokogiri
   rouge
