@@ -16,19 +16,6 @@ This is what I'm doing as of March 30, 2020.
 
 [now]: https://nownownow.com/about
 
-## 🦠 COVID-19
-
-My family is starting to venture out more now, since the number of new cases
-in my county has been relatively flat for quite some time now. I'm continuing to
-monitor the situation, but things are looking hopeful as businesses and other
-places are starting to open up. I'm trying to be realistic about how things are
-looking;  realizing that just because I _can_ go do things doesn't mean that I
-necessarily _should_.
-
-I'm spending about 20 hours a week on my church's pre-recorded video service,
-since we don't have enough upload bandwith to do a livestream. I'm having a ton
-of fun learning new things, but I'm also looking forward to the day when I no
-longer am required to spend that much time on this.
 
 ## 👨‍👩‍👧‍👦 Family
 
