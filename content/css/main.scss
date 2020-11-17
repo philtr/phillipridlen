@@ -24,22 +24,6 @@ h1.brand {
   line-height: 4rem;
 }
 
-.breadcrumb {
-  .caret {
-    bottom: -0.1rem;
-    display: inline-block;
-    color: $faded-text-color;
-    padding-left: 0.5rem;
-    position: relative;
-  }
-
-  a {
-    color: $dim-text-color;
-    font-weight: 500;
-    font-size: 75%;
-  }
-}
-
 a {
   color: $primary-accent-color;
   text-decoration: none;
@@ -71,21 +55,9 @@ footer {
     text-align: center;
   }
 
-  table {
-    border-collapse: collapse;
-    margin: 0 auto;
-    min-width: 10rem;
-    text-align: center;
-  }
-
   @media screen and (min-width: $breakpoint-medium) {
     p {
       float: left;
-    }
-
-    table {
-      float: right;
-      text-align: right;
     }
   }
 }
@@ -102,11 +74,7 @@ hr {
 }
 
 blockquote {
-  border-left: 3px solid $dim-text-color;
+  border-left: 3px solid $faded-text-color;
   margin-left: 0.5rem;
   padding-left: 1rem;
-}
-
-.huge {
-  font-size: 5rem;
 }
