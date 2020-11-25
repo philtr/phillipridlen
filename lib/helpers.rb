@@ -36,8 +36,13 @@ def posts_sorted_by_date(direction: :desc)
 end
 
 def posts_grouped_by_category(sort: :desc)
-  posts_sorted_by_date(direction: sort)
+  grouped_posts = posts_sorted_by_date(direction: sort)
     .group_by { |item| item[:category] }
+
+  priority = ["Life", "Programming", "Christianity"]
+  rest = grouped_posts.keys - priority
+
+  grouped_posts.slice(*priority, *rest)
 end
 
 def google_doc_content(uri)
