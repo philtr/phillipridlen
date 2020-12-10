@@ -31,6 +31,10 @@ a {
   &:hover {
     text-decoration: underline;
   }
+  
+  &:active {
+    color: $tertiary-accent-color;
+  }
 }
 
 .header-link, .header-link a {
