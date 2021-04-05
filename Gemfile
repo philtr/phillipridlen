@@ -2,7 +2,7 @@ source "https://rubygems.org"
 
 ruby "3.0.0"
 
-gem "nanoc", "~> 4.12.0"
+gem "nanoc", "~> 4.12.1"
 
 gem "adsf-live"
 gem "foreman"
