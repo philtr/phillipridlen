@@ -146,7 +146,7 @@ the final sum. The code for this implementation in an imperative language
 might look like this:
 
 [^fp-wikipedia]: "Functional programming." Wikipedia. Accessed 5 Dec. 2008
-  <http://en.wikipedia.org/wiki/functional_programming>.
+    <http://en.wikipedia.org/wiki/functional_programming>.
 
 ~~~c
 function sumArray( itemArray, sum ) {
