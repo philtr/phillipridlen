@@ -31,7 +31,7 @@ a {
   &:hover {
     text-decoration: underline;
   }
-  
+
   &:active {
     color: $tertiary-accent-color;
   }
@@ -59,9 +59,25 @@ footer {
     text-align: center;
   }
 
+
+  aside {
+    color: $pale-text-color;
+    font-size: 0.8rem;
+    font-weight: 300;
+    text-align: center;
+
+    & a {
+      color: $pale-text-color;
+    }
+  }
+
   @media screen and (min-width: $breakpoint-medium) {
     p {
       float: left;
+    }
+
+    aside {
+      text-align: right;
     }
   }
 }
