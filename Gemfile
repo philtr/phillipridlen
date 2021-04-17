@@ -1,8 +1,8 @@
 source "https://rubygems.org"
 
-ruby "3.0.0"
+ruby "3.0.1"
 
-gem "nanoc", "~> 4.12.1"
+gem "nanoc", "~> 4.12"
 
 gem "adsf-live"
 gem "foreman"
