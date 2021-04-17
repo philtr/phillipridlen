@@ -62,3 +62,8 @@ def google_doc_content(uri)
 
   %{<div class="google-doc">#{document_html}</div>}
 end
+
+def site_version
+  @revision ||= `git rev-parse --short HEAD`.chomp
+  link_to "#{@revision}", "https://github.com/philtr/phillipridlen/tree/#{@revision}"
+end
