@@ -3,12 +3,22 @@
 .post-title {
   font-size: 1.75rem;
   line-height: 1.2;
-  margin-bottom: 0;
+  margin-bottom: 1rem;
   font-weight: 900;
 
   @media screen and (min-width: $breakpoint-medium) {
     font-size: 2.5rem;
-    margin-bottom: 1rem;
+    max-width: 75%;
+  }
+}
+
+.post-subtitle {
+  color: $dim-text-color;
+  font-style: italic;
+  margin-top: -1rem;
+
+  @media screen and (min-width: $breakpoint-medium) {
+    font-size: 1.5rem;
     max-width: 75%;
   }
 }
