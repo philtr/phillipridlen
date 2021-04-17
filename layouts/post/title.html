@@ -8,4 +8,6 @@
     <%= link_to @item[:title], @item %>
   <% end %>
 </h1>
-
+<% if @item[:subtitle] %>
+  <p class="post-subtitle"><%= @item[:subtitle] %></p>
+<% end %>
