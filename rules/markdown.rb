@@ -4,7 +4,8 @@ compile "/**/*.md" do
   filter :kramdown
   filter :colorize_syntax, default_colorizer: :rouge
 
-  layout "/default.*"
+  layout selected_layout(@item) || "/default.*"
+
   filter :typogruby
 
   write item.identifier.without_ext + "/index.html"
