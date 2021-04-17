@@ -3,7 +3,6 @@ require "nokogiri"
 use_helper Nanoc::Helpers::LinkTo
 use_helper Nanoc::Helpers::Rendering
 
-NavigationItem = Struct.new(:name, :url, keyword_init: true)
 SiteConfig = Class.new(OpenStruct)
 
 def site_config
@@ -14,12 +13,6 @@ def site_config
     email: ENV["EMAIL"] || site.email,
     author: ENV["AUTHOR"] || site.author,
   )
-end
-
-def navigation_items
-  @config.fetch(:navigation, []).map do |nav_data|
-    NavigationItem.new(nav_data)
-  end
 end
 
 def posts
