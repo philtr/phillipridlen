@@ -16,6 +16,7 @@ include_rules "rules/resources"
 
 # Rules for Special Groups of Items
 include_rules "rules/blog"
+include_rules "rules/photos"
 
 # Rules for Processing Stylesheets
 include_rules "rules/stylesheets"
