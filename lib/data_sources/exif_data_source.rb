@@ -33,7 +33,7 @@ class ExifDataSource < Nanoc::DataSource
         camera: [@exif[:make], @exif[:model]].join(" "),
         lens: replace_f_stop(@exif[:lens_info]),
         f_stop: "𝑓/#{@exif[:f_number]}",
-        exposure: "#{@exif[:exposure_time]}s",
+        exposure: "#{@exif[:exposure_time]}𝑠",
         iso: @exif[:iso],
 
         exif: @exif.to_hash,
