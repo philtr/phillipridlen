@@ -29,11 +29,13 @@ class ExifDataSource < Nanoc::DataSource
       {
         title: @exif[:image_description],
         description: @exif[:user_comment],
+        date: parse_exif_date(@exif[:date_time_original]),
         camera: [@exif[:make], @exif[:model]].join(" "),
         lens: replace_f_stop(@exif[:lens_info]),
         f_stop: "𝑓/#{@exif[:f_number]}",
         exposure: "#{@exif[:exposure_time]}s",
         iso: @exif[:iso],
+
         exif: @exif.to_hash,
       }
     end
@@ -42,6 +44,10 @@ class ExifDataSource < Nanoc::DataSource
 
     def replace_f_stop(str)
       str.gsub("f/", "𝑓/")
+    end
+
+    def parse_exif_date(exif_date_string)
+      Time.strptime(exif_date_string, "%Y:%m:%d %H:%M:%S")
     end
   end
 

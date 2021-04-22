@@ -1,7 +1,11 @@
-<% render "/default.html", layout_styles: ["photos"] do %>
+<% render "/default.html", layout_styles: ["posts", "photos"] do %>
   <div class="photo">
     <h1 class="post-title header-link"><%= link_to @item[:title], @item.path(rep: :html) %></h1>
-    <p><%= yield %></p>
+    <div class="post-date">
+      <time datetime="<%= @item[:date].strftime("%Y-%m-%d %H:%M") %>">
+        <%= link_to @item[:date].strftime("%A, %B %d, %Y, %-I:%M%P"), @item, class: "post-permalink" %>
+      </time>
+    </div>
     <img src="<%= @item.path(rep: :raw) %>">
     <figcaption>
         <%= @item[:camera] %> <%= @item[:lens] %><br>
