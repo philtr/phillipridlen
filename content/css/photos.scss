@@ -5,12 +5,23 @@
   grid-template-columns: repeat(3, 1fr);
   gap: 1rem;
 
+  @media screen and (min-width: $breakpoint-medium) {
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  @media screen and (min-width: $breakpoint-large) {
+    grid-template-columns: repeat(5, 1fr);
+  }
   .photo {
     img { width: 100%; }
   }
 }
 
 .photo {
+  p {
+    font-size: 1.2rem;
+  }
+
   img {
     border-radius: 0.25rem;
   }
