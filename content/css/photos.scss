@@ -1,5 +1,15 @@
 @import "shared";
 
+.photos {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+
+  .photo {
+    img { width: 100%; }
+  }
+}
+
 .photo {
   img {
     border-radius: 0.25rem;

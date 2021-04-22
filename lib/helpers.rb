@@ -38,6 +38,14 @@ def posts_grouped_by_category(sort: :desc)
   grouped_posts.slice(*priority, *rest)
 end
 
+def photos
+  @items.find_all("/photos/**/*")
+end
+
+def photos_grouped_by_year
+  photos.group_by { |item| item[:date].year }
+end
+
 def google_doc_content(uri)
   response = Net::HTTP.get(URI(uri))
   document = Nokogiri::HTML(response)
