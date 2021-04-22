@@ -7,9 +7,6 @@ html {
 body {
   color: $primary-text-color;
   font-size: $font-size-base;
-  padding: $gutter;
-  margin: 0 auto;
-  max-width: 45rem;
   font-family: $sans-serif;
   line-height: $line-height-base;
 
@@ -17,6 +14,14 @@ body {
   -webkit-hyphens: auto;
   hyphens: auto;
   font-feature-settings: "liga" 1;
+}
+
+.container {
+  padding: $gutter;
+  margin: 0 auto;
+  max-width: 45rem;
+
+  &.wide { max-width: 70rem; }
 }
 
 h1.brand {

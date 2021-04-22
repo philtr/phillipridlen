@@ -15,6 +15,10 @@ def site_config
   )
 end
 
+def body_classes
+  @body_classes.to_a + @item[:body_classes].to_a
+end
+
 def posts
   @items.find_all("/posts/**/*")
 end
