@@ -5,8 +5,17 @@ compile "/photos/**/*.jpg", rep: :original do
   write [path, file].join("/")
 end
 
+compile "/photos/**/*.jpg", rep: :medium do
+  filter :resize_to_fit, width: 1500
+
+  path = item.identifier.without_ext
+  file = "medium-" + item.identifier.components.last
+
+  write [path, file].join("/")
+end
+
 compile "/photos/**/*.jpg", rep: :thumbnail do
-  filter :thumbnailize, width: 400, height: 400
+  filter :resize_to_fill, width: 400, height: 400
 
   path = item.identifier.without_ext
   file = "thumbnail-" + item.identifier.components.last
