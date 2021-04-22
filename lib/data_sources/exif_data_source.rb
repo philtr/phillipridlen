@@ -13,7 +13,7 @@ class ExifDataSource < Nanoc::DataSource
         identifier_for(file, ext: :jpg),
         binary: true
       )
-    end
+    end.sort(&method(:sort_by_date_desc))
   end
 
   class ExifItem
@@ -67,5 +67,9 @@ class ExifDataSource < Nanoc::DataSource
 
   def identifier_for(file, ext:)
     Nanoc::Identifier.new(Nanoc::Identifier.new(file.sub(%r{\A\.},"")).without_ext + ".#{ext}")
+  end
+
+  def sort_by_date_desc(item1, item2)
+    item2.attributes.fetch(:date) <=> item1.attributes.fetch(:date)
   end
 end

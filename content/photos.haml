@@ -1,0 +1,16 @@
+---
+layout: master
+
+styles:
+  - photos
+---
+
+%h1#photos Photos
+
+- photos_grouped_by_year.each do |(year, year_photos)|
+  %h2= year
+  %section.photos
+    - year_photos.each do |photo|
+      .photo
+        %a{href: photo.path}
+          %img.thumbnail{src: photo.path(rep: :thumbnail)}
