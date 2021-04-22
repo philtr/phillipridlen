@@ -6,7 +6,7 @@
         <%= link_to @item[:date].strftime("%A, %B %d, %Y, %-I:%M%P"), @item, class: "post-permalink" %>
       </time>
     </div>
-    <p><%= yield %></p>
+    <%= yield %>
     <a href="<%= @item.path(rep: :original) %>"><img src="<%= @item.path(rep: :medium) %>"></a>
     <figcaption>
         <%= @item[:camera] %> <%= @item[:lens] %><br>
