@@ -1,3 +1,9 @@
+site:
+  base_url: https://phillipridlen.com
+  author: Phillip Ridlen
+  email: p@rdln.net
+  tz: "Central Time (US & Canada)"
+
 # A list of file extensions that Nanoc will consider to be textual rather than
 # binary. If an item with an extension not in this list is found,  the file
 # will be considered as binary.
@@ -8,11 +14,27 @@ prune:
 
 data_sources:
   - type: filesystem
-    encoding: utf-8
+    content_dir: null
+    layouts_dir: content/layouts
+  - type: filesystem
+    content_dir: content/pages
+    layouts_dir: null
+  - type: filesystem
+    content_dir: content/posts
+    layouts_dir: null
+    items_root: /posts/
+  - type: filesystem
+    content_dir: content/drafts
+    layouts_dir: null
+    items_root: /drafts/
+  - type: filesystem
+    content_dir: content/css
+    layouts_dir: null
+    items_root: /css/
+  - type: filesystem
+    content_dir: content/images
+    layouts_dir: null
+    items_root: /images/
   - type: exif
-
-site:
-  base_url: https://phillipridlen.com
-  author: Phillip Ridlen
-  email: p@rdln.net
-  tz: "Central Time (US & Canada)"
+    content_dir: content/photos
+    items_root: /photos/
