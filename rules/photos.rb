@@ -1,26 +1,20 @@
 compile "/photos/**/*.jpg", rep: :original do
-  path = item.identifier.without_ext
-  file = item.identifier.components.last
-
-  write [path, file].join("/")
+  slug = @item[:title].parameterize
+  write "/photos/#{slug}/#{slug}.jpg"
 end
 
 compile "/photos/**/*.jpg", rep: :medium do
   filter :resize_to_fit, width: 1500
+  slug = @item[:title].parameterize
 
-  path = item.identifier.without_ext
-  file = "medium-" + item.identifier.components.last
-
-  write [path, file].join("/")
+  write "/photos/#{slug}/#{slug}-medium.jpg"
 end
 
 compile "/photos/**/*.jpg", rep: :thumbnail do
   filter :resize_to_fill, width: 400, height: 400
+  slug = @item[:title].parameterize
 
-  path = item.identifier.without_ext
-  file = "thumbnail-" + item.identifier.components.last
-
-  write [path, file].join("/")
+  write "/photos/#{slug}/#{slug}-thumbnail.jpg"
 end
 
 
@@ -30,6 +24,6 @@ compile "/photos/**/*.jpg" do
 
   layout "/photo.*"
 
-  write item.identifier.without_ext + "/index.html"
+  write "/photos/#{@item[:title].parameterize}/index.html"
 end
 

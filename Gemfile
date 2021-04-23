@@ -4,6 +4,7 @@ ruby "3.0.1"
 
 gem "nanoc", "~> 4.12"
 
+gem "activesupport", require: "active_support/inflector"
 gem "adsf-live"
 gem "exiftool_vendored"
 gem "foreman"
