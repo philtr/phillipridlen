@@ -12,56 +12,37 @@ When Twitter first arrived on the scene, it had one mission: answer the
 question, "What are you doing?" Twitter no longer serves that purpose for most
 of its users, and as such, a better place to keep up with me is to watch this page.
 
-This is what I'm doing as of March 30, 2020.
+This is what I'm doing as of May 4, 2021.
 
 [now]: https://nownownow.com/about
 
+## 👨‍👩‍👦‍👦<small style="font-size: 0.6rem">👧🏾</small> &nbsp;Family
 
-## 👨‍👩‍👧‍👦 Family
+I live in Burleson, Texas (just south of Fort Worth) with my wife and three kids.
+Working from home for the past several years has been a huge blessing; I've been
+able to be there for the big moments and the tough times. I'm able to greet my
+kids when they come home from school and help them with various things throughout
+the day. The random hugs and surprise meeting crashes are always fun.
 
-I [recently adopted][legacy] a beautiful one-year-old girl on February 21, 2020.
-I live in Burleson, Texas (just south of Fort Worth) with my wife and our
-three kids aged [5][bennett], [4][hudson], and [1][legacy]. Interesting fact:
-my youngest two share a birthday!
-
-[bennett]: http://bennettalexander.co
-[hudson]:  http://hudsonkruse.co
-[legacy]:  http://legacyrose.co
-
-## 👨‍💻 Career
-
-I'm currently happily employed as  a Lead Software Engineer at [Stitch
-Fix][stitchfix].  It's a fantastic place to work: competitive compensation,
+## 👨‍💻 &nbsp;Work
+I'm currently happily employed as a Lead Software Engineer at [Stitch
+Fix][stitchfix]. It's a fantastic place to work: competitive compensation,
 interesting challenges to solve with a great deal of autonomy, great benefits,
 and a serious commitment to life/work balance.
 
-I work remotely keeping the our payment systems running smoothly. Our tech
-stack is mostly Ruby on Rails, with a smattering of Go and React. You should
-come [work with me][careers]!
-
-I'm not seeking other employement or contract work at this time. **Please do not
-solicit me for open positions.**
+I work remotely keeping the our payment systems running smoothly, which is not as
+boring as it sounds. (And [we're hiring][careers], by the way.)
 
 [stitchfix]: https://www.stitchfix.com/
 [careers]:   https://www.stitchfix.com/careers
 
-## Extra-curriculars
+## ⛪️ &nbsp;Church
 
-👨‍🏫 I'm still the [youth leader][youth] at [Burleson Bible Church][bbc] where I
-mentor and teach students in grades 7 through 12. Yes, I still laugh at fart
-jokes. Because they are funny.
+I'm still the [youth leader][youth] at [Burleson Bible Church][bbc] where I
+mentor and teach students in grades 7 through 12. I also serve in the music
+ministry where I primarily play bass guitar, but occasionally acoustic guitar,
+electric guitar, and keyboard. I'm solidly mediocre at every instrument I play.
+Except drums. I'm actually just bad at those.
 
-⛰🏃‍♂️ I love trail running. I'm slowly working up to longer distances. Most recently
-I completed my [first trail 10K in September 2019][roughcreek]. I was training
-for an [8-mile trail run][coyote] on April 18th, but that has been canceled due
-to this stupid virus and I'm looking forward to it next year.
-
-🤠 I wrangled the [RubyFTW Fort Worth Ruby Enthusiasts Group][fwrb] for a number of
-years, but I hung my hat, and eventually that group was put out to pasture.
-
-
-[fwrb]:       http://rubyftw.org/
 [bbc]:        http://burlesonbiblechurch.org
-[youth]:      http://youth.burlesonbiblechurch.org
-[roughcreek]: http://www.roughcreektrailrun.com/
-[coyote]:     http://www.trailracingovertexas.com/coyote-run
+[youth]:      http://burlesonbiblechurch.org/youth
