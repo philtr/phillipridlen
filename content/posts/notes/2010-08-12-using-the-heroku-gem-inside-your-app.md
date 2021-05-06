@@ -53,7 +53,7 @@ lines after all the requires describe perfectly how to use it:
 #   heroku.create('myapp')
 ~~~
 
- [client.rb]: http://github.com/heroku/heroku/blob/master/lib/heroku/client.rb
+ [client.rb]: https://github.com/heroku/legacy-cli/blob/888266abc63521782648f6522d0f7d7a062c67c8/lib/heroku/client.rb
 
 As you scroll down through the functions, you find that you can do anything in
 your source code that you could do on the command line. To answer the original
@@ -73,7 +73,7 @@ heroku.add_domain('myapp','www.example.com')
 
 The add_domain function is found on [line #120 of client.rb][add_domain].
 
-  [add_domain]: http://github.com/heroku/heroku/blob/master/lib/heroku/client.rb#L120
+  [add_domain]: https://github.com/heroku/legacy-cli/blob/888266abc63521782648f6522d0f7d7a062c67c8/lib/heroku/client.rb#L120-L122
 
 **UPDATE:** Someone replied to the thread, pointing out that you should
 keep things such as your Heroku credentials out of your code and in an
