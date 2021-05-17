@@ -30,7 +30,7 @@ Fix][stitchfix]. It's a fantastic place to work: competitive compensation,
 interesting challenges to solve with a great deal of autonomy, great benefits,
 and a serious commitment to life/work balance.
 
-I work remotely keeping the our payment systems running smoothly, which is not as
+I work remotely keeping our payment systems running smoothly, which is not as
 boring as it sounds. (And [we're hiring][careers], by the way.)
 
 [stitchfix]: https://www.stitchfix.com/
