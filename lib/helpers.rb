@@ -20,6 +20,14 @@ def body_classes
   @body_classes.to_a + @item[:body_classes].to_a
 end
 
+def page_image
+  if @item.attributes[:image]
+    "/images/#{@item.attributes[:image]}"
+  else
+    @item.reps[:medium]&.path
+  end
+end
+
 def posts
   @items.find_all("/posts/**/*")
 end

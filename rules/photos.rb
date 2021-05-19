@@ -5,7 +5,7 @@ compile "/photos/**/*.jpg", rep: :original do
 end
 
 compile "/photos/**/*.jpg", rep: :medium do
-  filter :resize_to_fit, width: 1500
+  filter :resize_to_fit, width: 1600
   slug = item[:title].parameterize
   date = item[:date].strftime("%Y/%m")
   write "/photos/#{date}/#{slug}/#{slug}-medium.jpg"
@@ -17,7 +17,6 @@ compile "/photos/**/*.jpg", rep: :thumbnail do
   date = item[:date].strftime("%Y/%m")
   write "/photos/#{date}/#{slug}/#{slug}-thumbnail.jpg"
 end
-
 
 compile "/photos/**/*.jpg" do
   filter :binary_text, content: item[:description]
