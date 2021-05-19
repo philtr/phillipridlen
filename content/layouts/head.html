@@ -29,8 +29,8 @@
 <meta property="og:url" content="<%= site_config.base_url + @item.path %>" />
 <meta property="og:description" content="<%= @item[:description] %>" />
 
-<% if page_image = @item.attributes[:image] %>
-<meta property="og:image" content="<%= site_config.base_url %>/images/<%= page_image %>" />
+<% if page_image %>
+<meta property="og:image" content="<%= site_config.base_url %><%= page_image %>" />
 <% end %>
 
 <link rel="author" href="https://plus.google.com/102506368462184573833" />
