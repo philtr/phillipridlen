@@ -110,7 +110,7 @@ GEM
     ref (2.0.0)
     rexml (3.2.5)
     rmagick (4.2.2)
-    rouge (3.26.0)
+    rouge (3.26.1)
     rubypants (0.7.1)
     sassc (2.4.0)
       ffi (~> 1.9)
