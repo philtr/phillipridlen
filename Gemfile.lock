@@ -30,9 +30,9 @@ GEM
       eventmachine (>= 0.12.9)
       http_parser.rb (~> 0.6.0)
     eventmachine (1.2.7)
-    exiftool (1.2.3)
+    exiftool (1.2.4)
       json
-    exiftool_vendored (12.25.0)
+    exiftool_vendored (12.32.0)
       exiftool (>= 0.7.0)
     ffi (1.15.0)
     foreman (0.87.2)
