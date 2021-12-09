@@ -32,7 +32,7 @@ GEM
     eventmachine (1.2.7)
     exiftool (1.2.4)
       json
-    exiftool_vendored (12.36.0)
+    exiftool_vendored (12.37.0)
       exiftool (>= 0.7.0)
     ffi (1.15.0)
     foreman (0.87.2)
