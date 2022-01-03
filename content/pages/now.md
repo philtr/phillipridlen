@@ -12,29 +12,31 @@ When Twitter first arrived on the scene, it had one mission: answer the
 question, "What are you doing?" Twitter no longer serves that purpose for most
 of its users, and as such, a better place to keep up with me is to watch this page.
 
-This is what I'm doing as of May 4, 2021.
+This is what I'm doing as of January 2, 2022
 
 [now]: https://nownownow.com/about
 
 ## 👨‍👩‍👦‍👦<small style="font-size: 0.6rem">👧🏾</small> &nbsp;Family
 
-I live in Burleson, Texas (just south of Fort Worth) with my wife and three kids.
-Working from home for the past several years has been a huge blessing; I've been
-able to be there for the big moments and the tough times. I'm able to greet my
-kids when they come home from school and help them with various things throughout
-the day. The random hugs and surprise meeting crashes are always fun.
+I'm still living in Burleson, Texas (just south of Fort Worth) with my wife and
+three kids.  Working from home for the past several years has been a huge
+blessing; I've been able to be there for the big moments and the tough times.
+I'm able to greet my kids when they come home from school and help them with
+various things throughout the day. The random hugs and surprise meeting crashes
+are always fun.
+
+I'll never go back to working in an office full time. At least until my kids are
+older and want nothing to do with me. 😅
 
 ## 👨‍💻 &nbsp;Work
-I'm currently happily employed as a Lead Software Engineer at [Stitch
-Fix][stitchfix]. It's a fantastic place to work: competitive compensation,
-interesting challenges to solve with a great deal of autonomy, great benefits,
-and a serious commitment to life/work balance.
 
-I work remotely keeping our payment systems running smoothly, which is not as
-boring as it sounds. (And [we're hiring][careers], by the way.)
+I'll be starting a new role as a software engineer with [Divvy] at the end of
+January 2022.  I'm both excited and nervous to be using a new programming
+language ([Elixir]), since I've used Ruby pretty much exclusively for my entire
+career.
 
-[stitchfix]: https://www.stitchfix.com/
-[careers]:   https://www.stitchfix.com/careers
+[Divvy]: https://getdivvy.com
+[llixir]: https://elixir-lang.org/
 
 ## ⛪️ &nbsp;Church
 
