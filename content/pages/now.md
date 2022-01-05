@@ -36,7 +36,7 @@ language ([Elixir]), since I've used Ruby pretty much exclusively for my entire
 career.
 
 [Divvy]: https://getdivvy.com
-[llixir]: https://elixir-lang.org/
+[Elixir]: https://elixir-lang.org/
 
 ## ⛪️ &nbsp;Church
 
