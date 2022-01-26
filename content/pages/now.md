@@ -12,7 +12,7 @@ When Twitter first arrived on the scene, it had one mission: answer the
 question, "What are you doing?" Twitter no longer serves that purpose for most
 of its users, and as such, a better place to keep up with me is to watch this page.
 
-This is what I'm doing as of January 2, 2022
+This is what I'm doing as of January 26, 2022
 
 [now]: https://nownownow.com/about
 
@@ -30,7 +30,7 @@ older and want nothing to do with me. 😅
 
 ## 👨‍💻 &nbsp;Work
 
-I'll be starting a new role as a software engineer with [Divvy] at the end of
+I started a new role as a software engineer at [Divvy] at the end of
 January 2022.  I'm both excited and nervous to be using a new programming
 language ([Elixir]), since I've used Ruby pretty much exclusively for my entire
 career.
