@@ -19,6 +19,7 @@ GEM
       rack-livereload (~> 0.3)
     colored (1.2)
     concurrent-ruby (1.1.8)
+    crass (1.0.6)
     cri (2.15.11)
     ddmemoize (1.0.0)
       ddmetrics (~> 1.0)
@@ -51,6 +52,9 @@ GEM
     listen (3.5.1)
       rb-fsevent (~> 0.10, >= 0.10.3)
       rb-inotify (~> 0.9, >= 0.9.10)
+    loofah (2.9.1)
+      crass (~> 1.0.2)
+      nokogiri (>= 1.5.9)
     mini_portile2 (2.5.1)
     minitest (5.14.4)
     nanoc (4.12.1)
@@ -138,6 +142,7 @@ DEPENDENCIES
   foreman
   haml
   kramdown
+  loofah
   nanoc (~> 4.12)
   nanoc-live
   nokogiri

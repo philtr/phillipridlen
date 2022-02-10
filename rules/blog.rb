@@ -3,6 +3,9 @@ preprocess do
   blog_post_date_for_drafts
 end
 
+postprocess do
+end
+
 compile "/posts/**/*.md" do
   filter :erb
   filter :kramdown
