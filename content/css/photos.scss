@@ -3,17 +3,15 @@
 .photos {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 1rem;
+  gap: 1px;
 
-  @media screen and (min-width: $breakpoint-medium) {
+  @media screen and (min-width: $breakpoint-large) {
     grid-template-columns: repeat(4, 1fr);
   }
 
-  @media screen and (min-width: $breakpoint-large) {
-    grid-template-columns: repeat(5, 1fr);
-  }
   .photo {
     img { width: 100%; }
+    img.thumbnail { border-radius: 0 }
   }
 }
 
