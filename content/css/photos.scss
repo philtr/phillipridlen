@@ -4,6 +4,7 @@
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 1px;
+  line-height: 0;
 
   @media screen and (min-width: $breakpoint-large) {
     grid-template-columns: repeat(4, 1fr);
