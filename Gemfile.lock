@@ -28,7 +28,7 @@ GEM
     eventmachine (1.2.7)
     exiftool (1.2.4)
       json
-    exiftool_vendored (12.41.0)
+    exiftool_vendored (12.42.0)
       exiftool (>= 0.7.0)
     ffi (1.15.0)
     foreman (0.87.2)
@@ -40,7 +40,7 @@ GEM
     http_parser.rb (0.6.0)
     i18n (1.10.0)
       concurrent-ruby (~> 1.0)
-    json (2.6.1)
+    json (2.6.2)
     json_schema (0.21.0)
     kramdown (2.4.0)
       rexml
