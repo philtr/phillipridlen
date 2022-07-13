@@ -1,7 +1,7 @@
 GEM
   remote: https://rubygems.org/
   specs:
-    activesupport (7.0.3)
+    activesupport (7.0.3.1)
       concurrent-ruby (~> 1.0, >= 1.0.2)
       i18n (>= 1.6, < 2)
       minitest (>= 5.1)
@@ -38,7 +38,7 @@ GEM
     hamster (3.0.0)
       concurrent-ruby (~> 1.0)
     http_parser.rb (0.6.0)
-    i18n (1.10.0)
+    i18n (1.11.0)
       concurrent-ruby (~> 1.0)
     json (2.6.1)
     json_schema (0.21.0)
@@ -49,7 +49,7 @@ GEM
       rb-inotify (~> 0.9, >= 0.9.10)
     memo_wise (1.7.0)
     mini_portile2 (2.8.0)
-    minitest (5.15.0)
+    minitest (5.16.2)
     nanoc (4.12.7)
       addressable (~> 2.5)
       colored (~> 1.2)
