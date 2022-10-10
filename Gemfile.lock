@@ -32,8 +32,9 @@ GEM
       exiftool (>= 0.7.0)
     ffi (1.15.0)
     foreman (0.87.2)
-    haml (5.2.2)
-      temple (>= 0.8.0)
+    haml (6.0.6)
+      temple (>= 0.8.2)
+      thor
       tilt
     hamster (3.0.0)
       concurrent-ruby (~> 1.0)
@@ -116,7 +117,8 @@ GEM
     slow_enumerator_tools (1.1.0)
     stringio (3.0.2)
     temple (0.8.2)
-    tilt (2.0.10)
+    thor (1.2.1)
+    tilt (2.0.11)
     tty-color (0.6.0)
     tty-command (0.10.1)
       pastel (~> 0.8)
