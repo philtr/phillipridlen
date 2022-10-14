@@ -17,12 +17,11 @@ styles:
     - posts_grouped_by_category.each do |category, posts|
       .posts-category
         %h3.header-link{ id: category }
-          = link_to category, "##{category}"
+          != link_to category, "##{category}"
         %ul.posts-list
           - posts.each do |post|
             %li
-              = link_to post.attributes[:title], post
+              != link_to post.attributes[:title], post
               %aside
                 %time{ datetime: post[:date].strftime("%Y-%m-%d"), title: post[:date].strftime("%A, %B %-d, %Y") }
                   = post[:date].year
-
