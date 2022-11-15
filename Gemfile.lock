@@ -96,6 +96,7 @@ GEM
     parallel (1.22.1)
     pastel (0.8.0)
       tty-color (~> 0.5)
+    pkg-config (1.4.9)
     psych (4.0.6)
       stringio
     public_suffix (5.0.0)
@@ -109,7 +110,8 @@ GEM
     rb-inotify (0.10.1)
       ffi (~> 1.0)
     rexml (3.2.5)
-    rmagick (5.0.0)
+    rmagick (5.1.0)
+      pkg-config (~> 1.4)
     rouge (4.0.0)
     rubypants (0.7.1)
     sassc (2.4.0)
