@@ -32,7 +32,7 @@ GEM
       exiftool (>= 0.7.0)
     ffi (1.15.0)
     foreman (0.87.2)
-    haml (6.0.10)
+    haml (6.0.12)
       temple (>= 0.8.2)
       thor
       tilt
