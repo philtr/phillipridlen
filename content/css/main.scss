@@ -33,10 +33,6 @@ a {
   color: $primary-accent-color;
   text-decoration: none;
 
-  &:hover {
-    text-decoration: underline;
-  }
-
   &:active {
     color: $tertiary-accent-color;
   }
