@@ -27,15 +27,14 @@ body {
 h1.brand {
   font-size: 1.5rem;
   line-height: 4rem;
+  
+  a {
+    text-decoration: none;
+  }
 }
 
 a {
   color: $primary-accent-color;
-  text-decoration: none;
-
-  &:hover {
-    text-decoration: underline;
-  }
 
   &:active {
     color: $tertiary-accent-color;
@@ -44,8 +43,8 @@ a {
 
 .header-link, .header-link a {
   color: $primary-text-color;
+  text-decoration: none;
 }
-
 
 img {
   max-width: 100%;
@@ -63,7 +62,6 @@ footer {
     margin: 0;
     text-align: center;
   }
-
 
   aside {
     color: $pale-text-color;
