@@ -31,6 +31,7 @@ h1.brand {
 
 a {
   color: $primary-accent-color;
+  text-decoration: none;
 
   &:active {
     color: $tertiary-accent-color;
@@ -39,6 +40,7 @@ a {
 
 .header-link, .header-link a {
   color: $primary-text-color;
+  text-decoration: none;
 }
 
 
