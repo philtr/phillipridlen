@@ -27,11 +27,14 @@ body {
 h1.brand {
   font-size: 1.5rem;
   line-height: 4rem;
+  
+  a {
+    text-decoration: none;
+  }
 }
 
 a {
   color: $primary-accent-color;
-  text-decoration: none;
 
   &:active {
     color: $tertiary-accent-color;
