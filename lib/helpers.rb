@@ -89,6 +89,18 @@ def google_doc_content(uri)
 end
 
 def site_version
+  @version ||= `git describe --tags --abbrev=0`.chomp
   @revision ||= `git rev-parse --short HEAD`.chomp
-  link_to "#{@revision}", "https://github.com/philtr/phillipridlen/tree/#{@revision}"
+
+  version_link = link_to @version, "https://github.com/philtr/phillipridlen/releases/tag/#@version"
+  version_link = %(<span class="revision">#{version_link}</span>)
+
+  revision_link = link_to @revision, "https://github.com/philtr/phillipridlen/tree/#@revision"
+  revision_link = %( (<span class="revision">#{revision_link}</span>))
+
+  if @version == `git describe --tags`.chomp
+    version_link
+  else
+    version_link + revision_link
+  end
 end
