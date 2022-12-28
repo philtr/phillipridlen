@@ -19,7 +19,6 @@ compile "/posts/**/*.md" do
   write "/notes/#{category}/#{yyyy}/#{mm}/#{dd}/#{slug}/index.html"
 end
 
-
 compile "/categories/*" do
   layout "/category.html"
   filter :typogruby
