@@ -1,6 +1,7 @@
 preprocess do
   blog_post_attributes_from_filename
   blog_post_date_for_drafts
+  blog_category_items
 end
 
 compile "/posts/**/*.md" do
@@ -15,7 +16,17 @@ compile "/posts/**/*.md" do
   yyyy, mm, dd  = @item[:date].strftime("%Y/%m/%d").split("/")
   slug          = @item[:slug]
 
-  write "/#{category}/#{yyyy}/#{mm}/#{dd}/#{slug}/index.html"
+  write "/notes/#{category}/#{yyyy}/#{mm}/#{dd}/#{slug}/index.html"
+end
+
+
+compile "/categories/*" do
+  layout "/category.html"
+  filter :typogruby
+
+  slug = @item[:slug]
+
+  write "/notes/#{slug}/index.html"
 end
 
 if @config[:drafts]
@@ -27,7 +38,7 @@ if @config[:drafts]
     layout "/post.*"
     filter :typogruby
 
-    write item.identifier.without_ext + "/index.html"
+    write "/notes/#{item.identifier.without_ext}/index.html"
   end
 else
   ignore "/drafts/**/*"

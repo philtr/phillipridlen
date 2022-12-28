@@ -17,7 +17,7 @@ styles:
     - posts_grouped_by_category.each do |category, posts|
       .posts-category
         %h3.header-link{ id: category }
-          != link_to category, "##{category}"
+          != link_to_category category
         %ul.posts-list
           - posts.each do |post|
             %li
