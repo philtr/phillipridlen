@@ -28,11 +28,11 @@ def page_image
   end
 end
 
-def posts
+def all_posts
   @items.find_all("/posts/**/*")
 end
 
-def posts_sorted_by_date(direction: :desc)
+def posts_sorted_by_date(posts = all_posts, direction: :desc)
   posts.sort_by do |item|
     case direction
     when :asc then item.fetch(:date) - Time.now
@@ -41,7 +41,7 @@ def posts_sorted_by_date(direction: :desc)
   end
 end
 
-def posts_grouped_by_category(sort: :desc)
+def posts_grouped_by_category(posts = all_posts, sort: :desc)
   grouped_posts = posts_sorted_by_date(direction: sort)
     .group_by { |item| item[:category] }
 
@@ -49,6 +49,10 @@ def posts_grouped_by_category(sort: :desc)
   rest = grouped_posts.keys - priority
 
   grouped_posts.slice(*priority, *rest)
+end
+
+def link_to_category(category)
+  link_to category, @items["/categories/#{category.downcase}"]
 end
 
 def photos

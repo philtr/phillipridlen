@@ -1,0 +1,20 @@
+<% render "/default.html", layout_styles: ["posts/list"] do %>
+  <h1 id="notes"><%= @item[:name] %> Posts</h1>
+
+  <section class="posts">
+    <ul class="posts-list">
+      <% posts_grouped_by_category[@item[:name]].each do |post| %>
+        <li>
+          <%= link_to post.attributes[:title], post %>
+          <aside>
+            <time datetime="<%= post[:date].strftime("%Y-%m-%d") %>"
+                  title="<%= post[:date].strftime("%A, %B %-d, %Y") %>">
+              <%= post[:date].year %>
+            </time>
+          </aside>
+        </li>
+      <% end %>
+    </ul>
+  </section>
+  <%= yield %>
+<% end %>

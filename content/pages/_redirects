@@ -18,3 +18,10 @@
 /programming/2011/2/17/* /programming/2011/02/17/:splat 301
 /programming/2010/8/12/* /programming/2010/08/12/:splat 301
 /programming/2010/8/5/* /programming/2010/08/05/:splat 301
+
+# Redirect blog posts to /notes/
+/food/:year/:month/:day/:slug /notes/food/:year/:month/:day/:slug 301
+/life/:year/:month/:day/:slug /notes/life/:year/:month/:day/:slug 301
+/christianity/:year/:month/:day/:slug /notes/christianity/:year/:month/:day/:slug 301
+/programming/:year/:month/:day/:slug /notes/programming/:year/:month/:day/:slug 301
+/technology/:year/:month/:day/:slug /notes/technology/:year/:month/:day/:slug 301
