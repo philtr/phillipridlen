@@ -2,19 +2,19 @@
 
 pre, code {
   font-family: $monospace;
-  font-size: 0.8rem;
+  font-size: 0.9em;
 }
 
 code {
   display: inline-block;
   background: $dim-background-color;
-  border: 1px solid transparentize($dim-text-color, 0.5);
   border-radius: 3px;
   padding: 0 2px;
 }
 
 pre.highlight {
   background: $dim-background-color;
+  border: 1px solid transparentize($dim-text-color, 0.9);
   border-radius: $radius;
   margin: 0;
   max-width: 100%;
@@ -25,7 +25,7 @@ pre.highlight {
     border: none;
   }
 
-  .c, .cm, .c1, .cs,
+  .c, .cm, .cs,
   .ge, .gh, .gp, .gs, .gu,
   .kc, .kd, .kn, .kr, .ow,
   .p, .o, .k {
@@ -39,5 +39,10 @@ pre.highlight {
 
   .nc, .no {
     color: $secondary-accent-color;
+  }
+
+  .c1 {
+    color: $dim-text-color;
+    font-style: italic;
   }
 }
