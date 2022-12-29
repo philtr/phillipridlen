@@ -1,5 +1,6 @@
 <div class="post-date">
   <time datetime="<%= @item[:date].strftime("%Y-%m-%d") %>">
     <%= link_to @item[:date].strftime("%A, %B %d, %Y"), @item, class: "post-permalink" %>
+    <%= @item[:modified] ? "(Updated #{@item[:modified].strftime("%B %d, %Y")})" : nil %>
   </time>
 </div>
