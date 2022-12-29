@@ -7,8 +7,24 @@
 
 <link href="<%= site_config.base_url %>/atom.xml" rel="alternate" title="Phillip's Notes" type="application/atom+xml" />
 
-<link rel="preconnect" href="https://fonts.gstatic.com">
-<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,500;0,700;1,400;1,500;1,700&family=Source+Code+Pro&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<%
+  google_font_url = [
+    "https://fonts.googleapis.com/css2?",
+
+    "family=DM+Sans:",
+    "ital,wght@0,400;0,500;0,700;1,400;1,500;1,700",
+
+    "&family=Source+Code+Pro:",
+    "ital,wght@0,400;0,700;1,400",
+
+    "&display=swap"
+  ].join
+%>
+  
+<link href="<%= google_font_url %>" rel="stylesheet">
 
 <link href="/css/main.css" rel="stylesheet" type="text/css">
 <% @item.fetch(:styles, []).each do |style| %>
