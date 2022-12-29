@@ -4,6 +4,8 @@ type: note
 
 title: "Adam Asks: Parity, Blocks, and Enumerators. Oh My!"
 
+modified: 2022-12-29
+
 category: Programming
 tags:
   - Array
@@ -154,5 +156,40 @@ do what you're trying to do (`even?` and `odd?` from above, for example).
 Second, with Ruby, it's possible to write code that can almost be read as a
 sentence. Variable names and function names following this pattern make your
 code easier to understand and, in my opinion, much more fun to write.
+
+## UPDATE: How about `Enumerable#partition?`
+
+There's almost always a better way. Turns out, Ruby already has a method for
+partitioning an enumerable. In this implementation, we ask each element in the
+array if it is even. If so, it goes into the first partition. Otherwise, it
+goes into the second.
+
+~~~ ruby
+numbers.partition(&:even?)
+#=> [[2, 4, 6], [1, 3, 5]]
+~~~
+
+This is the shorthand syntax (using [`Symbol#to_proc`][to_proc]—a post for
+another day, perhaps) that would be equivalent to writing
+
+[to_proc]: https://blog.pjam.me/posts/ruby-symbol-to-proc-the-short-version/
+
+~~~ ruby
+numbers.partition {|number| number.even? }
+~~~
+
+So to put this back in to solve the original problem:
+
+~~~ ruby
+def parity_counts(numbers)
+  evens, odds = numbers.partition(&:even?)
+
+  puts "There are #{evens.size} even numbers and #{odds.size} " +
+       "odd numbers in this array."
+  puts "Evens: #{evens}"
+  puts "Odds:  #{odds}"
+end
+~~~
+
 
 [^rb-parity]: The source for this function is in C, but [here it is](https://github.com/ruby/ruby/blob/74cdd893eb102ba98e735f2a24c710e1928261a9/numeric.c#L3173-L3188) if you want to take a look at it.
