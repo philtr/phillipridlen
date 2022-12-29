@@ -13,28 +13,37 @@ prune:
   auto_prune: true
 
 data_sources:
-  - type: filesystem
+  - name: "Layouts"
+    type: filesystem
     content_dir: null
     layouts_dir: content/layouts
-  - type: filesystem
+
+  - name: "Pages"
+    type: filesystem
     content_dir: content/pages
-    layouts_dir: null
-  - type: filesystem
-    content_dir: content/posts
-    layouts_dir: null
-    items_root: /posts/
-  - type: filesystem
-    content_dir: content/drafts
-    layouts_dir: null
-    items_root: /drafts/
-  - type: filesystem
-    content_dir: content/css
-    layouts_dir: null
-    items_root: /css/
-  - type: filesystem
-    content_dir: content/images
-    layouts_dir: null
-    items_root: /images/
-  - type: exif
+
+  - name: "Photos"
+    type: exif
     content_dir: content/photos
     items_root: /photos/
+    ext: [jpg]
+
+  - name: "Notes" # blog posts
+    type: filesystem
+    content_dir: content/posts
+    items_root: /posts/
+
+  - name: "Drafts" # blog post drafts
+    type: filesystem
+    content_dir: content/drafts
+    items_root: /drafts/
+
+  - name: "Stylesheets"
+    type: filesystem
+    content_dir: content/css
+    items_root: /css/
+
+  - name: "Image Assets"
+    type: filesystem
+    content_dir: content/images
+    items_root: /images/
