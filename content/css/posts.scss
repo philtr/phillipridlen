@@ -27,7 +27,7 @@
   margin-bottom: $gutter;
 }
 
-.post-date a {
+.post-date, .post-date a {
   color: $dim-text-color;
   text-decoration: none;
 }
