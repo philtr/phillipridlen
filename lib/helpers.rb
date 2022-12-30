@@ -12,7 +12,7 @@ def site_config
   SiteConfig.new(
     base_url: ENV["URL"] || ENV["BASE_URL"] || site.base_url,
     email: ENV["EMAIL"] || site.email,
-    author: ENV["AUTHOR"] || site.author,
+    author: ENV["AUTHOR"] || site.author
   )
 end
 
@@ -41,11 +41,11 @@ def posts_sorted_by_date(posts = all_posts, direction: :desc)
   end
 end
 
-def posts_grouped_by_category(posts = all_posts, sort: :desc)
+def posts_grouped_by_category(_posts = all_posts, sort: :desc)
   grouped_posts = posts_sorted_by_date(direction: sort)
-    .group_by { |item| item[:category] }
+                  .group_by { |item| item[:category] }
 
-  priority = ["Life", "Programming", "Christianity"]
+  priority = %w[Life Programming Christianity]
   rest = grouped_posts.keys - priority
 
   grouped_posts.slice(*priority, *rest)
@@ -72,9 +72,9 @@ def google_doc_content(uri)
   # Remove Google proxy from links
   document.css("a").each do |link|
     href = link.attributes["href"].value
-    if href =~ /google.com/
+    if /google.com/.match?(href)
       href = href.gsub(%r{https://www.google.com/url\?q=}, "")
-      href = href.gsub(%r{&sa=.+&ust=\d+}, "")
+      href = href.gsub(/&sa=.+&ust=\d+/, "")
       href = CGI.unescape(href)
     end
     link.attributes["href"].value = href
@@ -82,25 +82,19 @@ def google_doc_content(uri)
 
   document.xpath(".//style").remove
 
-  document_html = document.css("#contents").to_html
+  document_html = document
+    .css("#contents").to_html
     .encode("UTF-8", invalid: :replace, undef: :replace)
 
-  %{<div class="google-doc">#{document_html}</div>}
+  %(<div class="google-doc">#{document_html}</div>)
 end
 
+def git_tag = @git_tag ||= `git describe --tags --abbrev=0`.chomp
+
+def git_rev = @git_rev ||= `git rev-parse --short HEAD`.chomp
+
+def github = "https://github.com/philtr/phillipridlen"
+
 def site_version
-  @version ||= `git describe --tags --abbrev=0`.chomp
-  @revision ||= `git rev-parse --short HEAD`.chomp
-
-  version_link = link_to @version, "https://github.com/philtr/phillipridlen/releases/tag/#@version"
-  version_link = %(<span class="revision">#{version_link}</span>)
-
-  revision_link = link_to @revision, "https://github.com/philtr/phillipridlen/tree/#@revision"
-  revision_link = %( (<span class="revision">#{revision_link}</span>))
-
-  if @version == `git describe --tags`.chomp
-    version_link
-  else
-    version_link + revision_link
-  end
+  %(<span class="revision">#{link_to git_tag, @items["/build-info.*"]}</span>)
 end
