@@ -1,3 +1,6 @@
+# Proxies
+/anoles https://www.craft.do/s/c2YSfmz2NnaqI2 200
+
 # Rewrites
 /resources/bbc/hayride/:year/ /resources/hayride/hayride-:year/ 200
 
