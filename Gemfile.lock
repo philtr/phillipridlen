@@ -108,7 +108,7 @@ GEM
     rexml (3.2.5)
     rmagick (5.1.0)
       pkg-config (~> 1.4)
-    rouge (4.0.1)
+    rouge (4.1.0)
     rubypants (0.7.1)
     sassc (2.4.0)
       ffi (~> 1.9)
