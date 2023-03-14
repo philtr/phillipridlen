@@ -1,7 +1,7 @@
 GEM
   remote: https://rubygems.org/
   specs:
-    activesupport (7.0.4.2)
+    activesupport (7.0.4.3)
       concurrent-ruby (~> 1.0, >= 1.0.2)
       i18n (>= 1.6, < 2)
       minitest (>= 5.1)
@@ -17,7 +17,7 @@ GEM
       listen (~> 3.0)
       rack-livereload (~> 0.3)
     colored (1.2)
-    concurrent-ruby (1.2.0)
+    concurrent-ruby (1.2.2)
     cri (2.15.11)
     ddmetrics (1.0.1)
     ddplugin (1.0.3)
@@ -49,7 +49,7 @@ GEM
       rb-inotify (~> 0.9, >= 0.9.10)
     memo_wise (1.7.0)
     mini_portile2 (2.8.1)
-    minitest (5.17.0)
+    minitest (5.18.0)
     nanoc (4.12.15)
       addressable (~> 2.5)
       colored (~> 1.2)
@@ -124,7 +124,7 @@ GEM
     tty-which (0.5.0)
     typogruby (1.0.18)
       rubypants
-    tzinfo (2.0.5)
+    tzinfo (2.0.6)
       concurrent-ruby (~> 1.0)
     webrick (1.8.1)
     zeitwerk (2.6.7)
