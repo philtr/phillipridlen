@@ -14,7 +14,7 @@ link:
   source: http://john.do/friendly/
 ---
 
-John Saddington, on [his blog](http://john.do/friendly/):
+John Saddington, on [his blog](https://web.archive.org/web/20201130045512/https://john.do/friendly/):
 
 > Friendly? Ah, that’s curious to me because I have not always been the nicest nor the friendliest
 > person on the internet. The truth is that I once saw the internet as an opportunity to just shout
