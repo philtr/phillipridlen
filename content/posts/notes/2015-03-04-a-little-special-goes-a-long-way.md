@@ -22,7 +22,7 @@ the titles, "Your Success is Our Success", and "Being Agile Leads to Results".
 It has been reproduced here for posterity.
 </em>
 
-[journal]: http://ovenbits.com/journal/your-success-is-our-success
+[journal]: https://web.archive.org/web/20150316123458/http://ovenbits.com/journal/your-success-is-our-success
 
 Every client will tell you that they want two things: be on time, and stay
 within their budget. At the heart of every project, every client also wants a
