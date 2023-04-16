@@ -11,11 +11,6 @@ tags:
   - Heroku
   - Gems
   - API
-
-ghi: "https://github.com/spatula/phillipridlen/issues/6"
-
-styles:
-  - code
 ---
 Brett asked [this question][q] on the Heroku mailing list:
 

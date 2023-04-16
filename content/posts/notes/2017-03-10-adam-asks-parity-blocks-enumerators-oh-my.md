@@ -16,9 +16,6 @@ tags:
   - Parity
   - Ruby
   - Reduce
-
-styles:
-  - code
 ---
 
 Adam is a friend of mine learning to program. Every once in a while, he'll send

@@ -12,8 +12,6 @@ tags:
   - Amazon Web Services
   - Hosting
   - Deployment
-
-ghi: "https://github.com/spatula/phillipridlen/issues/11"
 ---
 
 GitHub pages is awesome. Like, _really_ awesome. But I wanted to try something new that would give

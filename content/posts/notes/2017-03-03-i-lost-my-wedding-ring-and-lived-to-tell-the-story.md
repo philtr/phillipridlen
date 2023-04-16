@@ -13,10 +13,6 @@ tags:
   - Commitment
   - Love
   - Jewelry
-
-styles:
-  - posts/journal
-  - posts/image
 ---
 
 I have a wedding ring in the Pacific Ocean somewhere.

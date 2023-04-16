@@ -10,8 +10,6 @@ tags:
   - Cloud
   - Backups
   - Hosting
-
-ghi: "https://github.com/spatula/phillipridlen/issues/8"
 ---
 Valentine's day was a few days ago, and since I'm still in the mood, I am going
 to declare my love for the cloud. I love that at [Balcom

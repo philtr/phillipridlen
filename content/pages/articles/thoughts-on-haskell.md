@@ -5,10 +5,6 @@ date: 2008-12-05
 
 title: "The Smart Kid With No People Skills"
 subtitle: "Thoughts on Haskell"
-
-styles:
-  - posts/journal
-  - code
 ---
 
 Remember that kid from fourth grade who was already working out calculus

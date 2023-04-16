@@ -1,4 +1,8 @@
 @import "shared";
+@import "code";
+@import "google_doc";
+@import "photos";
+@import "posts";
 
 html {
   font-size: $font-size-base-px;
@@ -27,7 +31,7 @@ body {
 h1.brand {
   font-size: 1.5rem;
   line-height: 4rem;
-  
+
   a {
     text-decoration: none;
   }

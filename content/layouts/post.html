@@ -2,11 +2,8 @@
 breadcrumbs:
   - title: Notes
     link: /notes
-
-styles:
-  - posts
 ---
-<% render "/default.html", layout_styles: @layout[:styles] do %>
+<% render "/default.html" do %>
   <section class="posts">
     <div class="post">
       <%= render "/post/title.html" %>

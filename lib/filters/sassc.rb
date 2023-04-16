@@ -10,7 +10,8 @@ module Nanoc::Filters
       options = params.merge(
         load_paths: [dir],
         filename: @item.raw_filename,
-        cache: false
+        cache: false,
+        style: :compressed
       )
 
       engine = ::SassC::Engine.new(content, options)
@@ -19,7 +20,7 @@ module Nanoc::Filters
       dependencies = engine.dependencies
       if dependencies.any?
         depend_on(
-          @items.to_h {|item| [item.raw_filename, item]}
+          @items.to_h { |item| [item.raw_filename, item] }
                 .fetch_values(*dependencies.map(&:filename))
         )
       end

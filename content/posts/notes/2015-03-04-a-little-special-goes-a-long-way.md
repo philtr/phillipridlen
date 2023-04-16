@@ -7,13 +7,6 @@ description: "Every client will tell you that they want two things: be on time, 
 image: "notes/desk.jpg"
 
 category: Programming
-
-tags:
-  -  TODO
-
-styles:
-  - posts/journal
-  - posts/image
 ---
 
 <em class="intro">
