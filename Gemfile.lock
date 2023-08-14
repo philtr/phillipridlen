@@ -31,7 +31,7 @@ GEM
     exiftool_vendored (12.63.0)
       exiftool (>= 0.7.0)
     ffi (1.15.0)
-    haml (6.1.1)
+    haml (6.1.2)
       temple (>= 0.8.2)
       thor
       tilt
@@ -114,9 +114,9 @@ GEM
       ffi (~> 1.9)
     slow_enumerator_tools (1.1.0)
     stringio (3.0.5)
-    temple (0.9.1)
-    thor (1.2.1)
-    tilt (2.0.11)
+    temple (0.10.2)
+    thor (1.2.2)
+    tilt (2.2.0)
     tty-color (0.6.0)
     tty-command (0.10.1)
       pastel (~> 0.8)
