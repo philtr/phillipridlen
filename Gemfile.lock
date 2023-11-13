@@ -1,7 +1,7 @@
 GEM
   remote: https://rubygems.org/
   specs:
-    activesupport (7.1.1)
+    activesupport (7.1.2)
       base64
       bigdecimal
       concurrent-ruby (~> 1.0, >= 1.0.2)
@@ -21,7 +21,7 @@ GEM
       eventmachine (~> 1.2)
       listen (~> 3.0)
       rack-livereload (~> 0.3)
-    base64 (0.1.1)
+    base64 (0.2.0)
     bigdecimal (3.1.4)
     colored (1.2)
     concurrent-ruby (1.2.2)
@@ -30,7 +30,7 @@ GEM
     ddmetrics (1.0.1)
     ddplugin (1.0.3)
     diff-lcs (1.5.0)
-    drb (2.1.1)
+    drb (2.2.0)
       ruby2_keywords
     em-websocket (0.5.2)
       eventmachine (>= 0.12.9)
@@ -61,7 +61,7 @@ GEM
     memo_wise (1.7.0)
     mini_portile2 (2.8.4)
     minitest (5.20.0)
-    mutex_m (0.1.2)
+    mutex_m (0.2.0)
     nanoc (4.12.18)
       addressable (~> 2.5)
       colored (~> 1.2)
