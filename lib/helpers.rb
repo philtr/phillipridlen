@@ -63,32 +63,6 @@ def photos_grouped_by_year
   photos.group_by { |item| item[:date].year }
 end
 
-def google_doc_content(uri)
-  response = Net::HTTP.get(URI(uri))
-  document = Nokogiri::HTML(response)
-
-  document.encoding = "UTF-8"
-
-  # Remove Google proxy from links
-  document.css("a").each do |link|
-    href = link.attributes["href"].value
-    if /google.com/.match?(href)
-      href = href.gsub(%r{https://www.google.com/url\?q=}, "")
-      href = href.gsub(/&sa=.+&ust=\d+/, "")
-      href = CGI.unescape(href)
-    end
-    link.attributes["href"].value = href
-  end
-
-  document.xpath(".//style").remove
-
-  document_html = document
-    .css("#contents").to_html
-    .encode("UTF-8", invalid: :replace, undef: :replace)
-
-  %(<div class="google-doc">#{document_html}</div>)
-end
-
 def git_tag = @git_tag ||= `git describe --tags --abbrev=0`.chomp
 
 def git_rev = @git_rev ||= `git rev-parse --short HEAD`.chomp
