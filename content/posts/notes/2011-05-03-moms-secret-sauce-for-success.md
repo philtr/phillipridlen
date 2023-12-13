@@ -8,11 +8,6 @@ category: Life
 tags:
   - Mother's Day
   - Learning
-
-ghi: "https://github.com/spatula/phillipridlen/issues/12"
-
-styles:
-  - posts/journal
 ---
 I owe every accomplishment I have ever achieved to three things my mom
 instilled in me from a young age. She was relentless, frustrating at

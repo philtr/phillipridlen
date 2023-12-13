@@ -3,8 +3,6 @@ layout: post
 date: 2005-10-14
 title: "Philemon"
 subtitle: "An analysis"
-styles:
-  - posts/journal
 ---
 
 In Philemon we see a beautiful analogy of what Christ has done for us. Onesimus,

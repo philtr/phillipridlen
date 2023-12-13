@@ -15,11 +15,6 @@ tags:
   - Ruby on Rails
   - JSON
   - Errors
-
-ghi: "https://github.com/spatula/phillipridlen/issues/7"
-
-styles:
-  - code
 ---
 
 Yesterday my coworker [Eric][eh] asked me to build out some dynamic error pages for the upcoming

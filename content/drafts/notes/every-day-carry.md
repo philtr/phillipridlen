@@ -5,11 +5,6 @@ type: note
 title: "Every Day Carry"
 
 category: Life
-tags:
-  - 
-
-styles:
-  - posts/image
 ---
 
 My every day carry is perhaps a bit minimal.

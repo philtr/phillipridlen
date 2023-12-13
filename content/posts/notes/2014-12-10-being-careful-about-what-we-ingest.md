@@ -12,11 +12,6 @@ tags:
   - Discipleship
   - Growth
   - Pleasing God
-
-ghi: "https://github.com/spatula/phillipridlen/issues/13"
-
-styles:
-  - posts/journal
 ---
 
 [Romans 8:5-6 (ESV)](http://www.esvbible.org/Romans+8:5-6/):

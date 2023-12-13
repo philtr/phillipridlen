@@ -11,10 +11,6 @@ tags:
   - iPhone
   - UI
   - UX
-
-styles:
-  - posts/journal
-  - posts/image
 ---
 
 <div class="intro">

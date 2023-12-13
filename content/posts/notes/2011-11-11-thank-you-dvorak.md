@@ -10,12 +10,6 @@ category: Programming
 tags:
   - Keyboard
   - Dvorak
-
-ghi: "https://github.com/spatula/phillipridlen/issues/10"
-
-styles:
-  - posts/journal
-  - posts/image
 ---
 _Dvorak_. Not exactly a common name.
 

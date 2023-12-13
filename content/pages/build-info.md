@@ -1,7 +1,5 @@
 ---
 title: Build Information
-styles:
-  - code
 ---
 
 # Build Information

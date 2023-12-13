@@ -17,22 +17,15 @@
     "family=DM+Sans:",
     "ital,wght@0,400;0,500;0,700;1,400;1,500;1,700",
 
-    "&family=Source+Code+Pro:",
-    "ital,wght@0,400;0,700;1,400",
-
     "&display=swap"
   ].join
 %>
-  
+
 <link href="<%= google_font_url %>" rel="stylesheet">
 
-<link href="/css/main.css" rel="stylesheet" type="text/css">
-<% @item.fetch(:styles, []).each do |style| %>
-<link href="/css/<%= style %>.css" rel="stylesheet" type="text/css">
-<% end %>
-<% (@layout_styles || []).each do |style| %>
-<link href="/css/<%= style %>.css" rel="stylesheet" type="text/css">
-<% end %>
+<style>
+<%= @items["/css/main.scss"].compiled_content %>
+</style>
 
 <link rel="apple-touch-icon-precomposed" href="/images/favicon/favicon-180.png">
 <link rel="icon" href="/images/favicon/favicon-180.png">
