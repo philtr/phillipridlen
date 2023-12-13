@@ -24,7 +24,7 @@ Look at the lepers who were healed by Jesus on His way past Samaria in Luke
 17:11-19. Ten men received miraculous healing, yet only one returned to give
 thanks and praise to the One who healed him.
 
-> [The ten lepers said,] “Jesus, Master, have mercy on us.” When he saw them he
+> \[The ten lepers said,\] “Jesus, Master, have mercy on us.” When he saw them he
 > said to them, “Go and show yourselves to the priests.” And as they went they
 > were cleansed. Then one of them, when he saw that he was healed, turned back,
 > praising God with a loud voice; and he fell on his face at Jesus’ feet, giving

@@ -61,8 +61,8 @@ right track. 100,000 downloads on the App Store. 20,000 signups. How do these
 impressive and seemingly benign statistics secretly undermine what you are
 trying to accomplish?
 
-In The Lean Startup, Eric Ries writes, “Vanity metrics can allow [you] to form
-false conclusions and live in [your] own private reality.” Ultimately, vanity
+In The Lean Startup, Eric Ries writes, “Vanity metrics can allow \[you\] to form
+false conclusions and live in \[your\] own private reality.” Ultimately, vanity
 metrics distract us from—or worse, blind us to—the results we’re trying to
 achieve.
 
