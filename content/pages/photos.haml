@@ -13,4 +13,4 @@ body_classes:
     - year_photos.each do |photo|
       .photo
         %a{href: photo.path}
-          %img.thumbnail{src: photo.path(rep: :thumbnail)}
+          %img.thumbnail{src: photo.path(rep: :thumbnail), alt: photo[:title], title: photo[:title]}

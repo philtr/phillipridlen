@@ -7,7 +7,7 @@
       </time>
     </div>
     <%= yield %>
-    <a href="<%= @item.path(rep: :original) %>"><img src="<%= @item.path(rep: :medium) %>"></a>
+    <a href="<%= @item.path(rep: :original) %>"><img src="<%= @item.path(rep: :medium) %>" alt="<%= @item[:title] %>" title="<%= @item[:title] %>"></a>
     <figcaption>
         <%= @item[:camera] %> <%= @item[:lens] %><br>
         <%= @item[:f_stop] %>, <%= @item[:exposure] %>, ISO <%= @item[:iso] %>
