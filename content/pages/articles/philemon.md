@@ -99,7 +99,7 @@ Philemon but to Paul as well, living up to his name.[^24]
 
 **Verses 12-13**. Paul, immediately after unveiling that his purpose in writing
 this letter was to appeal on Philemon’s behalf, he “passes the problem on to
-Philemon...[before he had]  opportunity to think over Paul’s request.”[^25]
+Philemon...\[before he had\]  opportunity to think over Paul’s request.”[^25]
 Onesimus is coming, whether or not Philemon approves, and he is coming on his
 own accord. There is no way that Paul could have forced him to go to Colosse,
 and there is no evidence in the text that Paul compelled him to go.[^26] In
@@ -128,7 +128,7 @@ Philemon’s behalf. He basically says (in quite more professional terms) “You
 not my friend if you don’t treat him like you would me.”  But the term “partner”
 holds so much more value than simply a companion: if Philemon considered himself
 like-minded to Paul, if he considered himself as sharing “common principles,
-common attachments...common hopes...same principles of religion... [or] the same
+common attachments...common hopes...same principles of religion... \[or\] the same
 hope of heaven,”[^32] then he should treat Onesimus as he would Paul. Of course,
 he has liberty to request this because he has established his argument
 incredibly well, and the fact that Onesimus is now a follower of Christ puts
@@ -136,7 +136,7 @@ them on a level playing field.
 
 **Verse 18**. If there is anything that Onesimus still owed Philemon after
 returning to his master, Paul asks for the debt to be placed on his shoulders.
-Not only does “this generous act [compare] in a small way with Christ’s
+Not only does “this generous act \[compare\] in a small way with Christ’s
 substitutionary work on the cross”[^33] (nothing any mere human can do could
 ever compare with Christ!), but it demonstrates the values and ethics that
 should characterize believers in action.
@@ -178,7 +178,7 @@ release Onesimus?”[^42] He couldn’t—at  least not without losing some dign
 **Verses 23-24** contain Paul’s “shout-outs” for friends of Philemon who wished
 to encourage him through this letter.
 
-**Verse 25**. Christ, in His grace, has “blessed us [believers]...with every
+**Verse 25**. Christ, in His grace, has “blessed us \[believers\]...with every
 spiritual blessing in the heavenly places.” Philemon was given those blessings;
 therefore he should shower Onesimus with grace all the more.
 

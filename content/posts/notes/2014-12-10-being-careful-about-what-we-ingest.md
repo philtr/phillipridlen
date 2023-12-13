@@ -46,7 +46,7 @@ him.
 
 The only way to reflect God's glory is to saturate our minds with the things that do.  “Finally,
 brothers, whatever is true, ... honorable, ... just, ... pure, ...  lovely, ... commendable,
-[excellent, or praiseworthy], think about these things.” [^fn-phil-4-8] Is that movie we want to go
+\[excellent, or praiseworthy\], think about these things.” [^fn-phil-4-8] Is that movie we want to go
 see really excellent and praiseworthy? How about that latest bestseller we see on the shelves at the
 bookstore? Is it pure and lovely? The blogs we like to read&mdash;are they true and honorable or do
 they defame others with lies? We shouldn't shelter ourselves from these things, [^fn-1cor-5-9-13]
