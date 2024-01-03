@@ -126,7 +126,7 @@ GEM
     rouge (4.2.0)
     ruby2_keywords (0.0.5)
     rubypants (0.7.1)
-    sass-embedded (1.69.6)
+    sass-embedded (1.69.7)
       google-protobuf (~> 3.25)
       rake (>= 13.0.0)
     set (1.0.3)
