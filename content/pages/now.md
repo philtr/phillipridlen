@@ -8,7 +8,7 @@ description: "Phillip Ridlen's now page. This what he's been doing lately, regar
 _This is [a now page][now]. If you have your own site, [you should make
 one][now], too._
 
-When ~~Twitter~~ X first arrived on the scene, it had one mission: answer the
+When <s>Twitter</s> X first arrived on the scene, it had one mission: answer the
 question, "What are you doing?" It has instead become a cesspool of hot takes
 and pot shots at others. You won't find me posting there; instead, I try to
 keep this page up to date with the important highlights of what I'm up to.
