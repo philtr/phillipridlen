@@ -52,4 +52,4 @@ I'm actively involved at [Burleson Bible Church][bbc]:
 [bbc]:        https://burlesonbiblechurch.org
 [youth]:      https://burlesonbiblechurch.org/students
 [elder]:      https://burlesonbiblechurch.org/leadership
-[alliance]:   https://mensalliancetribe.com
+[alliance]:   https://mensalliancetribe.com/tribes/hilltop
