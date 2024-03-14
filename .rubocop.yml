@@ -1,0 +1,30 @@
+AllCops:
+  Exclude:
+    - bin/*
+  NewCops: enable
+
+Metrics/MethodLength:
+  Exclude:
+    - db/migrate/*
+  CountAsOne:
+    - hash
+    - array
+  CountComments: false
+Metrics/ModuleLength:
+  Exclude:
+    - db/migrate/*
+
+Style/AccessModifierDeclarations:
+  EnforcedStyle: inline
+Style/FrozenStringLiteralComment:
+  EnforcedStyle: never
+Style/Documentation:
+  Enabled: false
+Style/StringLiterals:
+  EnforcedStyle: double_quotes
+Style/TrailingCommaInArrayLiteral:
+  Enabled: true
+  EnforcedStyleForMultiline: comma
+Style/TrailingCommaInHashLiteral:
+  Enabled: true
+  EnforcedStyleForMultiline: comma

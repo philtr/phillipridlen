@@ -1,5 +1,5 @@
 def selected_layout(item)
-  if (layout = item[:layout])
-    "/#{layout}.*"
-  end
+  return unless (layout = item[:layout])
+
+  "/#{layout}.*"
 end

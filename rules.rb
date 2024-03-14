@@ -28,4 +28,3 @@ include_rules "rules/markdown"
 
 # Catch-All for Everything Else
 passthrough "/**/*"
-

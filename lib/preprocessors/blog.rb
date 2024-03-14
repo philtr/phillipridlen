@@ -16,14 +16,14 @@ end
 def blog_category_items
   blog_post_items
     .map { _1[:category].downcase }.uniq
-    .map { {name: _1.titleize, slug: _1.parameterize } }
-    .map { @items.create("", _1, "/categories/#{_1[:slug]}") } 
+    .map { { name: _1.titleize, slug: _1.parameterize } }
+    .map { @items.create("", _1, "/categories/#{_1[:slug]}") }
 end
 
 def blog_post_date_for_drafts
-  if @config[:drafts]
-    @items.find_all("/drafts/**/*").each do |item|
-      item[:date] = Time.now
-    end
+  return unless @config[:drafts]
+
+  @items.find_all("/drafts/**/*").each do |item|
+    item[:date] = Time.now
   end
 end

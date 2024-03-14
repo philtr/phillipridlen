@@ -5,7 +5,7 @@ module PhillipRidlen
       # Include `NanocTransformable::Binary` for binary items, such as images,
       # file attachments, etc.
       module Binary
-        def self.included(base) = include(NanocTransformable)
+        def self.included(_base) = include(NanocTransformable)
         def binary? = true
         def filename_or_content = filename
       end
@@ -13,7 +13,7 @@ module PhillipRidlen
       # Include `NanocTransformable::Textual` when the item is primarily
       # textual, such as a database record or external API call.
       module Textual
-        def self.included(base) = include(NanocTransformable)
+        def self.included(_base) = include(NanocTransformable)
         def binary? = false
         def filename_or_content = content
       end
@@ -34,9 +34,10 @@ module PhillipRidlen
       # If `NanocTransformable` was mixed in without `Binary` or `Textual`,
       # raise an error.
       unless method_defined?(:filename_or_content)
-        def filename_or_content =
-          raise "Must include or extend `NanocTransformable::Binary`" +
+        def filename_or_content
+          raise "Must include or extend `NanocTransformable::Binary`" \
                 "or `NanocTransformable::Textual`"
+        end
       end
     end
   end

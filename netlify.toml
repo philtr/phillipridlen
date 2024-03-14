@@ -1,4 +1,4 @@
 [build]
   command = "nanoc compile"
   publish = "output"
-  environment = { RUBY_VERSION = "3.2.0" }
+  environment = { RUBY_VERSION = "3.3.0" }

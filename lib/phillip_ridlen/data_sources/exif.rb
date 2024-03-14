@@ -3,8 +3,8 @@ require "nanoc/data_sources/filesystem"
 module PhillipRidlen
   module DataSources
     class Exif < Nanoc::DataSource
-      require_relative "./exif/item"
-      require_relative "./filesystem_listener"
+      require_relative "exif/item"
+      require_relative "filesystem_listener"
 
       include FilesystemListener
 
@@ -20,7 +20,6 @@ module PhillipRidlen
       def file_glob           = "#{content_dir}/**/*.{#{ext.join(',')}}"
       def content_dir         = FSTools.expand_and_relativize_path(config(:content_dir))
       def ext                 = Array(config(:ext, :jpg))
-
     end
   end
 end

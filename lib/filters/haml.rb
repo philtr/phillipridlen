@@ -12,10 +12,8 @@ module NanocFilters
         .render(context, assigns, &proc)
     end
 
-    private
-
-    def context = ::Nanoc::Core::Context.new(assigns)
-    def options(params) = params.merge(filename: filename)
-    def proc = assigns[:content] ? -> { assigns[:content] } : nil
+    private def context = ::Nanoc::Core::Context.new(assigns)
+    private def options(params) = params.merge(filename:)
+    private def proc = assigns[:content] ? -> { assigns[:content] } : nil
   end
 end
