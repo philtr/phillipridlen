@@ -4,15 +4,13 @@ Bundler.require
 use_helper Nanoc::Helpers::LinkTo
 use_helper Nanoc::Helpers::Rendering
 
-SiteConfig = Class.new(OpenStruct)
+SiteConfig = Struct.new(:base_url, :email, :author, keyword_init: true)
 
 def site_config
-  site = SiteConfig.new(@config[:site])
-
   SiteConfig.new(
-    base_url: ENV["URL"] || ENV["BASE_URL"] || site.base_url,
-    email: ENV["EMAIL"] || site.email,
-    author: ENV["AUTHOR"] || site.author
+    base_url: ENV["URL"] || ENV["BASE_URL"] || @config[:site][:base_url],
+    email: ENV["EMAIL"] || @config[:site][:email],
+    author: ENV["AUTHOR"] || @config[:site][:author]
   )
 end
 
@@ -70,5 +68,5 @@ def git_rev = @git_rev ||= `git rev-parse --short HEAD`.chomp
 def github = "https://github.com/philtr/phillipridlen"
 
 def site_version
-  %(<span class="revision">#{link_to git_tag, @items["/build-info.*"]}</span>)
+  %(<span class="revision">#{link_to git_tag, @items['/build-info.*']}</span>)
 end

@@ -5,5 +5,5 @@ compile "/**/*.haml" do
   layout "/default.*"
   filter :typogruby
 
-  write item.identifier.without_ext + "/index.html"
+  write "#{item.identifier.without_ext}/index.html"
 end
