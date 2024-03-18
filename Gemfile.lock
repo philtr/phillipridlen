@@ -125,7 +125,7 @@ GEM
     rmagick (5.4.4)
       observer (~> 0.1)
       pkg-config (~> 1.4)
-    rouge (4.2.0)
+    rouge (4.2.1)
     ruby2_keywords (0.0.5)
     rubypants (0.7.1)
     sass-embedded (1.71.1)
