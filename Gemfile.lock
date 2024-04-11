@@ -129,7 +129,7 @@ GEM
       ffi (~> 1.0)
     rbtree (0.4.6)
     rexml (3.2.5)
-    rmagick (5.4.4)
+    rmagick (5.5.0)
       observer (~> 0.1)
       pkg-config (~> 1.4)
     rouge (4.2.1)
