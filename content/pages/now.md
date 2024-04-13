@@ -17,7 +17,7 @@ This is what I'm doing as of January 15, 2024.
 
 [now]: https://nownownow.com/about
 
-## 👨‍👩‍👦‍👦<small style="font-size: 0.6rem">👧🏾</small> &nbsp;Family
+## 👨‍👩‍👦‍👦 &nbsp;Family
 
 I'm still living in Burleson, Texas (just south of Fort Worth) with my wife and
 three kids.  Working from home for the past several years has been a huge
