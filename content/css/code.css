@@ -1,21 +1,19 @@
-@import "shared";
-
 pre, code {
-  font-family: $monospace;
+  font-family: var(--monospace);
   font-size: 0.9em;
 }
 
 code {
   display: inline-block;
-  background: $dim-background-color;
+  background: var(--dim-background-color);
   border-radius: 3px;
   padding: 0 2px;
 }
 
 pre.highlight {
-  background: $dim-background-color;
-  border: 1px solid transparentize($dim-text-color, 0.9);
-  border-radius: $radius;
+  background: var(--dim-background-color);
+  border: 1px solid transparentize(var(--dim-text-color), 0.9);
+  border-radius: var(--radius);
   margin: 0;
   max-width: 100%;
   overflow-x: auto;
@@ -29,20 +27,20 @@ pre.highlight {
   .ge, .gh, .gp, .gs, .gu,
   .kc, .kd, .kn, .kr, .ow,
   .p, .o, .k {
-    color: $tertiary-accent-color;
+    color: var(--tertiary-accent-color);
   }
 
   .k, .ne, .ni, .nn, .nt,
   .s, .sb, .sc, .sd, .s2, .se, .sh, .sx, .s1, .ss {
-    color: $primary-accent-color;
+    color: var(--primary-accent-color);
   }
 
   .nc, .no {
-    color: $secondary-accent-color;
+    color: var(--secondary-accent-color);
   }
 
   .c1 {
-    color: $dim-text-color;
+    color: var(--dim-text-color);
     font-style: italic;
   }
 }

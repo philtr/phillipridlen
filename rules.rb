@@ -18,9 +18,6 @@ include_rules "rules/resources"
 include_rules "rules/blog"
 include_rules "rules/photos"
 
-# Rules for Processing Stylesheets
-include_rules "rules/stylesheets"
-
 # Rules for Specific File Extensions
 include_rules "rules/erb"
 include_rules "rules/haml"
@@ -28,4 +25,3 @@ include_rules "rules/markdown"
 
 # Catch-All for Everything Else
 passthrough "/**/*"
-

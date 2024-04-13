@@ -1,41 +1,39 @@
-@import "shared";
-
 .post-title {
   font-size: 1.75rem;
   line-height: 1.2;
   margin-bottom: 1rem;
   font-weight: 900;
 
-  @media screen and (min-width: $breakpoint-medium) {
+  @media screen and (min-width: 100ch) {
     font-size: 2.5rem;
     max-width: 75%;
   }
 }
 
 .post-subtitle {
-  color: $dim-text-color;
+  color: var(--dim-text-color);
   font-style: italic;
   margin-top: -1rem;
 
-  @media screen and (min-width: $breakpoint-medium) {
+  @media screen and (min-width: 100ch) {
     font-size: 1.5rem;
     max-width: 75%;
   }
 }
 
 .post-date {
-  margin-bottom: $gutter;
+  margin-bottom: var(--gutter);
 }
 
 .post-date, .post-date a {
-  color: $dim-text-color;
+  color: var(--dim-text-color);
   text-decoration: none;
 }
 
 .footnotes {
-  border-top: 1px solid $faded-text-color;
-  margin-top: $gutter;
-  padding-top: $gutter;
+  border-top: 1px solid var(--faded-text-color);
+  margin-top: var(--gutter);
+  padding-top: var(--gutter);
 
   ol, ol li:first-child p {
     margin: 0;
