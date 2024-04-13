@@ -1,18 +1,16 @@
-@import "../shared";
-
 .post-content {
   img {
     height: auto;
     width: 100%;
 
     &.framed {
-      border-radius: $radius;
+      border-radius: var(--radius);
     }
   }
 
   figcaption {
-    color: $dim-text-color;
-    font-family: $sans-serif;
+    color: var(--dim-text-color);
+    font-family: var(--sans-serif);
     font-size: 1rem;
     margin-top: -1rem;
     text-align: center;

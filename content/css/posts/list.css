@@ -1,19 +1,17 @@
-@import "../shared";
-
 section.posts {
   h3 {
-    margin: $gutter 0 0 0;
+    margin: var(--gutter) 0 0 0;
   }
 
   h3:after {
     content: " ";
-    border-bottom: 1px solid $faded-text-color;
+    border-bottom: 1px solid var(--faded-text-color);
     display: block;
   }
 }
 
 .posts-categories {
-  @media screen and (min-width: $breakpoint-large) {
+  @media screen and (min-width: 100ch) {
     display: flex;
     flex-flow: column wrap;
     align-content: space-between;
@@ -30,7 +28,7 @@ section.posts {
 }
 
 .posts-category {
-  @media screen and (min-width: $breakpoint-large) {
+  @media screen and (min-width: 100ch) {
     width: 19rem;
     margin-right: 2rem;
 
@@ -52,7 +50,7 @@ ul.posts-list {
   }
 
   li small {
-    color: $dim-text-color;
+    color: var(--dim-text-color);
     display: table-cell;
     line-height: 2;
     width: 3.5rem;
@@ -67,10 +65,10 @@ ul.posts-list {
   li aside {
     display: none;
 
-    @media screen and (min-width: $breakpoint-medium) {
-      color: $dim-text-color;
+    @media screen and (min-width: 100ch) {
+      color: var(--dim-text-color);
       display: table-cell;
-      padding-left: $gutter;
+      padding-left: var(--gutter);
       font-size: 0.75rem;
       text-align: right;
     }

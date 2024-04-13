@@ -42,8 +42,6 @@ GEM
     exiftool_vendored (12.81.0)
       exiftool (>= 0.7.0)
     ffi (1.15.0)
-    google-protobuf (4.26.1)
-      rake (>= 13)
     haml (6.3.0)
       temple (>= 0.8.2)
       thor
@@ -124,7 +122,6 @@ GEM
     rack (2.2.8.1)
     rack-livereload (0.3.17)
       rack
-    rake (13.2.1)
     rb-fsevent (0.11.0)
     rb-inotify (0.10.1)
       ffi (~> 1.0)
@@ -136,9 +133,6 @@ GEM
     rouge (4.2.1)
     ruby2_keywords (0.0.5)
     rubypants (0.7.1)
-    sass-embedded (1.75.0)
-      google-protobuf (>= 3.25, < 5.0)
-      rake (>= 13.0.0)
     set (1.1.0)
     slow_enumerator_tools (1.1.0)
     sorted_set (1.0.3)
@@ -173,7 +167,6 @@ DEPENDENCIES
   nokogiri
   rmagick
   rouge
-  sass-embedded
   typogruby
   webrick
 

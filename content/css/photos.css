@@ -1,12 +1,10 @@
-@import "shared";
-
 .photos {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 1px;
   line-height: 0;
 
-  @media screen and (min-width: $breakpoint-large) {
+  @media screen and (min-width: 100ch) {
     grid-template-columns: repeat(4, 1fr);
   }
 
@@ -28,10 +26,10 @@
   figcaption {
     margin-top: 0.5rem;
     padding: 1rem;
-    background-color: $dim-background-color;
+    background-color: var(--dim-background-color);
     border-radius: 0.25rem;
-    color: $dim-text-color;
-    font-family: $sans-serif;
+    color: var(--dim-text-color);
+    font-family: var(--sans-serif);
     font-size: 0.8rem;
     text-align: center;
     text-shadow: 1px 1px white;
