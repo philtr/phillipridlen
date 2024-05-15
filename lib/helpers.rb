@@ -4,7 +4,13 @@ Bundler.require
 use_helper Nanoc::Helpers::LinkTo
 use_helper Nanoc::Helpers::Rendering
 
-SiteConfig = Class.new(OpenStruct)
+SiteConfig = Struct.new(
+  :author,
+  :base_url,
+  :email,
+  :tz,
+  keyword_init: true
+)
 
 def site_config
   site = SiteConfig.new(@config[:site])
@@ -43,7 +49,7 @@ end
 
 def posts_grouped_by_category(_posts = all_posts, sort: :desc)
   grouped_posts = posts_sorted_by_date(direction: sort)
-                  .group_by { |item| item[:category] }
+    .group_by { |item| item[:category] }
 
   priority = %w[Life Programming Christianity]
   rest = grouped_posts.keys - priority
