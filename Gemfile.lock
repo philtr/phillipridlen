@@ -129,7 +129,7 @@ GEM
     rmagick (6.0.1)
       observer (~> 0.1)
       pkg-config (~> 1.4)
-    rouge (4.2.1)
+    rouge (4.3.0)
     rubypants (0.7.1)
     set (1.1.0)
     slow_enumerator_tools (1.1.0)
