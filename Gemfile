@@ -3,7 +3,7 @@ source "https://rubygems.org"
 ruby "3.3.0"
 
 group "nanoc" do
-  gem "nanoc", "~> 4.12"
+  gem "nanoc", "~> 4.13"
   gem "nanoc-live"
 end
 
