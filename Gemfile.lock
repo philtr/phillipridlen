@@ -103,7 +103,7 @@ GEM
       listen (~> 3.0)
       nanoc-cli (~> 4.11, >= 4.11.14)
       nanoc-core (~> 4.11, >= 4.11.14)
-    nokogiri (1.16.6)
+    nokogiri (1.16.7)
       mini_portile2 (~> 2.8.2)
       racc (~> 1.4)
     observer (0.1.2)
