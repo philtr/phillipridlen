@@ -130,7 +130,7 @@ GEM
     rb-inotify (0.11.1)
       ffi (~> 1.0)
     rbtree (0.4.6)
-    rexml (3.3.3)
+    rexml (3.3.6)
       strscan
     rmagick (6.0.1)
       observer (~> 0.1)
