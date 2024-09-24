@@ -31,14 +31,13 @@ older and want nothing to do with me. 😅
 
 ## 👨‍💻 &nbsp;Work
 
-I work as a software engineer at [BILL] keeping the authentication and identity
-systems up and running smoothly. I've really enjoyed learning and using the
-[Elixir] programming language, even though before this position I used [Ruby]
-pretty much exclusively.
+I'm currently looking for work as a Software Engineer. My specialties are [Ruby]
+and [Elixir], but I'm open to other languges as well. See my history and
+accomplishments on [LinkedIn]
 
-[BILL]: https://bill.com/
 [Elixir]: https://elixir-lang.org/
 [Ruby]: https://ruby-lang.org/
+[LinkedIn]: https://www.linkedin.com/in/philtr/
 
 ## ⛪️ &nbsp;Church
 
