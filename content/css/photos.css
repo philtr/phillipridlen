@@ -32,7 +32,7 @@
     font-family: var(--sans-serif);
     font-size: 0.8rem;
     text-align: center;
-    text-shadow: 1px 1px white;
+    text-shadow: 1px 1px 2px var(--letterpress-highlight-color);
     text-transform: uppercase;
   }
 }

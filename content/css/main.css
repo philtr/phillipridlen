@@ -1,15 +1,29 @@
 :root {
-  --primary-text-color: #41324f;
-  --dim-text-color: #716d7e;
-  --pale-text-color: #afabba;
-  --faded-text-color: #eeedeb;
+  --mauve-900: #1c1621;
+  --mauve-500: #41324f;
+  --mauve-400: #716d7e;
+  --mauve-100: #afabba;
+  --mauve-50:  #eeedeb;
 
-  --primary-accent-color: #2e9ea0;
-  --secondary-accent-color: #ab6788;
-  --tertiary-accent-color: #c5388c;
+  --teal: #2e9ea0;
 
-  --primary-background-color: #ffffff;
-  --dim-background-color: #f4f3f7;
+  --light-pink: #ab6788;
+  --bright-pink: #c5388c;
+
+  --dark-white: #f4f3f7;
+ 
+  --primary-text-color: var(--mauve-500);
+  --dim-text-color: var(--mauve-400);
+  --pale-text-color: var(--mauve-100);
+  --faded-text-color: var(--mauve-50);
+  --letterpress-highlight-color: white;
+
+  --primary-accent-color: var(--teal);
+  --secondary-accent-color: var(--light-pink);
+  --tertiary-accent-color: var(--bright-pink);
+
+  --primary-background-color: white;
+  --dim-background-color: var(--dark-white);
 
   --serif: "Times New Roman", serif;
   --sans-serif: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
@@ -23,7 +37,19 @@
   --gutter: 2rem;
 }
 
+@media(prefers-color-scheme: dark) {
+  :root {
+    --primary-text-color: var(--mauve-50);
+    --dim-text-color: var(--mauve-100);
+    --faded-text-color: var(--mauve-900);
+    --primary-background-color: black;
+    --dim-background-color: var(--mauve-900);
+    --letterpress-highlight-color: var(--mauve-400);
+  }
+}
+
 html {
+  background-color: var(--primary-background-color);
   font-size: var(--font-size-base-px);
 }
 
