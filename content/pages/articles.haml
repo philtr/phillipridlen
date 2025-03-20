@@ -1,0 +1,21 @@
+---
+layout: master
+description: "Occasional links and articles from Phillip Ridlen."
+styles:
+  - posts/list
+---
+
+%h1#notes Articles
+
+%section.posts
+  %p.intro
+
+  .posts-categories
+    .posts-category
+      %ul.posts-list
+        - all_posts("articles").each do |post|
+          %li
+            != link_to post.attributes[:title], post
+            %aside
+              %time{ datetime: post[:date].strftime("%Y-%m-%d"), title: post[:date].strftime("%A, %B %-d, %Y") }
+                = post[:date].year

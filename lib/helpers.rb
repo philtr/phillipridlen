@@ -34,8 +34,8 @@ def page_image
   end
 end
 
-def all_posts
-  @items.find_all("/posts/**/*")
+def all_posts(root = "posts")
+  @items.find_all("/#{root}/**/*")
 end
 
 def posts_sorted_by_date(posts = all_posts, direction: :desc)
