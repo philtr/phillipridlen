@@ -1,16 +1,25 @@
+@import url('https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,200..900;1,8..60,200..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400..800;1,400..800&display=swap');
+
 :root {
   --mauve-900: #1c1621;
   --mauve-500: #41324f;
   --mauve-400: #716d7e;
   --mauve-100: #afabba;
   --mauve-50:  #eeedeb;
-
-  --teal: #2e9ea0;
-
-  --light-pink: #ab6788;
-  --bright-pink: #c5388c;
-
+  /**/
+  /*--teal: #2e9ea0;*/
+  /**/
+  /*--light-pink: #ab6788;*/
+  /*--bright-pink: #c5388c;*/
+  /**/
   --dark-white: #f4f3f7;
+
+  --broccoli: #386641;
+  --asparagus: #6a994e;
+  --apple: #a7c957;
+  --parchment: #f2e8cf;
+  --salmon: #bc4749;
  
   --primary-text-color: var(--mauve-500);
   --dim-text-color: var(--mauve-400);
@@ -18,18 +27,18 @@
   --faded-text-color: var(--mauve-50);
   --letterpress-highlight-color: white;
 
-  --primary-accent-color: var(--teal);
-  --secondary-accent-color: var(--light-pink);
-  --tertiary-accent-color: var(--bright-pink);
+  --primary-accent-color: var(--asparagus);
+  --secondary-accent-color: var(--salmon);
+  --tertiary-accent-color: var(--salmon);
 
   --primary-background-color: white;
   --dim-background-color: var(--dark-white);
 
-  --serif: "Times New Roman", serif;
+  --serif: "EB Garamond", "Source Serif 4", "Times New Roman", serif;
   --sans-serif: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
   --monospace: Menlo, Monaco, monospace;
 
-  --font-size-base-px: 15px;
+  --font-size-base-px: 18px;
   --font-size-base: 1rem;
   --line-height-base: 1.6;
 
@@ -56,7 +65,7 @@ html {
 body {
   color: var(--primary-text-color);
   font-size: var(--font-size-base);
-  font-family: var(--sans-serif);
+  font-family: var(--serif);
   line-height: var(--line-height-base);
 
   -ms-hyphens: auto;
