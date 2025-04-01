@@ -42,7 +42,7 @@ GEM
     eventmachine (1.2.7)
     exiftool (1.2.6)
       json
-    exiftool_vendored (13.24.0)
+    exiftool_vendored (13.26.0)
       exiftool (>= 0.7.0)
     ffi (1.17.1)
     haml (6.3.0)
@@ -55,7 +55,7 @@ GEM
     immutable-ruby (0.2.0)
       concurrent-ruby (~> 1.1)
       sorted_set (~> 1.0)
-    json (2.10.1)
+    json (2.10.2)
     json_schema (0.21.0)
     kramdown (2.5.1)
       rexml (>= 3.3.9)
