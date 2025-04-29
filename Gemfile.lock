@@ -129,7 +129,7 @@ GEM
     rmagick (6.1.1)
       observer (~> 0.1)
       pkg-config (~> 1.4)
-    rouge (4.5.1)
+    rouge (4.5.2)
     rubypants (0.7.1)
     securerandom (0.4.1)
     set (1.1.1)
