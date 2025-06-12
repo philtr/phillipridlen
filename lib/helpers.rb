@@ -47,8 +47,8 @@ def posts_sorted_by_date(posts = all_posts, direction: :desc)
   end
 end
 
-def posts_grouped_by_category(_posts = all_posts, sort: :desc)
-  grouped_posts = posts_sorted_by_date(direction: sort)
+def posts_grouped_by_category(posts = all_posts, sort: :desc)
+  grouped_posts = posts_sorted_by_date(posts, direction: sort)
     .group_by { |item| item[:category] }
 
   priority = %w[Life Programming Christianity]
