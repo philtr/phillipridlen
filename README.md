@@ -13,14 +13,14 @@ helpers.
 
 ## Running Tests
 
-Tests use [Minitest](https://github.com/seattlerb/minitest). To run the test suite:
+Tests use RSpec. To run the test suite:
 
 ```bash
 bundle install
-bundle exec ruby -Itest test/test_helpers.rb
+bundle exec rspec
 ```
 
-This command will execute the tests located under the `test/` directory.
+This command will execute the tests located under the `spec/` directory.
 
 ## Content and Code
 
