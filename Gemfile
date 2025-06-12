@@ -1,6 +1,6 @@
 source "https://rubygems.org"
 
-ruby "3.4.1"
+ruby "3.4.4"
 
 group "nanoc" do
   gem "nanoc", "~> 4.13"
