@@ -11,7 +11,7 @@ tags:
   - Keyboard
   - Dvorak
 
-ghi: "https://github.com/spatula/phillipridlen/issues/10"
+ghi: "https://github.com/philtr/phillipridlen/issues/10"
 
 styles:
   - posts/journal

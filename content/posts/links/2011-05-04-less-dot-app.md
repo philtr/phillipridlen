@@ -15,7 +15,7 @@ tags:
   - LESS
   - Utilities
 
-ghi: "https://github.com/spatula/phillipridlen/issues/9"
+ghi: "https://github.com/philtr/phillipridlen/issues/9"
 ---
 
 [Less.app](<%= @item[:link][:source] %>):

@@ -12,7 +12,7 @@ tags:
   - Gems
   - API
 
-ghi: "https://github.com/spatula/phillipridlen/issues/6"
+ghi: "https://github.com/philtr/phillipridlen/issues/6"
 
 styles:
   - code

@@ -10,7 +10,7 @@ tags:
   - Object-Oriented Programming
   - Constants
 
-ghi: "https://github.com/spatula/phillipridlen/issues/5"
+ghi: "https://github.com/philtr/phillipridlen/issues/5"
 
 styles:
   - code
