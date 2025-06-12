@@ -16,3 +16,7 @@ gem "rmagick"
 gem "rouge"
 gem "typogruby"
 gem "webrick"
+
+group :test do
+  gem "minitest"
+end
