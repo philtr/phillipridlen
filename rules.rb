@@ -1,6 +1,6 @@
 # Rules
 #
-# Try to keep the number of rules defined in this file to a minumum.
+# Try to keep the number of rules defined in this file to a minimum.
 #
 # - Preprocess methods can go in `lib/preprocessors`
 # - Rule sets go in `lib/rules` and have their own preprocess blocks
