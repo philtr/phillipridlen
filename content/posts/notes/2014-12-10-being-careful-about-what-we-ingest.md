@@ -13,7 +13,7 @@ tags:
   - Growth
   - Pleasing God
 
-ghi: "https://github.com/spatula/phillipridlen/issues/13"
+ghi: "https://github.com/philtr/phillipridlen/issues/13"
 
 styles:
   - posts/journal

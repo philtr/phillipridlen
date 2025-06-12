@@ -17,7 +17,7 @@ tags:
 link:
   source: http://signalvnoise.com/posts/3813-the-curse-of-compressing-reality
 
-ghi: "https://github.com/spatula/phillipridlen/issues/16"
+ghi: "https://github.com/philtr/phillipridlen/issues/16"
 ---
 
 Noah Lorang on [Signal v. Noise](https://signalvnoise.com/posts/3813-the-curse-of-compressing-reality):

@@ -9,7 +9,7 @@ tags:
   - Mother's Day
   - Learning
 
-ghi: "https://github.com/spatula/phillipridlen/issues/12"
+ghi: "https://github.com/philtr/phillipridlen/issues/12"
 
 styles:
   - posts/journal

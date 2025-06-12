@@ -13,7 +13,7 @@ tags:
   - Hymns
   - Carols
 
-ghi: "https://github.com/spatula/phillipridlen/issues/14"
+ghi: "https://github.com/philtr/phillipridlen/issues/14"
 ---
 
 [John Piper](<%= @item[:link][:source] %>):

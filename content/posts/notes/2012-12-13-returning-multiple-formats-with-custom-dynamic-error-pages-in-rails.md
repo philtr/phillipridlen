@@ -16,7 +16,7 @@ tags:
   - JSON
   - Errors
 
-ghi: "https://github.com/spatula/phillipridlen/issues/7"
+ghi: "https://github.com/philtr/phillipridlen/issues/7"
 
 styles:
   - code
