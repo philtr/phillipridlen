@@ -5,23 +5,21 @@
 # - Preprocess methods can go in `lib/preprocessors`
 # - Rule sets go in `lib/rules` and have their own preprocess blocks
 # - Everything else can go here
-#
-
 layout "/**/*", :erb
 
 # Rules for Specific Items
-include_rules "rules/home"
-include_rules "rules/errors"
-include_rules "rules/resources"
+include_rules "config/rules/home"
+include_rules "config/rules/errors"
 
-# Rules for Special Groups of Items
-include_rules "rules/blog"
-include_rules "rules/photos"
+include_rules "config/rules/resources"
+# Rules for Speconfig/cial Groups of Items
+include_rules "config/rules/blog"
+include_rules "config/rules/photos"
 
-# Rules for Specific File Extensions
-include_rules "rules/erb"
-include_rules "rules/haml"
-include_rules "rules/markdown"
+# Rules for Speconfig/cific File Extensions
+include_rules "config/rules/erb"
+include_rules "config/rules/haml"
+include_rules "config/rules/markdown"
 
 # Catch-All for Everything Else
 passthrough "/**/*"
