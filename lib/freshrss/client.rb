@@ -1,14 +1,26 @@
-# Simple HTTP client for the FreshRSS API.
-# Supports fetching the list of starred items using Google Reader compatible endpoints.
-#
 require "json"
 require "net/http"
 require "uri"
 
 module FreshRSS
+  # Simple HTTP client for the FreshRSS API.
+  # Supports fetching the list of starred items using Google Reader compatible
+  # endpoints.
   class Client
+    # The configuration used by the client.
+    #
+    # @return [FreshRSS::Config]
     attr_reader :config
 
+    # Create a new API client.
+    #
+    # A `FreshRSS::Config` instance can be provided directly, or connection
+    # parameters may be given individually.
+    #
+    # @param config [FreshRSS::Config, nil] optional configuration object
+    # @param instance_url [String, nil] base URL of the FreshRSS instance
+    # @param username [String, nil] API username
+    # @param api_password [String, nil] API password
     def initialize(config = nil, instance_url: nil, username: nil, api_password: nil)
       @config = config || FreshRSS::Config.new
 
@@ -19,6 +31,10 @@ module FreshRSS
       yield @config if block_given?
     end
 
+    # Fetch starred entries for the configured account.
+    #
+    # @param limit [Integer] maximum number of entries to return
+    # @return [Hash] parsed JSON response from the API
     def starred(limit: 50)
       uri = URI("#{config.instance_url}/api/greader.php/reader/api/0/stream/contents/user/-/state/com.google/starred")
       params = {n: limit, output: "json"}
