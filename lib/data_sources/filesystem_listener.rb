@@ -1,7 +1,7 @@
-# Helper module that watches the filesystem for changes.
-# Provides Enumerators that notify Nanoc of item and layout updates.
-#
 module DataSources
+  # Helper module that watches the filesystem for changes.
+  # Provides Enumerators that notify Nanoc of item and layout updates.
+  #
   module FilesystemListener
     def layout_changes = watch_for_changes(:layouts)
 

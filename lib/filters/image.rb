@@ -1,9 +1,9 @@
-# Image processing filters using RMagick.
-# Provides resize helpers used for photo representations.
-#
 require "rmagick"
 
 module Image
+  # Image processing filters using RMagick.
+  # Provides resize helpers used for photo representations.
+  #
   class ResizeToFill < Nanoc::Filter
     identifier :resize_to_fill
     type :binary
