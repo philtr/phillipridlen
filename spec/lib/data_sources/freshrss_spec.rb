@@ -41,7 +41,8 @@ RSpec.describe DataSources::FreshRSS do
 
   it 'writes new items to markdown' do
     subject.items
-    file = File.join(tmpdir, 'tag_example_com_2024_item_1.md')
+    encoded_id = Base64.urlsafe_encode64('tag:example.com,2024:item/1', padding: false)
+    file = File.join(tmpdir, "#{encoded_id}.md")
     expect(File).to exist(file)
     content = File.read(file)
     yaml = content[/\A---\n(.*?)\n---/m, 1]
@@ -51,12 +52,13 @@ RSpec.describe DataSources::FreshRSS do
     expect(data['source']).to eq('FreshRSS')
   end
 
-  it 'sanitizes ids' do
-    expect(subject.send(:sanitize_id, 'a/b?c')).to eq('a_b_c')
+  it 'sanitizes ids (urlsafe base64)' do
+    expect(subject.send(:sanitize_id, 'a/b?c')).to eq("YS9iP2M")
   end
 
   it 'skips when file exists' do
-    file = File.join(tmpdir, 'tag_example_com_2024_item_1.md')
+    encoded_id = Base64.urlsafe_encode64('tag:example.com,2024:item/1', padding: false)
+    file = File.join(tmpdir, "#{encoded_id}.md")
     FileUtils.mkdir_p(tmpdir)
     File.write(file, 'old')
     subject.items

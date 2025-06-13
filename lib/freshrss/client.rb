@@ -26,12 +26,28 @@ module FreshRSS
       uri.query = URI.encode_www_form(params)
 
       req = Net::HTTP::Get.new(uri)
-      req.basic_auth(config.username, config.api_password)
+      req["Authorization"] = "GoogleLogin auth=#{token}"
 
       Net::HTTP.start(uri.host, uri.port, use_ssl: uri.scheme == 'https') do |http|
         res = http.request(req)
         JSON.parse(res.body)
       end
+    end
+
+    private
+
+    def token
+      return @token if defined?(@token)
+
+      uri = URI("#{config.instance_url}/api/greader.php/accounts/ClientLogin")
+      req = Net::HTTP::Post.new(uri)
+      req.set_form_data(Email: config.username, Passwd: config.api_password)
+
+      res = Net::HTTP.start(uri.host, uri.port, use_ssl: uri.scheme == 'https') do |http|
+        http.request(req)
+      end
+
+      @token = res.body[/^Auth=(.+)$/, 1]
     end
   end
 end
