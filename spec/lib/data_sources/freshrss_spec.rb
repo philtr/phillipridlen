@@ -4,7 +4,15 @@ require 'yaml'
 
 RSpec.describe DataSources::FreshRSS do
   let(:tmpdir) { Dir.mktmpdir }
-  let(:config) { { url: 'https://example.com/api', content_dir: tmpdir, limit: 50 } }
+  let(:config) do
+    {
+      url: 'https://example.com',
+      username: 'user',
+      api_password: 'pass',
+      content_dir: tmpdir,
+      limit: 50,
+    }
+  end
   subject { described_class.new({ text_extensions: ['md'] }, '/', '/', config) }
 
   let(:response) do
@@ -18,13 +26,13 @@ RSpec.describe DataSources::FreshRSS do
           'content' => 'Body'
         }
       ]
-    }.to_json
+    }
   end
 
   before do
-    uri = URI('https://example.com/api')
-    uri.query = URI.encode_www_form(n: 50)
-    allow(Net::HTTP).to receive(:get).with(uri).and_return(response)
+    client = instance_double(FreshRSS::Client)
+    allow(FreshRSS::Client).to receive(:new).and_return(client)
+    allow(client).to receive(:starred).with(limit: 50).and_return(response)
   end
 
   after do

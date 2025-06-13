@@ -81,5 +81,7 @@ data_sources:
     type: freshrss
     content_dir: src/links/freshrss
     items_root: /links/freshrss/
-    url: https://example.com/api
+    url: <%= ENV['FRESHRSS_INSTANCE_URL'] %>
+    username: <%= ENV['FRESHRSS_USERNAME'] %>
+    api_password: <%= ENV['FRESHRSS_API_PASSWORD'] %>
     limit: 50

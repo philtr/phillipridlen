@@ -1,13 +1,10 @@
 require "nanoc/data_sources/filesystem"
-require "json"
-require "net/http"
 require "yaml"
+require_relative "../freshrss/client"
 
 module DataSources
   class FreshRSS < Nanoc::DataSources::Filesystem
     identifier :freshrss
-
-    FSTools = Nanoc::DataSources::Filesystem::Tools
 
     def items
       fetch_and_cache
@@ -21,16 +18,18 @@ module DataSources
     private
 
     def fetch_and_cache
-      uri = URI(config.fetch(:url))
-      params = { n: limit }
-      uri.query = URI.encode_www_form(params)
-      response = Net::HTTP.get(uri)
-      data = JSON.parse(response)
-      Array(data["items"]).each do |entry|
-        cache_entry(entry)
-      end
+      data = client.starred(limit: limit)
+      Array(data["items"]).each { |entry| cache_entry(entry) }
     rescue StandardError => e
       warn "FreshRSS data source error: #{e.message}"
+    end
+
+    def client
+      @client ||= ::FreshRSS::Client.new(
+        base_url: config.fetch(:url),
+        username: config.fetch(:username),
+        api_password: config.fetch(:api_password)
+      )
     end
 
     def limit
