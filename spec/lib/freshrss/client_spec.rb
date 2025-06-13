@@ -3,7 +3,7 @@ require 'freshrss/client'
 RSpec.describe FreshRSS::Client do
   subject do
     described_class.new(
-      base_url: 'https://example.com',
+      instance_url: 'https://example.com',
       username: 'u',
       api_password: 'p'
     )
@@ -25,5 +25,20 @@ RSpec.describe FreshRSS::Client do
 
     result = subject.starred(limit: 10)
     expect(result).to eq('items' => [])
+  end
+
+  it "can receive a config object or parameters" do
+    config = FreshRSS::Config.new do |freshrss|
+      freshrss.instance_url = 'https://example.com'
+      freshrss.username = 'u'
+      freshrss.api_password = 'p'
+    end
+
+    expect(described_class.new(config)).to be_a(FreshRSS::Client)
+
+    both_client = described_class.new(config, api_password: 'x')
+    both_config = both_client.instance_variable_get(:@config)
+    expect(both_config.api_password).to eq('x')
+    expect(both_config.instance_url).to eq('https://example.com')
   end
 end

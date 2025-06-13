@@ -25,11 +25,11 @@ module DataSources
     end
 
     def client
-      @client ||= ::FreshRSS::Client.new(
-        base_url: config.fetch(:url),
-        username: config.fetch(:username),
-        api_password: config.fetch(:api_password)
-      )
+      @client ||= ::FreshRSS::Client.new do |c|
+        c.instance_url = ENV.fetch("FRESHRSS_INSTANCE_URL") { config[:url] }
+        c.username = ENV.fetch("FRESHRSS_USERNAME") { config[:username] }
+        c.api_password = ENV.fetch("FRESHRSS_API_PASSWORD")  { config[:api_password] }
+      end
     end
 
     def limit
