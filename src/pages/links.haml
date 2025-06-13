@@ -15,10 +15,14 @@ styles:
   %ul.posts-list
     - links_sorted_by_date.each do |link|
       %li
-        ★&nbsp;
+        %span
+          != link_icon(link)
+          &nbsp;
         %a{href: link[:url]}= link[:title]
         %aside
           - date = Time.parse(link[:published])
+          = link[:source]
+          •
           %time{datetime: date.iso8601, title: date.strftime("%A, %B %-d, %Y at %H:%M:%S %p")}
             = date.strftime("%Y-%m-%d")
 
