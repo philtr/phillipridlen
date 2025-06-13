@@ -1,0 +1,18 @@
+name: Lint
+
+on:
+  push:
+    branches: [main, master]
+  pull_request:
+
+jobs:
+  StandardRB:
+    runs-on: ubuntu-latest
+    permissions:
+      checks: write
+    steps:
+      - name: "Standard Ruby"
+        uses: "standardrb/standard-ruby-action@v1"
+        with:
+          ruby-version: "3.4.4"
+          autofix: false
