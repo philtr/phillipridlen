@@ -22,7 +22,7 @@ module DataSources
     def fetch_and_cache
       data = client.starred(limit: limit)
       Array(data["items"]).each { |entry| cache_entry(entry) }
-    rescue StandardError => e
+    rescue => e
       warn "FreshRSS data source error: #{e.message}"
     end
 
@@ -30,11 +30,11 @@ module DataSources
       @client ||= ::FreshRSS::Client.new do |c|
         c.instance_url = ENV.fetch("FRESHRSS_INSTANCE_URL") { config[:url] }
         c.username = ENV.fetch("FRESHRSS_USERNAME") { config[:username] }
-        c.api_password = ENV.fetch("FRESHRSS_API_PASSWORD")  { config[:api_password] }
+        c.api_password = ENV.fetch("FRESHRSS_API_PASSWORD") { config[:api_password] }
       end
     end
-    def limit
 
+    def limit
       config.fetch(:limit, 50)
     end
 

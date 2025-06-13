@@ -1,5 +1,5 @@
-require 'active_support/core_ext/string'
-require 'preprocessors/blog'
+require "active_support/core_ext/string"
+require "preprocessors/blog"
 
 class ItemCollection
   def initialize
@@ -19,31 +19,31 @@ class ItemCollection
   end
 end
 
-RSpec.describe 'blog preprocessors' do
+RSpec.describe "blog preprocessors" do
   let(:items) { ItemCollection.new }
-  let(:config) { { drafts: false } }
+  let(:config) { {drafts: false} }
 
   before do
     @items = items
     @config = config
   end
 
-  describe '#blog_post_attributes_from_filename' do
-    it 'sets attributes based on filename' do
-      item = double(identifier: '/posts/notes/2024-01-02-test.md', :[]= => nil)
+  describe "#blog_post_attributes_from_filename" do
+    it "sets attributes based on filename" do
+      item = double(:identifier => "/posts/notes/2024-01-02-test.md", :[]= => nil)
       allow(item).to receive(:[]=)
       items << item
       blog_post_attributes_from_filename
-      expect(item).to have_received(:[]=).with(:post_type, 'note')
-      expect(item).to have_received(:[]=).with(:date, Time.new('2024','01','02'))
-      expect(item).to have_received(:[]=).with(:slug, 'test')
+      expect(item).to have_received(:[]=).with(:post_type, "note")
+      expect(item).to have_received(:[]=).with(:date, Time.new("2024", "01", "02"))
+      expect(item).to have_received(:[]=).with(:slug, "test")
     end
   end
 
-  describe '#blog_post_date_for_drafts' do
-    it 'assigns date to draft items when drafts enabled' do
+  describe "#blog_post_date_for_drafts" do
+    it "assigns date to draft items when drafts enabled" do
       config[:drafts] = true
-      draft = double(:draft, identifier: '/drafts/foo.md')
+      draft = double(:draft, identifier: "/drafts/foo.md")
       allow(draft).to receive(:[]=)
       items << draft
       blog_post_date_for_drafts

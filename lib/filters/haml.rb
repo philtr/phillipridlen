@@ -15,7 +15,9 @@ module NanocFilters
     private
 
     def context = ::Nanoc::Core::Context.new(assigns)
+
     def options(params) = params.merge(filename: filename)
+
     def proc = assigns[:content] ? -> { assigns[:content] } : nil
   end
 end
