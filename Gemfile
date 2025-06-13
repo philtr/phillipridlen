@@ -19,4 +19,5 @@ gem "webrick"
 
 group :test do
   gem "rspec"
+  gem "standard"
 end

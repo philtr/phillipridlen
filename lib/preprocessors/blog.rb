@@ -15,9 +15,9 @@ end
 
 def blog_category_items
   blog_post_items
-    .map { _1[:category].downcase }.uniq
-    .map { {name: _1.titleize, slug: _1.parameterize } }
-    .map { @items.create("", _1, "/categories/#{_1[:slug]}") } 
+    .map { it[:category].downcase }.uniq
+    .map { {name: it.titleize, slug: it.parameterize} }
+    .map { @items.create("", it, "/categories/#{it[:slug]}") }
 end
 
 def blog_post_date_for_drafts

@@ -14,7 +14,7 @@ module Image
 
     def default_params
       {
-        gravity: Magick::CenterGravity,
+        gravity: Magick::CenterGravity
       }
     end
   end

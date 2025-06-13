@@ -1,4 +1,4 @@
-require 'data_sources/filesystem_listener'
+require "data_sources/filesystem_listener"
 
 class DummyListener
   include DataSources::FilesystemListener
@@ -6,10 +6,10 @@ class DummyListener
 end
 
 RSpec.describe DataSources::FilesystemListener do
-  subject { DummyListener.new(content_dir: 'c', layouts_dir: 'l') }
+  subject { DummyListener.new(content_dir: "c", layouts_dir: "l") }
 
-  it 'returns directories from config' do
-    expect(subject.send(:dir_for, :content)).to eq('c')
-    expect(subject.send(:dir_for, :layouts)).to eq('l')
+  it "returns directories from config" do
+    expect(subject.send(:dir_for, :content)).to eq("c")
+    expect(subject.send(:dir_for, :layouts)).to eq("l")
   end
 end

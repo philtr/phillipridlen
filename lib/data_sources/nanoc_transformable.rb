@@ -5,7 +5,9 @@ module DataSources
     # file attachments, etc.
     module Binary
       def self.included(base) = include(NanocTransformable)
+
       def binary? = true
+
       def filename_or_content = filename
     end
 
@@ -13,12 +15,16 @@ module DataSources
     # textual, such as a database record or external API call.
     module Textual
       def self.included(base) = include(NanocTransformable)
+
       def binary? = false
+
       def filename_or_content = content
     end
 
     def filename = attributes.fetch(:filename)
+
     def content = attributes.fetch(:content)
+
     def identifier = Nanoc::Core::Identifier.new(filename)
 
     def to_nanoc_item(data_source)
@@ -34,8 +40,8 @@ module DataSources
     # raise an error.
     unless method_defined?(:filename_or_content)
       def filename_or_content =
-        raise "Must include or extend `NanocTransformable::Binary`" +
-              "or `NanocTransformable::Textual`"
+        raise "Must include or extend `NanocTransformable::Binary`" \
+          "or `NanocTransformable::Textual`"
     end
   end
 end

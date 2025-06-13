@@ -12,9 +12,9 @@ compile "/posts/**/*.md" do
   layout "/post.*"
   filter :typogruby
 
-  category      = @item[:category].downcase
-  yyyy, mm, dd  = @item[:date].strftime("%Y/%m/%d").split("/")
-  slug          = @item[:slug]
+  category = @item[:category].downcase
+  yyyy, mm, dd = @item[:date].strftime("%Y/%m/%d").split("/")
+  slug = @item[:slug]
 
   write "/notes/#{category}/#{yyyy}/#{mm}/#{dd}/#{slug}/index.html"
 end
