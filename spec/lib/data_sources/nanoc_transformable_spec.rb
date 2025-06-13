@@ -1,27 +1,27 @@
-require 'phillip_ridlen/data_sources/nanoc_transformable'
+require 'data_sources/nanoc_transformable'
 
 class DummyBinary
-  include PhillipRidlen::DataSources::NanocTransformable::Binary
+  include DataSources::NanocTransformable::Binary
 
   attr_reader :attributes
   def initialize(attrs) = @attributes = attrs
 end
 
 class DummyTextual
-  include PhillipRidlen::DataSources::NanocTransformable::Textual
+  include DataSources::NanocTransformable::Textual
 
   attr_reader :attributes
   def initialize(attrs) = @attributes = attrs
 end
 
 class DummyNoMode
-  include PhillipRidlen::DataSources::NanocTransformable
+  include DataSources::NanocTransformable
 
   attr_reader :attributes
   def initialize(attrs) = @attributes = attrs
 end
 
-RSpec.describe PhillipRidlen::DataSources::NanocTransformable do
+RSpec.describe DataSources::NanocTransformable do
   let(:ds) { double('data_source') }
 
   it 'builds binary nanoc items' do
