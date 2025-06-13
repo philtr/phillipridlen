@@ -1,6 +1,9 @@
 ---
 layout: master
 description: "I'm a software engineer weaving code in Texas."
+styles:
+  - home
+  - posts/list
 ---
 
 .mister-ridlen
@@ -21,3 +24,30 @@ description: "I'm a software engineer weaving code in Texas."
   ---
 
   Feel free to get in touch directly: <#{site_config.email}>.
+
+%section.home-columns
+  .home-column
+    %h2 Recent Notes
+    %ul.posts-list
+      - posts_sorted_by_date.first(5).each do |post|
+        %li
+          != link_to post[:title], post
+    %p.view-more
+      != link_to 'View more \u2192', '/notes'
+  .home-column
+    %h2 Recent Photos
+    %section.photos
+      - photos_sorted_by_date.first(4).each do |photo|
+        .photo
+          %a{href: photo.path}
+            %img.thumbnail{src: photo.path(rep: :thumbnail)}
+    %p.view-more
+      != link_to 'View more \u2192', '/photos'
+  .home-column
+    %h2 Recent Links
+    %ul.posts-list
+      - links_sorted_by_date.first(5).each do |link|
+        %li
+          %a{href: link[:url]}= link[:title]
+    %p.view-more
+      != link_to 'View more \u2192', '/links'

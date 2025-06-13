@@ -2,6 +2,7 @@
 # Provides site configuration accessors and utilities for posts and photos.
 #
 require "bundler"
+require "time"
 Bundler.require
 
 use_helper Nanoc::Helpers::LinkTo
@@ -70,6 +71,29 @@ end
 
 def photos_grouped_by_year
   photos.group_by { |item| item[:date].year }
+end
+
+def photos_sorted_by_date(list = photos(), direction: :desc)
+  list.sort_by do |item|
+    case direction
+    when :asc then item.fetch(:date) - Time.now
+    when :desc then Time.now - item.fetch(:date)
+    end
+  end
+end
+
+def links
+  @items.find_all("/links/**/*")
+end
+
+def links_sorted_by_date(items = links, direction: :desc)
+  items.sort_by do |item|
+    date = Time.parse(item.fetch(:published))
+    case direction
+    when :asc then date - Time.now
+    when :desc then Time.now - date
+    end
+  end
 end
 
 def git_tag = @git_tag ||= `git describe --tags --abbrev=0`.chomp

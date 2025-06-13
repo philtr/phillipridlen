@@ -1,0 +1,25 @@
+.home-columns {
+  display: grid;
+  gap: var(--gutter);
+}
+
+@media screen and (min-width: 100ch) {
+  .home-columns {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.home-column h2 {
+  margin-top: 0;
+}
+
+.home-column ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+.view-more {
+  text-align: right;
+  font-size: 0.8rem;
+}
