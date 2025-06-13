@@ -82,3 +82,10 @@ data_sources:
     content_dir: src/links/freshrss
     items_root: /links/freshrss/
     limit: 50
+
+  - name: "YouTube"
+    type: youtube
+    content_dir: src/links/youtube
+    items_root: /links/youtube
+    playlists:
+      - https://www.youtube.com/playlist?list=PLBLy6gcs2twdhXFnQtV7NAP6XhMhQ8ZSJ
