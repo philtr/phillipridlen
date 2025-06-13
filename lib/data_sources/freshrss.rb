@@ -1,5 +1,7 @@
+require "base64"
 require "nanoc/data_sources/filesystem"
 require "yaml"
+
 require_relative "../freshrss/client"
 
 module DataSources
@@ -31,8 +33,8 @@ module DataSources
         c.api_password = ENV.fetch("FRESHRSS_API_PASSWORD")  { config[:api_password] }
       end
     end
-
     def limit
+
       config.fetch(:limit, 50)
     end
 
@@ -46,7 +48,7 @@ module DataSources
     end
 
     def sanitize_id(id)
-      id.gsub(/[^0-9A-Za-z_-]/, "_")
+      Base64.urlsafe_encode64(id, padding: false)
     end
 
     def build_document(entry)
@@ -54,11 +56,11 @@ module DataSources
         "title" => entry["title"],
         "url" => entry.dig("alternate", 0, "href"),
         "published" => Time.at(entry["published"]).to_s,
-        "source" => "FreshRSS",
+        "source" => "FreshRSS"
       }
       frontmatter = attrs.to_yaml.chomp
-      content = entry["content"] || entry["summary"] || ""
-      "---\n#{frontmatter}\n---\n#{content}\n"
+      content = entry.dig("summary", "content")
+      [frontmatter, content].join("\n---\n")
     end
   end
 end
