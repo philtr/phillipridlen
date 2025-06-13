@@ -1,6 +1,6 @@
-require 'phillip_ridlen/data_sources/exif'
+require 'data_sources/exif'
 
-RSpec.describe PhillipRidlen::DataSources::Exif do
+RSpec.describe DataSources::Exif do
   subject do
     described_class.new({}, '/', '/', content_dir: 'photos', ext: %w[jpg png])
   end

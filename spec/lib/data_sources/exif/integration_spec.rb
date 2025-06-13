@@ -1,8 +1,8 @@
-require 'phillip_ridlen/data_sources/exif'
+require 'data_sources/exif'
 require 'rmagick'
 require 'tmpdir'
 
-RSpec.describe PhillipRidlen::DataSources::Exif do
+RSpec.describe DataSources::Exif do
   let(:tmpdir) { Dir.mktmpdir }
   let(:filename) { File.join(tmpdir, 'test.jpg') }
 

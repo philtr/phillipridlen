@@ -1,7 +1,7 @@
-require 'phillip_ridlen/data_sources/exif'
-require 'phillip_ridlen/data_sources/exif/item'
+require 'data_sources/exif'
+require 'data_sources/exif/item'
 
-RSpec.describe PhillipRidlen::DataSources::Exif::Item do
+RSpec.describe DataSources::Exif::Item do
   let(:exif_hash) do
     {
       image_description: 'Sunset',
