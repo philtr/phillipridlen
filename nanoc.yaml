@@ -76,3 +76,10 @@ data_sources:
     type: filesystem
     content_dir: src/images
     items_root: /images/
+
+  - name: "FreshRSS Starred"
+    type: freshrss
+    content_dir: src/links/freshrss
+    items_root: /links/freshrss/
+    url: https://example.com/api
+    limit: 50
