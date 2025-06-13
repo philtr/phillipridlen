@@ -20,34 +20,48 @@ styles:
         [now]: /now/
         [photos]: /photos/
 
-:markdown
-  ---
-
-  Feel free to get in touch directly: <#{site_config.email}>.
+%hr
 
 %section.home-columns
   .home-column
-    %h2 Recent Notes
+    %h3 Recent Notes
+    :markdown
+      _Blog posts, thoughts, and other notes I've written. While I have used AI
+      fairly heavily in the development of this site, the content here is all my
+      own words._
     %ul.posts-list
       - posts_sorted_by_date.first(5).each do |post|
         %li
           != link_to post[:title], post
     %p.view-more
-      != link_to 'View more \u2192', '/notes'
+      != link_to "View more →", "/notes"
   .home-column
-    %h2 Recent Photos
+    %h3 Recent Photos
+    :markdown
+      _Photos I've taken and I'm proud of. Doesn't mean they're great. If they
+      were AI-generated, they would be a lot better._
     %section.photos
-      - photos_sorted_by_date.first(4).each do |photo|
+      - photos_sorted_by_date.first(9).each do |photo|
         .photo
           %a{href: photo.path}
             %img.thumbnail{src: photo.path(rep: :thumbnail)}
     %p.view-more
-      != link_to 'View more \u2192', '/photos'
+      != link_to "View more →", "/photos"
   .home-column
-    %h2 Recent Links
+    %h3 Recent Links
+    :markdown
+      _Links to articles, videos, and other things I've found interesting. A
+      link here is not necessarily an endorsement._
     %ul.posts-list
       - links_sorted_by_date.first(5).each do |link|
         %li
+          ★&nbsp;
           %a{href: link[:url]}= link[:title]
     %p.view-more
-      != link_to 'View more \u2192', '/links'
+      != link_to "View more →", "/links"
+
+:markdown
+  ---
+
+  Feel free to get in touch directly: <#{site_config.email}>.
+
