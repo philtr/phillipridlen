@@ -17,7 +17,8 @@ gem "rouge"
 gem "typogruby"
 gem "webrick"
 
-group :test do
+group :develompent, :test do
+  gem "rdoc"
   gem "rspec"
   gem "standard"
 end
