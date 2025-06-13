@@ -1,3 +1,6 @@
+# Main Nanoc rules configuration.
+# Loads rule sets for different parts of the site and defines catch-all behavior.
+#
 # Rules
 #
 # Try to keep the number of rules defined in this file to a minimum.

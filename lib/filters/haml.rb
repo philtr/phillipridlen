@@ -1,3 +1,6 @@
+# Custom Haml filter used by Nanoc.
+# Wraps the standard Haml template rendering with Nanoc context helpers.
+#
 require "haml"
 
 module NanocFilters

@@ -1,3 +1,6 @@
+# Represents a single image with EXIF metadata.
+# Provides helper methods for building a Nanoc item from an image file.
+#
 require "exiftool_vendored"
 
 require_relative "../nanoc_transformable"

@@ -1,3 +1,6 @@
+# Preprocessor helpers for blog-related items.
+# Extracts metadata from filenames and creates category pages.
+#
 POST_REGEX = %r{\A/posts/(link|note)s/(\d+)-(\d+)-(\d+)-(.+).md\z}
 
 def blog_post_items

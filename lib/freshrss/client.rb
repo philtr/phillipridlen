@@ -1,3 +1,6 @@
+# Simple HTTP client for the FreshRSS API.
+# Supports fetching the list of starred items using Google Reader compatible endpoints.
+#
 require "json"
 require "net/http"
 require "uri"

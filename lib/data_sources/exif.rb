@@ -1,3 +1,6 @@
+# Data source that loads EXIF information from image files.
+# Each image becomes a Nanoc item with metadata parsed from EXIF tags.
+#
 require "nanoc/data_sources/filesystem"
 
 module DataSources

@@ -1,3 +1,6 @@
+# Rules for Haml templates.
+# Haml content is filtered and written using the default layout.
+#
 # Haml
 compile "/**/*.haml" do
   filter :haml

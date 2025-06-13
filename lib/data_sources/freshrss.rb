@@ -1,3 +1,6 @@
+# Data source that fetches starred items from a FreshRSS instance.
+# Fetched entries are cached as Markdown files under the configured directory.
+#
 require "base64"
 require "nanoc/data_sources/filesystem"
 require "yaml"

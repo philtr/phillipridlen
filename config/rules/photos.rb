@@ -1,3 +1,6 @@
+# Rules for processing photo items.
+# Generates resized representations for original, medium, and thumbnail images.
+#
 compile "/photos/**/*.jpg", rep: :original do
   slug = item[:title].parameterize
   date = item[:date].strftime("%Y/%m")

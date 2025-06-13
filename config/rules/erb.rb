@@ -1,3 +1,6 @@
+# Rules for compiling ERB templates.
+# Each template is rendered and written with the default layout.
+#
 # ERB
 compile "/**/*.erb" do
   filter :erb
