@@ -27,4 +27,22 @@ RSpec.describe "helpers" do
       expect(posts_sorted_by_date([a, b])).to eq([b, a])
     end
   end
+
+  describe "#photos_sorted_by_date" do
+    it "sorts photos by date descending" do
+      now = Time.now
+      a = {date: now - 1}
+      b = {date: now}
+      expect(photos_sorted_by_date([a, b])).to eq([b, a])
+    end
+  end
+
+  describe "#links_sorted_by_date" do
+    it "sorts links by published date descending" do
+      now = Time.now
+      a = {published: (now - 1).to_s}
+      b = {published: now.to_s}
+      expect(links_sorted_by_date([a, b])).to eq([b, a])
+    end
+  end
 end

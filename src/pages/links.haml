@@ -1,0 +1,14 @@
+---
+layout: master
+description: "Interesting links from around the web."
+styles:
+  - posts/list
+---
+
+%h1#links Links
+
+%section.posts
+  %ul.posts-list
+    - links_sorted_by_date.each do |link|
+      %li
+        %a{href: link[:url]}= link[:title]
