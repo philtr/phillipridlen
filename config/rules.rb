@@ -10,8 +10,8 @@ layout "/**/*", :erb
 # Rules for Specific Items
 include_rules "config/rules/home"
 include_rules "config/rules/errors"
-
 include_rules "config/rules/resources"
+
 # Rules for Speconfig/cial Groups of Items
 include_rules "config/rules/blog"
 include_rules "config/rules/photos"
