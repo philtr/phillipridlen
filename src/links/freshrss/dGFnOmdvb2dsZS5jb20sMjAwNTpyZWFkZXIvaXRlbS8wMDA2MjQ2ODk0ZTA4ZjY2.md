@@ -1,0 +1,36 @@
+---
+title: Introducing Solid Queue
+url: https://dev.37signals.com/introducing-solid-queue/
+published: '2023-12-17 18:00:00 -0600'
+source: FreshRSS
+---
+<p>We’ve just open-sourced <a href="https://github.com/basecamp/solid_queue">Solid Queue</a>, a new backend for <a href="https://edgeguides.rubyonrails.org/active_job_basics.html">Active Job</a> that we use in <a href="https://www.hey.com/">HEY</a> to run about 1/3 of our roughly 18 million jobs per day. We’ll be moving more jobs in the coming days until we run HEY exclusively using Solid Queue. Besides regular job enqueuing and processing, Solid Queue supports delayed jobs, concurrency controls, pausing queues, numeric priorities per job, and priorities by queue order. Unique jobs and recurring, cron-like tasks are coming very soon.</p>
+
+<p>At 37signals, we’ve been running <a href="https://github.com/resque/resque">Resque</a> and <a href="https://redis.io/">Redis</a> for many years. They’ve served us really well, and I am personally a big fan of Redis and Resque, but we’ve also faced a number of challenges using and operating it at scale and had some needs that Resque alone didn’t support. Some of these could be solved with known plugins such as <a href="https://github.com/resque/resque-scheduler">resque-scheduler</a> or <a href="https://github.com/resque/resque-pool">resque-pool</a>, and others required building our own libraries and supporting tools. As of now, we still need seven different gems just to run jobs in Basecamp and HEY with Resque. This is a section from our <code data-sanitized-class="language-plaintext highlighter-rouge">Gemfile</code> in Basecamp:</p>
+
+<div data-sanitized-class="language-ruby highlighter-rouge"><div data-sanitized-class="highlight"><pre data-sanitized-class="highlight"><code><span data-sanitized-class="c1"># Jobs</span>
+<span data-sanitized-class="n">gem</span> <span data-sanitized-class="s2">"resque"</span><span data-sanitized-class="p">,</span> <span data-sanitized-class="s2">"~&gt; 2.0.0"</span>
+<span data-sanitized-class="n">gem</span> <span data-sanitized-class="s2">"resque_supervised_fork"</span><span data-sanitized-class="p">,</span> <span data-sanitized-class="ss">bc: </span><span data-sanitized-class="s2">"resque_supervised_fork"</span>
+<span data-sanitized-class="n">gem</span> <span data-sanitized-class="s2">"resque-pool"</span><span data-sanitized-class="p">,</span> <span data-sanitized-class="ss">bc: </span><span data-sanitized-class="s2">"resque-pool"</span>
+<span data-sanitized-class="n">gem</span> <span data-sanitized-class="s2">"resque-scheduler"</span><span data-sanitized-class="p">,</span> <span data-sanitized-class="ss">github: </span><span data-sanitized-class="s2">"resque/resque-scheduler"</span>
+<span data-sanitized-class="n">gem</span> <span data-sanitized-class="s2">"resque-pause"</span><span data-sanitized-class="p">,</span> <span data-sanitized-class="ss">bc: </span><span data-sanitized-class="s2">"resque-pause"</span>
+<span data-sanitized-class="n">gem</span> <span data-sanitized-class="s2">"sequential_jobs"</span><span data-sanitized-class="p">,</span> <span data-sanitized-class="ss">bc: </span><span data-sanitized-class="s2">"sequential_jobs"</span>
+<span data-sanitized-class="n">gem</span> <span data-sanitized-class="s2">"scheduled_job"</span><span data-sanitized-class="p">,</span> <span data-sanitized-class="ss">bc: </span><span data-sanitized-class="s2">"scheduled_job"</span>
+</code></pre></div></div>
+
+<p>Looking at this with fresh eyes and with the experience we gained from <a href="https://dev.37signals.com/solid-cache/">Solid Cache</a>, we thought that we could return to using a database to run our jobs instead of relying on Redis, much like when <a href="https://github.com/tobi/delayed_job">delayed_job</a> was more widely used. Our goal was to enable developers to install Rails, set up a database, and have background job processing right out of the box without having to manage seven different gems and other systems. We reviewed the whole ecosystem of backends for Active Job, and in particular, <a href="https://github.com/bensheldon/good_job">GoodJob</a> stood out, but unfortunately, it is built only for PostgreSQL. We don’t use PostgreSQL at 37signals, and for a backend that could aspire to become the new Rails default, we needed to support MySQL, PostgreSQL, and SQLite at a minimum.</p>
+
+<p>Performance is typically the primary reason for relying on Redis to run background jobs. However, as GoodJob demonstrates, it’s possible to develop a performant queuing system using a database, provided the system is designed appropriately. In our case, one feature that <a href="https://www.postgresql.org/docs/current/sql-select.html#SQL-FOR-UPDATE-SHARE">PostgreSQL has had for quite some time</a> and <a href="https://dev.mysql.com/blog-archive/mysql-8-0-1-using-skip-locked-and-nowait-to-handle-hot-rows/">that was finally introduced in MySQL 8</a> has been crucial to our implementation:</p>
+
+<div data-sanitized-class="language-sql highlighter-rouge"><div data-sanitized-class="highlight"><pre data-sanitized-class="highlight"><code><span data-sanitized-class="k">SELECT</span> <span data-sanitized-class="p">...</span> <span data-sanitized-class="k">FOR</span> <span data-sanitized-class="k">UPDATE</span> <span data-sanitized-class="n">SKIP</span> <span data-sanitized-class="n">LOCKED</span>
+</code></pre></div></div>
+
+<p>This allows Solid Queue’s workers to fetch and lock jobs without locking other workers. Furthermore, we designed the system so that jobs that are being processed, waiting to be scheduled in the future, failed and needing manual intervention, or blocked because of concurrency limits are isolated from jobs ready to be executed. This design allows us to keep the table that workers poll as small as possible. Finally, our strategy to select jobs makes use of a covering index that we can also use for sorting, enabling us to support both ordered named queues and priorities with very fast, non-blocking queries. Currently, with around 5.6 million jobs executed daily, we perform around 1,300 polling queries per second, with an average query time of 110 µs and examination of 0.02 rows per query.</p>
+
+<p>After a few weeks of using Solid Queue for our most critical jobs in HEY, the main benefit we’ve already reaped has been simplicity and ease of operation. Having everything stored in a relational DB, interfaced by Active Record, has made debugging job-related issues significantly easier compared to troubleshooting issues with Resque. Additionally, we’ve built a dashboard called <em>Mission Control</em> to observe and operate jobs that we’re using for both Resque and Solid Queue. We plan to open-source Mission Control early next year to complement Solid Queue.</p>
+
+<p><a href="https://rubygems.org/gems/solid_queue">Version 0.1.1</a> is available now. You can read more on <a href="https://github.com/basecamp/solid_queue#readme">GitHub</a>.</p><figure class="enclosure">
+	<p class="enclosure-content">
+		<img class="enclosure-thumbnail" src="https://dev.37signals.com/assets/images/opengraph/introducing-solid-queue.png" alt="" />
+	</p>
+</figure>

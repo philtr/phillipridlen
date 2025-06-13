@@ -3,7 +3,7 @@
   --mauve-500: #41324f;
   --mauve-400: #716d7e;
   --mauve-100: #afabba;
-  --mauve-50:  #eeedeb;
+  --mauve-50: #eeedeb;
 
   --teal: #2e9ea0;
 
@@ -11,7 +11,7 @@
   --bright-pink: #c5388c;
 
   --dark-white: #f4f3f7;
- 
+
   --primary-text-color: var(--mauve-500);
   --dim-text-color: var(--mauve-400);
   --pale-text-color: var(--mauve-100);
@@ -37,7 +37,7 @@
   --gutter: 2rem;
 }
 
-@media(prefers-color-scheme: dark) {
+@media (prefers-color-scheme: dark) {
   :root {
     --primary-text-color: var(--mauve-50);
     --dim-text-color: var(--mauve-100);
@@ -68,15 +68,17 @@ body {
 .container {
   padding: var(--gutter);
   margin: 0 auto;
-  max-width: 45rem;
+  max-width: 55rem;
 
-  &.wide { max-width: 70rem; }
+  &.wide {
+    max-width: 70rem;
+  }
 }
 
 h1.brand {
   font-size: 1.5rem;
   line-height: 4rem;
-  
+
   a {
     text-decoration: none;
   }
@@ -90,7 +92,8 @@ a {
   }
 }
 
-.header-link, .header-link a {
+.header-link,
+.header-link a {
   color: var(--primary-text-color);
   text-decoration: none;
 }

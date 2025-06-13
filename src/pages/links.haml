@@ -1,6 +1,6 @@
 ---
 layout: master
-description: "Interesting links from around the web."
+description: Interesting links from around the web."
 styles:
   - posts/list
 ---
@@ -8,7 +8,17 @@ styles:
 %h1#links Links
 
 %section.posts
+  %p.intro
+    Links to articles, videos, and other things I've found interesting. A link
+    here is not necessarily an endorsement.
+
   %ul.posts-list
     - links_sorted_by_date.each do |link|
       %li
+        ★&nbsp;
         %a{href: link[:url]}= link[:title]
+        %aside
+          - date = Time.parse(link[:published])
+          %time{datetime: date.iso8601, title: date.strftime("%A, %B %-d, %Y at %H:%M:%S %p")}
+            = date.strftime("%Y-%m-%d")
+
