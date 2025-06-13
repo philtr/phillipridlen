@@ -1,3 +1,6 @@
+# Mixins for turning arbitrary objects into Nanoc items.
+# Provides Binary and Textual helpers to expose content for the Nanoc compiler.
+#
 module DataSources
   # Adds a `to_nanoc_item` method to an object or class
   module NanocTransformable

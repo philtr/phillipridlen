@@ -1,3 +1,6 @@
+# Configuration container for the FreshRSS client.
+# Stores connection details such as instance URL and credentials.
+#
 module FreshRSS
   class Config
     attr_reader :instance_url, :username, :api_password

@@ -1,3 +1,6 @@
+# Image processing filters using RMagick.
+# Provides resize helpers used for photo representations.
+#
 require "rmagick"
 
 module Image

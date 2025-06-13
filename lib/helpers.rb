@@ -1,3 +1,6 @@
+# Helper methods used in Nanoc templates.
+# Provides site configuration accessors and utilities for posts and photos.
+#
 require "bundler"
 Bundler.require
 

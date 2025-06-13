@@ -1,3 +1,6 @@
+# Compilation rules for blog posts and categories.
+# Defines preprocess helpers and output paths used for notes and drafts.
+#
 preprocess do
   blog_post_attributes_from_filename
   blog_post_date_for_drafts

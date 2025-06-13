@@ -1,1 +1,4 @@
+# Entry point for Nanoc rule definitions
+# Loads all rule files from +config/rules+.
+# See those files for compilation details.
 include_rules "config/rules"

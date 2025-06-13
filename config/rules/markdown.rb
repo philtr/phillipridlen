@@ -1,3 +1,6 @@
+# Rules for compiling Markdown sources.
+# Content is rendered through ERB and Kramdown before layout and typogruby are applied.
+#
 # Markdown
 compile "/**/*.md" do
   filter :erb
