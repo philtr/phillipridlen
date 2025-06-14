@@ -3,6 +3,7 @@ require "nanoc/data_sources/filesystem"
 require "yaml"
 
 require_relative "../freshrss/client"
+require_relative "../link_extractors/dispatcher"
 
 module DataSources
   # Data source that fetches starred items from a FreshRSS instance.
@@ -57,13 +58,18 @@ module DataSources
     def build_document(entry)
       attrs = {
         "title" => entry["title"],
-        "url" => entry.dig("alternate", 0, "href"),
+        "url" => extract_url(entry),
         "published" => Time.at(entry["published"]).to_s,
         "source" => "FreshRSS"
       }
       frontmatter = attrs.to_yaml.chomp
       content = entry.dig("summary", "content")
       [frontmatter, content].join("\n---\n")
+    end
+
+    def extract_url(entry)
+      @link_dispatcher ||= LinkExtractors::Dispatcher.new
+      @link_dispatcher.call(entry)
     end
   end
 end

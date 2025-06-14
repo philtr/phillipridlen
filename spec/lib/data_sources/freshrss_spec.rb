@@ -24,6 +24,14 @@ RSpec.describe DataSources::FreshRSS do
           "alternate" => [{"href" => "https://example.com/story"}],
           "published" => 1,
           "content" => "Body"
+        },
+        {
+          "id" => "tag:example.com,2024:item/2",
+          "title" => "DF",
+          "origin" => {"title" => "Daring Fireball"},
+          "content" => {"content" => "<p><a href='https://daringfireball.net/linked/2024/06/01/foo'>link</a></p>"},
+          "alternate" => [{"href" => "https://example.com/external"}],
+          "published" => 2
         }
       ]
     }
@@ -63,5 +71,14 @@ RSpec.describe DataSources::FreshRSS do
     File.write(file, "old")
     subject.items
     expect(File.read(file)).to eq("old")
+  end
+
+  it "extracts daring fireball linked list permalink" do
+    subject.items
+    encoded_id = Base64.urlsafe_encode64("tag:example.com,2024:item/2", padding: false)
+    file = File.join(tmpdir, "#{encoded_id}.md")
+    yaml = File.read(file)[/\A---\n(.*?)\n---/m, 1]
+    data = YAML.safe_load(yaml)
+    expect(data["url"]).to eq("https://daringfireball.net/linked/2024/06/01/foo")
   end
 end
