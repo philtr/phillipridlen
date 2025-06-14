@@ -89,3 +89,10 @@ data_sources:
     items_root: /links/youtube
     playlists:
       - https://www.youtube.com/playlist?list=PLBLy6gcs2twdhXFnQtV7NAP6XhMhQ8ZSJ
+
+  - name: "Linkding"
+    type: linkding
+    content_dir: src/links/linkding
+    items_root: /links/linkding
+    limit: 100
+    tags: []

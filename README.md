@@ -8,8 +8,8 @@ helpers.
 
 1. Install Ruby 3.4 and Bundler.
 1. Run `bundle install` to fetch the gems.
-1. Copy `env.example` to `.env` and add FreshRSS settings (assuming you have
-   something like [direnv] installed)
+1. Copy `env.example` to `.env` and add FreshRSS and Linkding settings
+   (assuming you have something like [direnv] installed)
 1. Use `bundle exec nanoc live` to start a local server or
    `bundle exec nanoc compile` to generate the static files.
 
