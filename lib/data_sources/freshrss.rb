@@ -3,7 +3,7 @@ require "nanoc/data_sources/filesystem"
 require "yaml"
 
 require_relative "../freshrss/client"
-require_relative "../link_extractors/dispatcher"
+require_relative "../freshrss/link_extractors/dispatcher"
 
 module DataSources
   # Data source that fetches starred items from a FreshRSS instance.
@@ -68,7 +68,7 @@ module DataSources
     end
 
     def extract_url(entry)
-      @link_dispatcher ||= LinkExtractors::Dispatcher.new
+      @link_dispatcher ||= ::FreshRSS::LinkExtractors::Dispatcher.new
       @link_dispatcher.call(entry)
     end
   end

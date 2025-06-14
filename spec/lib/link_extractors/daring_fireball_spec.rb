@@ -1,6 +1,6 @@
-require "link_extractors/daring_fireball"
+require "freshrss/link_extractors/daring_fireball"
 
-RSpec.describe LinkExtractors::DaringFireball do
+RSpec.describe FreshRSS::LinkExtractors::DaringFireball do
   subject { described_class.new }
 
   it "returns nil for non DF entries" do

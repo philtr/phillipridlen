@@ -1,6 +1,6 @@
-require "link_extractors/dispatcher"
+require "freshrss/link_extractors/dispatcher"
 
-RSpec.describe LinkExtractors::Dispatcher do
+RSpec.describe FreshRSS::LinkExtractors::Dispatcher do
   it "returns first non-nil result" do
     first = double(call: nil)
     second = double(call: "url")

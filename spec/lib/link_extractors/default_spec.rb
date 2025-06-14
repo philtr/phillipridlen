@@ -1,6 +1,6 @@
-require "link_extractors/default"
+require "freshrss/link_extractors/default"
 
-RSpec.describe LinkExtractors::Default do
+RSpec.describe FreshRSS::LinkExtractors::Default do
   subject { described_class.new }
 
   it "returns alternate href when present" do
