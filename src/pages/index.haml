@@ -55,9 +55,8 @@ styles:
     %ul.posts-list
       - links_sorted_by_date.first(5).each do |link|
         %li
-          %span
+          %span.icon
             != link_icon(link)
-            &nbsp;
           %a{href: link[:url]}= link[:title]
     %p.view-more
       != link_to "View more →", "/links"

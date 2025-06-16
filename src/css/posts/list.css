@@ -32,8 +32,12 @@ section.posts {
     width: 19rem;
     margin-right: 2rem;
 
-    &:nth-child(2n+1) { order: 1; }
-    &:nth-child(2n)   { order: 2; }
+    &:nth-child(2n + 1) {
+      order: 1;
+    }
+    &:nth-child(2n) {
+      order: 2;
+    }
   }
 }
 
@@ -72,5 +76,12 @@ ul.posts-list {
       font-size: 0.75rem;
       text-align: right;
     }
+  }
+
+  li .icon {
+    display: table-cell;
+    padding-bottom: 0.5rem;
+    padding-right: 0.5rem;
+    vertical-align: middle;
   }
 }
