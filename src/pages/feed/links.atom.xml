@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title>Phillip's Links</title>
+  <link href="<%= site_config.base_url %>/feed/links.atom.xml" rel="self"/>
+  <link href="<%= site_config.base_url %>"/>
+  <updated><%= Time.parse(links_sorted_by_date.first[:published]).xmlschema %></updated>
+  <id><%= site_config.base_url.encode(xml: :text) %></id>
+  <author>
+    <name><%= site_config.author.encode(xml: :text) %></name>
+    <email><%= site_config.email.encode(xml: :text) %></email>
+  </author>
+
+  <icon><%= site_config.base_url.encode(xml: :text) %>/images/favicon/favicon-180.png</icon>
+  <logo><%= site_config.base_url.encode(xml: :text) %>/images/phillipridlen.png</logo>
+
+  <% links_sorted_by_date(direction: :desc).each do |link| %>
+  <entry>
+    <title><%= link[:title].encode(xml: :text) %></title>
+    <link href="<%= site_config.base_url + link.path %>"/>
+    <updated><%= Time.parse(link[:published]).xmlschema %></updated>
+    <id><%= site_config.base_url.encode(xml: :text) + link.path.encode(xml: :text) %></id>
+    <content type="html">
+      <%= link.compiled_content.encode(xml: :text) %>
+    </content>
+  </entry>
+  <% end %>
+</feed>

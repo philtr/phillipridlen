@@ -32,3 +32,13 @@ compile "/photos/**/*.jpg" do
 
   write "/photos/#{date}/#{slug}/index.html"
 end
+
+compile "/feed/photos.atom.xml" do
+  filter :erb
+  write item.identifier
+end
+
+compile "/feed/photos.json" do
+  filter :erb
+  write item.identifier.without_ext
+end

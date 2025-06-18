@@ -18,6 +18,7 @@ include_rules "config/rules/resources"
 # Rules for Speconfig/cial Groups of Items
 include_rules "config/rules/blog"
 include_rules "config/rules/photos"
+include_rules "config/rules/links"
 
 # Rules for Speconfig/cific File Extensions
 include_rules "config/rules/erb"

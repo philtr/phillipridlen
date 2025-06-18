@@ -96,6 +96,22 @@ def links_sorted_by_date(items = links, direction: :desc)
   end
 end
 
+def item_date(item)
+  if item[:date]
+    item[:date]
+  elsif item[:published]
+    Time.parse(item[:published])
+  else
+    Time.now
+  end
+end
+
+def everything_sorted_by_date(direction: :desc)
+  combined = all_posts + photos + links
+  sorted = combined.sort_by { |i| item_date(i) }
+  (direction == :desc) ? sorted.reverse : sorted
+end
+
 # Uses font awesome size XS SVG icons
 def link_icon(item)
   case item[:source]&.downcase

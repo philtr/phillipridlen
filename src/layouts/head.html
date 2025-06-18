@@ -5,7 +5,14 @@
 
 <title><%= @item.attributes.fetch(:title) + " | " if @item.attributes[:title] %>Phillip Ridlen</title>
 
-<link href="<%= site_config.base_url %>/atom.xml" rel="alternate" title="Phillip's Notes" type="application/atom+xml" />
+<link href="<%= site_config.base_url %>/feed/all.atom.xml" rel="alternate" title="Phillip's Updates (Atom)" type="application/atom+xml" />
+<link href="<%= site_config.base_url %>/feed/all.json" rel="alternate" title="Phillip's Updates (JSON)" type="application/json" />
+<link href="<%= site_config.base_url %>/feed/notes.atom.xml" rel="alternate" title="Phillip's Notes (Atom)" type="application/atom+xml" />
+<link href="<%= site_config.base_url %>/feed/notes.json" rel="alternate" title="Phillip's Notes (JSON)" type="application/json" />
+<link href="<%= site_config.base_url %>/feed/photos.atom.xml" rel="alternate" title="Phillip's Photos (Atom)" type="application/atom+xml" />
+<link href="<%= site_config.base_url %>/feed/photos.json" rel="alternate" title="Phillip's Photos (JSON)" type="application/json" />
+<link href="<%= site_config.base_url %>/feed/links.atom.xml" rel="alternate" title="Phillip's Links (Atom)" type="application/atom+xml" />
+<link href="<%= site_config.base_url %>/feed/links.json" rel="alternate" title="Phillip's Links (JSON)" type="application/json" />
 
 <link href="/css/main.css" rel="stylesheet" type="text/css">
 <% @item.fetch(:styles, []).each do |style| %>

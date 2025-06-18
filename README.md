@@ -11,9 +11,23 @@ helpers.
 1. Copy `env.example` to `.env` and add FreshRSS and Linkding settings
    (assuming you have something like [direnv] installed)
 1. Use `bundle exec nanoc live` to start a local server or
-   `bundle exec nanoc compile` to generate the static files.
+
+`bundle exec nanoc compile` to generate the static files.
 
 [direnv]: https://direnv.net
+
+## Atom Feeds
+
+Several feeds are available under `/feed/`:
+
+- `/feed/all.atom.xml` – combined notes, photos, and links (Atom)
+- `/feed/all.json` – combined notes, photos, and links (JSON)
+- `/feed/notes.atom.xml` – notes only (Atom)
+- `/feed/notes.json` – notes only (JSON)
+- `/feed/photos.atom.xml` – photos only (Atom)
+- `/feed/photos.json` – photos only (JSON)
+- `/feed/links.atom.xml` – links only (Atom)
+- `/feed/links.json` – links only (JSON)
 
 ## Running Tests
 

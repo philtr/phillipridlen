@@ -46,7 +46,22 @@ else
   ignore "/drafts/**/*"
 end
 
-compile "/atom.xml" do
+compile "/feed/all.atom.xml" do
   filter :erb
   write item.identifier
+end
+
+compile "/feed/all.json" do
+  filter :erb
+  write item.identifier.without_ext
+end
+
+compile "/feed/notes.atom.xml" do
+  filter :erb
+  write item.identifier
+end
+
+compile "/feed/notes.json" do
+  filter :erb
+  write item.identifier.without_ext
 end
