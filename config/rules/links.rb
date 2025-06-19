@@ -7,5 +7,5 @@ end
 
 compile "/feed/links.json" do
   filter :erb
-  write item.identifier.without_ext
+  write item.identifier
 end

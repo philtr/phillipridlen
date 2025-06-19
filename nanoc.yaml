@@ -36,6 +36,7 @@ text_extensions:
     "txt",
     "xhtml",
     "xml",
+    "json",
   ]
 
 prune:

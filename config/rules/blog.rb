@@ -53,7 +53,7 @@ end
 
 compile "/feed/all.json" do
   filter :erb
-  write item.identifier.without_ext
+  write item.identifier
 end
 
 compile "/feed/notes.atom.xml" do
@@ -63,5 +63,5 @@ end
 
 compile "/feed/notes.json" do
   filter :erb
-  write item.identifier.without_ext
+  write item.identifier
 end
