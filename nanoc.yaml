@@ -67,6 +67,11 @@ data_sources:
     content_dir: src/drafts
     items_root: /drafts/
 
+  - name: "Games"
+    type: filesystem
+    content_dir: src/games
+    items_root: /games/
+
   - name: "Stylesheets"
     type: filesystem
     content_dir: src/css

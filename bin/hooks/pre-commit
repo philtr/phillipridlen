@@ -1,0 +1,14 @@
+#!/usr/bin/env ruby
+changes = `git diff --cached --name-status`.split("\n")
+errors = []
+changes.each do |line|
+  status, path = line.split(/\s+/, 2)
+  next unless path&.start_with?("src/games/")
+  next if status == "A"
+  errors << path
+end
+
+unless errors.empty?
+  warn "Modifying existing game files is not allowed:\n  #{errors.join("\n  ")}"
+  exit 1
+end

@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+set -euo pipefail
+bundle install
+HOOKS_DIR="$(git rev-parse --git-dir)/hooks"
+mkdir -p "$HOOKS_DIR"
+ln -sf "$(pwd)/bin/hooks/pre-commit" "$HOOKS_DIR/pre-commit"
+echo "Git hooks installed"
