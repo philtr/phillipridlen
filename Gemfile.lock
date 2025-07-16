@@ -120,7 +120,7 @@ GEM
       racc
     pastel (0.8.0)
       tty-color (~> 0.5)
-    pkg-config (1.5.9)
+    pkg-config (1.6.2)
     prism (1.4.0)
     pry (0.15.2)
       coderay (~> 1.1)
@@ -143,7 +143,7 @@ GEM
       psych (>= 4.0.0)
     regexp_parser (2.10.0)
     rexml (3.4.1)
-    rmagick (6.1.1)
+    rmagick (6.1.2)
       observer (~> 0.1)
       pkg-config (~> 1.4)
     rouge (4.5.2)
