@@ -146,7 +146,7 @@ GEM
     rmagick (6.1.1)
       observer (~> 0.1)
       pkg-config (~> 1.4)
-    rouge (4.5.2)
+    rouge (4.6.0)
     rspec (3.13.1)
       rspec-core (~> 3.13.0)
       rspec-expectations (~> 3.13.0)
