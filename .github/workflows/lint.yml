@@ -11,8 +11,12 @@ jobs:
     permissions:
       checks: write
     steps:
+      - name: Install system dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y libmagickwand-dev imagemagick
       - name: "Standard Ruby"
         uses: "standardrb/standard-ruby-action@v1"
         with:
-          ruby-version: "3.4.4"
+          ruby-version: "3.4.5"
           autofix: false
