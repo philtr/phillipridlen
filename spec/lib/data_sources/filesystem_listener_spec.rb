@@ -2,6 +2,7 @@ require "data_sources/filesystem_listener"
 
 class DummyListener
   include DataSources::FilesystemListener
+
   def initialize(config) = @config = config
 end
 

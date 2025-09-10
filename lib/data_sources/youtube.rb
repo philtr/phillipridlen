@@ -24,7 +24,9 @@ module DataSources
     def fetch_and_cache
       playlists.each do |url|
         playlist_id = extract_playlist_id(url)
+
         next unless playlist_id
+
         data = client.playlist_items(playlist_id, limit: limit)
         Array(data["items"]).each { |item| cache_item(item) }
       end
