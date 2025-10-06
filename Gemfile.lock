@@ -138,9 +138,10 @@ GEM
     rb-inotify (0.11.1)
       ffi (~> 1.0)
     rbtree (0.4.6)
-    rdoc (6.14.2)
+    rdoc (6.15.0)
       erb
       psych (>= 4.0.0)
+      tsort
     regexp_parser (2.11.2)
     rexml (3.4.1)
     rmagick (6.1.4)
@@ -202,6 +203,7 @@ GEM
     temple (0.10.4)
     thor (1.4.0)
     tilt (2.6.1)
+    tsort (0.2.0)
     tty-color (0.6.0)
     tty-command (0.10.1)
       pastel (~> 0.8)
