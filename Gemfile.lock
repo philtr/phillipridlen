@@ -143,7 +143,7 @@ GEM
       psych (>= 4.0.0)
       tsort
     regexp_parser (2.11.3)
-    rexml (3.4.1)
+    rexml (3.4.2)
     rmagick (6.1.4)
       observer (~> 0.1)
       pkg-config (~> 1.4)
