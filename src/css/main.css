@@ -6,9 +6,11 @@
   --mauve-50: #eeedeb;
 
   --teal: #2e9ea0;
+  --emerald: #108376;
 
   --light-pink: #ab6788;
   --bright-pink: #c5388c;
+  --raspberry: #bc184e;
 
   --dark-white: #f4f3f7;
 
@@ -18,9 +20,9 @@
   --faded-text-color: var(--mauve-50);
   --letterpress-highlight-color: white;
 
-  --primary-accent-color: var(--teal);
+  --primary-accent-color: var(--emerald);
   --secondary-accent-color: var(--light-pink);
-  --tertiary-accent-color: var(--bright-pink);
+  --tertiary-accent-color: var(--raspberry);
 
   --primary-background-color: white;
   --dim-background-color: var(--dark-white);
