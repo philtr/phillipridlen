@@ -1,5 +1,8 @@
 # Rewrites
-/resources/bbc/hayride/:year/ /resources/hayride/hayride-:year/ 200
+/resources/bbc/hayride/:year/ /resources/hayride/hayride-:year/ 200!
+
+# Keep certain pages on phillipridlen.com
+/keybase.txt /keybase.txt 200! Host=phillipridlen.com
 
 # Redirects
 /about/ /#about 302
@@ -25,3 +28,6 @@
 /christianity/:year/:month/:day/:slug /notes/christianity/:year/:month/:day/:slug 301
 /programming/:year/:month/:day/:slug /notes/programming/:year/:month/:day/:slug 301
 /technology/:year/:month/:day/:slug /notes/technology/:year/:month/:day/:slug 301
+
+# Redirect everything to ptx.sh
+/* https://ptx.sh/:splat 301! Host=phillipridlen.com
