@@ -1,7 +1,7 @@
 site:
-  base_url: https://phillipridlen.com
+  base_url: https://ptx.sh
   author: Phillip Ridlen
-  email: p@rdln.net
+  email: phil@ptx.sh
   tz: "Central Time (US & Canada)"
 
 # A list of file extensions that Nanoc will consider to be textual rather than
