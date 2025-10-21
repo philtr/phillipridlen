@@ -2,7 +2,12 @@
 /keybase.txt /keybase.txt 200! Host=phillipridlen.com
 
 # Redirect everything to ptx.sh
-/* https://ptx.sh/:splat 301! Host=phillipridlen.com,www.phillipridlen.com,ptx.sh
+http://www.ptx.sh/* https://ptx.sh/:splat 301!
+https://www.ptx.sh/* https://ptx.sh/:splat 301!
+http://phillipridlen.com/* https://ptx.sh/:splat 301!
+https://phillipridlen.com/* https://ptx.sh/:splat 301!
+http://www.phillipridlen.com/* https://ptx.sh/:splat 301!
+https://www.phillipridlen.com/* https://ptx.sh/:splat 301!
 
 # Rewrites
 /resources/bbc/hayride/:year/ /resources/hayride/hayride-:year/ 200!
