@@ -8,6 +8,7 @@ http://phillipridlen.com/* https://ptx.sh/:splat 301!
 https://phillipridlen.com/* https://ptx.sh/:splat 301!
 http://www.phillipridlen.com/* https://ptx.sh/:splat 301!
 https://www.phillipridlen.com/* https://ptx.sh/:splat 301!
+/* https://ptx.sh/:splat 301! Host=phillipridlen.com
 
 # Rewrites
 /resources/bbc/hayride/:year/ /resources/hayride/hayride-:year/ 200!
