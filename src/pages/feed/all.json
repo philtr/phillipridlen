@@ -1,0 +1,19 @@
+<%
+require 'json'
+items = everything_sorted_by_date.map do |item|
+  {
+    id: site_config.base_url + item.path,
+    url: site_config.base_url + item.path,
+    title: item[:title],
+    content_html: item.compiled_content,
+    date_published: item_date(item).xmlschema
+  }
+end
+feed = {
+  version: 'https://jsonfeed.org/version/1.1',
+  title: "Phillip's Updates",
+  home_page_url: site_config.base_url,
+  feed_url: site_config.base_url + '/feed/all.json',
+  items: items
+}
+%><%= JSON.pretty_generate(feed) %>
