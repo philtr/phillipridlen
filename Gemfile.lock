@@ -47,7 +47,7 @@ GEM
     exiftool_vendored (13.40.0)
       exiftool (>= 0.7.0)
     ffi (1.17.2)
-    haml (6.3.0)
+    haml (7.0.0)
       temple (>= 0.8.2)
       thor
       tilt
