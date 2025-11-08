@@ -14,9 +14,11 @@ module DataSources
 
     identifier :exif
 
-    def config(key, default = nil) = @config.fetch(key, default)
-
     def items = filenames.map { exif_item(it).to_nanoc_item(self) }
+
+    private
+
+    def config(key, default = nil) = @config.fetch(key, default)
 
     def exif_item(filename) = Item.new(filename).extend(NanocTransformable::Binary)
 
