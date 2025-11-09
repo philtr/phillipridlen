@@ -1,10 +1,35 @@
-.post-note {
-  font-size: 1.2rem;
+@import url("https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400..800;1,400..800&display=swap");
+
+.post {
+  font-family: "EB Garamond", var(--sans-serif);
+  font-size: 1.4rem;
   -ms-hyphens: auto;
   -webkit-hyphens: auto;
   hyphens: auto;
 
   .intro {
-    font-size: 1.4rem;
+    font-size: 1.6rem;
   }
+
+  h2,
+  h3 {
+    font-family: var(--sans-serif);
+  }
+}
+
+.post-title {
+  font-weight: 100 !important;
+  font-size: 3rem !important;
+  max-width: 100% !important;
+  text-align: center;
+}
+
+.post-subtitle {
+  font-size: 2rem !important;
+  max-width: 100% !important;
+  text-align: center;
+}
+
+.post-date {
+  text-align: center;
 }
