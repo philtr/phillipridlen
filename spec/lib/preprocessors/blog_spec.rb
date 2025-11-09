@@ -38,6 +38,38 @@ RSpec.describe "blog preprocessors" do
       expect(item).to have_received(:[]=).with(:date, Time.new("2024", "01", "02"))
       expect(item).to have_received(:[]=).with(:slug, "test")
     end
+
+    it "sets slug correctly for posts stored in a directory with index.md" do
+      item = double(:identifier => "/posts/notes/2024-01-02-test/index.md", :[]= => nil)
+      allow(item).to receive(:[]=)
+      items << item
+      blog_post_attributes_from_filename
+      expect(item).to have_received(:[]=).with(:slug, "test")
+    end
+  end
+
+  describe "#blog_post_asset_attributes" do
+    it "copies metadata from the parent post to assets inside the post directory" do
+      post = double(
+        :identifier => "/posts/notes/2024-01-02-test/index.md",
+        :[] => "Life"
+      )
+      asset = double(:identifier => "/posts/notes/2024-01-02-test/doomscroll.png", :[]= => nil)
+
+      allow(post).to receive(:[]=)
+      allow(post).to receive(:[]).with(:category).and_return("Life")
+      allow(asset).to receive(:[]=)
+
+      items << post
+      items << asset
+
+      blog_post_asset_attributes
+
+      expect(asset).to have_received(:[]=).with(:post_type, "note")
+      expect(asset).to have_received(:[]=).with(:date, Time.new("2024", "01", "02"))
+      expect(asset).to have_received(:[]=).with(:slug, "test")
+      expect(asset).to have_received(:[]=).with(:category, "Life")
+    end
   end
 
   describe "#blog_post_date_for_drafts" do

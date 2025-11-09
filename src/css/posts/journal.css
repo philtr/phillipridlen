@@ -15,6 +15,13 @@
   h3 {
     font-family: var(--sans-serif);
   }
+
+  aside,
+  .footnotes {
+    color: var(--dim-text-color);
+    font-family: var(--sans-serif);
+    font-size: 1rem;
+  }
 }
 
 .post-title {

@@ -40,4 +40,9 @@
   ol li:first-child p {
     margin: 0;
   }
+
+  a.reversefootnote {
+    text-decoration: none;
+    font-size: 1rem;
+  }
 }
