@@ -5,6 +5,7 @@ preprocess do
   blog_post_attributes_from_filename
   blog_post_date_for_drafts
   blog_category_items
+  blog_post_asset_attributes
 end
 
 compile "/posts/**/*.md" do
@@ -20,6 +21,15 @@ compile "/posts/**/*.md" do
   slug = @item[:slug]
 
   write "/notes/#{category}/#{yyyy}/#{mm}/#{dd}/#{slug}/index.html"
+end
+
+compile "/posts/**/*.{png,jpg,jpeg,gif,webp,avif,svg}" do
+  category = item[:category].downcase
+  yyyy, mm, dd = item[:date].strftime("%Y/%m/%d").split("/")
+  slug = item[:slug]
+  img_path = item.identifier.to_s.split("#{slug}/").last
+
+  write "/notes/#{category.downcase}/#{yyyy}/#{mm}/#{dd}/#{slug}/#{img_path}"
 end
 
 compile "/categories/*" do

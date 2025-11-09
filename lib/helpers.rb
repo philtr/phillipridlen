@@ -105,7 +105,7 @@ def page_type
 end
 
 def all_posts
-  @items.find_all("/posts/**/*")
+  @items.find_all("/posts/**/*.md")
 end
 
 def posts_sorted_by_date(posts = all_posts, direction: :desc)
