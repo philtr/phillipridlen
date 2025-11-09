@@ -25,7 +25,8 @@
   margin-bottom: var(--gutter);
 }
 
-.post-date, .post-date a {
+.post-date,
+.post-date a {
   color: var(--dim-text-color);
   text-decoration: none;
 }
@@ -35,7 +36,8 @@
   margin-top: var(--gutter);
   padding-top: var(--gutter);
 
-  ol, ol li:first-child p {
+  ol,
+  ol li:first-child p {
     margin: 0;
   }
 }

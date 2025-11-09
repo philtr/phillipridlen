@@ -2,8 +2,11 @@
 layout: post
 type: note
 
-title: I Lost My Wedding Ring and Lived to Tell the Story
-description: I have a wedding ring in the Pacific Ocean somewhere. No, it wasn&rsquo;t some dramatic gesture. In fact, the story is not really that interesting.
+title: I Lost My Wedding Ring
+subtitle: (and Lived to Tell the Story)
+description:
+  I have a wedding ring in the Pacific Ocean somewhere. No, it wasn&rsquo;t some
+  dramatic gesture. In fact, the story is not really that interesting.
 image: "notes/pva-ocean-sunset.jpg"
 
 category: Life
@@ -21,10 +24,11 @@ styles:
 
 I have a wedding ring in the Pacific Ocean somewhere.
 
-No, it wasn't [some dramatic gesture][gob]. In fact, the story is not really that
-interesting. We were in Puerto Vallarta for my brother's wedding a few years
-ago, and my wife and I decided to go for an evening swim. I left my wedding ring
-on because I didn't think it would fall off. It fell off. I never found it.
+No, it wasn't [some dramatic gesture][gob]. In fact, the story is not really
+that interesting. We were in Puerto Vallarta for my brother's wedding a few
+years ago, and my wife and I decided to go for an evening swim. I left my
+wedding ring on because I didn't think it would fall off. It fell off. I never
+found it.
 
 [gob]: https://www.youtube.com/watch?v=I51aM8cWUj8
 
