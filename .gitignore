@@ -1,4 +1,5 @@
 output/
-tmp/nanoc/
+tmp/
 crash.log
 .env
+**/.DS_store
