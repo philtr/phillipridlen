@@ -3,7 +3,17 @@
 <meta name="viewport" content="initial-scale=1.0"/>
 <meta name="generator" content="Nanoc <%= Nanoc::VERSION %>">
 
-<title><%= @item.attributes.fetch(:title) + " | " if @item.attributes[:title] %>Phillip Ridlen</title>
+<% site_name = site_config.site_name %>
+<% full_title = @item[:title] ? "#{@item[:title]} | #{site_name}" : site_name %>
+<% og_title = @item[:title] || site_name %>
+<% og_description = page_description %>
+<% og_url = page_url %>
+<% og_image = social_image %>
+<% og_image_alt = social_image_alt %>
+<% og_type = page_type %>
+<% og_image_dimensions = og_image == default_social_image ? { width: 1200, height: 630 } : nil %>
+
+<title><%= full_title %></title>
 
 <link href="<%= site_config.base_url %>/atom.xml" rel="alternate" title="Phillip's Notes" type="application/atom+xml" />
 
@@ -20,14 +30,28 @@
 <meta name="msapplication-TileColor" content="#264E59">
 <meta name="msapplication-TileImage" content="/images/favicon/favicon-180.png">
 
-<meta name="description" content="<%= @item[:description] %>" />
+<link rel="canonical" href="<%= og_url %>" />
+<meta name="description" content="<%= og_description %>" />
 
-<meta property="og:title" content="<% if @item[:title] then @item[:title] else %>Phillip Ridlen<% end %>" />
-<meta property="og:url" content="<%= site_config.base_url + @item.path %>" />
-<meta property="og:description" content="<%= @item[:description] %>" />
+<meta property="og:site_name" content="<%= site_name %>" />
+<meta property="og:locale" content="<%= site_config.locale %>" />
+<meta property="og:type" content="<%= og_type %>" />
+<meta property="og:title" content="<%= og_title %>" />
+<meta property="og:url" content="<%= og_url %>" />
+<meta property="og:description" content="<%= og_description %>" />
 
-<% if page_image %>
-<meta property="og:image" content="<%= site_config.base_url %><%= page_image %>" />
+<meta property="og:image" content="<%= site_config.base_url %><%= og_image %>" />
+<% if og_image_dimensions %>
+<meta property="og:image:width" content="<%= og_image_dimensions[:width] %>" />
+<meta property="og:image:height" content="<%= og_image_dimensions[:height] %>" />
 <% end %>
+<meta property="og:image:alt" content="<%= og_image_alt %>" />
+
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:site" content="@<%= site_config.twitter_handle %>" />
+<meta name="twitter:creator" content="@<%= site_config.twitter_handle %>" />
+<meta name="twitter:title" content="<%= og_title %>" />
+<meta name="twitter:description" content="<%= og_description %>" />
+<meta name="twitter:image" content="<%= site_config.base_url %><%= og_image %>" />
 
 <link rel="author" href="https://plus.google.com/102506368462184573833" />

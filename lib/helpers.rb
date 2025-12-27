@@ -11,7 +11,12 @@ use_helper Nanoc::Helpers::Rendering
 SiteConfig = Struct.new(
   :author,
   :base_url,
+  :default_description,
+  :default_social_image,
   :email,
+  :locale,
+  :site_name,
+  :twitter_handle,
   :tz,
   keyword_init: true
 )
@@ -22,7 +27,12 @@ def site_config
   SiteConfig.new(
     base_url: ENV["URL"] || ENV["BASE_URL"] || site.base_url,
     email: ENV["EMAIL"] || site.email,
-    author: ENV["AUTHOR"] || site.author
+    author: ENV["AUTHOR"] || site.author,
+    site_name: site.site_name,
+    default_description: site.default_description,
+    default_social_image: site.default_social_image,
+    locale: site.locale,
+    twitter_handle: site.twitter_handle
   )
 end
 
@@ -36,6 +46,48 @@ def page_image
   else
     @item.reps[:medium]&.path
   end
+end
+
+def default_page_description
+  site_config.default_description
+end
+
+def page_description
+  @item[:description] || default_page_description
+end
+
+def page_url
+  site_config.base_url + @item.path
+end
+
+def photos_index?
+  @item.identifier.to_s == "/photos/"
+end
+
+def photos_index_image
+  return nil unless photos_index?
+
+  photos_sorted_by_date.first&.path(rep: :medium)
+end
+
+def default_social_image
+  site_config.default_social_image
+end
+
+def social_image
+  page_image || photos_index_image || default_social_image
+end
+
+def social_image_alt
+  if @item[:title]
+    "#{@item[:title]} - #{site_config.site_name}"
+  else
+    site_config.site_name
+  end
+end
+
+def page_type
+  @item.identifier.to_s.start_with?("/posts/") ? "article" : "website"
 end
 
 def all_posts
