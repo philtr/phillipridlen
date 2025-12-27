@@ -4,7 +4,7 @@ type: note
 
 title: A Little "Special" Goes a Long Way
 description: "Every client will tell you that they want two things: be on time, and stay within their budget. At the heart of every project, every client also wants a third thing: results."
-image: "notes/desk.jpg"
+image: desk.jpg
 
 category: Programming
 
@@ -30,7 +30,7 @@ third thing–results. We like to take it one step further and say that every
 client wants us to be on time, stay within their budget, deliver results, and be
 special every step of the way.
 
-<img src="/images/<%= @item[:image] %>" class="framed">
+<img src="desk.jpg" class="framed">
 
 ## Discovering Results
 
