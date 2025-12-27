@@ -1,7 +1,6 @@
 require "base64"
 require "nanoc/data_sources/filesystem"
 require "yaml"
-require "cgi"
 
 require_relative "../youtube/client"
 
@@ -40,7 +39,8 @@ module DataSources
 
     def extract_playlist_id(url)
       uri = URI.parse(url)
-      CGI.parse(uri.query.to_s)["list"]&.first || uri.path.split("/").last || url
+      query = URI.decode_www_form(uri.query.to_s).to_h
+      query["list"] || uri.path.split("/").last || url
     rescue URI::InvalidURIError
       url
     end
