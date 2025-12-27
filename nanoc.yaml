@@ -1,6 +1,11 @@
 site:
   base_url: https://ptx.sh
   author: Phillip Ridlen
+  site_name: Phillip Ridlen
+  default_description: Personal site and notes by Phillip Ridlen on software, faith, and life.
+  default_social_image: /images/social-card.png
+  locale: en_US
+  twitter_handle: philtr
   email: phil@ptx.sh
   tz: "Central Time (US & Canada)"
 
