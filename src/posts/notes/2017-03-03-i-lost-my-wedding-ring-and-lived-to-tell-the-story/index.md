@@ -7,7 +7,7 @@ subtitle: (and Lived to Tell the Story)
 description:
   I have a wedding ring in the Pacific Ocean somewhere. No, it wasn&rsquo;t some
   dramatic gesture. In fact, the story is not really that interesting.
-image: "notes/pva-ocean-sunset.jpg"
+image: pva-ocean-sunset.jpg
 
 category: Life
 
@@ -32,7 +32,7 @@ found it.
 
 [gob]: https://www.youtube.com/watch?v=I51aM8cWUj8
 
-<img src="/images/<%= @item[:image] %>" class="framed">
+<img src="pva-ocean-sunset.jpg" class="framed">
 
 <figcaption>The little cove in the Pacific where my ring forever rests.</figcaption>
 

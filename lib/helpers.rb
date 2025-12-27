@@ -40,9 +40,23 @@ def body_classes
   @body_classes.to_a + @item[:body_classes].to_a
 end
 
+def post_asset_output_path(filename)
+  category = @item[:category].downcase
+  yyyy, mm, dd = @item[:date].strftime("%Y/%m/%d").split("/")
+  slug = @item[:slug]
+
+  "/notes/#{category}/#{yyyy}/#{mm}/#{dd}/#{slug}/#{filename}"
+end
+
 def page_image
-  if @item.attributes[:image]
-    "/images/#{@item.attributes[:image]}"
+  if (image = @item.attributes[:image])
+    return image if image.start_with?("http://", "https://", "/")
+
+    if @item.identifier.to_s.start_with?("/posts/") && !image.include?("/")
+      post_asset_output_path(image)
+    else
+      "/images/#{image}"
+    end
   else
     @item.reps[:medium]&.path
   end
