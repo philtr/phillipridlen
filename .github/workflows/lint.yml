@@ -18,5 +18,5 @@ jobs:
       - name: "Standard Ruby"
         uses: "standardrb/standard-ruby-action@v1"
         with:
-          ruby-version: "3.4.5"
+          ruby-version: "4.0.0"
           autofix: false
