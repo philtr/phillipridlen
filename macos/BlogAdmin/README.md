@@ -17,6 +17,7 @@ Native macOS editor for this repo's Markdown posts. The app reads and writes fil
 - Click **Choose Folder** and select the repo root (the folder containing `src/`).
 - Choose **Notes** or **Drafts** from the scope picker.
 - Select a post, edit fields, and hit **Save**.
+- Use **New** to create a post with a generated filename.
 - The body editor is a plain text field for now (rich formatting can be added later).
 
 ## Notes
