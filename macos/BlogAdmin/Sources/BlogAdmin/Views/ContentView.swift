@@ -1,4 +1,5 @@
 import AppKit
+import Markdown
 import SwiftUI
 
 struct ContentView: View {
@@ -97,28 +98,34 @@ struct ContentView: View {
   }
 
   private var editorForm: some View {
-    Form {
-      TextField("Title", text: $editor.title)
-      DatePicker("Date", selection: dateBinding, displayedComponents: [.date])
-      Picker("Category", selection: $editor.category) {
-        Text("None").tag("")
-        ForEach(categoryOptions, id: \.self) { category in
-          Text(category).tag(category)
+    VStack(spacing: 12) {
+      Form {
+        TextField("Title", text: $editor.title)
+        DatePicker("Date", selection: dateBinding, displayedComponents: [.date])
+        Picker("Category", selection: $editor.category) {
+          Text("None").tag("")
+          ForEach(categoryOptions, id: \.self) { category in
+            Text(category).tag(category)
+          }
+        }
+        .pickerStyle(.menu)
+        TextField("Tags (comma separated)", text: $editor.tags)
+
+        DisclosureGroup("Excerpt") {
+          TextEditor(text: $editor.excerpt)
+            .frame(minHeight: 120)
         }
       }
-      .pickerStyle(.menu)
-      TextField("Tags (comma separated)", text: $editor.tags)
 
-      DisclosureGroup("Excerpt") {
-        TextEditor(text: $editor.excerpt)
-          .frame(minHeight: 120)
-      }
-
-      Section("Body") {
-        TextEditor(text: $editor.body)
-          .frame(minHeight: 360)
-      }
+      TextEditor(text: $editor.body)
+        .frame(maxWidth: .infinity, minHeight: 360)
+        .font(.system(size: 15))
+        .lineSpacing(4)
+        .padding(6)
+        .background(Color(nsColor: .textBackgroundColor))
+        .cornerRadius(6)
     }
+    .frame(maxWidth: .infinity, alignment: .leading)
   }
 
   private var dateBinding: Binding<Date> {
@@ -154,6 +161,8 @@ struct ContentView: View {
     if trimmed.isEmpty { return nil }
     return dateFormatter.date(from: trimmed)
   }
+
+  
 
   private struct PostGroup {
     let monthStart: Date
@@ -193,6 +202,7 @@ struct ContentView: View {
   private func savePost() {
     guard let updated = editor.updatedPost() else { return }
     do {
+      _ = Document(parsing: updated.body)
       try repository.save(post: updated)
     } catch {
       NSSound.beep()
