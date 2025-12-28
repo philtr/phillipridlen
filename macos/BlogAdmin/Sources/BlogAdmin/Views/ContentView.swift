@@ -7,6 +7,11 @@ struct ContentView: View {
   @StateObject private var repository = PostRepository()
   @StateObject private var editor = PostEditorModel()
   @State private var selection: String? = nil
+  @State private var showNewPostSheet = false
+  @State private var newTitle = ""
+  @State private var newDate = Date()
+  @State private var newCategory = ""
+  @State private var newTags = ""
 
   var body: some View {
     NavigationSplitView {
@@ -31,13 +36,20 @@ struct ContentView: View {
       let post = repository.posts.first { $0.id == newValue }
       editor.load(post: post)
     }
+    .onReceive(NotificationCenter.default.publisher(for: .init("BlogAdminNewPost"))) { _ in
+      showNewPostSheet = true
+    }
     .toolbar {
       ToolbarItemGroup {
-        Button("Choose Folder") { chooseFolder() }
+        Button("New") { showNewPostSheet = true }
+          .disabled(repoPath.isEmpty)
         Button("Reload") { repository.loadPosts() }
         Button("Save") { savePost() }
           .disabled(editor.post == nil)
       }
+    }
+    .sheet(isPresented: $showNewPostSheet) {
+      newPostSheet
     }
   }
 
@@ -128,6 +140,33 @@ struct ContentView: View {
     .frame(maxWidth: .infinity, alignment: .leading)
   }
 
+  private var newPostSheet: some View {
+    VStack(alignment: .leading, spacing: 12) {
+      Text("New Post")
+        .font(.title2)
+
+      TextField("Title", text: $newTitle)
+      DatePicker("Date", selection: $newDate, displayedComponents: [.date])
+      Picker("Category", selection: $newCategory) {
+        Text("None").tag("")
+        ForEach(categoryOptions, id: \.self) { category in
+          Text(category).tag(category)
+        }
+      }
+      .pickerStyle(.menu)
+      TextField("Tags (comma separated)", text: $newTags)
+
+      HStack {
+        Spacer()
+        Button("Cancel") { resetNewPostForm() }
+        Button("Create") { createNewPost() }
+          .disabled(newTitle.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty)
+      }
+    }
+    .padding(20)
+    .frame(minWidth: 360)
+  }
+
   private var dateBinding: Binding<Date> {
     Binding(
       get: {
@@ -162,6 +201,40 @@ struct ContentView: View {
     return dateFormatter.date(from: trimmed)
   }
 
+  private func createNewPost() {
+    let tags = newTags
+      .split(separator: ",")
+      .map { $0.trimmingCharacters(in: .whitespacesAndNewlines) }
+      .filter { !$0.isEmpty }
+
+    do {
+      let post = try repository.createPost(
+        title: newTitle,
+        date: newDate,
+        category: newCategory,
+        tags: tags,
+        excerpt: "",
+        body: "",
+        scope: repository.scope
+      )
+      selection = post.id
+      editor.load(post: post)
+      resetNewPostForm()
+    } catch {
+      NSSound.beep()
+    }
+  }
+
+  private func resetNewPostForm() {
+    showNewPostSheet = false
+    newTitle = ""
+    newDate = Date()
+    newCategory = ""
+    newTags = ""
+  }
+
+  
+
   
 
   private struct PostGroup {
@@ -187,17 +260,6 @@ struct ContentView: View {
     }
   }
 
-  private func chooseFolder() {
-    let panel = NSOpenPanel()
-    panel.canChooseFiles = false
-    panel.canChooseDirectories = true
-    panel.allowsMultipleSelection = false
-    panel.title = "Choose Blog Repository"
-
-    if panel.runModal() == .OK, let url = panel.url {
-      repoPath = url.path
-    }
-  }
 
   private func savePost() {
     guard let updated = editor.updatedPost() else { return }
@@ -209,3 +271,5 @@ struct ContentView: View {
     }
   }
 }
+
+  
