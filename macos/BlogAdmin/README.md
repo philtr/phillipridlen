@@ -18,6 +18,7 @@ Native macOS editor for this repo's Markdown posts. The app reads and writes fil
 - Choose **Notes** or **Drafts** from the scope picker.
 - Select a post, edit fields, and hit **Save**.
 - Use **New** to create a post with a generated filename.
+- Use **Images** to import files into a post folder (posts are converted to `index.md` folders automatically).
 - The body editor is a plain text field for now (rich formatting can be added later).
 
 ## Notes

@@ -19,6 +19,18 @@ struct PostFile: Identifiable, Hashable {
     return PostFile.extractDate(from: url.deletingLastPathComponent().lastPathComponent)
   }
 
+  var isFolderBased: Bool {
+    url.lastPathComponent.lowercased() == "index.md"
+  }
+
+  var folderURL: URL {
+    if isFolderBased {
+      return url.deletingLastPathComponent()
+    }
+    return url.deletingLastPathComponent()
+      .appendingPathComponent(url.deletingPathExtension().lastPathComponent)
+  }
+
   var filenameDateString: String? {
     guard let date = filenameDate else { return nil }
     return PostFile.dateFormatter.string(from: date)

@@ -13,6 +13,7 @@ final class PostRepository: ObservableObject {
   @Published var scope: PostScope = .notes
 
   private var rootURL: URL? = nil
+  private let imageExtensions: Set<String> = ["jpg", "jpeg", "png", "gif", "webp"]
   private let dateFormatter: DateFormatter = {
     let formatter = DateFormatter()
     formatter.dateFormat = "yyyy-MM-dd"
@@ -110,6 +111,41 @@ final class PostRepository: ObservableObject {
     return post
   }
 
+  func addImages(to post: PostFile, sourceURLs: [URL]) throws -> PostFile {
+    var updatedPost = post
+    let folder = try ensurePostFolder(for: &updatedPost)
+
+    for source in sourceURLs {
+      let ext = source.pathExtension.lowercased()
+      guard imageExtensions.contains(ext) else { continue }
+      let base = source.deletingPathExtension().lastPathComponent
+      let destination = uniqueFileURL(in: folder, base: base, ext: ext)
+      try FileManager.default.copyItem(at: source, to: destination)
+    }
+
+    loadPosts()
+    if let reloaded = posts.first(where: { $0.url == updatedPost.url }) {
+      return reloaded
+    }
+    return updatedPost
+  }
+
+  func images(for post: PostFile) -> [URL] {
+    guard post.isFolderBased else { return [] }
+    let folder = post.folderURL
+    guard let enumerator = FileManager.default.enumerator(at: folder, includingPropertiesForKeys: nil) else {
+      return []
+    }
+    var results: [URL] = []
+    for case let url as URL in enumerator {
+      let ext = url.pathExtension.lowercased()
+      if imageExtensions.contains(ext) {
+        results.append(url)
+      }
+    }
+    return results.sorted { $0.lastPathComponent.lowercased() < $1.lastPathComponent.lowercased() }
+  }
+
   private func targetDirectory(for scope: PostScope, root: URL) -> URL {
     switch scope {
     case .notes:
@@ -144,6 +180,24 @@ final class PostRepository: ObservableObject {
     if scope == .notes && type == "link" { return false }
     if scope == .links && type != "link" { return false }
     return true
+  }
+
+  private func ensurePostFolder(for post: inout PostFile) throws -> URL {
+    if post.isFolderBased {
+      return post.folderURL
+    }
+
+    let folderURL = post.folderURL
+    try FileManager.default.createDirectory(at: folderURL, withIntermediateDirectories: true)
+    let destination = folderURL.appendingPathComponent("index.md")
+
+    if FileManager.default.fileExists(atPath: destination.path) {
+      return folderURL
+    }
+
+    try FileManager.default.moveItem(at: post.url, to: destination)
+    post = PostFile(id: destination.path, url: destination, frontMatter: post.frontMatter, body: post.body)
+    return folderURL
   }
 
   private func uniqueFileURL(in directory: URL, base: String, ext: String) -> URL {

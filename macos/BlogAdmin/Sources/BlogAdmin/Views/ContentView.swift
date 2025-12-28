@@ -1,6 +1,7 @@
 import AppKit
 import Markdown
 import SwiftUI
+import UniformTypeIdentifiers
 
 struct ContentView: View {
   @AppStorage("repoPath") private var repoPath: String = ""
@@ -12,6 +13,8 @@ struct ContentView: View {
   @State private var newDate = Date()
   @State private var newCategory = ""
   @State private var newTags = ""
+  @State private var showImageImporter = false
+  @State private var postImages: [URL] = []
 
   var body: some View {
     NavigationSplitView {
@@ -35,6 +38,18 @@ struct ContentView: View {
     .onChange(of: selection) { newValue in
       let post = repository.posts.first { $0.id == newValue }
       editor.load(post: post)
+      if let post {
+        postImages = repository.images(for: post)
+      } else {
+        postImages = []
+      }
+    }
+    .fileImporter(
+      isPresented: $showImageImporter,
+      allowedContentTypes: imageContentTypes,
+      allowsMultipleSelection: true
+    ) { result in
+      handleImageImport(result)
     }
     .onReceive(NotificationCenter.default.publisher(for: .init("BlogAdminNewPost"))) { _ in
       showNewPostSheet = true
@@ -136,6 +151,8 @@ struct ContentView: View {
         .padding(6)
         .background(Color(nsColor: .textBackgroundColor))
         .cornerRadius(6)
+
+      imagesSection
     }
     .frame(maxWidth: .infinity, alignment: .leading)
   }
@@ -199,6 +216,90 @@ struct ContentView: View {
     let trimmed = value.trimmingCharacters(in: .whitespacesAndNewlines)
     if trimmed.isEmpty { return nil }
     return dateFormatter.date(from: trimmed)
+  }
+
+  private var imagesSection: some View {
+    VStack(alignment: .leading, spacing: 8) {
+      HStack {
+        Text("Images")
+          .font(.headline)
+        Spacer()
+        Button("Add Images…") {
+          showImageImporter = true
+        }
+        .disabled(editor.post == nil)
+      }
+
+      if postImages.isEmpty {
+        Text("No images yet.")
+          .foregroundStyle(.secondary)
+      } else {
+        let columns = [GridItem(.adaptive(minimum: 120), spacing: 12)]
+        LazyVGrid(columns: columns, alignment: .leading, spacing: 12) {
+          ForEach(postImages, id: \.self) { url in
+            VStack(alignment: .leading, spacing: 6) {
+              if let image = NSImage(contentsOf: url) {
+                Image(nsImage: image)
+                  .resizable()
+                  .aspectRatio(contentMode: .fill)
+                  .frame(width: 120, height: 90)
+                  .clipped()
+                  .cornerRadius(6)
+              } else {
+                RoundedRectangle(cornerRadius: 6)
+                  .fill(Color.gray.opacity(0.2))
+                  .frame(width: 120, height: 90)
+              }
+
+              Text(url.lastPathComponent)
+                .font(.caption)
+                .lineLimit(1)
+
+              HStack(spacing: 8) {
+                Button("Copy Markdown") { copyMarkdown(for: url) }
+                  .buttonStyle(.bordered)
+                Button("Reveal") { NSWorkspace.shared.activateFileViewerSelecting([url]) }
+                  .buttonStyle(.bordered)
+              }
+            }
+          }
+        }
+      }
+    }
+    .padding(.top, 8)
+  }
+
+  private var imageContentTypes: [UTType] {
+    var types: [UTType] = [.jpeg, .png, .gif]
+    if let webp = UTType("org.webmproject.webp") {
+      types.append(webp)
+    }
+    return types
+  }
+
+  private func handleImageImport(_ result: Result<[URL], Error>) {
+    guard let post = editor.post else { return }
+    switch result {
+    case let .success(urls):
+      do {
+        let updated = try repository.addImages(to: post, sourceURLs: urls)
+        editor.load(post: updated)
+        postImages = repository.images(for: updated)
+        selection = updated.id
+      } catch {
+        NSSound.beep()
+      }
+    case .failure:
+      break
+    }
+  }
+
+  private func copyMarkdown(for url: URL) {
+    let filename = url.lastPathComponent
+    let alt = url.deletingPathExtension().lastPathComponent
+    let snippet = "![\(alt)](\(filename))"
+    NSPasteboard.general.clearContents()
+    NSPasteboard.general.setString(snippet, forType: .string)
   }
 
   private func createNewPost() {
@@ -266,6 +367,9 @@ struct ContentView: View {
     do {
       _ = Document(parsing: updated.body)
       try repository.save(post: updated)
+      if let post = editor.post {
+        postImages = repository.images(for: post)
+      }
     } catch {
       NSSound.beep()
     }
