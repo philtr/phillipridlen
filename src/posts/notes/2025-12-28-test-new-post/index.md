@@ -1,20 +1,19 @@
 ---
 category: Programming
+image: admin.gif
 layout: post
 styles:
-- code
-- posts/image
+  - code
+  - posts/image
 tags:
-- admin
-title: Test new post
+  - admin
+title: Vibe coding a native macOS app to edit my blog
 type: note
 ---
-## Hello!
-
-There’s an awesome new editor for my blog. It’s a Mac app that runs locally. Complectus concido dolores delego aliqua amplexus vitiosus deserunt supplanto vivo. Acceptus delibero volutabrum asperiores tepidus abstergo. Aer caute utpote verus thorax stillicidium callide voluptatibus.
+I have an awesome new editor for my blog. It’s a native macOS SwiftUI app that I can boot up on my Mac and write and edit posts. I don’t know Swift. And I don’t know the SwiftUI API. To me this is the perfect candidate for blind vibe coding. It’s a totally offline, unsupported app that improves my quality of life and inspires me to write, because it feels… well, it just feels _good_.
 
 ![Screencast of the admin mac app](admin.gif)
 
-Tui tantillus barba abscido ago abutor terror chirographum utpote agnitio. Cultura auctor adamo denego adflicto cubicularis aurum doloribus arca. Utpote expedita caries correptius a cohaero capio tolero torqueo damnatio. Cultellus tandem teneo urbanus adeptio amita. Vero aestus tendo uxor crudelis adimpleo vehemens asperiores voluptatum paulatim. Thema vado non. Deporto beatus vilitas autem quaerat viscus eum vomer vis spargo. Amitto adulatio audacia campana torrens casso. Aspicio vacuus patior dens theatrum attero pauci.
+<figcaption>Collapsible sidebar, date pickers, posts sorted by date and grouped by month.</figcaption>
 
-Deporto beatus vilitas autem quaerat viscus eum vomer vis spargo. Amitto adulatio audacia campana torrens casso. Aspicio vacuus patior dens theatrum attero pauci. Cuppedia decens dignissimos. Tutamen sub villa dignissimos volo curto. Optio somniculosus autem.
+It’s not perfect. And I have lots of ideas for improvements. It will just keep getting better and better. If you’re interested, you can look at the source [in the `macos/BlogAdmin` folder of the repo for this site](https://github.com/philtr/phillipridlen/tree/master/macos/BlogAdmin).
