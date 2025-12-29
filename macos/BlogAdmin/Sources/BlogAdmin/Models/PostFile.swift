@@ -12,13 +12,6 @@ struct PostFile: Identifiable, Hashable {
   var tags: [String] { frontMatter.stringArray("tags") }
   var excerpt: String { frontMatter.string("excerpt") }
 
-  var filenameDate: Date? {
-    if let date = PostFile.extractDate(from: url.lastPathComponent) {
-      return date
-    }
-    return PostFile.extractDate(from: url.deletingLastPathComponent().lastPathComponent)
-  }
-
   var isFolderBased: Bool {
     url.lastPathComponent.lowercased() == "index.md"
   }
@@ -31,24 +24,16 @@ struct PostFile: Identifiable, Hashable {
       .appendingPathComponent(url.deletingPathExtension().lastPathComponent)
   }
 
-  var filenameDateString: String? {
-    guard let date = filenameDate else { return nil }
-    return PostFile.dateFormatter.string(from: date)
-  }
-
   var resolvedDateString: String {
     let trimmed = date.trimmingCharacters(in: .whitespacesAndNewlines)
     if trimmed != "" {
       return trimmed
     }
-    return filenameDateString ?? ""
+    return fallbackDateStringFromPath() ?? ""
   }
 
   var sortDate: Date {
     if let parsed = PostFile.parseDate(resolvedDateString) {
-      return parsed
-    }
-    if let parsed = filenameDate {
       return parsed
     }
     return Date.distantPast
@@ -101,12 +86,6 @@ struct PostFile: Identifiable, Hashable {
     return formatter
   }()
 
-  private static func extractDate(from name: String) -> Date? {
-    guard name.count >= 10 else { return nil }
-    let prefix = String(name.prefix(10))
-    return dateFormatter.date(from: prefix)
-  }
-
   private static func parseDate(_ value: String) -> Date? {
     let trimmed = value.trimmingCharacters(in: .whitespacesAndNewlines)
     if trimmed == "" { return nil }
@@ -115,6 +94,18 @@ struct PostFile: Identifiable, Hashable {
     if let parsed = dateTimeFormatterNoZone.date(from: trimmed) { return parsed }
     if let parsed = isoFormatter.date(from: trimmed) { return parsed }
     if let parsed = isoFormatterNoFraction.date(from: trimmed) { return parsed }
+    return nil
+  }
+
+  private func fallbackDateStringFromPath() -> String? {
+    let regex = try? NSRegularExpression(pattern: #"\d{4}-\d{2}-\d{2}"#)
+    guard let regex else { return nil }
+    let path = url.path
+    let range = NSRange(path.startIndex..<path.endIndex, in: path)
+    if let match = regex.firstMatch(in: path, range: range),
+       let matchRange = Range(match.range, in: path) {
+      return String(path[matchRange])
+    }
     return nil
   }
 

@@ -1,18 +1,21 @@
 # Preprocessor helpers for blog-related items.
 # Extracts metadata from filenames and creates category pages.
 #
-POST_REGEX = %r{\A/posts/(link|note)s/(\d+)-(\d+)-(\d+)-([^/]+)(?:/index)?\.md\z}
-POST_ASSET_REGEX = %r{\A/posts/(link|note)s/(\d+)-(\d+)-(\d+)-([^/]+)/(.+)\z}
+POST_REGEXES = [
+  %r{\A/posts/(link|note)s/\d{4}/\d{2}/([^/]+)(?:/index)?\.md\z},
+  %r{\A/posts/(link|note)s/\d{4}-\d{2}-\d{2}-([^/]+)(?:/index)?\.md\z}
+].freeze
 
 def blog_post_items
-  @items.find_all(POST_REGEX)
+  @items.find_all do |item|
+    POST_REGEXES.any? { |regex| item.identifier.to_s.match?(regex) }
+  end
 end
 
 def blog_post_attributes_from_filename
   blog_post_items.each do |item|
-    post_type, year, month, day, slug = item.identifier.to_s.match(POST_REGEX).captures
+    post_type, slug = post_type_and_slug_for(item.identifier.to_s)
     item[:post_type] = post_type
-    item[:date] ||= Time.new(year, month, day)
     item[:slug] = slug
   end
 end
@@ -24,31 +27,20 @@ def blog_category_items
     .map { @items.create("", it, "/categories/#{it[:slug]}") }
 end
 
-def blog_post_asset_items
-  @items.find_all(POST_ASSET_REGEX)
-end
-
 def blog_post_asset_attributes
-  blog_post_asset_items.each do |item|
+  blog_post_items.each do |post|
+    post_prefix = post.identifier.to_s.sub(/index\.md\z/, "")
+    @items.find_all { |asset| asset.identifier.to_s.start_with?(post_prefix) }.each do |item|
     next if item.identifier.to_s.end_with?(".md")
 
-    match = item.identifier.to_s.match(POST_ASSET_REGEX)
-    next unless match
+      parent = post
 
-    post_type, year, month, day, slug = match.captures
-
-    parent = blog_post_items.find do |post|
-      post_match = post.identifier.to_s.match(POST_REGEX)
-      post_match && post_match.captures.first(5) == [post_type, year, month, day, slug]
+      item[:post_type] = parent[:post_type]
+      item[:date] = parent[:date] if parent[:date]
+      item[:slug] = parent[:slug]
+      item[:category] = parent[:category]
+      item[:relative_path] = item.identifier.to_s.split("#{parent[:slug]}/").last
     end
-
-    next unless parent
-
-    item[:post_type] = post_type
-    item[:date] = Time.new(year, month, day)
-    item[:slug] = slug
-    item[:category] = parent[:category]
-    item[:relative_path] = item.identifier.to_s.split("#{slug}/").last
   end
 end
 
@@ -58,4 +50,15 @@ def blog_post_date_for_drafts
       item[:date] = Time.now
     end
   end
+end
+
+def post_type_and_slug_for(identifier)
+  POST_REGEXES.each do |regex|
+    match = identifier.match(regex)
+    next unless match
+    post_type = match.captures[0]
+    slug = match.captures[1]
+    return [post_type, slug]
+  end
+  ["note", ""]
 end
