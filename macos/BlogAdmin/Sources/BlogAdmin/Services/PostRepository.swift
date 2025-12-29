@@ -69,12 +69,12 @@ final class PostRepository: ObservableObject {
   }
 
   func save(post: PostFile) throws {
-    _ = try save(post: post, desiredDate: nil)
+    _ = try save(post: post, desiredDate: nil, desiredSlug: nil)
   }
 
-  func save(post: PostFile, desiredDate: String?) throws -> PostFile {
+  func save(post: PostFile, desiredDate: String?, desiredSlug: String? = nil) throws -> PostFile {
     var post = post
-    try renamePostIfNeeded(post: &post, desiredDate: desiredDate)
+    try renamePostIfNeeded(post: &post, desiredDate: desiredDate, desiredSlug: desiredSlug)
     let content = post.renderedContent()
     try content.write(to: post.url, atomically: true, encoding: .utf8)
     loadPosts()
@@ -117,7 +117,7 @@ final class PostRepository: ObservableObject {
     }
     let frontMatter = FrontMatter(data: data)
     let post = PostFile(id: fileURL.path, url: fileURL, frontMatter: frontMatter, body: body)
-    _ = try save(post: post, desiredDate: isoDate)
+    _ = try save(post: post, desiredDate: isoDate, desiredSlug: nil)
     return post
   }
 
@@ -218,12 +218,14 @@ final class PostRepository: ObservableObject {
     return folderURL
   }
 
-  private func renamePostIfNeeded(post: inout PostFile, desiredDate: String?) throws {
+  private func renamePostIfNeeded(post: inout PostFile, desiredDate: String?, desiredSlug: String?) throws {
     let desired = normalizeDateString(desiredDate ?? post.date)
     guard let desired else { return }
     guard let rootURL else { return }
 
-    let slug = extractSlug(from: post)
+    let currentSlug = extractSlug(from: post)
+    let trimmedSlug = desiredSlug?.trimmingCharacters(in: .whitespacesAndNewlines) ?? ""
+    let slug = trimmedSlug.isEmpty ? currentSlug : trimmedSlug
     let base = slug
     let destinationDir = postDirectory(for: desired, scope: scope, root: rootURL)
     try FileManager.default.createDirectory(at: destinationDir, withIntermediateDirectories: true)
