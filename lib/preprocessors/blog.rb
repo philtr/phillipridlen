@@ -7,9 +7,9 @@ POST_REGEXES = [
 ].freeze
 
 def blog_post_items
-  @items.find_all do |item|
-    POST_REGEXES.any? { |regex| item.identifier.to_s.match?(regex) }
-  end
+  @items
+    .find_all("/posts/**/*")
+    .select { |item| POST_REGEXES.any? { |regex| item.identifier.to_s.match?(regex) } }
 end
 
 def blog_post_attributes_from_filename
@@ -30,8 +30,11 @@ end
 def blog_post_asset_attributes
   blog_post_items.each do |post|
     post_prefix = post.identifier.to_s.sub(/index\.md\z/, "")
-    @items.find_all { |asset| asset.identifier.to_s.start_with?(post_prefix) }.each do |item|
-    next if item.identifier.to_s.end_with?(".md")
+    @items
+      .find_all("/posts/**/*")
+      .select { |asset| asset.identifier.to_s.start_with?(post_prefix) }
+      .each do |item|
+      next if item.identifier.to_s.end_with?(".md")
 
       parent = post
 
