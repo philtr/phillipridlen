@@ -18,7 +18,14 @@ final class PostRepository: ObservableObject {
     let formatter = DateFormatter()
     formatter.dateFormat = "yyyy-MM-dd"
     formatter.locale = Locale(identifier: "en_US_POSIX")
-    formatter.timeZone = TimeZone.current
+    formatter.timeZone = TimeZone(identifier: "America/Chicago") ?? .current
+    return formatter
+  }()
+
+  private let isoFormatter: ISO8601DateFormatter = {
+    let formatter = ISO8601DateFormatter()
+    formatter.formatOptions = [.withInternetDateTime]
+    formatter.timeZone = TimeZone(identifier: "America/Chicago") ?? .current
     return formatter
   }()
 
@@ -87,18 +94,19 @@ final class PostRepository: ObservableObject {
       throw NSError(domain: "BlogAdmin", code: 1, userInfo: [NSLocalizedDescriptionKey: "Repository not set"])
     }
 
-    let target = targetDirectory(for: scope, root: rootURL)
+    let isoDate = iso8601String(from: date)
+    let dateString = dateString(from: date)
+    let target = postDirectory(for: dateString, scope: scope, root: rootURL)
     try FileManager.default.createDirectory(at: target, withIntermediateDirectories: true)
 
     let slug = slugify(title)
-    let dateString = dateString(from: date)
-    let filenameBase = "\(dateString)-\(slug)"
-    let fileURL = uniqueFileURL(in: target, base: filenameBase, ext: "md")
+    let fileURL = uniqueFileURL(in: target, base: slug, ext: "md")
 
     var data: [String: Any] = [
       "layout": "post",
       "type": scope == .links ? "link" : "note",
-      "title": title
+      "title": title,
+      "date": isoDate
     ]
 
     if category.trimmingCharacters(in: .whitespacesAndNewlines) != "" {
@@ -109,7 +117,7 @@ final class PostRepository: ObservableObject {
     }
     let frontMatter = FrontMatter(data: data)
     let post = PostFile(id: fileURL.path, url: fileURL, frontMatter: frontMatter, body: body)
-    _ = try save(post: post, desiredDate: dateString)
+    _ = try save(post: post, desiredDate: isoDate)
     return post
   }
 
@@ -159,6 +167,14 @@ final class PostRepository: ObservableObject {
     }
   }
 
+  private func postDirectory(for dateString: String, scope: PostScope, root: URL) -> URL {
+    let base = targetDirectory(for: scope, root: root)
+    guard let (year, month) = yearMonth(from: dateString) else {
+      return base
+    }
+    return base.appendingPathComponent(year).appendingPathComponent(month)
+  }
+
   private func listMarkdownFiles(in root: URL) -> [URL]? {
     guard let enumerator = FileManager.default.enumerator(at: root, includingPropertiesForKeys: nil) else {
       return nil
@@ -203,24 +219,43 @@ final class PostRepository: ObservableObject {
   }
 
   private func renamePostIfNeeded(post: inout PostFile, desiredDate: String?) throws {
-    let desired = normalizeDateString(desiredDate)
+    let desired = normalizeDateString(desiredDate ?? post.date)
     guard let desired else { return }
-    guard let current = post.filenameDateString else { return }
-    guard desired != current else { return }
+    guard let rootURL else { return }
 
     let slug = extractSlug(from: post)
-    let base = "\(desired)-\(slug)"
+    let base = slug
+    let destinationDir = postDirectory(for: desired, scope: scope, root: rootURL)
+    try FileManager.default.createDirectory(at: destinationDir, withIntermediateDirectories: true)
 
     if post.isFolderBased {
       let currentFolder = post.folderURL
-      let newFolder = currentFolder.deletingLastPathComponent().appendingPathComponent(base)
+      let desiredFolder = destinationDir.appendingPathComponent(base)
+      let newFolder: URL
+      if currentFolder == desiredFolder {
+        newFolder = desiredFolder
+      } else if FileManager.default.fileExists(atPath: desiredFolder.path) {
+        newFolder = uniqueFolderURL(in: destinationDir, base: base)
+      } else {
+        newFolder = desiredFolder
+      }
+
       if currentFolder != newFolder {
         try FileManager.default.moveItem(at: currentFolder, to: newFolder)
       }
       let newURL = newFolder.appendingPathComponent("index.md")
       post = PostFile(id: newURL.path, url: newURL, frontMatter: post.frontMatter, body: post.body)
     } else {
-      let newURL = post.url.deletingLastPathComponent().appendingPathComponent("\(base).md")
+      let desiredURL = destinationDir.appendingPathComponent("\(base).md")
+      let newURL: URL
+      if post.url == desiredURL {
+        newURL = desiredURL
+      } else if FileManager.default.fileExists(atPath: desiredURL.path) {
+        newURL = uniqueFileURL(in: destinationDir, base: base, ext: "md")
+      } else {
+        newURL = desiredURL
+      }
+
       if post.url != newURL {
         try FileManager.default.moveItem(at: post.url, to: newURL)
       }
@@ -243,6 +278,15 @@ final class PostRepository: ObservableObject {
     return name
   }
 
+  private func yearMonth(from dateString: String) -> (String, String)? {
+    guard let date = parseDate(dateString) else { return nil }
+    var calendar = Calendar(identifier: .gregorian)
+    calendar.timeZone = TimeZone(identifier: "America/Chicago") ?? .current
+    let components = calendar.dateComponents([.year, .month], from: date)
+    guard let year = components.year, let month = components.month else { return nil }
+    return (String(format: "%04d", year), String(format: "%02d", month))
+  }
+
   private func normalizeDateString(_ value: String?) -> String? {
     guard let value else { return nil }
     let trimmed = value.trimmingCharacters(in: .whitespacesAndNewlines)
@@ -250,19 +294,39 @@ final class PostRepository: ObservableObject {
     if trimmed.range(of: #"^\d{4}-\d{2}-\d{2}$"#, options: .regularExpression) != nil {
       return trimmed
     }
-    if let date = dateFormatter.date(from: trimmed) {
+    if let date = parseDate(trimmed) {
       return dateString(from: date)
     }
     return nil
   }
 
   private func dateString(from date: Date) -> String {
-    let calendar = Calendar.current
+    var calendar = Calendar(identifier: .gregorian)
+    calendar.timeZone = TimeZone(identifier: "America/Chicago") ?? .current
     let components = calendar.dateComponents([.year, .month, .day], from: date)
     let year = components.year ?? 0
     let month = components.month ?? 1
     let day = components.day ?? 1
     return String(format: "%04d-%02d-%02d", year, month, day)
+  }
+
+  private func iso8601String(from date: Date) -> String {
+    let calendar = Calendar(identifier: .gregorian)
+    let timeZone = TimeZone(identifier: "America/Chicago") ?? .current
+    var components = calendar.dateComponents([.year, .month, .day], from: date)
+    components.timeZone = timeZone
+    components.hour = 9
+    components.minute = 0
+    components.second = 0
+    let finalDate = calendar.date(from: components) ?? date
+    return isoFormatter.string(from: finalDate)
+  }
+
+  private func parseDate(_ value: String) -> Date? {
+    if let parsed = isoFormatter.date(from: value) {
+      return parsed
+    }
+    return dateFormatter.date(from: value)
   }
 
   private func uniqueFileURL(in directory: URL, base: String, ext: String) -> URL {
@@ -273,6 +337,21 @@ final class PostRepository: ObservableObject {
     var index = 2
     while true {
       candidate = directory.appendingPathComponent("\(base)-\(index).\(ext)")
+      if !FileManager.default.fileExists(atPath: candidate.path) {
+        return candidate
+      }
+      index += 1
+    }
+  }
+
+  private func uniqueFolderURL(in directory: URL, base: String) -> URL {
+    var candidate = directory.appendingPathComponent(base)
+    if !FileManager.default.fileExists(atPath: candidate.path) {
+      return candidate
+    }
+    var index = 2
+    while true {
+      candidate = directory.appendingPathComponent("\(base)-\(index)")
       if !FileManager.default.fileExists(atPath: candidate.path) {
         return candidate
       }

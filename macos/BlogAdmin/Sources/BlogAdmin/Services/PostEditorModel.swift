@@ -34,7 +34,12 @@ final class PostEditorModel: ObservableObject {
     var frontMatter = post.frontMatter
 
     frontMatter.set("title", value: title)
-    frontMatter.remove("date")
+    let dateText = normalizeDate(date)
+    if dateText == "" {
+      frontMatter.remove("date")
+    } else {
+      frontMatter.set("date", value: dateText)
+    }
 
     if category.trimmingCharacters(in: .whitespacesAndNewlines) == "" {
       frontMatter.remove("category")
@@ -97,4 +102,36 @@ final class PostEditorModel: ObservableObject {
     post.body = body
     return post
   }
+
+  private func normalizeDate(_ value: String) -> String {
+    let trimmed = value.trimmingCharacters(in: .whitespacesAndNewlines)
+    guard trimmed != "" else { return "" }
+    if trimmed.range(of: #"^\d{4}-\d{2}-\d{2}$"#, options: .regularExpression) == nil {
+      return trimmed
+    }
+
+    let formatter = ISO8601DateFormatter()
+    formatter.formatOptions = [.withInternetDateTime]
+    formatter.timeZone = TimeZone(identifier: "America/Chicago") ?? .current
+    let calendar = Calendar(identifier: .gregorian)
+    let timeZone = TimeZone(identifier: "America/Chicago") ?? .current
+    var components = calendar.dateComponents([.year, .month, .day], from: Date())
+    if let parsed = dateFormatter.date(from: trimmed) {
+      components = calendar.dateComponents([.year, .month, .day], from: parsed)
+    }
+    components.timeZone = timeZone
+    components.hour = 9
+    components.minute = 0
+    components.second = 0
+    let finalDate = calendar.date(from: components) ?? Date()
+    return formatter.string(from: finalDate)
+  }
+
+  private let dateFormatter: DateFormatter = {
+    let formatter = DateFormatter()
+    formatter.dateFormat = "yyyy-MM-dd"
+    formatter.locale = Locale(identifier: "en_US_POSIX")
+    formatter.timeZone = TimeZone(identifier: "America/Chicago") ?? .current
+    return formatter
+  }()
 }

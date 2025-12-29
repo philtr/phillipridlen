@@ -195,7 +195,7 @@ struct ContentView: View {
 
         if editor.modified.isEmpty {
           Button("Add Modified Date") {
-            editor.modified = dateString(from: Date())
+            editor.modified = dateOnlyString(from: Date())
           }
         } else {
           HStack {
@@ -253,7 +253,7 @@ struct ContentView: View {
         parseDate(editor.date) ?? Date()
       },
       set: { newValue in
-        editor.date = dateString(from: newValue)
+        editor.date = dateTimeString(from: newValue, existing: editor.date)
       }
     )
   }
@@ -289,23 +289,80 @@ struct ContentView: View {
     let formatter = DateFormatter()
     formatter.dateFormat = "yyyy-MM-dd"
     formatter.locale = Locale(identifier: "en_US_POSIX")
-    formatter.timeZone = TimeZone.current
+    formatter.timeZone = TimeZone(identifier: "America/Chicago") ?? .current
+    return formatter
+  }()
+
+  private let dateTimeFormatter: DateFormatter = {
+    let formatter = DateFormatter()
+    formatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
+    formatter.locale = Locale(identifier: "en_US_POSIX")
+    formatter.timeZone = TimeZone(identifier: "America/Chicago") ?? .current
+    return formatter
+  }()
+
+  private let isoFormatter: ISO8601DateFormatter = {
+    let formatter = ISO8601DateFormatter()
+    formatter.formatOptions = [.withInternetDateTime]
+    formatter.timeZone = TimeZone(identifier: "America/Chicago") ?? .current
     return formatter
   }()
 
   private func parseDate(_ value: String) -> Date? {
     let trimmed = value.trimmingCharacters(in: .whitespacesAndNewlines)
     if trimmed.isEmpty { return nil }
+    if let parsed = isoFormatter.date(from: trimmed) { return parsed }
     return dateFormatter.date(from: trimmed)
   }
 
-  private func dateString(from date: Date) -> String {
-    let calendar = Calendar.current
+  private func dateOnlyString(from date: Date) -> String {
+    var calendar = Calendar(identifier: .gregorian)
+    calendar.timeZone = TimeZone(identifier: "America/Chicago") ?? .current
     let components = calendar.dateComponents([.year, .month, .day], from: date)
     let year = components.year ?? 0
     let month = components.month ?? 1
     let day = components.day ?? 1
     return String(format: "%04d-%02d-%02d", year, month, day)
+  }
+
+  private func dateTimeString(from date: Date, existing: String) -> String {
+    let timeZone = TimeZone(identifier: "America/Chicago") ?? .current
+    var calendar = Calendar(identifier: .gregorian)
+    calendar.timeZone = timeZone
+    var components = calendar.dateComponents([.year, .month, .day], from: date)
+    components.timeZone = timeZone
+
+    if let existingTime = timeComponents(from: existing) {
+      components.hour = existingTime.hour
+      components.minute = existingTime.minute
+      components.second = existingTime.second
+    } else {
+      components.hour = 9
+      components.minute = 0
+      components.second = 0
+    }
+
+    let finalDate = calendar.date(from: components) ?? date
+    return isoFormatter.string(from: finalDate)
+  }
+
+  private func timeComponents(from value: String) -> (hour: Int, minute: Int, second: Int)? {
+    let trimmed = value.trimmingCharacters(in: .whitespacesAndNewlines)
+    guard trimmed.range(of: #"\d{2}:\d{2}"#, options: .regularExpression) != nil else {
+      return nil
+    }
+    if let parsed = isoFormatter.date(from: trimmed) {
+      let calendar = Calendar(identifier: .gregorian)
+      let timeZone = TimeZone(identifier: "America/Chicago") ?? .current
+      let components = calendar.dateComponents(in: timeZone, from: parsed)
+      return (components.hour ?? 9, components.minute ?? 0, components.second ?? 0)
+    }
+    if let parsed = dateTimeFormatter.date(from: trimmed) {
+      let calendar = Calendar(identifier: .gregorian)
+      let components = calendar.dateComponents([.hour, .minute, .second], from: parsed)
+      return (components.hour ?? 9, components.minute ?? 0, components.second ?? 0)
+    }
+    return nil
   }
 
   private var modifiedBinding: Binding<Date> {
@@ -314,7 +371,7 @@ struct ContentView: View {
         parseDate(editor.modified) ?? Date()
       },
       set: { newValue in
-        editor.modified = dateString(from: newValue)
+        editor.modified = dateOnlyString(from: newValue)
       }
     )
   }
