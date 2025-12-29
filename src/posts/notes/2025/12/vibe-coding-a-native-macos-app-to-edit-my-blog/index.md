@@ -1,5 +1,6 @@
 ---
 category: Programming
+date: '2025-12-28T09:00:00-06:00'
 image: admin.gif
 layout: post
 styles:
@@ -9,7 +10,6 @@ tags:
   - admin
 title: Vibe coding a native macOS app to edit my blog
 type: note
-date: '2025-12-28T09:00:00-06:00'
 ---
 I have an awesome new editor for my website. It’s a native macOS SwiftUI app
 that I can boot up on my Mac and write and edit posts. I don’t know Swift. And I

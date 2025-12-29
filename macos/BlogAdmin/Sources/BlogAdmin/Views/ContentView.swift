@@ -15,6 +15,12 @@ struct ContentView: View {
   @State private var newTags = ""
   @State private var showImageImporter = false
   @State private var postImages: [URL] = []
+  @State private var showRenameSlugPrompt = false
+  @State private var pendingRenameSlug: String = ""
+  @State private var pendingSavePost: PostFile? = nil
+  @State private var pendingSaveDate: String = ""
+  @State private var originalTitle: String = ""
+  @State private var originalSlug: String = ""
 
   var body: some View {
     NavigationSplitView {
@@ -41,9 +47,13 @@ struct ContentView: View {
       if let post {
         postImages = repository.images(for: post)
         UserDefaults.standard.set(true, forKey: "BlogAdminCanSave")
+        originalTitle = post.title
+        originalSlug = currentSlug(for: post)
       } else {
         postImages = []
         UserDefaults.standard.set(false, forKey: "BlogAdminCanSave")
+        originalTitle = ""
+        originalSlug = ""
       }
     }
     .fileImporter(
@@ -58,6 +68,23 @@ struct ContentView: View {
     }
     .onReceive(NotificationCenter.default.publisher(for: .init("BlogAdminSavePost"))) { _ in
       savePost()
+    }
+    .confirmationDialog(
+      "Rename file to match title?",
+      isPresented: $showRenameSlugPrompt,
+      titleVisibility: .visible
+    ) {
+      Button("Rename") {
+        guard let post = pendingSavePost else { return }
+        performSave(post, desiredDate: pendingSaveDate, desiredSlug: pendingRenameSlug)
+      }
+      Button("Keep Current Name") {
+        guard let post = pendingSavePost else { return }
+        performSave(post, desiredDate: pendingSaveDate, desiredSlug: nil)
+      }
+      Button("Cancel", role: .cancel) {}
+    } message: {
+      Text("The file name doesn’t match the title. Rename the file to match the title?")
     }
     .toolbar {
       ToolbarItemGroup {
@@ -522,18 +549,60 @@ struct ContentView: View {
 
   private func savePost() {
     guard let updated = editor.updatedPost() else { return }
+    let desiredSlug = slugify(editor.title)
+    let titleChanged = editor.title != originalTitle
+    if titleChanged && desiredSlug != "" && desiredSlug != currentSlug(for: updated) {
+      pendingSavePost = updated
+      pendingRenameSlug = desiredSlug
+      pendingSaveDate = editor.date
+      showRenameSlugPrompt = true
+      return
+    }
+
+    performSave(updated, desiredDate: editor.date, desiredSlug: nil)
+  }
+
+  private func performSave(_ post: PostFile, desiredDate: String, desiredSlug: String?) {
     do {
-      var wrapped = updated
-      wrapped.body = hardWrapMarkdown(updated.body, width: 80)
+      var wrapped = post
+      wrapped.body = hardWrapMarkdown(post.body, width: 80)
       editor.body = wrapped.body
-      _ = Document(parsing: updated.body)
-      let saved = try repository.save(post: wrapped, desiredDate: editor.date)
+      _ = Document(parsing: post.body)
+      let saved = try repository.save(post: wrapped, desiredDate: desiredDate, desiredSlug: desiredSlug)
       selection = saved.id
       editor.load(post: saved)
       postImages = repository.images(for: saved)
+      originalTitle = saved.title
+      originalSlug = currentSlug(for: saved)
     } catch {
       NSSound.beep()
     }
+  }
+
+  private func currentSlug(for post: PostFile) -> String {
+    if post.isFolderBased {
+      return post.folderURL.lastPathComponent
+    }
+    return post.url.deletingPathExtension().lastPathComponent
+  }
+
+  private func slugify(_ input: String) -> String {
+    let folded = input.folding(options: [.diacriticInsensitive, .caseInsensitive], locale: .current)
+    var result = ""
+    var lastWasDash = false
+
+    for scalar in folded.unicodeScalars {
+      if CharacterSet.alphanumerics.contains(scalar) {
+        result.append(Character(scalar).lowercased())
+        lastWasDash = false
+      } else if !lastWasDash {
+        result.append("-")
+        lastWasDash = true
+      }
+    }
+
+    let trimmed = result.trimmingCharacters(in: CharacterSet(charactersIn: "-"))
+    return trimmed.isEmpty ? "post" : trimmed
   }
 
   private func hardWrapMarkdown(_ text: String, width: Int) -> String {
