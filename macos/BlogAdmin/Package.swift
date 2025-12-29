@@ -19,6 +19,10 @@ let package = Package(
         "Yams",
         .product(name: "Markdown", package: "swift-markdown")
       ]
+    ),
+    .testTarget(
+      name: "BlogAdminTests",
+      dependencies: ["BlogAdmin"]
     )
   ]
 )
