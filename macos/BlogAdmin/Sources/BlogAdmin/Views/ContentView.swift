@@ -2,6 +2,7 @@ import AppKit
 import Markdown
 import SwiftUI
 import UniformTypeIdentifiers
+import Yams
 
 struct ContentView: View {
   @AppStorage("repoPath") private var repoPath: String = ""
@@ -15,6 +16,8 @@ struct ContentView: View {
   @State private var newTags = ""
   @State private var showImageImporter = false
   @State private var postImages: [URL] = []
+  @State private var siteTitle: String = ""
+  @State private var siteURL: String = ""
   @State private var showRenameSlugPrompt = false
   @State private var pendingRenameSlug: String = ""
   @State private var pendingSavePost: PostFile? = nil
@@ -32,11 +35,13 @@ struct ContentView: View {
     }
     .onAppear {
       repository.updateRoot(path: repoPath)
+      loadSiteInfo(from: repoPath)
     }
     .onChange(of: repoPath) { newValue in
       repository.updateRoot(path: newValue)
       selection = nil
       editor.load(post: nil)
+      loadSiteInfo(from: newValue)
     }
     .onChange(of: repository.scope) { _ in
       repository.loadPosts()
@@ -126,6 +131,8 @@ struct ContentView: View {
         .disabled(editor.post == nil)
       }
     }
+    .navigationTitle(siteTitle.isEmpty ? "BlogAdmin" : siteTitle)
+    .navigationSubtitle(siteURL)
     .sheet(isPresented: $showNewPostSheet) {
       newPostSheet
     }
@@ -643,6 +650,19 @@ struct ContentView: View {
     } catch {
       NSSound.beep()
     }
+  }
+
+  private func loadSiteInfo(from rootPath: String) {
+    siteTitle = ""
+    siteURL = ""
+    let trimmed = rootPath.trimmingCharacters(in: .whitespacesAndNewlines)
+    guard !trimmed.isEmpty else { return }
+    let configURL = URL(fileURLWithPath: trimmed).appendingPathComponent("nanoc.yaml")
+    guard let yaml = try? String(contentsOf: configURL, encoding: .utf8) else { return }
+    guard let data = try? Yams.load(yaml: yaml) as? [String: Any] else { return }
+    guard let site = data["site"] as? [String: Any] else { return }
+    siteTitle = site["site_name"] as? String ?? ""
+    siteURL = site["base_url"] as? String ?? ""
   }
 
   private func hardWrapMarkdown(_ text: String, width: Int) -> String {
