@@ -4,7 +4,7 @@
   <title>Phillip's Notes</title>
   <link href="<%= site_config.base_url %>/atom.xml" rel="self"/>
   <link href="<%= site_config.base_url %>"/>
-  <updated><%= posts_sorted_by_date.first[:date].xmlschema %></updated>
+  <updated><%= post_date(posts_sorted_by_date.first).xmlschema %></updated>
   <id><%= site_config.base_url.encode(xml: :text) %></id>
   <author>
     <name><%= site_config.author.encode(xml: :text) %></name>
@@ -18,7 +18,7 @@
   <entry>
     <title><%= post[:title].encode(xml: :text) %></title>
     <link href="<%= site_config.base_url + post.path %>"/>
-    <updated><%= post[:date].xmlschema %></updated>
+    <updated><%= post_date(post).xmlschema %></updated>
     <id><%= site_config.base_url.encode(xml: :text) + post.path.encode(xml: :text) %></id>
     <content type="html">
       <%= post.compiled_content.encode(xml: :text) %>

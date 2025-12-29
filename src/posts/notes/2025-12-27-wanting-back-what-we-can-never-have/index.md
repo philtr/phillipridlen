@@ -1,22 +1,19 @@
 ---
-layout: post
-type: note
-
-title: "Wanting Back What We Can Never Have"
-subtitle: "...and maybe never had in the first place"
-image: family-room-pc.png
-description: >-
-  Growing up alongside the internet, the pull of nostalgia, and the unsettling
-  possibility that what we miss isn’t actually the past itself.
-
 category: Life
-
+description: "Growing up alongside the internet, the pull of nostalgia, and the unsettling
+  possibility that what we miss isn\u2019t actually the past itself."
+image: family-room-pc.png
+layout: post
+styles:
+  - posts/image
+  - posts/journal
+subtitle: '...and maybe never had in the first place'
 tags:
   - nostalgia
-
-styles:
-  - posts/journal
-  - posts/image
+  - internet
+  - culture
+title: Wanting Back What We Can Never Have
+type: note
 ---
 
 ![Illustration of a 1990s family room with a PC](family-room-pc.png)

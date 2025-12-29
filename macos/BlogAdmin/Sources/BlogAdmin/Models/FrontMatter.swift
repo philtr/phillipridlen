@@ -66,9 +66,51 @@ struct FrontMatter {
   }
 
   func dump() -> String {
-    let yaml = (try? Yams.dump(object: data))?.trimmingCharacters(in: .whitespacesAndNewlines) ?? ""
-    let parts = ["---", yaml, "---"]
+    let yaml = (try? Yams.dump(
+      object: data,
+      indent: 2,
+      sequenceStyle: .block,
+      mappingStyle: .block
+    ))?.trimmingCharacters(in: .whitespacesAndNewlines) ?? ""
+    let formatted = indentSequenceItems(in: yaml)
+    let parts = ["---", formatted, "---"]
     return parts.joined(separator: "\n") + "\n"
+  }
+
+  private func indentSequenceItems(in yaml: String) -> String {
+    let lines = yaml.split(separator: "\n", omittingEmptySubsequences: false)
+    var output: [String] = []
+    var inSequenceBlock = false
+
+    for line in lines {
+      let text = String(line)
+      let trimmed = text.trimmingCharacters(in: .whitespaces)
+
+      if trimmed.isEmpty {
+        output.append(text)
+        continue
+      }
+
+      if trimmed.hasSuffix(":") {
+        output.append(text)
+        inSequenceBlock = true
+        continue
+      }
+
+      if inSequenceBlock, trimmed.hasPrefix("- ") {
+        if text.hasPrefix("  ") {
+          output.append(text)
+        } else {
+          output.append("  " + trimmed)
+        }
+        continue
+      }
+
+      output.append(text)
+      inSequenceBlock = false
+    }
+
+    return output.joined(separator: "\n")
   }
 
   private static func loadYaml(_ yaml: String) -> [String: Any] {

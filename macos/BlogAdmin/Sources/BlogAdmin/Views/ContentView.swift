@@ -102,15 +102,17 @@ struct ContentView: View {
   }
 
   private var detail: some View {
-    Group {
-      if editor.post == nil {
-        emptyState
-      } else {
-        editorForm
+    ScrollView {
+      Group {
+        if editor.post == nil {
+          emptyState
+        } else {
+          editorForm
+        }
       }
+      .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .topLeading)
+      .padding(16)
     }
-    .frame(maxWidth: .infinity, maxHeight: .infinity)
-    .padding(16)
   }
 
   private var emptyState: some View {
@@ -137,15 +139,50 @@ struct ContentView: View {
         }
         .pickerStyle(.menu)
         TextField("Tags (comma separated)", text: $editor.tags)
-
-        DisclosureGroup("Excerpt") {
-          TextEditor(text: $editor.excerpt)
-            .frame(minHeight: 120)
+        TextField("Subtitle", text: $editor.subtitle)
+        TextField("Description", text: $editor.description)
+        Picker("Image", selection: $editor.image) {
+          Text("None").tag("")
+          ForEach(imageOptions, id: \.self) { image in
+            Text(image).tag(image)
+          }
         }
+        .pickerStyle(.menu)
+
+        DisclosureGroup("Styles") {
+          VStack(alignment: .leading, spacing: 6) {
+            ForEach(styleOptions, id: \.self) { style in
+              Toggle(style, isOn: Binding(
+                get: { editor.styles.contains(style) },
+                set: { isOn in
+                  if isOn {
+                    if !editor.styles.contains(style) {
+                      editor.styles.append(style)
+                    }
+                  } else {
+                    editor.styles.removeAll { $0 == style }
+                  }
+                }
+              ))
+            }
+          }
+        }
+
+        if editor.modified.isEmpty {
+          Button("Add Modified Date") {
+            editor.modified = dateString(from: Date())
+          }
+        } else {
+          HStack {
+            DatePicker("Modified", selection: modifiedBinding, displayedComponents: [.date])
+            Button("Clear") { editor.modified = "" }
+          }
+        }
+
       }
 
       TextEditor(text: $editor.body)
-        .frame(maxWidth: .infinity, minHeight: 360)
+        .frame(minHeight: 360)
         .font(.system(size: 15))
         .lineSpacing(4)
         .padding(6)
@@ -155,6 +192,7 @@ struct ContentView: View {
       imagesSection
     }
     .frame(maxWidth: .infinity, alignment: .leading)
+    .padding(.bottom, 12)
   }
 
   private var newPostSheet: some View {
@@ -190,7 +228,7 @@ struct ContentView: View {
         parseDate(editor.date) ?? Date()
       },
       set: { newValue in
-        editor.date = dateFormatter.string(from: newValue)
+        editor.date = dateString(from: newValue)
       }
     )
   }
@@ -204,11 +242,29 @@ struct ContentView: View {
     return ([editor.category] + unique).filter { !$0.isEmpty }
   }
 
+  private var imageOptions: [String] {
+    let filenames = postImages.map { $0.lastPathComponent }
+    let unique = Array(Set(filenames)).sorted()
+    if editor.image.isEmpty || unique.contains(editor.image) {
+      return unique
+    }
+    return ([editor.image] + unique).filter { !$0.isEmpty }
+  }
+
+  private var styleOptions: [String] {
+    let values = repository.posts
+      .flatMap { $0.frontMatter.stringArray("styles") }
+      .filter { !$0.isEmpty }
+    let unique = Array(Set(values)).sorted()
+    let current = editor.styles.filter { !unique.contains($0) }
+    return (current + unique).filter { !$0.isEmpty }
+  }
+
   private let dateFormatter: DateFormatter = {
     let formatter = DateFormatter()
     formatter.dateFormat = "yyyy-MM-dd"
     formatter.locale = Locale(identifier: "en_US_POSIX")
-    formatter.timeZone = TimeZone(secondsFromGMT: 0)
+    formatter.timeZone = TimeZone.current
     return formatter
   }()
 
@@ -216,6 +272,26 @@ struct ContentView: View {
     let trimmed = value.trimmingCharacters(in: .whitespacesAndNewlines)
     if trimmed.isEmpty { return nil }
     return dateFormatter.date(from: trimmed)
+  }
+
+  private func dateString(from date: Date) -> String {
+    let calendar = Calendar.current
+    let components = calendar.dateComponents([.year, .month, .day], from: date)
+    let year = components.year ?? 0
+    let month = components.month ?? 1
+    let day = components.day ?? 1
+    return String(format: "%04d-%02d-%02d", year, month, day)
+  }
+
+  private var modifiedBinding: Binding<Date> {
+    Binding(
+      get: {
+        parseDate(editor.modified) ?? Date()
+      },
+      set: { newValue in
+        editor.modified = dateString(from: newValue)
+      }
+    )
   }
 
   private var imagesSection: some View {
@@ -366,10 +442,10 @@ struct ContentView: View {
     guard let updated = editor.updatedPost() else { return }
     do {
       _ = Document(parsing: updated.body)
-      try repository.save(post: updated)
-      if let post = editor.post {
-        postImages = repository.images(for: post)
-      }
+      let saved = try repository.save(post: updated, desiredDate: editor.date)
+      selection = saved.id
+      editor.load(post: saved)
+      postImages = repository.images(for: saved)
     } catch {
       NSSound.beep()
     }
