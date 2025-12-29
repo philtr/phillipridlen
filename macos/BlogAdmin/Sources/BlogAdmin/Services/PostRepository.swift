@@ -62,7 +62,7 @@ final class PostRepository: ObservableObject {
   }
 
   func save(post: PostFile) throws {
-    try save(post: post, desiredDate: nil)
+    _ = try save(post: post, desiredDate: nil)
   }
 
   func save(post: PostFile, desiredDate: String?) throws -> PostFile {
