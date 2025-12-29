@@ -26,3 +26,9 @@ It’s not perfect. And I have lots of ideas for improvements. It will just keep
 getting better and better. If you’re interested, you can look at the source [in
 the `macos/BlogAdmin` folder of the repo for this
 site](https://github.com/philtr/phillipridlen/tree/master/macos/BlogAdmin).
+
+I’ve been using the OpenAI Codex CLI for my personal projects, and I find it
+roughly equivalent in features and quality to Amazon’s Kiro CLI that is provided
+to me at work, which uses the Anthropic models. I think I prefer Codex just a
+hair; it does a better job understanding my poor job of explaining what I want
+it to do, and asks more clarifying questions if my instructions are too vague.
