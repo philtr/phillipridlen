@@ -18,7 +18,7 @@ final class PostRepository: ObservableObject {
     let formatter = DateFormatter()
     formatter.dateFormat = "yyyy-MM-dd"
     formatter.locale = Locale(identifier: "en_US_POSIX")
-    formatter.timeZone = TimeZone(secondsFromGMT: 0)
+    formatter.timeZone = TimeZone.current
     return formatter
   }()
 
@@ -62,9 +62,16 @@ final class PostRepository: ObservableObject {
   }
 
   func save(post: PostFile) throws {
+    try save(post: post, desiredDate: nil)
+  }
+
+  func save(post: PostFile, desiredDate: String?) throws -> PostFile {
+    var post = post
+    try renamePostIfNeeded(post: &post, desiredDate: desiredDate)
     let content = post.renderedContent()
     try content.write(to: post.url, atomically: true, encoding: .utf8)
     loadPosts()
+    return post
   }
 
   func createPost(
@@ -84,15 +91,14 @@ final class PostRepository: ObservableObject {
     try FileManager.default.createDirectory(at: target, withIntermediateDirectories: true)
 
     let slug = slugify(title)
-    let dateString = dateFormatter.string(from: date)
+    let dateString = dateString(from: date)
     let filenameBase = "\(dateString)-\(slug)"
     let fileURL = uniqueFileURL(in: target, base: filenameBase, ext: "md")
 
     var data: [String: Any] = [
       "layout": "post",
       "type": scope == .links ? "link" : "note",
-      "title": title,
-      "date": dateString
+      "title": title
     ]
 
     if category.trimmingCharacters(in: .whitespacesAndNewlines) != "" {
@@ -101,13 +107,9 @@ final class PostRepository: ObservableObject {
     if !tags.isEmpty {
       data["tags"] = tags
     }
-    if excerpt.trimmingCharacters(in: .whitespacesAndNewlines) != "" {
-      data["excerpt"] = excerpt
-    }
-
     let frontMatter = FrontMatter(data: data)
     let post = PostFile(id: fileURL.path, url: fileURL, frontMatter: frontMatter, body: body)
-    try save(post: post)
+    _ = try save(post: post, desiredDate: dateString)
     return post
   }
 
@@ -198,6 +200,69 @@ final class PostRepository: ObservableObject {
     try FileManager.default.moveItem(at: post.url, to: destination)
     post = PostFile(id: destination.path, url: destination, frontMatter: post.frontMatter, body: post.body)
     return folderURL
+  }
+
+  private func renamePostIfNeeded(post: inout PostFile, desiredDate: String?) throws {
+    let desired = normalizeDateString(desiredDate)
+    guard let desired else { return }
+    guard let current = post.filenameDateString else { return }
+    guard desired != current else { return }
+
+    let slug = extractSlug(from: post)
+    let base = "\(desired)-\(slug)"
+
+    if post.isFolderBased {
+      let currentFolder = post.folderURL
+      let newFolder = currentFolder.deletingLastPathComponent().appendingPathComponent(base)
+      if currentFolder != newFolder {
+        try FileManager.default.moveItem(at: currentFolder, to: newFolder)
+      }
+      let newURL = newFolder.appendingPathComponent("index.md")
+      post = PostFile(id: newURL.path, url: newURL, frontMatter: post.frontMatter, body: post.body)
+    } else {
+      let newURL = post.url.deletingLastPathComponent().appendingPathComponent("\(base).md")
+      if post.url != newURL {
+        try FileManager.default.moveItem(at: post.url, to: newURL)
+      }
+      post = PostFile(id: newURL.path, url: newURL, frontMatter: post.frontMatter, body: post.body)
+    }
+  }
+
+  private func extractSlug(from post: PostFile) -> String {
+    let name: String
+    if post.isFolderBased {
+      name = post.folderURL.lastPathComponent
+    } else {
+      name = post.url.deletingPathExtension().lastPathComponent
+    }
+
+    if let range = name.range(of: #"^\d{4}-\d{2}-\d{2}-(.+)$"#, options: .regularExpression) {
+      let slug = String(name[range]).replacingOccurrences(of: #"^\d{4}-\d{2}-\d{2}-"#, with: "", options: .regularExpression)
+      return slug.isEmpty ? "post" : slug
+    }
+    return name
+  }
+
+  private func normalizeDateString(_ value: String?) -> String? {
+    guard let value else { return nil }
+    let trimmed = value.trimmingCharacters(in: .whitespacesAndNewlines)
+    if trimmed.isEmpty { return nil }
+    if trimmed.range(of: #"^\d{4}-\d{2}-\d{2}$"#, options: .regularExpression) != nil {
+      return trimmed
+    }
+    if let date = dateFormatter.date(from: trimmed) {
+      return dateString(from: date)
+    }
+    return nil
+  }
+
+  private func dateString(from date: Date) -> String {
+    let calendar = Calendar.current
+    let components = calendar.dateComponents([.year, .month, .day], from: date)
+    let year = components.year ?? 0
+    let month = components.month ?? 1
+    let day = components.day ?? 1
+    return String(format: "%04d-%02d-%02d", year, month, day)
   }
 
   private func uniqueFileURL(in directory: URL, base: String, ext: String) -> URL {

@@ -23,5 +23,5 @@ styles:
             %li
               != link_to post.attributes[:title], post
               %aside
-                %time{ datetime: post[:date].strftime("%Y-%m-%d"), title: post[:date].strftime("%A, %B %-d, %Y") }
-                  = post[:date].year
+                %time{ datetime: post_date(post).strftime("%Y-%m-%d"), title: post_date(post).strftime("%A, %B %-d, %Y") }
+                  = post_date(post).year

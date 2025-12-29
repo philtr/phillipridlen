@@ -6,6 +6,11 @@ final class PostEditorModel: ObservableObject {
   @Published var date: String = ""
   @Published var category: String = ""
   @Published var tags: String = ""
+  @Published var description: String = ""
+  @Published var subtitle: String = ""
+  @Published var image: String = ""
+  @Published var styles: [String] = []
+  @Published var modified: String = ""
   @Published var excerpt: String = ""
   @Published var body: String = ""
 
@@ -15,6 +20,11 @@ final class PostEditorModel: ObservableObject {
     date = post?.resolvedDateString ?? ""
     category = post?.category ?? ""
     tags = post?.tags.joined(separator: ", ") ?? ""
+    description = post?.frontMatter.string("description") ?? ""
+    subtitle = post?.frontMatter.string("subtitle") ?? ""
+    image = post?.frontMatter.string("image") ?? ""
+    styles = post?.frontMatter.stringArray("styles") ?? []
+    modified = post?.frontMatter.string("modified") ?? ""
     excerpt = post?.excerpt ?? ""
     body = post?.body ?? ""
   }
@@ -24,16 +34,7 @@ final class PostEditorModel: ObservableObject {
     var frontMatter = post.frontMatter
 
     frontMatter.set("title", value: title)
-    let trimmedDate = date.trimmingCharacters(in: .whitespacesAndNewlines)
-    if trimmedDate == "" {
-      if let fallback = post.filenameDateString {
-        frontMatter.set("date", value: fallback)
-      } else {
-        frontMatter.remove("date")
-      }
-    } else {
-      frontMatter.set("date", value: trimmedDate)
-    }
+    frontMatter.remove("date")
 
     if category.trimmingCharacters(in: .whitespacesAndNewlines) == "" {
       frontMatter.remove("category")
@@ -52,11 +53,45 @@ final class PostEditorModel: ObservableObject {
       frontMatter.set("tags", value: tagsList)
     }
 
-    if excerpt.trimmingCharacters(in: .whitespacesAndNewlines) == "" {
-      frontMatter.remove("excerpt")
+    let descriptionText = description.trimmingCharacters(in: .whitespacesAndNewlines)
+    if descriptionText == "" {
+      frontMatter.remove("description")
     } else {
-      frontMatter.set("excerpt", value: excerpt)
+      frontMatter.set("description", value: descriptionText)
     }
+
+    let subtitleText = subtitle.trimmingCharacters(in: .whitespacesAndNewlines)
+    if subtitleText == "" {
+      frontMatter.remove("subtitle")
+    } else {
+      frontMatter.set("subtitle", value: subtitleText)
+    }
+
+    let imageText = image.trimmingCharacters(in: .whitespacesAndNewlines)
+    if imageText == "" {
+      frontMatter.remove("image")
+    } else {
+      frontMatter.set("image", value: imageText)
+    }
+
+    let stylesList = styles
+      .map { $0.trimmingCharacters(in: .whitespacesAndNewlines) }
+      .filter { $0 != "" }
+
+    if stylesList.isEmpty {
+      frontMatter.remove("styles")
+    } else {
+      frontMatter.set("styles", value: stylesList)
+    }
+
+    let modifiedText = modified.trimmingCharacters(in: .whitespacesAndNewlines)
+    if modifiedText == "" {
+      frontMatter.remove("modified")
+    } else {
+      frontMatter.set("modified", value: modifiedText)
+    }
+
+    frontMatter.remove("excerpt")
 
     post.frontMatter = frontMatter
     post.body = body

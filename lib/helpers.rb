@@ -42,7 +42,7 @@ end
 
 def post_asset_output_path(filename)
   category = @item[:category].downcase
-  yyyy, mm, dd = @item[:date].strftime("%Y/%m/%d").split("/")
+  yyyy, mm, dd = post_date(@item).strftime("%Y/%m/%d").split("/")
   slug = @item[:slug]
 
   "/notes/#{category}/#{yyyy}/#{mm}/#{dd}/#{slug}/#{filename}"
@@ -110,11 +110,40 @@ end
 
 def posts_sorted_by_date(posts = all_posts, direction: :desc)
   posts.sort_by do |item|
+    date_value = item.fetch(:date)
+    date_value = date_value.to_time if date_value.respond_to?(:to_time) && !date_value.is_a?(Time)
+    unless date_value.is_a?(Time)
+      begin
+        date_value = Time.parse(date_value.to_s)
+      rescue ArgumentError, TypeError
+        date_value = Time.at(0)
+      end
+    end
+
     case direction
-    when :asc then item.fetch(:date) - Time.now
-    when :desc then Time.now - item.fetch(:date)
+    when :asc then date_value - Time.now
+    when :desc then Time.now - date_value
     end
   end
+end
+
+def coerce_time(value)
+  value = value.to_time if value.respond_to?(:to_time) && !value.is_a?(Time)
+  return value if value.is_a?(Time)
+
+  Time.parse(value.to_s)
+rescue ArgumentError, TypeError
+  Time.at(0)
+end
+
+def post_date(item)
+  coerce_time(item.fetch(:date))
+end
+
+def post_modified_date(item)
+  return nil unless item[:modified]
+
+  coerce_time(item[:modified])
 end
 
 def posts_grouped_by_category(posts = all_posts, sort: :desc)
