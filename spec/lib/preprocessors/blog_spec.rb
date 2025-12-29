@@ -30,17 +30,16 @@ RSpec.describe "blog preprocessors" do
 
   describe "#blog_post_attributes_from_filename" do
     it "sets attributes based on filename" do
-      item = double(:identifier => "/posts/notes/2024-01-02-test.md", :[]= => nil)
+      item = double(:identifier => "/posts/notes/2024/01/test.md", :[]= => nil)
       allow(item).to receive(:[]=)
       items << item
       blog_post_attributes_from_filename
       expect(item).to have_received(:[]=).with(:post_type, "note")
-      expect(item).to have_received(:[]=).with(:date, Time.new("2024", "01", "02"))
       expect(item).to have_received(:[]=).with(:slug, "test")
     end
 
     it "sets slug correctly for posts stored in a directory with index.md" do
-      item = double(:identifier => "/posts/notes/2024-01-02-test/index.md", :[]= => nil)
+      item = double(:identifier => "/posts/notes/2024/01/test/index.md", :[]= => nil)
       allow(item).to receive(:[]=)
       items << item
       blog_post_attributes_from_filename
@@ -50,14 +49,14 @@ RSpec.describe "blog preprocessors" do
 
   describe "#blog_post_asset_attributes" do
     it "copies metadata from the parent post to assets inside the post directory" do
-      post = double(
-        :identifier => "/posts/notes/2024-01-02-test/index.md",
-        :[] => "Life"
-      )
-      asset = double(:identifier => "/posts/notes/2024-01-02-test/doomscroll.png", :[]= => nil)
+      post = double(:identifier => "/posts/notes/2024/01/test/index.md")
+      asset = double(:identifier => "/posts/notes/2024/01/test/doomscroll.png", :[]= => nil)
 
       allow(post).to receive(:[]=)
       allow(post).to receive(:[]).with(:category).and_return("Life")
+      allow(post).to receive(:[]).with(:date).and_return(Time.new("2024", "01", "02"))
+      allow(post).to receive(:[]).with(:post_type).and_return("note")
+      allow(post).to receive(:[]).with(:slug).and_return("test")
       allow(asset).to receive(:[]=)
 
       items << post
