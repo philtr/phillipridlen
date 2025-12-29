@@ -130,6 +130,8 @@ struct ContentView: View {
     VStack(spacing: 12) {
       Form {
         TextField("Title", text: $editor.title)
+        TextField("Subtitle", text: $editor.subtitle)
+        TextField("Description", text: $editor.description)
         DatePicker("Date", selection: dateBinding, displayedComponents: [.date])
         Picker("Category", selection: $editor.category) {
           Text("None").tag("")
@@ -138,9 +140,7 @@ struct ContentView: View {
           }
         }
         .pickerStyle(.menu)
-        TextField("Tags (comma separated)", text: $editor.tags)
-        TextField("Subtitle", text: $editor.subtitle)
-        TextField("Description", text: $editor.description)
+        TextField("Tags", text: $editor.tags)
         Picker("Image", selection: $editor.image) {
           Text("None").tag("")
           ForEach(imageOptions, id: \.self) { image in
@@ -149,7 +149,7 @@ struct ContentView: View {
         }
         .pickerStyle(.menu)
 
-        DisclosureGroup("Styles") {
+        LabeledContent("Styles") {
           VStack(alignment: .leading, spacing: 6) {
             ForEach(styleOptions, id: \.self) { style in
               Toggle(style, isOn: Binding(
