@@ -3,6 +3,8 @@ import SwiftUI
 
 @main
 struct BlogAdminApp: App {
+  @AppStorage("BlogAdminCanSave") private var canSave = false
+
   init() {
     NSApplication.shared.setActivationPolicy(.regular)
     NSApplication.shared.activate(ignoringOtherApps: true)
@@ -13,6 +15,13 @@ struct BlogAdminApp: App {
       ContentView()
     }
     .commands {
+      CommandGroup(before: .saveItem) {
+        Button("Save") {
+          savePost()
+        }
+        .keyboardShortcut("s", modifiers: [.command])
+        .disabled(!canSave)
+      }
       CommandGroup(replacing: .newItem) {
         Button("New Post") {
           newPost()
@@ -47,5 +56,9 @@ struct BlogAdminApp: App {
     if panel.runModal() == .OK, let url = panel.url {
       UserDefaults.standard.set(url.path, forKey: "repoPath")
     }
+  }
+
+  private func savePost() {
+    NotificationCenter.default.post(name: .init("BlogAdminSavePost"), object: nil)
   }
 }
