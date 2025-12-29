@@ -56,11 +56,31 @@ struct ContentView: View {
     }
     .toolbar {
       ToolbarItemGroup {
-        Button("New") { showNewPostSheet = true }
-          .disabled(repoPath.isEmpty)
-        Button("Reload") { repository.loadPosts() }
-        Button("Save") { savePost() }
-          .disabled(editor.post == nil)
+        Button {
+          showNewPostSheet = true
+        } label: {
+          Label("New Post", systemImage: "square.and.pencil")
+        }
+        .labelStyle(.iconOnly)
+        .help("New Post")
+        .disabled(repoPath.isEmpty)
+
+        Button {
+          repository.loadPosts()
+        } label: {
+          Label("Reload", systemImage: "arrow.clockwise")
+        }
+        .labelStyle(.iconOnly)
+        .help("Reload Posts")
+
+        Button {
+          savePost()
+        } label: {
+          Label("Save", systemImage: "document.circle")
+        }
+        .labelStyle(.iconOnly)
+        .help("Save Post")
+        .disabled(editor.post == nil)
       }
     }
     .sheet(isPresented: $showNewPostSheet) {
