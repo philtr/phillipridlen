@@ -21,6 +21,8 @@ struct ContentView: View {
   @State private var pendingSaveDate: String = ""
   @State private var originalTitle: String = ""
   @State private var originalSlug: String = ""
+  @State private var showDeletePrompt = false
+  @State private var pendingDeletePost: PostFile? = nil
 
   var body: some View {
     NavigationSplitView {
@@ -86,6 +88,15 @@ struct ContentView: View {
     } message: {
       Text("The file name doesn’t match the title. Rename the file to match the title?")
     }
+    .alert("Delete post?", isPresented: $showDeletePrompt) {
+      Button("Delete", role: .destructive) {
+        guard let post = pendingDeletePost else { return }
+        deletePost(post)
+      }
+      Button("Cancel", role: .cancel) {}
+    } message: {
+      Text("This will move the post to the Trash.")
+    }
     .toolbar {
       ToolbarItemGroup {
         Button {
@@ -144,6 +155,19 @@ struct ContentView: View {
                 Text(post.title.isEmpty ? "(Untitled)" : post.title)
               }
               .tag(post.id)
+              .contextMenu {
+                Button("Edit") {
+                  selection = post.id
+                }
+                Button("Show in Finder") {
+                  NSWorkspace.shared.activateFileViewerSelecting([post.url])
+                }
+                Divider()
+                Button("Delete") {
+                  pendingDeletePost = post
+                  showDeletePrompt = true
+                }
+              }
             }
           }
         }
@@ -603,6 +627,22 @@ struct ContentView: View {
 
     let trimmed = result.trimmingCharacters(in: CharacterSet(charactersIn: "-"))
     return trimmed.isEmpty ? "post" : trimmed
+  }
+
+  private func deletePost(_ post: PostFile) {
+    do {
+      let url = post.isFolderBased ? post.folderURL : post.url
+      try FileManager.default.trashItem(at: url, resultingItemURL: nil)
+      repository.loadPosts()
+      if selection == post.id {
+        selection = nil
+        editor.load(post: nil)
+        postImages = []
+        UserDefaults.standard.set(false, forKey: "BlogAdminCanSave")
+      }
+    } catch {
+      NSSound.beep()
+    }
   }
 
   private func hardWrapMarkdown(_ text: String, width: Int) -> String {
