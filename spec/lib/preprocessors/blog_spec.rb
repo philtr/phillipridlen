@@ -49,7 +49,7 @@ RSpec.describe "blog preprocessors" do
 
   describe "#blog_post_asset_attributes" do
     it "copies metadata from the parent post to assets inside the post directory" do
-      post = double(:identifier => "/posts/notes/2024/01/test/index.md")
+      post = double(identifier: "/posts/notes/2024/01/test/index.md")
       asset = double(:identifier => "/posts/notes/2024/01/test/doomscroll.png", :[]= => nil)
 
       allow(post).to receive(:[]=)

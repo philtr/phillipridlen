@@ -5,9 +5,13 @@ POST_REGEXES = [
   %r{\A/posts/(link|note)s/\d{4}/\d{2}/([^/]+)(?:/index)?\.md\z},
   %r{\A/posts/(link|note)s/\d{4}-\d{2}-\d{2}-([^/]+)(?:/index)?\.md\z}
 ].freeze
+POST_ASSET_REGEXES = [
+  %r{\A/posts/(link|note)s/\d{4}/\d{2}/([^/]+)/(.+)\z},
+  %r{\A/posts/(link|note)s/\d{4}-\d{2}-\d{2}-([^/]+)/(.+)\z}
+].freeze
 
 def blog_post_items
-  @items
+  @blog_post_items ||= @items
     .find_all("/posts/**/*")
     .select { |item| POST_REGEXES.any? { |regex| item.identifier.to_s.match?(regex) } }
 end
@@ -22,28 +26,31 @@ end
 
 def blog_category_items
   blog_post_items
-    .map { it[:category].downcase }.uniq
+    .map { it[:category].to_s.downcase }
+    .reject(&:empty?)
+    .uniq
     .map { {name: it.titleize, slug: it.parameterize} }
     .map { @items.create("", it, "/categories/#{it[:slug]}") }
 end
 
 def blog_post_asset_attributes
-  blog_post_items.each do |post|
-    post_prefix = post.identifier.to_s.sub(/index\.md\z/, "")
-    @items
-      .find_all("/posts/**/*")
-      .select { |asset| asset.identifier.to_s.start_with?(post_prefix) }
-      .each do |item|
-      next if item.identifier.to_s.end_with?(".md")
+  index = blog_post_index
 
-      parent = post
+  @items.find_all("/posts/**/*").each do |item|
+    next if item.identifier.to_s.end_with?(".md")
 
-      item[:post_type] = parent[:post_type]
-      item[:date] = parent[:date] if parent[:date]
-      item[:slug] = parent[:slug]
-      item[:category] = parent[:category]
-      item[:relative_path] = item.identifier.to_s.split("#{parent[:slug]}/").last
-    end
+    match = POST_ASSET_REGEXES.find { |regex| item.identifier.to_s.match?(regex) }
+    next unless match
+
+    post_type, slug, relative = item.identifier.to_s.match(match).captures
+    parent = index["#{post_type}/#{slug}"]
+    next unless parent
+
+    item[:post_type] = parent[:post_type]
+    item[:date] = parent[:date] if parent[:date]
+    item[:slug] = parent[:slug]
+    item[:category] = parent[:category]
+    item[:relative_path] = relative
   end
 end
 
@@ -64,4 +71,14 @@ def post_type_and_slug_for(identifier)
     return [post_type, slug]
   end
   ["note", ""]
+end
+
+def blog_post_index
+  @blog_post_index ||= blog_post_items.each_with_object({}) do |post, index|
+    post_type = post[:post_type]
+    slug = post[:slug]
+    next if post_type.to_s.empty? || slug.to_s.empty?
+
+    index["#{post_type}/#{slug}"] = post
+  end
 end
