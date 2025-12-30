@@ -1,7 +1,6 @@
 ---
 category: Programming
 date: "2025-12-29T23:22:00-06:00"
-draft: true
 image: admin.mp4
 layout: post
 styles:
