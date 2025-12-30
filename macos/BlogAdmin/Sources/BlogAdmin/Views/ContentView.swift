@@ -11,7 +11,7 @@ struct ContentView: View {
   @State private var selection: String? = nil
   @State private var showNewPostSheet = false
   @State private var newTitle = ""
-  @State private var newDate = Date()
+  @State private var newDate = ContentView.defaultPostDate()
   @State private var newCategory = ""
   @State private var newTags = ""
   @State private var showImageImporter = false
@@ -215,7 +215,10 @@ struct ContentView: View {
         TextField("Title", text: $editor.title)
         TextField("Subtitle", text: $editor.subtitle)
         TextField("Description", text: $editor.description)
-        DatePicker("Date", selection: dateBinding, displayedComponents: [.date])
+        DatePicker("Date", selection: dateBinding, displayedComponents: [.date, .hourAndMinute])
+        Text("Times are saved in America/Chicago (US Central).")
+          .font(.caption)
+          .foregroundStyle(.secondary)
         Picker("Category", selection: $editor.category) {
           Text("None").tag("")
           ForEach(categoryOptions, id: \.self) { category in
@@ -257,9 +260,12 @@ struct ContentView: View {
           }
         } else {
           HStack {
-            DatePicker("Modified", selection: modifiedBinding, displayedComponents: [.date])
+            DatePicker("Modified", selection: modifiedBinding, displayedComponents: [.date, .hourAndMinute])
             Button("Clear") { editor.modified = "" }
           }
+          Text("Times are saved in America/Chicago (US Central).")
+            .font(.caption)
+            .foregroundStyle(.secondary)
         }
 
       }
@@ -284,7 +290,10 @@ struct ContentView: View {
         .font(.title2)
 
       TextField("Title", text: $newTitle)
-      DatePicker("Date", selection: $newDate, displayedComponents: [.date])
+      DatePicker("Date", selection: $newDate, displayedComponents: [.date, .hourAndMinute])
+      Text("Times are saved in America/Chicago (US Central).")
+        .font(.caption)
+        .foregroundStyle(.secondary)
       Picker("Category", selection: $newCategory) {
         Text("None").tag("")
         ForEach(categoryOptions, id: \.self) { category in
@@ -369,8 +378,11 @@ struct ContentView: View {
   private func parseDate(_ value: String) -> Date? {
     let trimmed = value.trimmingCharacters(in: .whitespacesAndNewlines)
     if trimmed.isEmpty { return nil }
+    if trimmed.range(of: #"^\d{4}-\d{2}-\d{2}$"#, options: .regularExpression) != nil {
+      return dateAtNineAM(from: trimmed)
+    }
     if let parsed = isoFormatter.date(from: trimmed) { return parsed }
-    return dateFormatter.date(from: trimmed)
+    return dateTimeFormatter.date(from: trimmed) ?? dateFormatter.date(from: trimmed)
   }
 
   private func dateOnlyString(from date: Date) -> String {
@@ -387,16 +399,20 @@ struct ContentView: View {
     let timeZone = TimeZone(identifier: "America/Chicago") ?? .current
     var calendar = Calendar(identifier: .gregorian)
     calendar.timeZone = timeZone
-    var components = calendar.dateComponents([.year, .month, .day], from: date)
+    var components = calendar.dateComponents([.year, .month, .day, .hour, .minute, .second], from: date)
     components.timeZone = timeZone
 
-    if let existingTime = timeComponents(from: existing) {
-      components.hour = existingTime.hour
-      components.minute = existingTime.minute
-      components.second = existingTime.second
-    } else {
-      components.hour = 9
-      components.minute = 0
+    if components.hour == nil || components.minute == nil {
+      if let existingTime = timeComponents(from: existing) {
+        components.hour = existingTime.hour
+        components.minute = existingTime.minute
+        components.second = existingTime.second
+      } else {
+        components.hour = 9
+        components.minute = 0
+        components.second = 0
+      }
+    } else if components.second == nil {
       components.second = 0
     }
 
@@ -423,13 +439,38 @@ struct ContentView: View {
     return nil
   }
 
+  private func dateAtNineAM(from dateOnly: String) -> Date? {
+    guard let base = dateFormatter.date(from: dateOnly) else { return nil }
+    let timeZone = TimeZone(identifier: "America/Chicago") ?? .current
+    var calendar = Calendar(identifier: .gregorian)
+    calendar.timeZone = timeZone
+    var components = calendar.dateComponents([.year, .month, .day], from: base)
+    components.timeZone = timeZone
+    components.hour = 9
+    components.minute = 0
+    components.second = 0
+    return calendar.date(from: components)
+  }
+
+  private static func defaultPostDate() -> Date {
+    let timeZone = TimeZone(identifier: "America/Chicago") ?? .current
+    var calendar = Calendar(identifier: .gregorian)
+    calendar.timeZone = timeZone
+    var components = calendar.dateComponents([.year, .month, .day], from: Date())
+    components.timeZone = timeZone
+    components.hour = 9
+    components.minute = 0
+    components.second = 0
+    return calendar.date(from: components) ?? Date()
+  }
+
   private var modifiedBinding: Binding<Date> {
     Binding(
       get: {
         parseDate(editor.modified) ?? Date()
       },
       set: { newValue in
-        editor.modified = dateOnlyString(from: newValue)
+        editor.modified = dateTimeString(from: newValue, existing: editor.modified)
       }
     )
   }

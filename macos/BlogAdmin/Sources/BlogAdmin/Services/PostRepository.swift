@@ -315,11 +315,15 @@ final class PostRepository: ObservableObject {
   private func iso8601String(from date: Date) -> String {
     let calendar = Calendar(identifier: .gregorian)
     let timeZone = TimeZone(identifier: "America/Chicago") ?? .current
-    var components = calendar.dateComponents([.year, .month, .day], from: date)
+    var components = calendar.dateComponents([.year, .month, .day, .hour, .minute, .second], from: date)
     components.timeZone = timeZone
-    components.hour = 9
-    components.minute = 0
-    components.second = 0
+    if components.hour == nil || components.minute == nil {
+      components.hour = 9
+      components.minute = 0
+      components.second = 0
+    } else if components.second == nil {
+      components.second = 0
+    }
     let finalDate = calendar.date(from: components) ?? date
     return isoFormatter.string(from: finalDate)
   }
