@@ -1,16 +1,7 @@
 import Foundation
 
-enum PostScope: String, CaseIterable, Identifiable {
-  case notes = "Notes"
-  case links = "Links"
-  case drafts = "Drafts"
-
-  var id: String { rawValue }
-}
-
 final class PostRepository: ObservableObject {
   @Published var posts: [PostFile] = []
-  @Published var scope: PostScope = .notes
 
   private var rootURL: URL? = nil
   private let imageExtensions: Set<String> = ["jpg", "jpeg", "png", "gif", "webp"]
@@ -46,16 +37,17 @@ final class PostRepository: ObservableObject {
       return
     }
 
-    let target = targetDirectory(for: scope, root: rootURL)
-    guard let files = listMarkdownFiles(in: target) else {
-      posts = []
-      return
-    }
+    let roots = [
+      rootURL.appendingPathComponent("src/posts/notes"),
+      rootURL.appendingPathComponent("src/posts/links"),
+      rootURL.appendingPathComponent("src/drafts/notes")
+    ]
+    let files = roots.flatMap { listMarkdownFiles(in: $0) ?? [] }
 
     var loaded: [PostFile] = []
     for url in files {
       guard let post = try? PostFile.load(from: url) else { continue }
-      if shouldInclude(post: post, in: scope) {
+      if shouldInclude(post: post) {
         loaded.append(post)
       }
     }
@@ -88,7 +80,8 @@ final class PostRepository: ObservableObject {
     tags: [String],
     excerpt: String,
     body: String,
-    scope: PostScope
+    postType: String,
+    draft: Bool
   ) throws -> PostFile {
     guard let rootURL else {
       throw NSError(domain: "BlogAdmin", code: 1, userInfo: [NSLocalizedDescriptionKey: "Repository not set"])
@@ -96,7 +89,7 @@ final class PostRepository: ObservableObject {
 
     let isoDate = iso8601String(from: date)
     let dateString = dateString(from: date)
-    let target = postDirectory(for: dateString, scope: scope, root: rootURL)
+    let target = postDirectory(for: dateString, postType: postType, draft: draft, root: rootURL)
     try FileManager.default.createDirectory(at: target, withIntermediateDirectories: true)
 
     let slug = slugify(title)
@@ -104,10 +97,13 @@ final class PostRepository: ObservableObject {
 
     var data: [String: Any] = [
       "layout": "post",
-      "type": scope == .links ? "link" : "note",
+      "type": postType,
       "title": title,
       "date": isoDate
     ]
+    if draft {
+      data["draft"] = true
+    }
 
     if category.trimmingCharacters(in: .whitespacesAndNewlines) != "" {
       data["category"] = category
@@ -156,19 +152,18 @@ final class PostRepository: ObservableObject {
     return results.sorted { $0.lastPathComponent.lowercased() < $1.lastPathComponent.lowercased() }
   }
 
-  private func targetDirectory(for scope: PostScope, root: URL) -> URL {
-    switch scope {
-    case .notes:
-      return root.appendingPathComponent("src/posts/notes")
-    case .links:
-      return root.appendingPathComponent("src/posts/links")
-    case .drafts:
+  private func targetDirectory(for postType: String, draft: Bool, root: URL) -> URL {
+    if draft {
       return root.appendingPathComponent("src/drafts/notes")
     }
+    if postType == "link" {
+      return root.appendingPathComponent("src/posts/links")
+    }
+    return root.appendingPathComponent("src/posts/notes")
   }
 
-  private func postDirectory(for dateString: String, scope: PostScope, root: URL) -> URL {
-    let base = targetDirectory(for: scope, root: root)
+  private func postDirectory(for dateString: String, postType: String, draft: Bool, root: URL) -> URL {
+    let base = targetDirectory(for: postType, draft: draft, root: root)
     guard let (year, month) = yearMonth(from: dateString) else {
       return base
     }
@@ -189,14 +184,11 @@ final class PostRepository: ObservableObject {
     return results
   }
 
-  private func shouldInclude(post: PostFile, in scope: PostScope) -> Bool {
+  private func shouldInclude(post: PostFile) -> Bool {
     let layout = post.frontMatter.string("layout")
     if layout != "post" && layout != "" {
       return false
     }
-    let type = post.frontMatter.string("type")
-    if scope == .notes && type == "link" { return false }
-    if scope == .links && type != "link" { return false }
     return true
   }
 
@@ -227,7 +219,7 @@ final class PostRepository: ObservableObject {
     let trimmedSlug = desiredSlug?.trimmingCharacters(in: .whitespacesAndNewlines) ?? ""
     let slug = trimmedSlug.isEmpty ? currentSlug : trimmedSlug
     let base = slug
-    let destinationDir = postDirectory(for: desired, scope: scope, root: rootURL)
+    let destinationDir = postDirectory(for: desired, postType: post.postType, draft: post.isDraft, root: rootURL)
     try FileManager.default.createDirectory(at: destinationDir, withIntermediateDirectories: true)
 
     if post.isFolderBased {

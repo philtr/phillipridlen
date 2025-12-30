@@ -4,6 +4,8 @@ final class PostEditorModel: ObservableObject {
   @Published var post: PostFile? = nil
   @Published var title: String = ""
   @Published var date: String = ""
+  @Published var postType: String = "note"
+  @Published var isDraft: Bool = false
   @Published var category: String = ""
   @Published var tags: String = ""
   @Published var description: String = ""
@@ -17,6 +19,8 @@ final class PostEditorModel: ObservableObject {
     self.post = post
     title = post?.title ?? ""
     date = post?.resolvedDateString ?? ""
+    postType = post?.postType ?? "note"
+    isDraft = post?.isDraft ?? false
     category = post?.category ?? ""
     tags = post?.tags.joined(separator: ", ") ?? ""
     description = post?.frontMatter.string("description") ?? ""
@@ -37,6 +41,14 @@ final class PostEditorModel: ObservableObject {
       frontMatter.remove("date")
     } else {
       frontMatter.set("date", value: dateText)
+    }
+
+    frontMatter.set("type", value: postType)
+
+    if isDraft {
+      frontMatter.set("draft", value: "true")
+    } else {
+      frontMatter.remove("draft")
     }
 
     if category.trimmingCharacters(in: .whitespacesAndNewlines) == "" {

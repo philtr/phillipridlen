@@ -53,6 +53,19 @@ struct FrontMatter {
     return []
   }
 
+  func bool(_ key: String) -> Bool {
+    if let value = data[key] as? Bool {
+      return value
+    }
+    if let value = data[key] as? String {
+      return ["true", "yes", "1"].contains(value.lowercased())
+    }
+    if let value = data[key] as? Int {
+      return value != 0
+    }
+    return false
+  }
+
   mutating func set(_ key: String, value: String) {
     data[key] = value
   }
