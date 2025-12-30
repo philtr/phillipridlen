@@ -11,7 +11,6 @@ final class PostEditorModel: ObservableObject {
   @Published var image: String = ""
   @Published var styles: [String] = []
   @Published var modified: String = ""
-  @Published var excerpt: String = ""
   @Published var body: String = ""
 
   func load(post: PostFile?) {
@@ -25,7 +24,6 @@ final class PostEditorModel: ObservableObject {
     image = post?.frontMatter.string("image") ?? ""
     styles = post?.frontMatter.stringArray("styles") ?? []
     modified = post?.frontMatter.string("modified") ?? ""
-    excerpt = post?.excerpt ?? ""
     body = post?.body ?? ""
   }
 
@@ -95,8 +93,6 @@ final class PostEditorModel: ObservableObject {
     } else {
       frontMatter.set("modified", value: modifiedText)
     }
-
-    frontMatter.remove("excerpt")
 
     post.frontMatter = frontMatter
     post.body = body
