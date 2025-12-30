@@ -10,6 +10,16 @@ preprocess do
   blog_post_asset_attributes
 end
 
+COERCE_ITEM_DATE = -> (item) do
+  value = item[:date]
+  value = value.to_time if value.respond_to?(:to_time) && !value.is_a?(Time)
+  return value if value.is_a?(Time)
+
+  Time.parse(value.to_s)
+rescue ArgumentError, TypeError
+  Time.at(0)
+end
+
 compile "/posts/**/*.md" do
   filter :erb
   filter :kramdown
@@ -19,13 +29,7 @@ compile "/posts/**/*.md" do
   filter :typogruby
 
   category = @item[:category].downcase
-  date_value = @item[:date]
-  begin
-    date_value = date_value.to_time if date_value.respond_to?(:to_time) && !date_value.is_a?(Time)
-    date_value = Time.parse(date_value.to_s) unless date_value.is_a?(Time)
-  rescue ArgumentError, TypeError
-    date_value = Time.at(0)
-  end
+  date_value = COERCE_ITEM_DATE.call(@item)
   yyyy, mm, dd = date_value.strftime("%Y/%m/%d").split("/")
   slug = @item[:slug]
 
@@ -34,13 +38,7 @@ end
 
 compile "/posts/**/*.{png,jpg,jpeg,gif,webp,avif,svg,mp4,webm}" do
   category = item[:category].downcase
-  date_value = item[:date]
-  begin
-    date_value = date_value.to_time if date_value.respond_to?(:to_time) && !date_value.is_a?(Time)
-    date_value = Time.parse(date_value.to_s) unless date_value.is_a?(Time)
-  rescue ArgumentError, TypeError
-    date_value = Time.at(0)
-  end
+  date_value = COERCE_ITEM_DATE.call(item)
   yyyy, mm, dd = date_value.strftime("%Y/%m/%d").split("/")
   slug = item[:slug]
   img_path = item.identifier.to_s.split("#{slug}/").last

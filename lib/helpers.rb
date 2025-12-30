@@ -109,22 +109,8 @@ def all_posts
 end
 
 def posts_sorted_by_date(posts = all_posts, direction: :desc)
-  posts.sort_by do |item|
-    date_value = item.fetch(:date)
-    date_value = date_value.to_time if date_value.respond_to?(:to_time) && !date_value.is_a?(Time)
-    unless date_value.is_a?(Time)
-      begin
-        date_value = Time.parse(date_value.to_s)
-      rescue ArgumentError, TypeError
-        date_value = Time.at(0)
-      end
-    end
-
-    case direction
-    when :asc then date_value - Time.now
-    when :desc then Time.now - date_value
-    end
-  end
+  sorted = posts.sort_by { |item| post_date(item) }
+  (direction == :desc) ? sorted.reverse : sorted
 end
 
 def coerce_time(value)
@@ -169,12 +155,8 @@ def photos_grouped_by_year
 end
 
 def photos_sorted_by_date(list = photos(), direction: :desc)
-  list.sort_by do |item|
-    case direction
-    when :asc then item.fetch(:date) - Time.now
-    when :desc then Time.now - item.fetch(:date)
-    end
-  end
+  sorted = list.sort_by { |item| coerce_time(item.fetch(:date)) }
+  (direction == :desc) ? sorted.reverse : sorted
 end
 
 def links
@@ -182,13 +164,8 @@ def links
 end
 
 def links_sorted_by_date(items = links, direction: :desc)
-  items.sort_by do |item|
-    date = Time.parse(item.fetch(:published))
-    case direction
-    when :asc then date - Time.now
-    when :desc then Time.now - date
-    end
-  end
+  sorted = items.sort_by { |item| coerce_time(item.fetch(:published)) }
+  (direction == :desc) ? sorted.reverse : sorted
 end
 
 # Uses font awesome size XS SVG icons
