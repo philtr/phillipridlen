@@ -10,7 +10,7 @@ preprocess do
   blog_post_asset_attributes
 end
 
-COERCE_ITEM_DATE = -> (item) do
+COERCE_ITEM_DATE = ->(item) do
   value = item[:date]
   value = value.to_time if value.respond_to?(:to_time) && !value.is_a?(Time)
   return value if value.is_a?(Time)
