@@ -23,7 +23,8 @@ final class PostRepositoryTests: XCTestCase {
       tags: [],
       excerpt: "",
       body: "Body",
-      scope: .notes
+      postType: "note",
+      draft: false
     )
 
     XCTAssertTrue(

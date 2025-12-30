@@ -5,15 +5,24 @@ import UniformTypeIdentifiers
 import Yams
 
 struct ContentView: View {
+  private enum SidebarScope: String, CaseIterable, Identifiable {
+    case posts
+
+    var id: String { rawValue }
+  }
+
   @AppStorage("repoPath") private var repoPath: String = ""
   @StateObject private var repository = PostRepository()
   @StateObject private var editor = PostEditorModel()
   @State private var selection: String? = nil
+  @State private var sidebarScope: SidebarScope = .posts
   @State private var showNewPostSheet = false
   @State private var newTitle = ""
   @State private var newDate = ContentView.defaultPostDate()
   @State private var newCategory = ""
   @State private var newTags = ""
+  @State private var newPostType = "note"
+  @State private var newDraft = false
   @State private var showImageImporter = false
   @State private var postImages: [URL] = []
   @State private var siteTitle: String = ""
@@ -42,11 +51,6 @@ struct ContentView: View {
       selection = nil
       editor.load(post: nil)
       loadSiteInfo(from: newValue)
-    }
-    .onChange(of: repository.scope) { _ in
-      repository.loadPosts()
-      selection = nil
-      editor.load(post: nil)
     }
     .onChange(of: selection) { newValue in
       let post = repository.posts.first { $0.id == newValue }
@@ -142,9 +146,10 @@ struct ContentView: View {
     VStack(alignment: .leading, spacing: 12) {
       HStack {
         Spacer()
-        Picker("", selection: $repository.scope) {
-          ForEach(PostScope.allCases) { scope in
-            Text(scope.rawValue).tag(scope)
+        Picker("", selection: $sidebarScope) {
+          ForEach(SidebarScope.allCases) { scope in
+            Image(systemName: "doc.text")
+              .tag(scope)
           }
         }
         .pickerStyle(.segmented)
@@ -157,7 +162,7 @@ struct ContentView: View {
           Section(group.title) {
             ForEach(group.posts) { post in
               HStack(spacing: 8) {
-                Image(systemName: "doc.text")
+                Image(systemName: post.postType == "link" ? "link" : "doc.text")
                   .foregroundStyle(.secondary)
                 Text(post.title.isEmpty ? "(Untitled)" : post.title)
               }
@@ -219,6 +224,12 @@ struct ContentView: View {
         Text("Times are saved in America/Chicago (US Central).")
           .font(.caption)
           .foregroundStyle(.secondary)
+        Picker("Type", selection: $editor.postType) {
+          Text("Note").tag("note")
+          Text("Link").tag("link")
+        }
+        .pickerStyle(.segmented)
+        Toggle("Draft", isOn: $editor.isDraft)
         Picker("Category", selection: $editor.category) {
           Text("None").tag("")
           ForEach(categoryOptions, id: \.self) { category in
@@ -294,6 +305,12 @@ struct ContentView: View {
       Text("Times are saved in America/Chicago (US Central).")
         .font(.caption)
         .foregroundStyle(.secondary)
+      Picker("Type", selection: $newPostType) {
+        Text("Note").tag("note")
+        Text("Link").tag("link")
+      }
+      .pickerStyle(.segmented)
+      Toggle("Draft", isOn: $newDraft)
       Picker("Category", selection: $newCategory) {
         Text("None").tag("")
         ForEach(categoryOptions, id: \.self) { category in
@@ -573,7 +590,8 @@ struct ContentView: View {
         tags: tags,
         excerpt: "",
         body: "",
-        scope: repository.scope
+        postType: newPostType,
+        draft: newDraft
       )
       selection = post.id
       editor.load(post: post)
@@ -586,9 +604,11 @@ struct ContentView: View {
   private func resetNewPostForm() {
     showNewPostSheet = false
     newTitle = ""
-    newDate = Date()
+    newDate = ContentView.defaultPostDate()
     newCategory = ""
     newTags = ""
+    newPostType = "note"
+    newDraft = false
   }
 
   
@@ -603,19 +623,29 @@ struct ContentView: View {
 
   private var groupedPosts: [PostGroup] {
     let calendar = Calendar.current
-    let groups = Dictionary(grouping: repository.posts) { post in
+    let formatter = DateFormatter()
+    formatter.dateFormat = "LLLL yyyy"
+    formatter.locale = Locale.current
+    let drafts = repository.posts.filter { $0.isDraft }.sorted { $0.sortDate > $1.sortDate }
+    let published = repository.posts.filter { !$0.isDraft }
+    let groups = Dictionary(grouping: published) { post in
       let date = post.sortDate
       return calendar.date(from: calendar.dateComponents([.year, .month], from: date)) ?? Date.distantPast
     }
 
-    let formatter = DateFormatter()
-    formatter.dateFormat = "LLLL yyyy"
-    formatter.locale = Locale.current
-
-    return groups.keys.sorted(by: >).map { key in
-      let posts = groups[key, default: []].sorted { $0.sortDate > $1.sortDate }
-      return PostGroup(monthStart: key, title: formatter.string(from: key), posts: posts)
+    var results: [PostGroup] = []
+    if !drafts.isEmpty {
+      results.append(PostGroup(monthStart: Date.distantFuture, title: "Drafts", posts: drafts))
     }
+
+    results.append(
+      contentsOf: groups.keys.sorted(by: >).map { key in
+        let posts = groups[key, default: []].sorted { $0.sortDate > $1.sortDate }
+        return PostGroup(monthStart: key, title: formatter.string(from: key), posts: posts)
+      }
+    )
+
+    return results
   }
 
 

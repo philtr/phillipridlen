@@ -11,6 +11,13 @@ struct PostFile: Identifiable, Hashable {
   var category: String { frontMatter.string("category") }
   var tags: [String] { frontMatter.stringArray("tags") }
   var excerpt: String { frontMatter.string("excerpt") }
+  var postType: String {
+    let value = frontMatter.string("type")
+    return value.isEmpty ? inferredTypeFromPath() : value
+  }
+  var isDraft: Bool {
+    frontMatter.bool("draft") || url.path.contains("/src/drafts/")
+  }
 
   var isFolderBased: Bool {
     url.lastPathComponent.lowercased() == "index.md"
@@ -95,6 +102,13 @@ struct PostFile: Identifiable, Hashable {
     if let parsed = isoFormatter.date(from: trimmed) { return parsed }
     if let parsed = isoFormatterNoFraction.date(from: trimmed) { return parsed }
     return nil
+  }
+
+  private func inferredTypeFromPath() -> String {
+    if url.path.contains("/src/posts/links/") {
+      return "link"
+    }
+    return "note"
   }
 
   private func fallbackDateStringFromPath() -> String? {
