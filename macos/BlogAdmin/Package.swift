@@ -18,7 +18,8 @@ let package = Package(
       dependencies: [
         "Yams",
         .product(name: "Markdown", package: "swift-markdown")
-      ]
+      ],
+      resources: [.process("Resources")]
     ),
     .testTarget(
       name: "BlogAdminTests",
