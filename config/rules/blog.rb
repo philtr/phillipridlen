@@ -32,7 +32,7 @@ compile "/posts/**/*.md" do
   write "/notes/#{category}/#{yyyy}/#{mm}/#{dd}/#{slug}/index.html"
 end
 
-compile "/posts/**/*.{png,jpg,jpeg,gif,webp,avif,svg}" do
+compile "/posts/**/*.{png,jpg,jpeg,gif,webp,avif,svg,mp4,webm}" do
   category = item[:category].downcase
   date_value = item[:date]
   begin
