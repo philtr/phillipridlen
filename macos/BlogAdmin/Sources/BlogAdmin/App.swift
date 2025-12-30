@@ -8,6 +8,28 @@ struct BlogAdminApp: App {
   init() {
     NSApplication.shared.setActivationPolicy(.regular)
     NSApplication.shared.activate(ignoringOtherApps: true)
+    let icon =
+      Bundle.module.url(forResource: "BlogAdmin", withExtension: "png")
+        .flatMap { NSImage(contentsOf: $0) } ??
+      Bundle.module.url(forResource: "BlogAdmin", withExtension: "icns")
+        .flatMap { NSImage(contentsOf: $0) }
+
+    if let icon {
+      NSApplication.shared.applicationIconImage = dockIcon(from: icon)
+    }
+  }
+
+  private func dockIcon(from image: NSImage) -> NSImage {
+    let size = NSSize(width: 1024, height: 1024)
+    let canvas = NSImage(size: size)
+    let inset: CGFloat = 90
+    let rect = NSRect(x: inset, y: inset, width: size.width - inset * 2, height: size.height - inset * 2)
+
+    canvas.lockFocus()
+    image.draw(in: rect, from: .zero, operation: .sourceOver, fraction: 1.0)
+    canvas.unlockFocus()
+
+    return canvas
   }
 
   var body: some Scene {
