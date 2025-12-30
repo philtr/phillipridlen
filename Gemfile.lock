@@ -151,8 +151,6 @@ GEM
     rmagick (6.1.5)
       observer (~> 0.1)
       pkg-config (~> 1.4)
-    roda (3.99.0)
-      rack
     rouge (4.6.1)
     rspec (3.13.2)
       rspec-core (~> 3.13.0)
@@ -237,10 +235,8 @@ DEPENDENCIES
   nanoc (~> 4.14)
   nanoc-live
   nokogiri
-  rackup
   rdoc
   rmagick
-  roda
   rouge
   rspec
   standard
