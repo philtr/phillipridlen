@@ -46,8 +46,8 @@ RSpec.describe DataSources::Exif do
       File.write(path, "binary-data")
 
       raw_exif_data[filename] = {
-        image_description: spec[:title],
-        user_comment: spec[:description],
+        headline: spec[:title],
+        "caption-abstract": spec[:description],
         date_time_original: spec[:timestamp].strftime("%Y:%m:%d %H:%M:%S"),
         source_file: path,
         make: spec[:make],
