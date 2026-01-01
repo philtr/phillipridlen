@@ -20,10 +20,10 @@ module DataSources
 
     def build_attributes
       {
-        # Image Description
-        title: exif(:image_description),
-        # Description or caption
-        description: exif(:user_comment),
+        # IPTC Headline (photo title)
+        title: exif_value(:headline, :image_description),
+        # IPTC Caption-Abstract (photo journal)
+        description: exif_value(:"caption-abstract", :user_comment),
         # DateTime object parsed from the EXIF string
         date: exif_date(exif(:date_time_original)),
         # Source filename
@@ -42,6 +42,13 @@ module DataSources
     end
 
     def exif(key) = @exif.fetch(key)
+
+    def exif_value(*keys)
+      keys.each do |key|
+        return @exif[key] if @exif.key?(key)
+      end
+      nil
+    end
 
     def replace_f_stop(str) = str.gsub("f/", f_stop_prefix)
 

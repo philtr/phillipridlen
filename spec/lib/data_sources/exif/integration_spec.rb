@@ -15,8 +15,8 @@ RSpec.describe DataSources::Exif do
     # Add EXIF data using the vendored exiftool
     exiftool = Exiftool.command
     system(exiftool, "-overwrite_original",
-      "-ImageDescription=Sunset",
-      "-UserComment=Nice photo",
+      "-Headline=Sunset",
+      "-Caption-Abstract=Nice photo",
       "-DateTimeOriginal=2024:01:02 03:04:05",
       "-Make=Canon",
       "-Model=EOS",

@@ -4,8 +4,8 @@ require "data_sources/exif/item"
 RSpec.describe DataSources::Exif::Item do
   let(:exif_hash) do
     {
-      image_description: "Sunset",
-      user_comment: "Nice photo",
+      headline: "Sunset",
+      "caption-abstract": "Nice photo",
       date_time_original: "2024:01:02 03:04:05",
       source_file: "/tmp/photo.jpg",
       make: "Canon",

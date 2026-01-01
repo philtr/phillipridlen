@@ -7,6 +7,7 @@ import Yams
 struct ContentView: View {
   private enum SidebarScope: String, CaseIterable, Identifiable {
     case posts
+    case photos
 
     var id: String { rawValue }
   }
@@ -14,7 +15,10 @@ struct ContentView: View {
   @AppStorage("repoPath") private var repoPath: String = ""
   @StateObject private var repository = PostRepository()
   @StateObject private var editor = PostEditorModel()
+  @StateObject private var photoRepository = PhotoRepository()
+  @StateObject private var photoEditor = PhotoEditorModel()
   @State private var selection: String? = nil
+  @State private var photoSelection: String? = nil
   @State private var sidebarScope: SidebarScope = .posts
   @State private var showNewPostSheet = false
   @State private var newTitle = ""
@@ -44,28 +48,41 @@ struct ContentView: View {
     }
     .onAppear {
       repository.updateRoot(path: repoPath)
+      photoRepository.updateRoot(path: repoPath)
       loadSiteInfo(from: repoPath)
+      updateCanSave()
     }
     .onChange(of: repoPath) { newValue in
       repository.updateRoot(path: newValue)
+      photoRepository.updateRoot(path: newValue)
       selection = nil
       editor.load(post: nil)
+      photoSelection = nil
+      photoEditor.load(photo: nil)
       loadSiteInfo(from: newValue)
+      updateCanSave()
     }
     .onChange(of: selection) { newValue in
       let post = repository.posts.first { $0.id == newValue }
       editor.load(post: post)
       if let post {
         postImages = repository.images(for: post)
-        UserDefaults.standard.set(true, forKey: "BlogAdminCanSave")
         originalTitle = post.title
         originalSlug = currentSlug(for: post)
       } else {
         postImages = []
-        UserDefaults.standard.set(false, forKey: "BlogAdminCanSave")
         originalTitle = ""
         originalSlug = ""
       }
+      updateCanSave()
+    }
+    .onChange(of: photoSelection) { newValue in
+      let photo = photoRepository.photos.first { $0.id == newValue }
+      photoEditor.load(photo: photo)
+      updateCanSave()
+    }
+    .onChange(of: sidebarScope) { _ in
+      updateCanSave()
     }
     .fileImporter(
       isPresented: $showImageImporter,
@@ -78,7 +95,7 @@ struct ContentView: View {
       showNewPostSheet = true
     }
     .onReceive(NotificationCenter.default.publisher(for: .init("BlogAdminSavePost"))) { _ in
-      savePost()
+      saveActiveItem()
     }
     .confirmationDialog(
       "Rename file to match title?",
@@ -119,6 +136,7 @@ struct ContentView: View {
 
         Button {
           repository.loadPosts()
+          photoRepository.loadPhotos()
         } label: {
           Label("Reload", systemImage: "arrow.clockwise")
         }
@@ -126,13 +144,13 @@ struct ContentView: View {
         .help("Reload Posts")
 
         Button {
-          savePost()
+          saveActiveItem()
         } label: {
           Label("Save", systemImage: "document.circle")
         }
         .labelStyle(.iconOnly)
         .help("Save Post")
-        .disabled(editor.post == nil)
+        .disabled(!canSave)
       }
     }
     .navigationTitle(siteTitle.isEmpty ? "BlogAdmin" : siteTitle)
@@ -146,45 +164,21 @@ struct ContentView: View {
     VStack(alignment: .leading, spacing: 12) {
       HStack {
         Spacer()
-        Picker("", selection: $sidebarScope) {
-          ForEach(SidebarScope.allCases) { scope in
-            Image(systemName: "doc.text")
-              .tag(scope)
-          }
+        HStack(spacing: 4) {
+          sidebarScopeButton(title: "Notes", systemImage: "doc.text", scope: .posts)
+          sidebarScopeButton(title: "Photos", systemImage: "photo", scope: .photos)
         }
-        .pickerStyle(.segmented)
-        .labelsHidden()
+        .padding(4)
+        .background(Color(nsColor: .controlBackgroundColor))
+        .clipShape(RoundedRectangle(cornerRadius: 10, style: .continuous))
         Spacer()
       }
 
-      List(selection: $selection) {
-        ForEach(groupedPosts, id: \.monthStart) { group in
-          Section(group.title) {
-            ForEach(group.posts) { post in
-              HStack(spacing: 8) {
-                Image(systemName: post.postType == "link" ? "link" : "doc.text")
-                  .foregroundStyle(.secondary)
-                Text(post.title.isEmpty ? "(Untitled)" : post.title)
-              }
-              .tag(post.id)
-              .contextMenu {
-                Button("Edit") {
-                  selection = post.id
-                }
-                Button("Show in Finder") {
-                  NSWorkspace.shared.activateFileViewerSelecting([post.url])
-                }
-                Divider()
-                Button("Delete") {
-                  pendingDeletePost = post
-                  showDeletePrompt = true
-                }
-              }
-            }
-          }
-        }
+      if sidebarScope == .posts {
+        postsList
+      } else {
+        photosList
       }
-      .listStyle(.sidebar)
     }
     .padding(12)
   }
@@ -192,10 +186,18 @@ struct ContentView: View {
   private var detail: some View {
     ScrollView {
       Group {
-        if editor.post == nil {
-          emptyState
+        if sidebarScope == .posts {
+          if editor.post == nil {
+            emptyState
+          } else {
+            editorForm
+          }
         } else {
-          editorForm
+          if photoEditor.photo == nil {
+            photosEmptyState
+          } else {
+            photoEditorForm
+          }
         }
       }
       .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .topLeading)
@@ -206,6 +208,17 @@ struct ContentView: View {
   private var emptyState: some View {
     VStack(spacing: 12) {
       Text("Select a post to edit")
+        .font(.title2)
+      if repoPath.isEmpty {
+        Text("Choose your repository to get started.")
+          .foregroundStyle(.secondary)
+      }
+    }
+  }
+
+  private var photosEmptyState: some View {
+    VStack(spacing: 12) {
+      Text("Select a photo to edit")
         .font(.title2)
       if repoPath.isEmpty {
         Text("Choose your repository to get started.")
@@ -290,6 +303,47 @@ struct ContentView: View {
         .cornerRadius(6)
 
       imagesSection
+    }
+    .frame(maxWidth: .infinity, alignment: .leading)
+    .padding(.bottom, 12)
+  }
+
+  private var photoEditorForm: some View {
+    VStack(spacing: 12) {
+      Form {
+        TextField("Title", text: $photoEditor.title)
+        DatePicker("Date", selection: $photoEditor.date, displayedComponents: [.date, .hourAndMinute])
+      }
+
+      if let photo = photoEditor.photo, let image = NSImage(contentsOf: photo.url) {
+        Image(nsImage: image)
+          .resizable()
+          .aspectRatio(contentMode: .fit)
+          .frame(maxWidth: 520)
+          .cornerRadius(6)
+          .shadow(radius: 1)
+      }
+
+      VStack(alignment: .leading, spacing: 8) {
+        Text("Comment")
+          .font(.headline)
+        TextEditor(text: $photoEditor.comment)
+          .frame(minHeight: 200)
+          .font(.system(size: 15))
+          .lineSpacing(4)
+          .padding(6)
+          .background(Color(nsColor: .textBackgroundColor))
+          .cornerRadius(6)
+      }
+
+      HStack {
+        Button("Reveal in Finder") {
+          if let photo = photoEditor.photo {
+            NSWorkspace.shared.activateFileViewerSelecting([photo.url])
+          }
+        }
+        Spacer()
+      }
     }
     .frame(maxWidth: .infinity, alignment: .leading)
     .padding(.bottom, 12)
@@ -621,6 +675,12 @@ struct ContentView: View {
     let posts: [PostFile]
   }
 
+  private struct PhotoGroup {
+    let year: Int
+    let title: String
+    let photos: [PhotoFile]
+  }
+
   private var groupedPosts: [PostGroup] {
     let calendar = Calendar.current
     let formatter = DateFormatter()
@@ -648,8 +708,25 @@ struct ContentView: View {
     return results
   }
 
+  private var groupedPhotos: [PhotoGroup] {
+    let calendar = Calendar.current
+    let groups = Dictionary(grouping: photoRepository.photos) { photo in
+      calendar.component(.year, from: photo.sortDate)
+    }
 
-  private func savePost() {
+    return groups.keys.sorted(by: >).map { year in
+      let photos = groups[year, default: []].sorted { $0.sortDate > $1.sortDate }
+      return PhotoGroup(year: year, title: String(year), photos: photos)
+    }
+  }
+
+
+  private func saveActiveItem() {
+    if sidebarScope == .photos {
+      savePhoto()
+      return
+    }
+
     guard let updated = editor.updatedPost() else { return }
     let desiredSlug = slugify(editor.title)
     let titleChanged = editor.title != originalTitle
@@ -676,6 +753,18 @@ struct ContentView: View {
       postImages = repository.images(for: saved)
       originalTitle = saved.title
       originalSlug = currentSlug(for: saved)
+    } catch {
+      NSSound.beep()
+    }
+  }
+
+  private func savePhoto() {
+    guard let updated = photoEditor.updatedPhoto() else { return }
+    do {
+      let saved = try photoRepository.save(photo: updated)
+      photoEditor.load(photo: saved)
+      photoSelection = saved.id
+      updateCanSave()
     } catch {
       NSSound.beep()
     }
@@ -734,6 +823,78 @@ struct ContentView: View {
     guard let site = data["site"] as? [String: Any] else { return }
     siteTitle = site["site_name"] as? String ?? ""
     siteURL = site["base_url"] as? String ?? ""
+  }
+
+  
+
+  private var postsList: some View {
+    List(selection: $selection) {
+      ForEach(groupedPosts, id: \.monthStart) { group in
+        Section(group.title) {
+          ForEach(group.posts) { post in
+            HStack(spacing: 8) {
+              Image(systemName: post.postType == "link" ? "link" : "doc.text")
+                .foregroundStyle(.secondary)
+              Text(post.title.isEmpty ? "(Untitled)" : post.title)
+            }
+            .tag(post.id)
+            .contextMenu {
+              Button("Edit") {
+                selection = post.id
+              }
+              Button("Show in Finder") {
+                NSWorkspace.shared.activateFileViewerSelecting([post.url])
+              }
+              Divider()
+              Button("Delete") {
+                pendingDeletePost = post
+                showDeletePrompt = true
+              }
+            }
+          }
+        }
+      }
+    }
+    .listStyle(.sidebar)
+  }
+
+  private var photosList: some View {
+    List(selection: $photoSelection) {
+      ForEach(groupedPhotos, id: \.year) { group in
+        Section(group.title) {
+          ForEach(group.photos) { photo in
+            HStack(spacing: 8) {
+              Image(systemName: "photo")
+                .foregroundStyle(.secondary)
+              Text(photo.title.isEmpty ? "(Untitled)" : photo.title)
+            }
+            .tag(photo.id)
+            .contextMenu {
+              Button("Edit") {
+                photoSelection = photo.id
+              }
+              Button("Show in Finder") {
+                NSWorkspace.shared.activateFileViewerSelecting([photo.url])
+              }
+            }
+          }
+        }
+      }
+    }
+    .listStyle(.sidebar)
+  }
+
+  private var canSave: Bool {
+    switch sidebarScope {
+    case .posts:
+      return editor.post != nil
+    case .photos:
+      return photoEditor.photo != nil
+    }
+  }
+
+  private func updateCanSave() {
+    UserDefaults.standard.set(canSave, forKey: "BlogAdminCanSave")
   }
 
   private func hardWrapMarkdown(_ text: String, width: Int) -> String {
@@ -874,6 +1035,22 @@ struct ContentView: View {
       return nil
     }
     return String(line[matchRange])
+  }
+
+  private func sidebarScopeButton(title: String, systemImage: String, scope: SidebarScope) -> some View {
+    Button {
+      sidebarScope = scope
+    } label: {
+      Label(title, systemImage: systemImage)
+        .font(.subheadline.weight(.medium))
+        .foregroundStyle(sidebarScope == scope ? Color.white : Color.primary)
+        .padding(.horizontal, 10)
+        .padding(.vertical, 6)
+        .frame(minWidth: 76)
+    }
+    .buttonStyle(.plain)
+    .background(sidebarScope == scope ? Color.accentColor : Color.clear)
+    .clipShape(RoundedRectangle(cornerRadius: 8, style: .continuous))
   }
 }
 
