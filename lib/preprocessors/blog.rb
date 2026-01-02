@@ -7,6 +7,7 @@ POST_REGEXES = [
   %r{\A/posts/(link|note)s/\d{4}/\d{2}/([^/]+)(?:/index)?\.md\z},
   %r{\A/posts/(link|note)s/\d{4}-\d{2}-\d{2}-([^/]+)(?:/index)?\.md\z}
 ].freeze
+
 POST_ASSET_REGEXES = [
   %r{\A/posts/(link|note)s/\d{4}/\d{2}/([^/]+)/(.+)\z},
   %r{\A/posts/(link|note)s/\d{4}-\d{2}-\d{2}-([^/]+)/(.+)\z}
@@ -31,10 +32,17 @@ def blog_post_ids
     next unless item[:id].to_s.strip.empty?
 
     filename = item.respond_to?(:content_filename) ? item.content_filename : nil
+    filename ||= "src/#{item.identifier.to_s.delete_prefix("/")}"
+
     next unless filename && File.file?(filename)
+
+    unless @config.dig(:blog, :generate_ids)
+      raise "Post is missing `id' in frontmatter: #{item.identifier}"
+    end
 
     content = File.read(filename)
     updated_content, generated_id = ensure_post_id_in_content(content)
+
     next unless generated_id
 
     File.write(filename, updated_content)

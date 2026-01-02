@@ -1,13 +1,24 @@
 site:
-  base_url: https://ptx.sh
+  base_url: http://localhost:3000
   author: Phillip Ridlen
   site_name: Phillip Ridlen
-  default_description: Personal site and notes by Phillip Ridlen on software, faith, and life.
+  default_description:
+    Personal site and notes by Phillip Ridlen on software, faith, and life.
   default_social_image: /images/social-card.png
   locale: en_US
   twitter_handle: philtr
   email: phil@ptx.sh
   tz: "Central Time (US & Canada)"
+
+blog:
+  generate_ids: true
+
+environments:
+  production:
+    site:
+      base_url: https://ptx.sh
+    blog:
+      generate_ids: false
 
 # A list of file extensions that Nanoc will consider to be textual rather than
 # binary. If an item with an extension not in this list is found,  the file
