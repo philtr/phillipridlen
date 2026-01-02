@@ -1,4 +1,5 @@
 ---
+id: QXV1IIX12N63QN9GZMMLVDAFPG
 layout: post
 type: note
 title: 'Adam Asks: Parity, Blocks, and Enumerators. Oh My!'

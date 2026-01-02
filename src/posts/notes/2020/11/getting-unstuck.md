@@ -1,4 +1,5 @@
 ---
+id: LHKD7A403W1OMJ6TNQPFGJQZBH
 layout: post
 type: note
 title: Getting Unstuck

@@ -1,6 +1,11 @@
 # Keep certain pages on phillipridlen.com
 /keybase.txt /keybase.txt 200! Host=phillipridlen.com
 
+# ID redirects
+<% posts_sorted_by_date(direction: :desc).each do |post| -%>
+/notes/id/<%= post.fetch(:id).to_s.strip %> <%= site_config.base_url + post.path %> 301
+<% end %>
+
 # Redirect everything to ptx.sh
 http://www.ptx.sh/* https://ptx.sh/:splat 301!
 https://www.ptx.sh/* https://ptx.sh/:splat 301!
@@ -37,4 +42,3 @@ https://www.phillipridlen.com/* https://ptx.sh/:splat 301!
 /christianity/:year/:month/:day/:slug /notes/christianity/:year/:month/:day/:slug 301
 /programming/:year/:month/:day/:slug /notes/programming/:year/:month/:day/:slug 301
 /technology/:year/:month/:day/:slug /notes/technology/:year/:month/:day/:slug 301
-

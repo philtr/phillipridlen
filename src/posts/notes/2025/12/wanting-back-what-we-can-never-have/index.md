@@ -1,4 +1,5 @@
 ---
+id: IFY0BJCBG6696QLVMYWDYUM8A2
 category: Life
 description: Growing up alongside the internet, the pull of nostalgia, and the unsettling
   possibility that what we miss isn’t actually the past itself.

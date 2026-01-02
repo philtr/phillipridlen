@@ -19,7 +19,7 @@
     <title><%= post[:title].encode(xml: :text) %></title>
     <link href="<%= site_config.base_url + post.path %>"/>
     <updated><%= post_date(post).xmlschema %></updated>
-    <id><%= site_config.base_url.encode(xml: :text) + post.path.encode(xml: :text) %></id>
+    <id>https://phillipridlen.com/notes/id/<%= post.fetch(:id).to_s.strip.encode(xml: :text) %></id>
     <content type="html">
       <%= post.compiled_content.encode(xml: :text) %>
     </content>

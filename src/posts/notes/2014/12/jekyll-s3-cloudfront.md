@@ -1,4 +1,5 @@
 ---
+id: X0WMM2TPMESFNOK4I9BJWH896K
 layout: post
 type: note
 title: Jekyll, S3, and CloudFront
