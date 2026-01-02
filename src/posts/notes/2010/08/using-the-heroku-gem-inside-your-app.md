@@ -1,4 +1,5 @@
 ---
+id: R34DWDS8XQQ6CQ2BM9GDQA0SS8
 layout: post
 type: note
 title: Using the Heroku Gem Inside Your App

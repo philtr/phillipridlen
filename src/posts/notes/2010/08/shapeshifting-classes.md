@@ -1,4 +1,5 @@
 ---
+id: 2CD3G94GKEC5DN0EV6PBQXQEBV
 layout: post
 type: note
 title: Shapeshifting &ldquo;Classes&rdquo;

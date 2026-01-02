@@ -1,4 +1,5 @@
 ---
+id: G7RFUJQP1HTA1UFTHKIUQMV23M
 layout: post
 type: note
 title: Returning Multiple Formats with Rails Dynamic Error Pages

@@ -1,4 +1,5 @@
 ---
+id: 8WNSP8QNLZ9RYH1JSDY4NZSL1V
 layout: post
 type: link
 title: The curse of compressing reality

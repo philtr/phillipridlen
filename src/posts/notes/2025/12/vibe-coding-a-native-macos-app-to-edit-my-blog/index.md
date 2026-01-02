@@ -1,4 +1,5 @@
 ---
+id: YVB0TMC12GP2AQ5YDUAII6NTLR
 category: Programming
 date: "2025-12-29T23:22:00-06:00"
 image: admin.mp4

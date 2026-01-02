@@ -1,4 +1,5 @@
 ---
+id: UA31NPHE3PBZBEO0CXHE7ZWL1L
 layout: post
 type: note
 title: A Little "Special" Goes a Long Way

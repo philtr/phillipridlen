@@ -1,4 +1,5 @@
 ---
+id: PLBY6AZ721A69DJO32MA26MAZ8
 layout: post
 type: link
 title: On Being Friendly

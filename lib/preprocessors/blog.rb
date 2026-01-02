@@ -1,6 +1,8 @@
 # Preprocessor helpers for blog-related items.
 # Extracts metadata from filenames and creates category pages.
 #
+require "securerandom"
+
 POST_REGEXES = [
   %r{\A/posts/(link|note)s/\d{4}/\d{2}/([^/]+)(?:/index)?\.md\z},
   %r{\A/posts/(link|note)s/\d{4}-\d{2}-\d{2}-([^/]+)(?:/index)?\.md\z}
@@ -21,6 +23,22 @@ def blog_post_attributes_from_filename
     post_type, slug = post_type_and_slug_for(item.identifier.to_s)
     item[:post_type] = post_type
     item[:slug] = slug
+  end
+end
+
+def blog_post_ids
+  blog_post_items.each do |item|
+    next unless item[:id].to_s.strip.empty?
+
+    filename = item.respond_to?(:content_filename) ? item.content_filename : nil
+    next unless filename && File.file?(filename)
+
+    content = File.read(filename)
+    updated_content, generated_id = ensure_post_id_in_content(content)
+    next unless generated_id
+
+    File.write(filename, updated_content)
+    item[:id] = generated_id
   end
 end
 
@@ -81,4 +99,20 @@ def blog_post_index
 
     index["#{post_type}/#{slug}"] = post
   end
+end
+
+def ensure_post_id_in_content(content)
+  lines = content.lines
+  return [content, nil] if lines.empty? || lines.first.strip != "---"
+
+  end_index = lines[1..].index { |line| line.strip == "---" }
+  return [content, nil] unless end_index
+
+  frontmatter_end = end_index + 1
+  frontmatter_lines = lines[1...frontmatter_end]
+  return [content, nil] if frontmatter_lines.any? { |line| line.match?(/\Aid:\s*/) }
+
+  generated_id = SecureRandom.alphanumeric(26).upcase
+  lines.insert(1, "id: #{generated_id}\n")
+  [lines.join, generated_id]
 end

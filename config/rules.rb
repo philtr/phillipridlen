@@ -19,7 +19,10 @@ include_rules "config/rules/resources"
 include_rules "config/rules/blog"
 include_rules "config/rules/photos"
 
-# Rules for Speconfig/cific File Extensions
+# Process Netlify redirects file
+include_rules "config/rules/redirects"
+
+# Rules for Specific File Extensions
 include_rules "config/rules/erb"
 include_rules "config/rules/haml"
 include_rules "config/rules/markdown"

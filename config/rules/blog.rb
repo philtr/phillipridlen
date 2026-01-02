@@ -5,6 +5,7 @@ require "time"
 
 preprocess do
   blog_post_attributes_from_filename
+  blog_post_ids
   blog_post_date_for_drafts
   blog_category_items
   blog_post_asset_attributes
