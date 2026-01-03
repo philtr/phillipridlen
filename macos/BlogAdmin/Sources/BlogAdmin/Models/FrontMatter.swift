@@ -78,6 +78,10 @@ struct FrontMatter {
     data.removeValue(forKey: key)
   }
 
+  func has(_ key: String) -> Bool {
+    data.keys.contains(key)
+  }
+
   func dump() -> String {
     let yaml = (try? Yams.dump(
       object: data,

@@ -104,11 +104,11 @@ struct ContentView: View {
     ) {
       Button("Rename") {
         guard let post = pendingSavePost else { return }
-        performSave(post, desiredDate: pendingSaveDate, desiredSlug: pendingRenameSlug)
+        performSave(post, desiredDate: pendingSaveDate, desiredSlug: pendingRenameSlug, desiredDraft: editor.isDraft)
       }
       Button("Keep Current Name") {
         guard let post = pendingSavePost else { return }
-        performSave(post, desiredDate: pendingSaveDate, desiredSlug: nil)
+        performSave(post, desiredDate: pendingSaveDate, desiredSlug: nil, desiredDraft: editor.isDraft)
       }
       Button("Cancel", role: .cancel) {}
     } message: {
@@ -727,27 +727,33 @@ struct ContentView: View {
       return
     }
 
+    let effectiveDate = ensureEditorDate()
     guard let updated = editor.updatedPost() else { return }
     let desiredSlug = slugify(editor.title)
     let titleChanged = editor.title != originalTitle
     if titleChanged && desiredSlug != "" && desiredSlug != currentSlug(for: updated) {
       pendingSavePost = updated
       pendingRenameSlug = desiredSlug
-      pendingSaveDate = editor.date
+      pendingSaveDate = effectiveDate
       showRenameSlugPrompt = true
       return
     }
 
-    performSave(updated, desiredDate: editor.date, desiredSlug: nil)
+    performSave(updated, desiredDate: effectiveDate, desiredSlug: nil, desiredDraft: editor.isDraft)
   }
 
-  private func performSave(_ post: PostFile, desiredDate: String, desiredSlug: String?) {
+  private func performSave(_ post: PostFile, desiredDate: String, desiredSlug: String?, desiredDraft: Bool?) {
     do {
       var wrapped = post
       wrapped.body = hardWrapMarkdown(post.body, width: 80)
       editor.body = wrapped.body
       _ = Document(parsing: post.body)
-      let saved = try repository.save(post: wrapped, desiredDate: desiredDate, desiredSlug: desiredSlug)
+      let saved = try repository.save(
+        post: wrapped,
+        desiredDate: desiredDate,
+        desiredSlug: desiredSlug,
+        desiredDraft: desiredDraft
+      )
       selection = saved.id
       editor.load(post: saved)
       postImages = repository.images(for: saved)
@@ -1035,6 +1041,13 @@ struct ContentView: View {
       return nil
     }
     return String(line[matchRange])
+  }
+
+  private func ensureEditorDate() -> String {
+    if editor.date.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty {
+      editor.date = dateTimeString(from: ContentView.defaultPostDate(), existing: "")
+    }
+    return editor.date
   }
 
   private func sidebarScopeButton(title: String, systemImage: String, scope: SidebarScope) -> some View {

@@ -61,12 +61,22 @@ final class PostRepository: ObservableObject {
   }
 
   func save(post: PostFile) throws {
-    _ = try save(post: post, desiredDate: nil, desiredSlug: nil)
+    _ = try save(post: post, desiredDate: nil, desiredSlug: nil, desiredDraft: nil)
   }
 
-  func save(post: PostFile, desiredDate: String?, desiredSlug: String? = nil) throws -> PostFile {
+  func save(
+    post: PostFile,
+    desiredDate: String?,
+    desiredSlug: String? = nil,
+    desiredDraft: Bool? = nil
+  ) throws -> PostFile {
     var post = post
-    try renamePostIfNeeded(post: &post, desiredDate: desiredDate, desiredSlug: desiredSlug)
+    try renamePostIfNeeded(
+      post: &post,
+      desiredDate: desiredDate,
+      desiredSlug: desiredSlug,
+      desiredDraft: desiredDraft
+    )
     let content = post.renderedContent()
     try content.write(to: post.url, atomically: true, encoding: .utf8)
     loadPosts()
@@ -113,7 +123,7 @@ final class PostRepository: ObservableObject {
     }
     let frontMatter = FrontMatter(data: data)
     let post = PostFile(id: fileURL.path, url: fileURL, frontMatter: frontMatter, body: body)
-    _ = try save(post: post, desiredDate: isoDate, desiredSlug: nil)
+    _ = try save(post: post, desiredDate: isoDate, desiredSlug: nil, desiredDraft: draft)
     return post
   }
 
@@ -210,16 +220,29 @@ final class PostRepository: ObservableObject {
     return folderURL
   }
 
-  private func renamePostIfNeeded(post: inout PostFile, desiredDate: String?, desiredSlug: String?) throws {
-    let desired = normalizeDateString(desiredDate ?? post.date)
+  private func renamePostIfNeeded(
+    post: inout PostFile,
+    desiredDate: String?,
+    desiredSlug: String?,
+    desiredDraft: Bool?
+  ) throws {
+    let desired = normalizeDateString(desiredDate ?? post.resolvedDateString)
     guard let desired else { return }
     guard let rootURL else { return }
 
+    let draftFlag: Bool
+    if let desiredDraft {
+      draftFlag = desiredDraft
+    } else if post.frontMatter.has("draft") {
+      draftFlag = post.frontMatter.bool("draft")
+    } else {
+      draftFlag = post.isDraft
+    }
     let currentSlug = extractSlug(from: post)
     let trimmedSlug = desiredSlug?.trimmingCharacters(in: .whitespacesAndNewlines) ?? ""
     let slug = trimmedSlug.isEmpty ? currentSlug : trimmedSlug
     let base = slug
-    let destinationDir = postDirectory(for: desired, postType: post.postType, draft: post.isDraft, root: rootURL)
+    let destinationDir = postDirectory(for: desired, postType: post.postType, draft: draftFlag, root: rootURL)
     try FileManager.default.createDirectory(at: destinationDir, withIntermediateDirectories: true)
 
     if post.isFolderBased {
