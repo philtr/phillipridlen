@@ -10,7 +10,7 @@ one][now], too._
 
 When <s>Twitter</s> X first arrived on the scene, it had one mission: answer the
 question, "What are you doing?" It has instead become a cesspool of hot takes
-and pot shots at others. You won't find me posting there; instead, I try to
+and cheap shots at others. You won't find me posting there; instead, I try to
 keep this page up to date with the important highlights of what I'm up to.
 
 This is what I'm doing as of January 15, 2024.
