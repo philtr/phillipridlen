@@ -82,8 +82,8 @@ final class PostRepository: ObservableObject {
       throw NSError(domain: "BlogAdmin", code: 1, userInfo: [NSLocalizedDescriptionKey: "Repository not set"])
     }
 
-    let isoDate = BlogDate.iso8601String(from: date)
     let dateString = BlogDate.dateOnlyString(from: date)
+    let isoDate = BlogDate.normalizeDateInput(dateString)
     let target = postDirectory(for: dateString, postType: postType, draft: draft, root: rootURL)
     try FileManager.default.createDirectory(at: target, withIntermediateDirectories: true)
 
