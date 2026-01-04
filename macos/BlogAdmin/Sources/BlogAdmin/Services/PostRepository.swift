@@ -5,21 +5,6 @@ final class PostRepository: ObservableObject {
 
   private var rootURL: URL? = nil
   private let imageExtensions: Set<String> = ["jpg", "jpeg", "png", "gif", "webp"]
-  private let dateFormatter: DateFormatter = {
-    let formatter = DateFormatter()
-    formatter.dateFormat = "yyyy-MM-dd"
-    formatter.locale = Locale(identifier: "en_US_POSIX")
-    formatter.timeZone = TimeZone(identifier: "America/Chicago") ?? .current
-    return formatter
-  }()
-
-  private let isoFormatter: ISO8601DateFormatter = {
-    let formatter = ISO8601DateFormatter()
-    formatter.formatOptions = [.withInternetDateTime]
-    formatter.timeZone = TimeZone(identifier: "America/Chicago") ?? .current
-    return formatter
-  }()
-
   func updateRoot(path: String) {
     let trimmed = path.trimmingCharacters(in: .whitespacesAndNewlines)
     guard trimmed != "" else {
@@ -97,12 +82,12 @@ final class PostRepository: ObservableObject {
       throw NSError(domain: "BlogAdmin", code: 1, userInfo: [NSLocalizedDescriptionKey: "Repository not set"])
     }
 
-    let isoDate = iso8601String(from: date)
-    let dateString = dateString(from: date)
+    let isoDate = BlogDate.iso8601String(from: date)
+    let dateString = BlogDate.dateOnlyString(from: date)
     let target = postDirectory(for: dateString, postType: postType, draft: draft, root: rootURL)
     try FileManager.default.createDirectory(at: target, withIntermediateDirectories: true)
 
-    let slug = slugify(title)
+    let slug = Slug.make(from: title)
     let fileURL = uniqueFileURL(in: target, base: slug, ext: "md")
 
     var data: [String: Any] = [
@@ -226,7 +211,7 @@ final class PostRepository: ObservableObject {
     desiredSlug: String?,
     desiredDraft: Bool?
   ) throws {
-    let desired = normalizeDateString(desiredDate ?? post.resolvedDateString)
+    let desired = BlogDate.normalizeDateOnlyString(desiredDate ?? post.resolvedDateString)
     guard let desired else { return }
     guard let rootURL else { return }
 
@@ -296,58 +281,12 @@ final class PostRepository: ObservableObject {
   }
 
   private func yearMonth(from dateString: String) -> (String, String)? {
-    guard let date = parseDate(dateString) else { return nil }
+    guard let date = BlogDate.parseDate(dateString) else { return nil }
     var calendar = Calendar(identifier: .gregorian)
     calendar.timeZone = TimeZone(identifier: "America/Chicago") ?? .current
     let components = calendar.dateComponents([.year, .month], from: date)
     guard let year = components.year, let month = components.month else { return nil }
     return (String(format: "%04d", year), String(format: "%02d", month))
-  }
-
-  private func normalizeDateString(_ value: String?) -> String? {
-    guard let value else { return nil }
-    let trimmed = value.trimmingCharacters(in: .whitespacesAndNewlines)
-    if trimmed.isEmpty { return nil }
-    if trimmed.range(of: #"^\d{4}-\d{2}-\d{2}$"#, options: .regularExpression) != nil {
-      return trimmed
-    }
-    if let date = parseDate(trimmed) {
-      return dateString(from: date)
-    }
-    return nil
-  }
-
-  private func dateString(from date: Date) -> String {
-    var calendar = Calendar(identifier: .gregorian)
-    calendar.timeZone = TimeZone(identifier: "America/Chicago") ?? .current
-    let components = calendar.dateComponents([.year, .month, .day], from: date)
-    let year = components.year ?? 0
-    let month = components.month ?? 1
-    let day = components.day ?? 1
-    return String(format: "%04d-%02d-%02d", year, month, day)
-  }
-
-  private func iso8601String(from date: Date) -> String {
-    let calendar = Calendar(identifier: .gregorian)
-    let timeZone = TimeZone(identifier: "America/Chicago") ?? .current
-    var components = calendar.dateComponents([.year, .month, .day, .hour, .minute, .second], from: date)
-    components.timeZone = timeZone
-    if components.hour == nil || components.minute == nil {
-      components.hour = 9
-      components.minute = 0
-      components.second = 0
-    } else if components.second == nil {
-      components.second = 0
-    }
-    let finalDate = calendar.date(from: components) ?? date
-    return isoFormatter.string(from: finalDate)
-  }
-
-  private func parseDate(_ value: String) -> Date? {
-    if let parsed = isoFormatter.date(from: value) {
-      return parsed
-    }
-    return dateFormatter.date(from: value)
   }
 
   private func uniqueFileURL(in directory: URL, base: String, ext: String) -> URL {
@@ -380,22 +319,4 @@ final class PostRepository: ObservableObject {
     }
   }
 
-  private func slugify(_ input: String) -> String {
-    let folded = input.folding(options: [.diacriticInsensitive, .caseInsensitive], locale: .current)
-    var result = ""
-    var lastWasDash = false
-
-    for scalar in folded.unicodeScalars {
-      if CharacterSet.alphanumerics.contains(scalar) {
-        result.append(Character(scalar).lowercased())
-        lastWasDash = false
-      } else if !lastWasDash {
-        result.append("-")
-        lastWasDash = true
-      }
-    }
-
-    let trimmed = result.trimmingCharacters(in: CharacterSet(charactersIn: "-"))
-    return trimmed.isEmpty ? "post" : trimmed
-  }
 }
