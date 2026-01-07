@@ -20,6 +20,7 @@ struct ContentView: View {
   @State private var selection: String? = nil
   @State private var photoSelection: String? = nil
   @State private var sidebarScope: SidebarScope = .posts
+  @State private var searchText: String = ""
   @State private var showNewPostSheet = false
   @State private var newTitle = ""
   @State private var newDate = BlogDate.defaultPostDate()
@@ -59,6 +60,7 @@ struct ContentView: View {
       editor.load(post: nil)
       photoSelection = nil
       photoEditor.load(photo: nil)
+      searchText = ""
       loadSiteInfo(from: newValue)
       updateCanSave()
     }
@@ -82,6 +84,7 @@ struct ContentView: View {
       updateCanSave()
     }
     .onChange(of: sidebarScope) { _ in
+      searchText = ""
       updateCanSave()
     }
     .fileImporter(
@@ -173,6 +176,9 @@ struct ContentView: View {
         .clipShape(RoundedRectangle(cornerRadius: 10, style: .continuous))
         Spacer()
       }
+
+      TextField(searchPrompt, text: $searchText)
+        .textFieldStyle(.roundedBorder)
 
       if sidebarScope == .posts {
         postsList
@@ -569,13 +575,18 @@ struct ContentView: View {
     let photos: [PhotoFile]
   }
 
+  private var searchPrompt: String {
+    sidebarScope == .posts ? "Filter posts" : "Filter photos"
+  }
+
   private var groupedPosts: [PostGroup] {
     let calendar = Calendar.current
     let formatter = DateFormatter()
     formatter.dateFormat = "LLLL yyyy"
     formatter.locale = Locale.current
-    let drafts = repository.posts.filter { $0.isDraft }.sorted { $0.sortDate > $1.sortDate }
-    let published = repository.posts.filter { !$0.isDraft }
+    let filteredPosts = LibraryFilter.posts(repository.posts, query: searchText)
+    let drafts = filteredPosts.filter { $0.isDraft }.sorted { $0.sortDate > $1.sortDate }
+    let published = filteredPosts.filter { !$0.isDraft }
     let groups = Dictionary(grouping: published) { post in
       let date = post.sortDate
       return calendar.date(from: calendar.dateComponents([.year, .month], from: date)) ?? Date.distantPast
@@ -598,7 +609,8 @@ struct ContentView: View {
 
   private var groupedPhotos: [PhotoGroup] {
     let calendar = Calendar.current
-    let groups = Dictionary(grouping: photoRepository.photos) { photo in
+    let filteredPhotos = LibraryFilter.photos(photoRepository.photos, query: searchText)
+    let groups = Dictionary(grouping: filteredPhotos) { photo in
       calendar.component(.year, from: photo.sortDate)
     }
 
