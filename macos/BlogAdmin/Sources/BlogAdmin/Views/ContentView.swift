@@ -579,12 +579,19 @@ struct ContentView: View {
     sidebarScope == .posts ? "Filter posts" : "Filter photos"
   }
 
+  private var filteredPosts: [PostFile] {
+    LibraryFilter.posts(repository.posts, query: searchText)
+  }
+
+  private var filteredPhotos: [PhotoFile] {
+    LibraryFilter.photos(photoRepository.photos, query: searchText)
+  }
+
   private var groupedPosts: [PostGroup] {
     let calendar = Calendar.current
     let formatter = DateFormatter()
     formatter.dateFormat = "LLLL yyyy"
     formatter.locale = Locale.current
-    let filteredPosts = LibraryFilter.posts(repository.posts, query: searchText)
     let drafts = filteredPosts.filter { $0.isDraft }.sorted { $0.sortDate > $1.sortDate }
     let published = filteredPosts.filter { !$0.isDraft }
     let groups = Dictionary(grouping: published) { post in
@@ -609,7 +616,6 @@ struct ContentView: View {
 
   private var groupedPhotos: [PhotoGroup] {
     let calendar = Calendar.current
-    let filteredPhotos = LibraryFilter.photos(photoRepository.photos, query: searchText)
     let groups = Dictionary(grouping: filteredPhotos) { photo in
       calendar.component(.year, from: photo.sortDate)
     }
@@ -716,6 +722,10 @@ struct ContentView: View {
 
   private var postsList: some View {
     List(selection: $selection) {
+      if filteredPosts.isEmpty {
+        Text("No posts match.")
+          .foregroundStyle(.secondary)
+      }
       ForEach(groupedPosts, id: \.monthStart) { group in
         Section(group.title) {
           ForEach(group.posts) { post in
@@ -747,6 +757,10 @@ struct ContentView: View {
 
   private var photosList: some View {
     List(selection: $photoSelection) {
+      if filteredPhotos.isEmpty {
+        Text("No photos match.")
+          .foregroundStyle(.secondary)
+      }
       ForEach(groupedPhotos, id: \.year) { group in
         Section(group.title) {
           ForEach(group.photos) { photo in
