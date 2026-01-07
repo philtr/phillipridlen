@@ -727,7 +727,7 @@ struct ContentView: View {
           .foregroundStyle(.secondary)
       }
       ForEach(groupedPosts, id: \.monthStart) { group in
-        Section(group.title) {
+        Section("\(group.title) (\(group.posts.count))") {
           ForEach(group.posts) { post in
             HStack(spacing: 8) {
               Image(systemName: post.postType == "link" ? "link" : "doc.text")
@@ -762,7 +762,7 @@ struct ContentView: View {
           .foregroundStyle(.secondary)
       }
       ForEach(groupedPhotos, id: \.year) { group in
-        Section(group.title) {
+        Section("\(group.title) (\(group.photos.count))") {
           ForEach(group.photos) { photo in
             HStack(spacing: 8) {
               Image(systemName: "photo")
