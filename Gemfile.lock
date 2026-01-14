@@ -46,7 +46,7 @@ GEM
     exiftool_vendored (13.45.0)
       exiftool (>= 0.7.0)
     ffi (1.17.3)
-    haml (7.1.0)
+    haml (7.2.0)
       temple (>= 0.8.2)
       thor
       tilt
@@ -205,8 +205,8 @@ GEM
       rubocop-performance (~> 1.26.0)
     stringio (3.2.0)
     temple (0.10.4)
-    thor (1.4.0)
-    tilt (2.6.1)
+    thor (1.5.0)
+    tilt (2.7.0)
     tsort (0.2.0)
     tty-color (0.6.0)
     tty-command (0.10.1)
