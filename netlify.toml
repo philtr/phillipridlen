@@ -2,3 +2,6 @@
 command = "bundle exec nanoc compile --env=production"
 publish = "output"
 environment = { RUBY_VERSION = "4.0.0" }
+
+[build.processing.html]
+pretty_urls = true
