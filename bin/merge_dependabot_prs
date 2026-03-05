@@ -1,0 +1,122 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+root_dir="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
+cd "$root_dir"
+
+require_cmd() {
+  if ! command -v "$1" >/dev/null 2>&1; then
+    echo "error: required command not found: $1" >&2
+    exit 1
+  fi
+}
+
+require_cmd git
+require_cmd gh
+
+if [[ -n "$(git status --porcelain)" ]]; then
+  echo "error: working tree is not clean; commit or stash changes first." >&2
+  exit 1
+fi
+
+start_branch="$(git rev-parse --abbrev-ref HEAD)"
+cleanup() {
+  git checkout "$start_branch" >/dev/null 2>&1 || true
+}
+trap cleanup EXIT
+
+echo "Updating local master..."
+git checkout master >/dev/null
+git pull --ff-only origin master
+
+mapfile -t branches < <(
+  gh pr list --state open --base master --limit 200 --json headRefName \
+    --jq '.[] | select(.headRefName | startswith("dependabot/")) | .headRefName' \
+    | sort
+)
+
+if [[ ${#branches[@]} -eq 0 ]]; then
+  echo "No open dependabot PRs targeting master."
+  exit 0
+fi
+
+echo "Found ${#branches[@]} open dependabot PR branch(es)."
+
+merged=()
+conflicted=()
+failed=()
+
+for branch in "${branches[@]}"; do
+  echo
+  echo "=== Processing $branch ==="
+
+  if ! git fetch origin "$branch"; then
+    echo "Skipping $branch: fetch failed."
+    failed+=("$branch (fetch failed)")
+    continue
+  fi
+
+  git checkout -B "$branch" "origin/$branch" >/dev/null
+
+  if ! git rebase master; then
+    echo "Skipping $branch: rebase conflict."
+    git rebase --abort >/dev/null 2>&1 || true
+    conflicted+=("$branch")
+    git checkout master >/dev/null
+    continue
+  fi
+
+  if ! git push --force-with-lease origin "HEAD:$branch"; then
+    echo "Skipping $branch: push failed."
+    failed+=("$branch (push failed)")
+    git checkout master >/dev/null
+    continue
+  fi
+
+  git checkout master >/dev/null
+
+  if ! git merge --ff-only "$branch"; then
+    echo "Skipping $branch: fast-forward merge failed."
+    failed+=("$branch (ff merge failed)")
+    continue
+  fi
+
+  if ! git push origin master; then
+    echo "Stopping: push to origin/master failed after merging $branch." >&2
+    failed+=("$branch (master push failed)")
+    break
+  fi
+
+  merged+=("$branch")
+  echo "Merged $branch."
+done
+
+echo
+echo "Run complete."
+
+echo "Merged (${#merged[@]}):"
+if [[ ${#merged[@]} -eq 0 ]]; then
+  echo "  - none"
+else
+  for branch in "${merged[@]}"; do
+    echo "  - $branch"
+  done
+fi
+
+echo "Conflicts (${#conflicted[@]}):"
+if [[ ${#conflicted[@]} -eq 0 ]]; then
+  echo "  - none"
+else
+  for branch in "${conflicted[@]}"; do
+    echo "  - $branch"
+  done
+fi
+
+echo "Other failures (${#failed[@]}):"
+if [[ ${#failed[@]} -eq 0 ]]; then
+  echo "  - none"
+else
+  for branch in "${failed[@]}"; do
+    echo "  - $branch"
+  done
+fi
