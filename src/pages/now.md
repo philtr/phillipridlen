@@ -13,7 +13,7 @@ question, "What are you doing?" It has instead become a cesspool of hot takes
 and cheap shots at others. You won't find me posting there; instead, I try to
 keep this page up to date with the important highlights of what I'm up to.
 
-This is what I'm doing as of January 15, 2024.
+This is what I'm doing as of March 17, 2026.
 
 [now]: https://nownownow.com/about
 
@@ -46,10 +46,8 @@ I'm actively involved at [Burleson Bible Church][bbc]:
 
 - I serve as an [elder] to lead the church and care for the flock
 - I'm the [youth leader][youth] where I mentor and teach students in grades 7 through 12
-- I lead our [Men's Alliance Tribe][alliance] tribe to get men out of isolation
 - I serve in the music ministry playing various instruments as needed
 
 [bbc]:        https://burlesonbiblechurch.org
 [youth]:      https://burlesonbiblechurch.org/students
 [elder]:      https://burlesonbiblechurch.org/leadership
-[alliance]:   https://mensalliancetribe.com/tribes/hilltop
