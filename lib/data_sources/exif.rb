@@ -10,8 +10,6 @@ module DataSources
 
     include FilesystemListener
 
-    FSTools = Nanoc::DataSources::Filesystem::Tools
-
     identifier :exif
 
     def items = filenames.map { exif_item(it).to_nanoc_item(self) }
@@ -26,7 +24,8 @@ module DataSources
 
     def file_glob = "#{content_dir}/**/*.{#{ext.join(",")}}"
 
-    def content_dir = FSTools.expand_and_relativize_path(config(:content_dir))
+    def content_dir = Nanoc::DataSources::Filesystem::Tools
+      .expand_and_relativize_path(config(:content_dir))
 
     def ext = Array(config(:ext, :jpg))
   end

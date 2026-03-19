@@ -1,5 +1,6 @@
 require "exiftool_vendored"
 require_relative "../nanoc_transformable"
+require_relative "../exif"
 
 module DataSources
   # Represents a single image with EXIF metadata.
