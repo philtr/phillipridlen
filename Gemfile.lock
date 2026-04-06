@@ -150,7 +150,7 @@ GEM
     reline (0.6.3)
       io-console (~> 0.5)
     rexml (3.4.4)
-    rmagick (6.2.0)
+    rmagick (6.3.0)
       observer (~> 0.1)
       pkg-config (~> 1.4)
     rouge (4.7.0)
