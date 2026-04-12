@@ -23,7 +23,7 @@ end
 
 compile "/photos/**/*.jpg" do
   filter :binary_text, content: item[:description]
-  filter :kramdown
+  filter :kramdown, **config[:kramdown_opts]
 
   layout "/photo.*"
 

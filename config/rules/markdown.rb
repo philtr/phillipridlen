@@ -4,7 +4,7 @@
 # Markdown
 compile "/**/*.md" do
   filter :erb
-  filter :kramdown
+  filter :kramdown, **config[:kramdown_opts]
   filter :colorize_syntax, default_colorizer: :rouge
 
   layout selected_layout(@item) || "/default.*"

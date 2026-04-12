@@ -23,7 +23,7 @@ end
 
 compile "/posts/**/*.md" do
   filter :erb
-  filter :kramdown
+  filter :kramdown, **config[:kramdown_opts]
   filter :colorize_syntax, default_colorizer: :rouge
 
   layout "/post.*"
@@ -59,7 +59,7 @@ end
 if @config[:drafts]
   compile "/drafts/**/*" do
     filter :erb
-    filter :kramdown
+    filter :kramdown, **config[:kramdown_opts]
     filter :colorize_syntax, default_colorizer: :rouge
 
     layout "/post.*"

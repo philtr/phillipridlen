@@ -20,6 +20,8 @@ environments:
     blog:
       generate_ids: false
 
+kramdown_opts:
+  footnote_backlink: "&#x21A9;&#xFE0E;"
 # A list of file extensions that Nanoc will consider to be textual rather than
 # binary. If an item with an extension not in this list is found,  the file
 # will be considered as binary.
