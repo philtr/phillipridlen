@@ -155,3 +155,8 @@ blockquote {
   margin-left: 0.5rem;
   padding-left: 1rem;
 }
+
+sup {
+  position: relative;
+  line-height: 0;
+}

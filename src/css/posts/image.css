@@ -15,5 +15,9 @@
     font-size: 1rem;
     margin-top: 0.5rem;
     text-align: center;
+
+    p:has(+ &) {
+      margin-bottom: 0;
+    }
   }
 }
