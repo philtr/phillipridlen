@@ -105,7 +105,24 @@ def page_type
 end
 
 def all_posts
-  @items.find_all("/posts/**/*.md")
+  @items.find_all("/posts/**/*.md").reject { |item| comment_item?(item) }
+end
+
+def comment_item?(item)
+  item.identifier.to_s.end_with?("/comments.md")
+end
+
+def reader_comments_html(item = @item)
+  reader_comments_item(item)&.compiled_content
+end
+
+def reader_comments_item(item = @item)
+  identifier = item.identifier.to_s
+  return nil unless identifier.start_with?("/posts/")
+  return nil unless identifier.end_with?("/index.md")
+
+  comments_identifier = "/#{File.dirname(identifier.delete_prefix("/"))}/comments.md"
+  @items.find { |candidate| candidate.identifier.to_s == comments_identifier }
 end
 
 def posts_sorted_by_date(posts = all_posts, direction: :desc)

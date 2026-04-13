@@ -13,9 +13,16 @@ POST_ASSET_REGEXES = [
   %r{\A/posts/(link|note)s/\d{4}-\d{2}-\d{2}-([^/]+)/(.+)\z}
 ].freeze
 
+COMMENT_IDENTIFIER_REGEX = %r{\A/posts/(link|note)s/\d{4}/\d{2}/[^/]+/comments\.md\z}
+
+def comment_item_identifier?(identifier)
+  identifier.to_s.match?(COMMENT_IDENTIFIER_REGEX)
+end
+
 def blog_post_items
   @blog_post_items ||= @items
     .find_all("/posts/**/*")
+    .reject { |item| comment_item_identifier?(item.identifier) }
     .select { |item| POST_REGEXES.any? { |regex| item.identifier.to_s.match?(regex) } }
 end
 
@@ -64,6 +71,7 @@ def blog_post_asset_attributes
 
   @items.find_all("/posts/**/*").each do |item|
     next if item.identifier.to_s.end_with?(".md")
+    next if comment_item_identifier?(item.identifier)
 
     match = POST_ASSET_REGEXES.find { |regex| item.identifier.to_s.match?(regex) }
     next unless match

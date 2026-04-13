@@ -45,6 +45,16 @@ RSpec.describe "blog preprocessors" do
       blog_post_attributes_from_filename
       expect(item).to have_received(:[]=).with(:slug, "test")
     end
+
+    it "does not treat comments.md as a post" do
+      item = double(:identifier => "/posts/notes/2024/01/test/comments.md", :[]= => nil)
+      allow(item).to receive(:[]=)
+      items << item
+
+      blog_post_attributes_from_filename
+
+      expect(item).not_to have_received(:[]=)
+    end
   end
 
   describe "#blog_post_asset_attributes" do

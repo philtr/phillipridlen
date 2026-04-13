@@ -21,6 +21,13 @@ rescue ArgumentError, TypeError
   Time.at(0)
 end
 
+compile "/posts/**/comments.md" do
+  filter :erb
+  filter :kramdown, **config[:kramdown_opts]
+  filter :colorize_syntax, default_colorizer: :rouge
+  filter :typogruby
+end
+
 compile "/posts/**/*.md" do
   filter :erb
   filter :kramdown, **config[:kramdown_opts]

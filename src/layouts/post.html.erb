@@ -15,5 +15,14 @@ styles:
         <%= yield %>
       <% end %>
     </div>
+    <% if (reader_comments = reader_comments_html) %>
+      <hr>
+      <section id="comments" class="post-comments">
+        <h2>Reader Comments</h2>
+        <div class="post-content post-comments-content">
+          <%= reader_comments %>
+        </div>
+      </section>
+    <% end %>
   </section>
 <% end %>
