@@ -1,12 +1,24 @@
 ---
 id: 2YG8VYNN5HU6XM0GP6DBFZO8Z0
+title: "AI is making things better, but worse"
+date: "2026-04-11T20:45-05:00"
+description: |
+  We thought AI was going to make life easier, giving us time back by automating
+  away the monotonous work. But just like the Industrial Revolution, factory
+  automation, and robots didn't lead to giving workers a life of ease and luxury,
+  knowledge work automation through agentic and generative AI is no Caribbean
+  vacation.
+image: slot-machine.png
 layout: post
 type: note
 
 category: Programming
-title: "AI is making things better, but worse"
 
-date: "2026-04-11T20:45-05:00"
+tags:
+  - ai
+  - work
+  - culture
+  - internet
 
 styles:
   - posts/journal
