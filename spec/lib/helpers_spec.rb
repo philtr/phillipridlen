@@ -72,4 +72,15 @@ RSpec.describe "helpers" do
       expect(reader_comments_html(item)).to be_nil
     end
   end
+
+  describe "#rss_tracking_pixel" do
+    it "returns an img tag with encoded id and path query params" do
+      item = double(path: "/notes/programming/2026/04/11/ai-is-making-things-better-but-worse/")
+      allow(item).to receive(:fetch).with(:id).and_return("2YG8VYNN5HU6XM0GP6DBFZO8Z0")
+
+      expect(rss_tracking_pixel(item)).to eq(
+        '<img src="https://analytics.ptx.sh/p/SjOB3oKbb?id=2YG8VYNN5HU6XM0GP6DBFZO8Z0&url=%2Fnotes%2Fprogramming%2F2026%2F04%2F11%2Fai-is-making-things-better-but-worse%2F" alt="" />'
+      )
+    end
+  end
 end

@@ -74,6 +74,11 @@ def page_url
   site_config.base_url + @item.path
 end
 
+def rss_tracking_pixel(item)
+  tracking_pixel_url = "https://analytics.ptx.sh/p/SjOB3oKbb?#{URI.encode_www_form(id: item.fetch(:id).to_s.strip, url: item.path)}"
+  %(<img src="#{tracking_pixel_url}" alt="" />)
+end
+
 def photos_index?
   @item.identifier.to_s == "/photos/"
 end
