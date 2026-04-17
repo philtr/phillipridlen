@@ -69,6 +69,12 @@ data_sources:
     type: filesystem
     content_dir: src/pages
 
+  - name: "Blogroll"
+    type: blogroll
+    content_dir: src/data
+    file: blogroll.yml
+    items_root: /blogroll/
+
   - name: "Photos"
     type: exif
     content_dir: src/photos

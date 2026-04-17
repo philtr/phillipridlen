@@ -83,4 +83,37 @@ RSpec.describe "helpers" do
       )
     end
   end
+
+  describe "#favicon_url" do
+    it "builds a Google favicon service URL for the given site URL" do
+      expect(favicon_url("https://daringfireball.net/")).to eq(
+        "https://www.google.com/s2/favicons?sz=64&domain_url=https%3A%2F%2Fdaringfireball.net%2F"
+      )
+    end
+
+    it "uses the override when one is provided" do
+      expect(
+        favicon_url("https://hudlow.org/", override: "https://hudlow.org/favicon.ico?v1")
+      ).to eq("https://hudlow.org/favicon.ico?v1")
+    end
+  end
+
+  describe "#icon" do
+    it "returns svg markup for a known icon" do
+      expect(icon(:rss)).to include("<svg")
+      expect(icon(:youtube)).to include('fill="#ff0000"')
+    end
+
+    it "raises for an unknown icon" do
+      expect { icon(:wat) }.to raise_error(ArgumentError, /Unknown icon/)
+    end
+  end
+
+  describe "#site_rss_link" do
+    it "returns a link to the site atom feed with the RSS icon" do
+      expect(site_rss_link).to include('href="/atom.xml"')
+      expect(site_rss_link).to include("RSS")
+      expect(site_rss_link).to include("<svg")
+    end
+  end
 end

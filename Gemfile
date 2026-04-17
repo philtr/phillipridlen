@@ -18,6 +18,7 @@ gem "typogruby"
 gem "webrick"
 
 group :develompent, :test do
+  gem "irb"
   gem "rdoc"
   gem "rspec"
   gem "standard"

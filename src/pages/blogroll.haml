@@ -1,0 +1,33 @@
+---
+layout: master
+description: "A curated list of blogs worth following, with direct RSS links."
+styles:
+  - blogroll
+---
+
+%h1#blogroll Blogroll
+
+%section.blogroll
+  %p.intro
+    Most of the things I read on the web are from authors I subscribe to
+    directly. Here's a selection of my current favorites. I don't always agree
+    with what they say, but more often than not, I find the content worthwhile.
+
+  %ul.blogroll-list
+    - blogroll_items.each do |entry|
+      %li.blogroll-entry
+        %h2
+          %img.blogroll-favicon{
+            src: favicon_url(entry[:url], override: entry[:favicon_url]),
+            alt: "",
+            width: "20",
+            height: "20",
+            loading: "lazy"}
+          %a{href: entry[:url]}= entry[:title]
+        %p.blogroll-links
+          %a{href: entry[:url]}= entry[:url]
+          •
+          %a{href: entry[:rss_url], class: "rss-link", "aria-label" => "#{entry[:title]} RSS feed"}
+            != "#{icon(:rss)} <span>RSS</span>"
+        .blogroll-note
+          != entry.compiled_content

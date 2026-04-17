@@ -1,0 +1,63 @@
+section.blogroll {
+  .intro {
+    margin-bottom: var(--gutter);
+  }
+}
+
+ul.blogroll-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+
+  @media screen and (min-width: 100ch) {
+    columns: 2;
+  }
+}
+
+.blogroll-entry {
+  break-inside: avoid;
+  margin-bottom: 0;
+  padding-bottom: var(--gutter);
+
+  h2 {
+    align-items: center;
+    display: flex;
+    gap: 0.55rem;
+    font-size: 1.2rem;
+    line-height: 1;
+    margin: 0;
+
+    a {
+      color: var(--primary-text-color);
+      text-decoration: none;
+
+      &:hover,
+      &:focus {
+        color: var(--primary-accent-color);
+        text-decoration: underline;
+      }
+    }
+  }
+
+  p {
+    margin: 0;
+  }
+}
+
+.blogroll-favicon {
+  border-radius: 0.2rem;
+  flex: 0 0 auto;
+}
+
+.rss-link {
+  align-items: center;
+  display: inline-flex;
+  gap: 0.35rem;
+  white-space: nowrap;
+}
+
+.blogroll-note {
+  p {
+    margin: 0;
+  }
+}

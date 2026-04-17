@@ -1,6 +1,12 @@
 # Rules for compiling Markdown sources.
 # Content is rendered through ERB and Kramdown before layout and typogruby are applied.
 #
+compile "/blogroll/*.md" do
+  filter :erb
+  filter :kramdown, **config[:kramdown_opts]
+  filter :typogruby
+end
+
 # Markdown
 compile "/**/*.md" do
   filter :erb

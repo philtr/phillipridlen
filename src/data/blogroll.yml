@@ -1,0 +1,115 @@
+- title: Sympolymathesy, by Chris Krycho
+  url: https://v5.chriskrycho.com/
+  rss_url: https://v5.chriskrycho.com/feed.json
+  note:
+    Chris writes about all sorts of topics—programming, technology, faith,
+    music, photography. His site reflects his varied interests. His words are
+    full of truth and hope.
+
+- title: Daring Fireball
+  url: https://daringfireball.net/
+  rss_url: https://daringfireball.net/feeds/main
+  note:
+    John Gruber's thoughts on tech (mostly Apple) and other things. As an avid
+    Apple user, I really appreciate his take. He's not afraid to call out when
+    Apple gets something wrong (and has been punished by the Apple PR department
+    for it), but he also happily sings Apple's praises when they get it _right_.
+
+- title: Theme Park Insider
+  url: https://www.themeparkinsider.com/
+  rss_url: https://www.themeparkinsider.com/news/rss.xml
+  note:
+    Robert Niles curates news about all theme parks, not just Disney and
+    Universal. This is the best source for non-Disney theme park news, and maybe
+    the most impartial source for Disney news too. The discussion on articles
+    and in the forums is insightful and friendly; and feels like a last vestige
+    of a bygone era of online communities.
+
+- title: Yesterland
+  url: https://www.yesterland.com/
+  rss_url: https://github.com/philtr/yesterland-feed
+  note:
+    Werner Weiss has been curating this wonderful website for over 30 years. A
+    "labor of love," filled with wonderful photographs and stories that archive
+    the attractions, restaurants, and lands that are no longer to be found at
+    Disney parks worldwide.
+
+- title: xkcd
+  url: https://xkcd.com/
+  rss_url: https://xkcd.com/atom.xml
+  note:
+    Comics for nerds. Usually funny, sometimes absurd, sometimes poignant, and
+    more often than not, over my head.
+
+- title: Tangle
+  url: https://www.readtangle.com/
+  rss_url: https://www.readtangle.com/archive/rss/
+  note:
+    Tangle is political news. I'm not big into politics, and I hate the spin
+    that major news outlets put on their stories. Each day, Tangle picks one
+    major story, gives you the facts as unbiasedly as possible, and will tell
+    you what both sides are saying before weighing in with their own opinions.
+
+- title: datagubbe - Carl Svensson
+  url: https://www.datagubbe.se
+  rss_url: https://www.datagubbe.se/atom.xml
+  note:
+    Retro computing, demoscene, Amiga stuff, pixel art, and general computing
+    nostalgia.
+
+- title: Dan Hudlow
+  url: https://hudlow.org/
+  rss_url: https://hudlow.org/feeds/atom
+  favicon_url: https://hudlow.org/favicon.ico?v1
+  display: false
+
+- title: David Heinemeier Hansson
+  url: https://world.hey.com/dhh
+  rss_url: https://world.hey.com/dhh/feed.atom
+  note:
+    Shots from the hip of the Dane of the wild West, the creator of Ruby on
+    Rails, better known as DHH. Tech, politics, Linux, 🇩🇰&nbsp;Denmark, culture,
+    AI—you know what DHH has been thinking about lately because it's on his
+    blog.
+
+- title: Jason Fried
+  url: https://world.hey.com/jason
+  rss_url: https://world.hey.com/jason/feed.atom
+  note:
+    Jason's sweet spot is when he writes about the counter-cultural business
+    practices that 37signals has adopted, and that being successful does not
+    require acting like Big Tech in a fake-it-til-you-make-it chaos.
+
+- title: Jorge Manrubia
+  url: https://world.hey.com/jorge
+  rss_url: https://world.hey.com/jorge/feed.atom
+  display: false
+
+- title: 37signals Dev
+  url: https://dev.37signals.com/
+  rss_url: https://dev.37signals.com/feed/posts.xml
+  display: false
+
+- title: One Foot Tsunami
+  url: https://onefoottsunami.com/
+  rss_url: https://onefoottsunami.com/feed/atom/
+  display: false
+
+- title: Bruce Schneier on Security
+  url: https://www.schneier.com/
+  rss_url: https://www.schneier.com/feed/
+  display: false
+
+- title: Simon Willison
+  url: http://simonwillison.net/
+  rss_url: https://simonwillison.net/atom/everything/
+  display: false
+
+- title: Commonplace Philosophy
+  url: https://jaredhenderson.substack.com/
+  rss_url: https://jaredhenderson.substack.com/feed
+  note:
+    Not typically the kind of blog I follow. I discovered Jared Henderson
+    through his [YouTube Channel](https://www.youtube.com/@_jared) when I was
+    looking up some information on how to back up Kindle e-books (TL;DR you
+    can't anymore).
