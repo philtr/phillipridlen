@@ -10,23 +10,14 @@ Quick orientation to the repo structure and where common work happens.
   - `src/css/`, `src/images/`: Site assets.
 - `lib/`: Nanoc helpers, preprocessors, and custom data sources.
 - `config/`: Nanoc compilation rules (blog/photos).
-- `macos/BlogAdmin/`: SwiftUI macOS app for managing posts.
 - `bin/`: One-off scripts (e.g., migrations).
 - `spec/`: Ruby specs for helper code.
 - `Procfile`: App/dev commands (currently for nanoc build/watch).
 
-## macOS app (SwiftUI)
-- Entry: `macos/BlogAdmin/Sources/BlogAdmin/App.swift`
-- UI: `macos/BlogAdmin/Sources/BlogAdmin/Views/ContentView.swift`
-- Models:
-  - `macos/BlogAdmin/Sources/BlogAdmin/Models/PostFile.swift`
-  - `macos/BlogAdmin/Sources/BlogAdmin/Models/FrontMatter.swift`
-- Services:
-  - `macos/BlogAdmin/Sources/BlogAdmin/Services/PostRepository.swift`
-  - `macos/BlogAdmin/Sources/BlogAdmin/Services/PostEditorModel.swift`
-- Tests:
-  - `macos/BlogAdmin/Tests/BlogAdminTests/`
-  - Run with `swift test` (SwiftPM) or Cmd+U in Xcode.
+## BlogAdmin app
+- Standalone repo: `https://github.com/philtr/blog-admin`
+- The app is optional and targets this repo's content layout under `src/posts`, `src/drafts`, and `src/photos`.
+- Keep usage and setup instructions in the standalone repo rather than duplicating them here.
 
 ## Nanoc site
 - Rules: `config/rules/blog.rb`, `config/rules/photos.rb`
@@ -37,7 +28,7 @@ Quick orientation to the repo structure and where common work happens.
 ## Date + file layout conventions
 - Blog posts: `src/posts/{notes,links}/YYYY/MM/slug.md` or `.../slug/index.md`
 - YAML `date` is ISO8601 with time; default 9am CT if date-only.
-- Mac app writes YAML dates and moves posts into `YYYY/MM/` folders.
+- BlogAdmin writes YAML dates and moves posts into `YYYY/MM/` folders.
 
 ## Useful scripts
 - `bin/migrate_posts_to_yaml_dates.rb`: backfills YAML dates and moves posts.

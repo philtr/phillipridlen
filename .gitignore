@@ -2,9 +2,4 @@ output/
 tmp/
 crash.log
 .env
-**/.DS_store
 .DS_Store
-tmp/
-*.xcuserstate
-**/.build
-**/.swiftpm

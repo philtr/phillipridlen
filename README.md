@@ -25,6 +25,13 @@ bundle exec rspec
 
 This command will execute the tests located under the `spec/` directory.
 
+## BlogAdmin
+
+An optional native macOS editor for this site lives in its own repo:
+[`philtr/blog-admin`](https://github.com/philtr/blog-admin).
+
+See that repo for setup and usage details.
+
 ## Content and Code
 
 All posts, photographs, and other written content are copyright © 2008–2025

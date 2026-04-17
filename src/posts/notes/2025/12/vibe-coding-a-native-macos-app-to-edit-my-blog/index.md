@@ -26,7 +26,12 @@ by month.</figcaption>
 
 It’s not perfect. And I have lots of ideas for improvements. It will just keep
 getting better and better. If you’re interested, you can look at the source
-[in the `macos/BlogAdmin` folder of the repo for this site](https://github.com/philtr/phillipridlen/tree/master/macos/BlogAdmin).
+[in the standalone `philtr/blog-admin` repo](https://github.com/philtr/blog-admin).
+
+**UPDATE (2026-04-17):** I split the app out into its own repository at
+[`philtr/blog-admin`](https://github.com/philtr/blog-admin). It still targets
+the same content layout in this site repo, but it is now developed and versioned
+separately.
 
 I’ve been using the OpenAI Codex CLI for my personal projects, and I find it
 roughly equivalent in features and quality to Amazon’s Kiro CLI that is provided
