@@ -224,8 +224,8 @@ def link_icon(item)
   end
 end
 
-def blogroll_items
-  @items.find_all("/blogroll/*.md").sort_by { |entry| entry[:position] }
+def site_items
+  @items.find_all("/sites/*.md").sort_by { |entry| entry[:position] }
 end
 
 def git_tag = @git_tag ||= `git describe --tags --abbrev=0`.chomp

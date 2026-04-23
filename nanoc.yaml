@@ -69,11 +69,11 @@ data_sources:
     type: filesystem
     content_dir: src/pages
 
-  - name: "Blogroll"
-    type: blogroll
+  - name: "Sites"
+    type: sites
     content_dir: src/data
-    file: blogroll.yml
-    items_root: /blogroll/
+    file: sites.yml
+    items_root: /sites/
 
   - name: "Photos"
     type: exif

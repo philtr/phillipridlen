@@ -3,14 +3,14 @@ require "nanoc/data_sources/filesystem"
 require "yaml"
 
 module DataSources
-  class Blogroll < Nanoc::DataSource
+  class Sites < Nanoc::DataSource
     require_relative "filesystem_listener"
 
     include FilesystemListener
 
     REQUIRED_KEYS = %w[note rss_url title url].freeze
 
-    identifier :blogroll
+    identifier :sites
 
     def items
       visible_entries.each_with_index.map { |entry, position| build_item(entry, position) }
@@ -25,6 +25,7 @@ module DataSources
       new_item(
         entry.fetch("note"),
         {
+          site_entry: true,
           title: title,
           url: entry.fetch("url"),
           rss_url: entry.fetch("rss_url"),
@@ -40,7 +41,7 @@ module DataSources
       data = YAML.safe_load_file(data_file) || []
       return data if data.is_a?(Array)
 
-      raise "Blogroll data source expects a top-level array in #{data_file}"
+      raise "Sites data source expects a top-level array in #{data_file}"
     end
 
     def visible_entries
@@ -53,13 +54,13 @@ module DataSources
 
     def validate_entry!(entry, index)
       unless entry.is_a?(Hash)
-        raise "Blogroll entry #{index} in #{data_file} must be a mapping"
+        raise "Sites entry #{index} in #{data_file} must be a mapping"
       end
 
       missing = REQUIRED_KEYS.reject { |key| entry[key].to_s.strip != "" }
       return entry if missing.empty?
 
-      raise "Blogroll entry #{index} in #{data_file} is missing required keys: #{missing.join(", ")}"
+      raise "Sites entry #{index} in #{data_file} is missing required keys: #{missing.join(', ')}"
     end
 
     def visible_entry?(entry)
@@ -72,7 +73,7 @@ module DataSources
     end
 
     def data_file
-      @data_file ||= File.join(content_dir, @config.fetch(:file, "blogroll.yml"))
+      @data_file ||= File.join(content_dir, @config.fetch(:file, "sites.yml"))
     end
 
     def content_dir

@@ -1,8 +1,8 @@
-require "data_sources/blogroll"
+require "data_sources/sites"
 require "tmpdir"
 require "fileutils"
 
-RSpec.describe DataSources::Blogroll do
+RSpec.describe DataSources::Sites do
   let(:tmpdir) { Dir.mktmpdir }
 
   subject do
@@ -11,8 +11,8 @@ RSpec.describe DataSources::Blogroll do
       "/",
       "/",
       content_dir: tmpdir,
-      file: "blogroll.yml",
-      items_root: "/blogroll/"
+      file: "sites.yml",
+      items_root: "/sites/"
     )
   end
 
@@ -20,8 +20,8 @@ RSpec.describe DataSources::Blogroll do
     FileUtils.remove_entry(tmpdir)
   end
 
-  it "loads blogroll entries into Nanoc items" do
-    File.write(File.join(tmpdir, "blogroll.yml"), <<~YAML)
+  it "loads site entries into Nanoc items" do
+    File.write(File.join(tmpdir, "sites.yml"), <<~YAML)
       - title: Example
         url: https://example.com/
         rss_url: https://example.com/feed.xml
@@ -39,7 +39,7 @@ RSpec.describe DataSources::Blogroll do
   end
 
   it "preserves YAML order through the position attribute" do
-    File.write(File.join(tmpdir, "blogroll.yml"), <<~YAML)
+    File.write(File.join(tmpdir, "sites.yml"), <<~YAML)
       - title: First Entry
         url: https://example.com/1
         rss_url: https://example.com/1/feed.xml
@@ -57,7 +57,7 @@ RSpec.describe DataSources::Blogroll do
   end
 
   it "omits entries marked with display false" do
-    File.write(File.join(tmpdir, "blogroll.yml"), <<~YAML)
+    File.write(File.join(tmpdir, "sites.yml"), <<~YAML)
       - title: Visible Entry
         url: https://example.com/1
         rss_url: https://example.com/1/feed.xml
@@ -76,7 +76,7 @@ RSpec.describe DataSources::Blogroll do
   end
 
   it "raises a clear error when the top-level YAML value is not an array" do
-    File.write(File.join(tmpdir, "blogroll.yml"), <<~YAML)
+    File.write(File.join(tmpdir, "sites.yml"), <<~YAML)
       title: Example
       url: https://example.com/
     YAML
@@ -88,7 +88,7 @@ RSpec.describe DataSources::Blogroll do
   end
 
   it "raises a clear error when required keys are missing" do
-    File.write(File.join(tmpdir, "blogroll.yml"), <<~YAML)
+    File.write(File.join(tmpdir, "sites.yml"), <<~YAML)
       - title: Example
         url: https://example.com/
         note: Missing RSS link.

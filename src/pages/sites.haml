@@ -1,0 +1,32 @@
+---
+layout: master
+description: "A curated list of interesting sites worth visiting and following."
+styles:
+  - sites
+---
+
+%h1#sites Interesting Sites
+
+%section.sites
+  %p.intro
+    These are some of my favorite sites that I subscribe to or visit often.
+    Check them out. They're worth reading and browsing!
+
+  %ul.sites-list
+    - site_items.each do |entry|
+      %li.sites-entry
+        %h2
+          %img.sites-favicon{
+            src: favicon_url(entry[:url], override: entry[:favicon_url]),
+            alt: "",
+            width: "20",
+            height: "20",
+            loading: "lazy"}
+          %a{href: entry[:url]}= entry[:title]
+        %p.sites-links
+          %a{href: entry[:url]}= entry[:url]
+          •
+          %a{href: entry[:rss_url], class: "rss-link", "aria-label" => "#{entry[:title]} RSS feed"}
+            != "#{icon(:rss)} <span>RSS</span>"
+        .sites-note
+          != entry.compiled_content
