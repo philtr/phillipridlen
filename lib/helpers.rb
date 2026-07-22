@@ -18,8 +18,7 @@ SiteConfig = Struct.new(
   :locale,
   :site_name,
   :twitter_handle,
-  :tz,
-  keyword_init: true
+  :tz
 )
 
 def site_config
