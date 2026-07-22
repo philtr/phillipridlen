@@ -41,12 +41,52 @@ def body_classes
   @body_classes.to_a + @item[:body_classes].to_a
 end
 
-def post_asset_output_path(filename)
-  category = @item[:category].downcase
-  yyyy, mm, dd = post_date(@item).strftime("%Y/%m/%d").split("/")
-  slug = @item[:slug]
+def post_asset_output_path(filename, item = @item)
+  category = item[:category].downcase
+  yyyy, mm, dd = post_date(item).strftime("%Y/%m/%d").split("/")
+  slug = item[:slug]
 
   "/notes/#{category}/#{yyyy}/#{mm}/#{dd}/#{slug}/#{filename}"
+end
+
+def post_summary(item)
+  authored_summary = item[:description] || item[:excerpt]
+  return plain_text(authored_summary) unless authored_summary.to_s.strip.empty?
+
+  document = Kramdown::Document.new(item.raw_content.to_s, **@config.fetch(:kramdown_opts, {}))
+  fragment = Nokogiri::HTML.fragment(document.to_html)
+  paragraph = fragment.css("p").map { |node| plain_text(node.text) }.find { |text| !text.empty? }
+
+  truncate_text(paragraph.to_s, 240)
+end
+
+def post_card_image(item)
+  image = item[:image].to_s.strip
+  return nil if image.empty?
+  return image if image.start_with?("http://", "https://", "/")
+
+  if File.extname(image).downcase.match?(/\A\.(mp4|webm|mov)\z/)
+    preview = "#{image.delete_suffix(File.extname(image))}.gif"
+    sibling_identifier = "#{File.dirname(item.identifier.to_s)}/#{preview}"
+    return nil unless @items.any? { |candidate| candidate.identifier.to_s == sibling_identifier }
+
+    image = preview
+  end
+
+  post_asset_output_path(image, item)
+end
+
+def plain_text(value)
+  Nokogiri::HTML.fragment(value.to_s).text.gsub(/\s+/, " ").strip
+end
+
+def truncate_text(value, max_length)
+  return value if value.length <= max_length
+
+  cutoff = value[0, max_length - 1]
+  cutoff = cutoff.sub(/\s+\S*\z/, "").rstrip
+  cutoff = value[0, max_length - 1] if cutoff.empty?
+  "#{cutoff}…"
 end
 
 def page_image

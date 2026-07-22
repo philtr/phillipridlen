@@ -28,6 +28,98 @@ RSpec.describe "helpers" do
     end
   end
 
+  describe "#post_asset_output_path" do
+    it "builds the asset path for a provided post" do
+      post = {
+        category: "Life",
+        date: Time.new(2025, 12, 27),
+        slug: "a-post"
+      }
+
+      expect(post_asset_output_path("photo.jpg", post)).to eq(
+        "/notes/life/2025/12/27/a-post/photo.jpg"
+      )
+    end
+  end
+
+  describe "#post_summary" do
+    it "prefers a description and decodes HTML entities" do
+      post = double(description: "A writer&rsquo;s description", excerpt: "An excerpt")
+      allow(post).to receive(:[]).with(:description).and_return("A writer&rsquo;s description")
+      allow(post).to receive(:[]).with(:excerpt).and_return("An excerpt")
+
+      expect(post_summary(post)).to eq("A writer’s description")
+    end
+
+    it "falls back to a legacy excerpt" do
+      post = double
+      allow(post).to receive(:[]).with(:description).and_return(nil)
+      allow(post).to receive(:[]).with(:excerpt).and_return("Legacy excerpt")
+
+      expect(post_summary(post)).to eq("Legacy excerpt")
+    end
+
+    it "extracts and truncates the first body paragraph" do
+      long_paragraph = ("word " * 60).strip
+      post = double(raw_content: "# Heading\n\n#{long_paragraph}\n\nSecond paragraph.")
+      allow(post).to receive(:[]).with(:description).and_return(nil)
+      allow(post).to receive(:[]).with(:excerpt).and_return(nil)
+
+      summary = post_summary(post)
+      expect(summary).to end_with("…")
+      expect(summary.length).to be <= 240
+      expect(summary).not_to include("Second paragraph")
+    end
+  end
+
+  describe "#post_card_image" do
+    let(:post) do
+      double(
+        identifier: "/posts/notes/2025/12/a-post/index.md",
+        category: "Life",
+        date: Time.new(2025, 12, 27),
+        slug: "a-post"
+      )
+    end
+
+    before do
+      allow(post).to receive(:[]).with(:category).and_return("Life")
+      allow(post).to receive(:[]).with(:date).and_return(Time.new(2025, 12, 27))
+      allow(post).to receive(:[]).with(:slug).and_return("a-post")
+      allow(post).to receive(:fetch).with(:date).and_return(Time.new(2025, 12, 27))
+    end
+
+    it "returns nil when there is no featured media" do
+      allow(post).to receive(:[]).with(:image).and_return(nil)
+
+      expect(post_card_image(post)).to be_nil
+    end
+
+    it "resolves a local image to the post output path" do
+      allow(post).to receive(:[]).with(:image).and_return("photo.jpg")
+
+      expect(post_card_image(post)).to eq(
+        "/notes/life/2025/12/27/a-post/photo.jpg"
+      )
+    end
+
+    it "uses a sibling GIF as the preview for video media" do
+      allow(post).to receive(:[]).with(:image).and_return("preview.mp4")
+      gif = double(identifier: "/posts/notes/2025/12/a-post/preview.gif")
+      @items = [gif]
+
+      expect(post_card_image(post)).to eq(
+        "/notes/life/2025/12/27/a-post/preview.gif"
+      )
+    end
+
+    it "omits video media without a sibling GIF" do
+      allow(post).to receive(:[]).with(:image).and_return("preview.mp4")
+
+      expect(post_card_image(post)).to be_nil
+    end
+  end
+
   describe "#all_posts" do
     it "excludes comments.md items" do
       post = double(identifier: "/posts/notes/2024/01/test/index.md")

@@ -5,12 +5,19 @@
 
 @media screen and (min-width: 100ch) {
   .home-columns {
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: minmax(0, 2fr) minmax(16rem, 1fr);
   }
 }
 
+.home-notes h3,
 .home-column h3 {
   margin-top: 0;
+}
+
+.home-sidebar {
+  display: grid;
+  gap: var(--gutter);
+  align-content: start;
 }
 
 .home-column ul {

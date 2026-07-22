@@ -1,6 +1,8 @@
 ---
 layout: master
 description: "Occasional notes and articles from Phillip Ridlen."
+body_classes:
+  - wide
 styles:
   - posts/list
 ---
@@ -13,15 +15,20 @@ styles:
     more than links to other, better articles, and the rest are short and
     unpolished. Read at your own risk. ;)
 
-  .posts-categories
-    - posts_grouped_by_category.each do |category, posts|
-      .posts-category
-        %h3.header-link{ id: category }
-          != link_to_category category
-        %ul.posts-list
-          - posts.each do |post|
+  .notes-layout
+    %main.posts-categories
+      - posts_grouped_by_category.each do |category, posts|
+        %section.posts-category
+          %h3.header-link{ id: category }
+            != link_to_category category
+          .post-cards
+            - posts.each do |post|
+              != render "/post/card.html", post: post, compact: true
+    %aside.notes-toc
+      %nav{ "aria-labelledby": "notes-contents-heading" }
+        %h3#notes-contents-heading Categories
+        %ul
+          - posts_grouped_by_category.each do |category, posts|
             %li
-              != link_to post.attributes[:title], post
-              %aside
-                %time{ datetime: post_date(post).strftime("%Y-%m-%d"), title: post_date(post).strftime("%A, %B %-d, %Y") }
-                  = post_date(post).year
+              %a{ href: "##{category}" }= category
+              %small= posts.length

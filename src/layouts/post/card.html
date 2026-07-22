@@ -1,0 +1,21 @@
+<% card_image = post_card_image(@post) %>
+<% card_summary = post_summary(@post) %>
+<article class="post-card<%= " post-card-compact" if @compact %><%= " has-media" if card_image %>">
+  <% if card_image %>
+    <a class="post-card-media" href="<%= @post.path %>">
+      <img src="<%= card_image %>" alt="<%= CGI.escapeHTML(plain_text(@post[:title])) %>" loading="lazy">
+    </a>
+  <% end %>
+  <div class="post-card-body">
+    <h4 class="post-card-title"><%= link_to @post[:title], @post %></h4>
+    <% unless @post[:subtitle].to_s.strip.empty? %>
+      <p class="post-card-subtitle"><%= CGI.escapeHTML(plain_text(@post[:subtitle])) %></p>
+    <% end %>
+    <time class="post-card-date" datetime="<%= post_date(@post).strftime("%Y-%m-%d") %>">
+      <%= post_date(@post).strftime("%B %-d, %Y") %>
+    </time>
+    <% unless card_summary.empty? %>
+      <p class="post-card-summary"><%= CGI.escapeHTML(card_summary) %></p>
+    <% end %>
+  </div>
+</article>
