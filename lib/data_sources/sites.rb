@@ -60,7 +60,7 @@ module DataSources
       missing = REQUIRED_KEYS.reject { |key| entry[key].to_s.strip != "" }
       return entry if missing.empty?
 
-      raise "Sites entry #{index} in #{data_file} is missing required keys: #{missing.join(', ')}"
+      raise "Sites entry #{index} in #{data_file} is missing required keys: #{missing.join(", ")}"
     end
 
     def visible_entry?(entry)
