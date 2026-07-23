@@ -3,7 +3,7 @@ id: PVXNOQHUPLSBS4OPZATICXLVCI
 layout: post
 type: note
 title: Elitch's or Lakeside?
-subtitle: The story of two imperfect amusement parks.
+subtitle: Meandering thoughts on Denver's two imperfect amusement parks.
 description: |
   Denver's amusement parks were never great, but it's not like we had any better options. Here's my meandering memoir.
 category: Life
