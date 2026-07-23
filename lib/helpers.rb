@@ -22,7 +22,7 @@ SiteConfig = Struct.new(
 )
 
 def site_config
-  site = SiteConfig.new(@config[:site])
+  site = SiteConfig.new(**@config[:site])
 
   SiteConfig.new(
     base_url: ENV["URL"] || ENV["BASE_URL"] || site.base_url,
