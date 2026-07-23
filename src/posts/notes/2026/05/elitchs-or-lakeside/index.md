@@ -14,7 +14,7 @@ tags:
 styles:
   - posts/journal
   - posts/image
-date: "2026-05-22T17:53:00-05:00"
+date: "2026-07-23T08:53:00-05:00"
 image: elitch-gardens.png
 ---
 
