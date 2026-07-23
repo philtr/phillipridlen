@@ -3,9 +3,9 @@
 
   <title>Phillip's Notes</title>
   <link href="<%= site_config.base_url %>/atom.xml" rel="self"/>
-  <link href="<%= site_config.base_url %>"/>
+  <link href="<%= site_config.base_url %>/"/>
   <updated><%= post_date(posts_sorted_by_date.first).xmlschema %></updated>
-  <id><%= site_config.base_url.encode(xml: :text) %></id>
+  <id><%= "#{site_config.base_url}/".encode(xml: :text) %></id>
   <author>
     <name><%= site_config.author.encode(xml: :text) %></name>
     <email><%= site_config.email.encode(xml: :text) %></email>
@@ -16,7 +16,7 @@
 
   <% posts_sorted_by_date(direction: :desc).each do |post| %>
   <entry>
-    <title><%= post[:title].encode(xml: :text) %></title>
+    <title><%= plain_text(post[:title]).encode(xml: :text) %></title>
     <link href="<%= site_config.base_url + post.path %>"/>
     <updated><%= post_date(post).xmlschema %></updated>
     <id>https://phillipridlen.com/notes/id/<%= post.fetch(:id).to_s.strip.encode(xml: :text) %></id>

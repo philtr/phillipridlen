@@ -171,7 +171,7 @@ RSpec.describe "helpers" do
       allow(item).to receive(:fetch).with(:id).and_return("2YG8VYNN5HU6XM0GP6DBFZO8Z0")
 
       expect(rss_tracking_pixel(item)).to eq(
-        '<img src="https://analytics.ptx.sh/p/SjOB3oKbb?id=2YG8VYNN5HU6XM0GP6DBFZO8Z0&url=%2Fnotes%2Fprogramming%2F2026%2F04%2F11%2Fai-is-making-things-better-but-worse%2F" alt="" />'
+        '<img src="https://analytics.ptx.sh/p/SjOB3oKbb?id=2YG8VYNN5HU6XM0GP6DBFZO8Z0&amp;url=%2Fnotes%2Fprogramming%2F2026%2F04%2F11%2Fai-is-making-things-better-but-worse%2F" alt="" />'
       )
     end
   end
