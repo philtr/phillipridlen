@@ -1,11 +1,11 @@
 ---
-title: Bible Privacy Policy
-description: How the Bible app for iPhone and iPad handles your data.
+title: "Scripture \u2013 Simple Bible Privacy Policy"
+description: How Scripture for iPhone and iPad handles your data.
 ---
 
-# Bible Privacy Policy
+# Scripture &ndash; Simple Bible Privacy Policy
 
-The Bible app does not collect or share personal data. It works offline and
+Scripture does not collect or share personal data. It works offline and
 does not use accounts, ads, analytics, or tracking.
 
 The app saves your chosen edition, recent reading positions, and highlights on
@@ -20,4 +20,4 @@ to it if you follow up. You can ask me to delete your support email at any time.
 For privacy questions or deletion requests, email
 [phil@ptx.sh](mailto:phil@ptx.sh).
 
-[Back to Bible](/bible/)
+[Back to Scripture](/bible/)

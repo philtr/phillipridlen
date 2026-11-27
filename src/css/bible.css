@@ -89,7 +89,7 @@ p {
   align-items: center;
   gap: 0.65rem;
   color: var(--ink);
-  font: 700 1.55rem/1 var(--serif);
+  font: 700 clamp(1rem, 4.8vw, 1.55rem)/1.1 var(--serif);
   text-decoration: none;
 }
 

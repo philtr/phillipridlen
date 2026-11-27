@@ -1,5 +1,5 @@
 ---
-title: Bible for iPhone and iPad
+title: "Scripture \u2013 Simple Bible"
 description: An offline Bible reader with 15 editions, tap-to-read footnotes, and word or verse highlights.
 layout: bare
 base_stylesheet: false
@@ -11,7 +11,7 @@ favicon: /images/bible-icon.png
 <header class="site-header page-width">
   <a class="app-brand" href="/bible/">
     <img src="/images/bible-icon.png" width="40" height="40" alt="">
-    <span>Bible</span>
+    <span>Scripture &ndash; Simple Bible</span>
   </a>
   <nav aria-label="Main navigation">
     <a href="#features">Features</a>
@@ -30,7 +30,7 @@ favicon: /images/bible-icon.png
     </div>
     <figure class="reader-preview">
       <img src="/images/bible-reader.webp" width="720" height="1565"
-           alt="Bible on iPhone showing Genesis 1 with numbered footnotes">
+           alt="Scripture on iPhone showing Genesis 1 with numbered footnotes">
     </figure>
   </section>
 
