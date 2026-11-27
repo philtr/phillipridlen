@@ -17,7 +17,9 @@
 
 <link href="<%= site_config.base_url %>/atom.xml" rel="alternate" title="Phillip's Notes" type="application/atom+xml" />
 
+<% if @item.fetch(:base_stylesheet, true) %>
 <link href="/css/main.css" rel="stylesheet" type="text/css">
+<% end %>
 <% @item.fetch(:styles, []).each do |style| %>
 <link href="/css/<%= style %>.css" rel="stylesheet" type="text/css">
 <% end %>
@@ -25,8 +27,9 @@
 <link href="/css/<%= style %>.css" rel="stylesheet" type="text/css">
 <% end %>
 
-<link rel="apple-touch-icon-precomposed" href="/images/favicon/favicon-180.png">
-<link rel="icon" href="/images/favicon/favicon-180.png">
+<% icon = @item[:favicon] || "/images/favicon/favicon-180.png" %>
+<link rel="apple-touch-icon-precomposed" href="<%= icon %>">
+<link rel="icon" href="<%= icon %>">
 <meta name="msapplication-TileColor" content="#264E59">
 <meta name="msapplication-TileImage" content="/images/favicon/favicon-180.png">
 
