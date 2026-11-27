@@ -17,6 +17,18 @@ Bible is currently in testing.
 
 ![Bible on iPhone showing Genesis 1 with numbered footnotes](/images/bible-reader.webp){: width="320"}
 
+## Scripture downloads
+
+[Download the ShareAlike editions (ZIP)](/bible/downloads/sharealike-scripture.zip).
+It includes the same book JSON files used in Bible for the Literal Standard
+Version, Free Bible Version, Literal Text, and Simplified Text, along with
+their credits and source links.
+
+You may copy, share, and adapt these Scripture files under the
+[Creative Commons Attribution-ShareAlike 4.0 International license](https://creativecommons.org/licenses/by-sa/4.0/).
+The same license applies when you get the files from the app's Translation
+Credits screen.
+
 ## Support
 
 I built Bible for iPhone and iPad. If you have a question, find a bug, or have
