@@ -1,9 +1,20 @@
 ---
 title: "Scripture \u2013 Simple Bible Privacy Policy"
 description: How Scripture for iPhone and iPad handles your data.
+layout: bare
+base_stylesheet: false
+styles:
+  - bible
+favicon: /images/bible-icon.png
 ---
 
-# Scripture &ndash; Simple Bible Privacy Policy
+<header class="site-header page-width">
+  <%= render "/bible/brand.html" %>
+</header>
+
+<main class="policy page-width" markdown="1">
+
+# Privacy Policy
 
 Scripture does not collect or share personal data. It works offline and
 does not use accounts, ads, analytics, or tracking.
@@ -21,3 +32,5 @@ For privacy questions or deletion requests, email
 [phil@ptx.sh](mailto:phil@ptx.sh).
 
 [Back to Scripture](/bible/)
+
+</main>

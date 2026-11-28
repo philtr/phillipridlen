@@ -1,6 +1,6 @@
 ---
 title: "Scripture \u2013 Simple Bible"
-description: An offline Bible reader with 15 editions, tap-to-read footnotes, and word or verse highlights.
+description: An offline Bible reader with 13 translations, two translation aids, tap-to-read footnotes, and word or verse highlights.
 layout: bare
 base_stylesheet: false
 styles:
@@ -9,10 +9,7 @@ favicon: /images/bible-icon.png
 ---
 
 <header class="site-header page-width">
-  <a class="app-brand" href="/bible/">
-    <img src="/images/bible-icon.png" width="40" height="40" alt="">
-    <span>Scripture &ndash; Simple Bible</span>
-  </a>
+  <%= render "/bible/brand.html" %>
   <nav aria-label="Main navigation">
     <a href="#features">Features</a>
     <a href="#downloads">Downloads</a>
@@ -25,8 +22,8 @@ favicon: /images/bible-icon.png
     <div class="hero-copy">
       <p class="platform">For iPhone and iPad</p>
       <h1 id="hero-title">Read Scripture <em>offline.</em></h1>
-      <p class="intro">Switch between 15 editions, highlight words or verses, and pick up where you left off.</p>
-      <p class="availability">Currently in testing.</p>
+      <p class="intro">Explore 13 Bible translations and two translation aids. Highlight words or verses and pick up where you left off.</p>
+      <p class="availability">Coming soon.</p>
     </div>
     <figure class="reader-preview">
       <img src="/images/bible-reader.webp" width="720" height="1565"
@@ -58,7 +55,7 @@ favicon: /images/bible-icon.png
     <section id="downloads" aria-labelledby="downloads-title">
       <h2 id="downloads-title">Scripture downloads</h2>
       <p>Get the same book files used in the app for the Literal Standard Version, Free Bible Version, Literal Text, and Simplified Text. The ZIP includes credits and source links.</p>
-      <p><a class="download" href="/bible/downloads/sharealike-scripture.zip">Download the ShareAlike editions (ZIP)</a></p>
+      <p><a class="download" href="/bible/downloads/sharealike-scripture.zip">Download the ShareAlike texts (ZIP)</a></p>
       <p class="license">You may copy, share, and adapt these files under the <a href="https://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 license</a>. The same license applies to the files in the app's Translation Credits screen.</p>
     </section>
     <section id="support" aria-labelledby="support-title">
